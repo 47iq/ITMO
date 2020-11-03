@@ -82,12 +82,12 @@ public class Conductor extends Person implements iConductor {
         }
     }
 
-    private double checkStat(double d) {
-        if(d > 1)
-            d = 1;
-        if(d < 0)
-            d = 0;
-        return d;
+    private double checkStat(double stat) {
+        if(stat > 1)
+            stat = 1;
+        if(stat < 0)
+            stat = 0;
+        return stat;
     }
 
     public double getSlyness() {
