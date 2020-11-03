@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Route implements GoingThroughTheRoute{
+public class Route implements iRoute{
     private final ArrayList<Station> stations;
     private final Train train;
 
