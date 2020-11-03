@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Conductor extends Person implements HavingCharacter, InteractingWPassengers {
+public class Conductor extends Person implements iConductor {
     /*
     Переменные forgetfulness и slyness принимают значения от 0..1.
     Они определяют соответствующие характеристики проводника: забывчивость и хитрость.
