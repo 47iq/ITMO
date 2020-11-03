@@ -1,6 +1,6 @@
 package com.company;
 
-abstract public class Person implements Saying, HavingHumanStats{
+abstract public class Person implements iPerson{
     private String name;
     private PersonTypes type;
 
