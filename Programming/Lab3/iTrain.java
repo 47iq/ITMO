@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public interface iTrain {
     void lastStart();
+    void noCheckStart();
     void start();
     void stopAt(Station station);
     Station getStation();

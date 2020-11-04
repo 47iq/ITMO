@@ -32,10 +32,7 @@ public class Train implements iTrain{
     }
 
     public void start() {
-        System.out.print("Train starts moving and goes away from " + station + ".\n");
-        for(Passenger passenger : passengers)
-            if(passenger.isAsleep())
-                passenger.sleep();
+        noCheckStart();
         conductor.doubleCheck(this);
         condition = TrainCondition.MOVING;
     }
@@ -44,6 +41,14 @@ public class Train implements iTrain{
         System.out.print("Train starts moving and goes away from " + station + ".\n");
         condition = TrainCondition.MOVING;
         System.out.print("The train disappears in the distance...\n");
+    }
+
+    public void noCheckStart() {
+        System.out.print("Train starts moving and goes away from " + station + ".\n");
+        for(Passenger passenger : passengers)
+            if(passenger.isAsleep())
+                passenger.sleep();
+        condition = TrainCondition.MOVING;
     }
 
     public void stopAt(Station station) {

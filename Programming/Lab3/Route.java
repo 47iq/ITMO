@@ -29,15 +29,20 @@ public class Route implements iRoute {
     }
 
     public void runFullRoute() {
-        final String DISAPPEAR = "The train disappears in the distance...\n";
+        int ind = 0;
         for(Station station: stations) {
-            if (!train.getPassengers().isEmpty()) {
+            if(ind == 0 && !train.getPassengers().isEmpty()) {
+                train.noCheckStart();
+                train.stopAt(station);
+            }
+            else if (!train.getPassengers().isEmpty()) {
                 train.start();
                 train.stopAt(station);
             }
             else {
                 train.lastStart();
             }
+            ind++;
         }
         train.lastStart();
     }
