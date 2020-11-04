@@ -40,6 +40,12 @@ public class Train implements iTrain{
         condition = TrainCondition.MOVING;
     }
 
+    public void lastStart() {
+        System.out.print("Train starts moving and goes away from " + station + ".\n");
+        condition = TrainCondition.MOVING;
+        System.out.print("The train disappears in the distance...\n");
+    }
+
     public void stopAt(Station station) {
         condition = TrainCondition.STAYING;
         prevStation = this.station;

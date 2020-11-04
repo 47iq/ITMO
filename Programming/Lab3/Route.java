@@ -36,12 +36,10 @@ public class Route implements iRoute {
                 train.stopAt(station);
             }
             else {
-                System.out.print(DISAPPEAR);
-                return;
+                train.lastStart();
             }
         }
-        train.start();
-        System.out.print(DISAPPEAR);
+        train.lastStart();
     }
 
     public int hashCode(){
