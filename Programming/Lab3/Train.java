@@ -12,14 +12,14 @@ public class Train implements iTrain{
 
     public Train(Station station, Conductor conductor) {
         this.station = station;
-        condition = TrainCondition.staying;
+        condition = TrainCondition.STAYING;
         this.conductor = conductor;
         System.out.print(this);
     }
 
     public Train(Conductor conductor) {
         station = new Station("some station");
-        condition = TrainCondition.staying;
+        condition = TrainCondition.STAYING;
         this.conductor = conductor;
         System.out.print(this);
     }
@@ -27,7 +27,7 @@ public class Train implements iTrain{
     public Train() {
         conductor = new Conductor();
         station = new Station("some station");
-        condition = TrainCondition.staying;
+        condition = TrainCondition.STAYING;
         System.out.print(this);
     }
 
@@ -37,11 +37,11 @@ public class Train implements iTrain{
             if(passenger.isAsleep())
                 passenger.sleep();
         conductor.doubleCheck(this);
-        condition = TrainCondition.moving;
+        condition = TrainCondition.MOVING;
     }
 
     public void stopAt(Station station) {
-        condition = TrainCondition.staying;
+        condition = TrainCondition.STAYING;
         prevStation = this.station;
         this.station = station;
         System.out.print("Train stops at " + station + ".\n");
@@ -89,7 +89,7 @@ public class Train implements iTrain{
     public String toString() {
         final String BEGINNING = "Train is " + condition;
         final String ENDING = station + ". The train's conductor's name is " + conductor.getName() + ".\n";
-        if(condition.equals(TrainCondition.moving))
+        if(condition.equals(TrainCondition.MOVING))
             return BEGINNING + " from " + ENDING;
         else
             return BEGINNING + " at " + ENDING;

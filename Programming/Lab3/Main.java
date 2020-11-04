@@ -16,7 +16,7 @@ public class Main {
         Train train = new Train(conductor);
         Station station1 = new Station("Scuperfield's destination station");
         Station station2 = new Station("Panopticon");
-        Passenger passenger = new Passenger("Scuperfield", PassengerCondition.asleep, station1);
+        Passenger passenger = new Passenger("Scuperfield", PassengerCondition.ASLEEP, station1);
         train.addPassenger(passenger);
         ArrayList<Station> stations = new ArrayList<>();
         stations.add(station1);

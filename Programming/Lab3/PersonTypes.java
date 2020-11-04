@@ -1,12 +1,12 @@
 package com.company;
 
 public enum PersonTypes {
-    passenger{
+    PASSENGER {
         public String toString() {
             return "Passenger";
         }
     },
-    conductor{
+    CONDUCTOR {
         public String toString() {
             return "Conductor";
         }

@@ -1,12 +1,12 @@
 package com.company;
 
 public enum PassengerCondition {
-    asleep{
+    ASLEEP {
         public String toString() {
             return "asleep";
         }
     },
-    awake{
+    AWAKE {
         public String toString() {
             return "awake";
         }

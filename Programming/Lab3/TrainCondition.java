@@ -1,12 +1,12 @@
 package com.company;
 
 public enum TrainCondition{
-    staying{
+    STAYING {
         public String toString() {
             return "staying";
         }
     },
-    moving{
+    MOVING {
         public String toString() {
             return "moving";
         }

@@ -11,22 +11,22 @@ public class Passenger extends Person implements iPassenger{
         super();
         String name = "Passenger " + ind;
         setName(name);
-        super.setType(PersonTypes.passenger);
-        condition = PassengerCondition.awake;
+        super.setType(PersonTypes.PASSENGER);
+        condition = PassengerCondition.AWAKE;
         this.destination = new Station("finalStation");
         ind++;
     }
 
     public Passenger(String name, Station destination) {
         super(name);
-        super.setType(PersonTypes.passenger);
-        condition = PassengerCondition.awake;
+        super.setType(PersonTypes.PASSENGER);
+        condition = PassengerCondition.AWAKE;
         this.destination = destination;
     }
 
     public Passenger(String name, PassengerCondition condition, Station destination) {
         super(name);
-        super.setType(PersonTypes.passenger);
+        super.setType(PersonTypes.PASSENGER);
         this.destination = destination;
         this.condition = condition;
     }
@@ -63,7 +63,7 @@ public class Passenger extends Person implements iPassenger{
     }
 
     public boolean isAsleep() {
-        return (getCondition() == PassengerCondition.asleep);
+        return (getCondition() == PassengerCondition.ASLEEP);
     }
 
     public int hashCode() {
