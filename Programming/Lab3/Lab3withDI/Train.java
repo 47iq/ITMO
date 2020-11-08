@@ -3,21 +3,21 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Train implements iTrain, iTrainPassengers{
-    private Station station;
-    private Station prevStation;
+public class Train implements iTrain{
+    private iStation station;
+    private iStation prevStation;
     private TrainCondition condition;
-    private final Conductor conductor;
-    private final ArrayList<Passenger> passengers = new ArrayList<>();
+    private final iConductor conductor;
+    private final ArrayList<iPassenger> passengers = new ArrayList<>();
 
-    public Train(Station station, Conductor conductor) {
+    public Train(iStation station, iConductor conductor) {
         this.station = station;
         condition = TrainCondition.STAYING;
         this.conductor = conductor;
         Main.out.add(this.toString());
     }
 
-    public Train(Conductor conductor) {
+    public Train(iConductor conductor) {
         station = new Station("some station");
         condition = TrainCondition.STAYING;
         this.conductor = conductor;
@@ -45,13 +45,13 @@ public class Train implements iTrain, iTrainPassengers{
 
     public void noCheckStart() {
         Main.out.add("Train starts moving and goes away from " + station + ".\n");
-        for(Passenger passenger : passengers)
+        for(iPassenger passenger : passengers)
             if(passenger.isAsleep())
                 passenger.sleep();
         condition = TrainCondition.MOVING;
     }
 
-    public void stopAt(Station station) {
+    public void stopAt(iStation station) {
         condition = TrainCondition.STAYING;
         prevStation = this.station;
         this.station = station;
@@ -59,25 +59,25 @@ public class Train implements iTrain, iTrainPassengers{
         conductor.checkPassengersOut(this);
     }
 
-    public Station getStation(){
+    public iStation getStation(){
         return station;
     }
 
 
-    public Station getPrevStation(){
+    public iStation getPrevStation(){
         return prevStation;
     }
 
-    public ArrayList<Passenger> getPassengers() {
+    public ArrayList<iPassenger> getPassengers() {
         return passengers;
     }
 
-    public void addPassenger(Passenger passenger) {
+    public void addPassenger(iPassenger passenger) {
         passengers.add(passenger);
         Main.out.add(passenger + " is on the train.\n");
     }
 
-    public void removePassenger(Passenger passenger) {
+    public void removePassenger(iPassenger passenger) {
         passengers.remove(passenger);
         String beginning = "Current station is";
         if(passenger.getDestination().equals(station))

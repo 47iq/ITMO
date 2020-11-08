@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Route implements iRoute {
-    private final ArrayList<Station> stations;
-    private final Train train;
+    private final ArrayList<iStation> stations;
+    private final iTrain train;
 
-    public Route(Train train, ArrayList<Station> stations) {
+    public Route(iTrain train, ArrayList<iStation> stations) {
         this.stations = stations;
         this.train = train;
     }
 
-    public Route(Train train) {
-        ArrayList<Station> stations = new ArrayList<>();
+    public Route(iTrain train) {
+        ArrayList<iStation> stations = new ArrayList<>();
         stations.add(new Station());
         stations.add(new Station());
         this.stations = stations;
@@ -21,7 +21,7 @@ public class Route implements iRoute {
     }
 
     public Route() {
-        ArrayList<Station> stations = new ArrayList<>();
+        ArrayList<iStation> stations = new ArrayList<>();
         stations.add(new Station());
         stations.add(new Station());
         this.stations = stations;
@@ -30,7 +30,7 @@ public class Route implements iRoute {
 
     public void runFullRoute() {
         int ind = 0;
-        for(Station station: stations) {
+        for(iStation station: stations) {
             if(ind == 0 && !train.getPassengers().isEmpty()) {
                 train.noCheckStart();
                 train.stopAt(station);

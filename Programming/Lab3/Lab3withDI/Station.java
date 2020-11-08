@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Objects;
 
-public class Station{
+public class Station implements iStation{
     private final String name;
     private static int ind = 0;
 
@@ -13,6 +13,10 @@ public class Station{
     public Station() {
         this.name = "Station " + ind;
         ind++;
+    }
+
+    public String getName(){
+        return name;
     }
 
     public boolean equals(Object that) {

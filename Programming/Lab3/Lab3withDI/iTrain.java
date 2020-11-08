@@ -6,7 +6,10 @@ public interface iTrain {
     void start();
     void lastStart();
     void noCheckStart();
-    void stopAt(Station station);
-    Station getStation();
-    Station getPrevStation();
+    void stopAt(iStation station);
+    iStation getStation();
+    iStation getPrevStation();
+    void addPassenger(iPassenger passenger);
+    void removePassenger(iPassenger passenger);
+    ArrayList<iPassenger> getPassengers();
 }

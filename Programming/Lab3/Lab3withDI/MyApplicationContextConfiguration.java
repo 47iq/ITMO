@@ -9,42 +9,42 @@ import java.util.ArrayList;
 @Configuration
 public class MyApplicationContextConfiguration {
     @Bean
-    public Conductor conductor(){
+    public iConductor conductor(){
         return new Conductor();
     }
 
     @Bean
-    public Train train(){
+    public iTrain train(){
         Train train = new Train(conductor());
         train.addPassenger(passenger());
         return train;
     }
 
     @Bean
-    public Route route(){
+    public iRoute route(){
         return new Route(train(), stations());
     }
 
     @Bean
-    public ArrayList<Station> stations(){
-        ArrayList<Station> stations = new  ArrayList<>();
+    public ArrayList<iStation> stations(){
+        ArrayList<iStation> stations = new  ArrayList<>();
         stations.add(station1());
         stations.add(station2());
         return stations;
     }
 
     @Bean
-    public Station station1() {
+    public iStation station1() {
         return new Station("Scuperfield's destination station");
     }
 
     @Bean
-    public Station station2() {
+    public iStation station2() {
         return new Station("Panopticon");
     }
 
     @Bean
-    public Passenger passenger(){
+    public iPassenger passenger(){
         return new Passenger("Scuperfield", PassengerCondition.ASLEEP, station1());
     }
 }

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Conductor extends Person implements iConductor {
+public class Conductor extends Person implements iConductor{
     /*
     Переменные forgetfulness и slyness принимают значения от 0..1.
     Они определяют соответствующие характеристики проводника: забывчивость и хитрость.
@@ -29,12 +29,12 @@ public class Conductor extends Person implements iConductor {
         this.forgetfulness = forgetfulness;
     }
 
-    public void checkPassengersOut(Train train) {
-        Station station = train.getStation();
-        Station prevStation = train.getPrevStation();
-        ArrayList<Passenger> passengers= train.getPassengers();
-        ArrayList<Passenger> out = new ArrayList<>();
-        for(Passenger passenger: passengers) {
+    public void checkPassengersOut(iTrain train) {
+        iStation station = train.getStation();
+        iStation prevStation = train.getPrevStation();
+        ArrayList<iPassenger> passengers= train.getPassengers();
+        ArrayList<iPassenger> out = new ArrayList<>();
+        for(iPassenger passenger: passengers) {
             if(passenger.getDestination().equals(station) && Math.random() > forgetfulness || passenger.getDestination().equals(prevStation)){
                 if(passenger.isAsleep())
                     shake(passenger);
@@ -42,17 +42,17 @@ public class Conductor extends Person implements iConductor {
                 out.add(passenger);
             }
         }
-        for(Passenger passenger: out) {
+        for(iPassenger passenger: out) {
             passenger.leave(train);
         }
     }
 
-    public void doubleCheck(Train train) {
-        Station station = train.getStation();
-        ArrayList<Passenger> passengers= train.getPassengers();
+    public void doubleCheck(iTrain train) {
+        iStation station = train.getStation();
+        ArrayList<iPassenger> passengers= train.getPassengers();
         int counter = 0;
         Main.out.add(this + " checks if he forgot to tell anybody to leave the train.\n");
-        for(Passenger passenger: passengers) {
+        for(iPassenger passenger: passengers) {
             if(passenger.getDestination().equals(station)){
                 Main.out.add("Oh no! " + this + " forgot to tell " + passenger + " to leave.\n");
                 counter++;
@@ -71,11 +71,11 @@ public class Conductor extends Person implements iConductor {
             Main.out.add(this + " didn't forget anyone.\n");
     }
 
-    private void remindToLeave(Passenger passenger) {
+    private void remindToLeave(iPassenger passenger) {
         say(passenger + ", you have to leave now!");
     }
 
-    private void shake(Passenger passenger) {
+    private void shake(iPassenger passenger) {
         if(passenger.isAsleep()) {
             Main.out.add(this + " wakes " + passenger + " up.\n");
             passenger.setCondition(PassengerCondition.AWAKE);
