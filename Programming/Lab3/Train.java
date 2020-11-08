@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Train implements iTrain{
+public class Train implements iTrain, iTrainPassengers{
     private Station station;
     private Station prevStation;
     private TrainCondition condition;

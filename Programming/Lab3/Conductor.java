@@ -8,9 +8,7 @@ public class Conductor extends Person implements iConductor {
     Переменные forgetfulness и slyness принимают значения от 0..1.
     Они определяют соответствующие характеристики проводника: забывчивость и хитрость.
     Для получения истории, в точности соответствующей заданию необходимо задать проводнику значения
-    forgetfulness = slyness = 1.0; для альтернативных развитий истории - значения принадлежащие [0..1).
-    В случае несоответствия переменных их области определения их значения будут скорректированы
-    (округлены к ближайшему числу отрезка[0..1])
+    forgetfulness = slyness = 1.0;
     */
     private final double forgetfulness;
     private final double slyness;
@@ -25,8 +23,8 @@ public class Conductor extends Person implements iConductor {
     public Conductor(String s, double slyness, double forgetfulness) {
         super(s);
         super.setType(PersonTypes.CONDUCTOR);
-        this.slyness = checkStat(slyness);
-        this.forgetfulness = checkStat(forgetfulness);
+        this.slyness = slyness;
+        this.forgetfulness = forgetfulness;
     }
 
     public void checkPassengersOut(Train train) {
@@ -80,22 +78,6 @@ public class Conductor extends Person implements iConductor {
             System.out.print(this + " wakes " + passenger + " up.\n");
             passenger.setCondition(PassengerCondition.AWAKE);
         }
-    }
-
-    private double checkStat(double stat) {
-        if(stat > 1)
-            stat = 1;
-        if(stat < 0)
-            stat = 0;
-        return stat;
-    }
-
-    public double getSlyness() {
-        return slyness;
-    }
-
-    public double getForgetfulness() {
-        return forgetfulness;
     }
 
     public boolean equals(Object that) {

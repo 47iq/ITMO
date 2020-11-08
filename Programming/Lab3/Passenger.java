@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Objects;
 
-public class Passenger extends Person implements iPassenger{
+public class Passenger extends Person implements iPassenger, iSleep{
     private PassengerCondition condition;
     private final Station destination;
     private static int ind = 0;
