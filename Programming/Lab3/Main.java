@@ -11,6 +11,13 @@ public class Main {
     которая имела какое-то странное название -- "Паноптикум".
     */
     public static void main(String[] args) {
+        public static ArrayList<String> out = new ArrayList<>();
+
+        private static void print() {
+            for(String string: out) {
+                System.out.print(string);
+            }
+        }
         //Conductor conductor = new Conductor("Conductor", 1, 1);
         Conductor conductor = new Conductor();
         Train train = new Train(conductor);
@@ -23,5 +30,6 @@ public class Main {
         stations.add(station2);
         Route route = new Route(train, stations);
         route.runFullRoute();
+        print();
     }
 }
