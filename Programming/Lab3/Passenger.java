@@ -2,9 +2,9 @@ package com.company;
 
 import java.util.Objects;
 
-public class Passenger extends Person implements iPassenger, iSleep{
+public class Passenger extends Person implements iPassenger {
     private PassengerCondition condition;
-    private final Station destination;
+    private final iStation destination;
     private static int ind = 0;
 
     public Passenger() {
@@ -17,25 +17,25 @@ public class Passenger extends Person implements iPassenger, iSleep{
         ind++;
     }
 
-    public Passenger(String name, Station destination) {
+    public Passenger(String name, iStation destination) {
         super(name);
         super.setType(PersonTypes.PASSENGER);
         condition = PassengerCondition.AWAKE;
         this.destination = destination;
     }
 
-    public Passenger(String name, PassengerCondition condition, Station destination) {
+    public Passenger(String name, PassengerCondition condition, iStation destination) {
         super(name);
         super.setType(PersonTypes.PASSENGER);
         this.destination = destination;
         this.condition = condition;
     }
 
-    public Station getDestination() {
+    public iStation getDestination() {
         return destination;
     }
 
-    public void leave(Train train) {
+    public void leave(iTrain train) {
         train.removePassenger(this);
     }
 
@@ -49,12 +49,12 @@ public class Passenger extends Person implements iPassenger, iSleep{
     }
 
     public void sleep() {
-        System.out.print(this+ " is sleeping. ");
+        Main.out.add(this+ " is sleeping. ");
         say("Zzz..");
     }
 
-    protected void setCondition(PassengerCondition condition) {
-        System.out.print(this + " is now " + condition + ". \n");
+    public void setCondition(PassengerCondition condition) {
+        Main.out.add(this + " is now " + condition + ". \n");
         this.condition = condition;
     }
 

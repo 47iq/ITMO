@@ -1,6 +1,6 @@
 package com.company;
 
-public interface iConductor {
-    void checkPassengersOut(Train train);
-    void doubleCheck(Train train);
+public interface iConductor extends iPerson{
+    void checkPassengersOut(iTrain train);
+    void doubleCheck(iTrain train);
 }

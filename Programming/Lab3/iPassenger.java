@@ -1,7 +1,10 @@
 package com.company;
 
-public interface iPassenger {
+public interface iPassenger extends iPerson {
     PassengerCondition getCondition();
-    Station getDestination();
-    void leave(Train train);
+    iStation getDestination();
+    void leave(iTrain train);
+    void sleep();
+    boolean isAsleep();
+    void setCondition(PassengerCondition condition);
 }
