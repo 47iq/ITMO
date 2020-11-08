@@ -1,5 +1,7 @@
 package com.company;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -49,24 +51,24 @@ public class Conductor extends Person implements iConductor {
         Station station = train.getStation();
         ArrayList<Passenger> passengers= train.getPassengers();
         int counter = 0;
-        System.out.print(this + " checks if he forgot to tell anybody to leave the train.\n");
+        Main.out.add(this + " checks if he forgot to tell anybody to leave the train.\n");
         for(Passenger passenger: passengers) {
             if(passenger.getDestination().equals(station)){
-                System.out.print("Oh no! " + this + " forgot to tell " + passenger + " to leave.\n");
+                Main.out.add("Oh no! " + this + " forgot to tell " + passenger + " to leave.\n");
                 counter++;
                 if(slyness < Math.random()) {
                     if(passenger.isAsleep())
                         shake(passenger);
-                    System.out.print(this + " tells " + passenger + " that he has skipped his station.\n");
+                    Main.out.add(this + " tells " + passenger + " that he has skipped his station.\n");
                     say("I'm really sorry...");
                 }
                 else
-                    System.out.print(this + " decides to wait till the next station and not to say " + passenger
+                    Main.out.add(this + " decides to wait till the next station and not to say " + passenger
                             + " that he skipped his station, because " + this +" wants to avoid explanations.\n");
             }
         }
         if(counter == 0)
-            System.out.print(this + " didn't forget anyone.\n");
+            Main.out.add(this + " didn't forget anyone.\n");
     }
 
     private void remindToLeave(Passenger passenger) {
@@ -75,7 +77,7 @@ public class Conductor extends Person implements iConductor {
 
     private void shake(Passenger passenger) {
         if(passenger.isAsleep()) {
-            System.out.print(this + " wakes " + passenger + " up.\n");
+            Main.out.add(this + " wakes " + passenger + " up.\n");
             passenger.setCondition(PassengerCondition.AWAKE);
         }
     }
@@ -84,7 +86,9 @@ public class Conductor extends Person implements iConductor {
         if (this == that) return true;
         if (!(that instanceof Conductor)) return false;
         Conductor conductor = (Conductor) that;
-        return Double.compare(conductor.slyness, slyness) == 0 && Double.compare(conductor.forgetfulness, forgetfulness) == 0 && Objects.equals(getName(), conductor.getName()) && Objects.equals(getType(), conductor.getType());
+        return Double.compare(conductor.slyness, slyness) == 0
+                && Double.compare(conductor.forgetfulness, forgetfulness) == 0
+                && Objects.equals(getName(), conductor.getName()) && Objects.equals(getType(), conductor.getType());
     }
 
     public String toString() {

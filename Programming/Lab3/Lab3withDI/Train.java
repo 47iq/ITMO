@@ -1,8 +1,5 @@
 package com.company;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -17,21 +14,21 @@ public class Train implements iTrain, iTrainPassengers{
         this.station = station;
         condition = TrainCondition.STAYING;
         this.conductor = conductor;
-        System.out.print(this);
+        Main.out.add(this.toString());
     }
 
     public Train(Conductor conductor) {
         station = new Station("some station");
         condition = TrainCondition.STAYING;
         this.conductor = conductor;
-        System.out.print(this);
+        Main.out.add(this.toString());
     }
 
     public Train() {
         conductor = new Conductor();
         station = new Station("some station");
         condition = TrainCondition.STAYING;
-        System.out.print(this);
+        Main.out.add(this.toString());
     }
 
     public void start() {
@@ -41,13 +38,13 @@ public class Train implements iTrain, iTrainPassengers{
     }
 
     public void lastStart() {
-        System.out.print("Train starts moving and goes away from " + station + ".\n");
+        Main.out.add("Train starts moving and goes away from " + station + ".\n");
         condition = TrainCondition.MOVING;
-        System.out.print("The train disappears in the distance...\n");
+        Main.out.add("The train disappears in the distance...\n");
     }
 
     public void noCheckStart() {
-        System.out.print("Train starts moving and goes away from " + station + ".\n");
+        Main.out.add("Train starts moving and goes away from " + station + ".\n");
         for(Passenger passenger : passengers)
             if(passenger.isAsleep())
                 passenger.sleep();
@@ -58,7 +55,7 @@ public class Train implements iTrain, iTrainPassengers{
         condition = TrainCondition.STAYING;
         prevStation = this.station;
         this.station = station;
-        System.out.print("Train stops at " + station + ".\n");
+        Main.out.add("Train stops at " + station + ".\n");
         conductor.checkPassengersOut(this);
     }
 
@@ -77,19 +74,19 @@ public class Train implements iTrain, iTrainPassengers{
 
     public void addPassenger(Passenger passenger) {
         passengers.add(passenger);
-        System.out.print(passenger + " is on the train.\n");
+        Main.out.add(passenger + " is on the train.\n");
     }
 
     public void removePassenger(Passenger passenger) {
         passengers.remove(passenger);
         String beginning = "Current station is";
         if(passenger.getDestination().equals(station))
-            System.out.print( beginning + " " + passenger + "'s destination station.\n"
+            Main.out.add( beginning + " " + passenger + "'s destination station.\n"
                     + passenger + " is really happy about that. He thanks " + conductor + ".\n");
         else
-            System.out.print( beginning +"n't " + passenger + "'s destination station, so " +
+            Main.out.add( beginning +"n't " + passenger + "'s destination station, so " +
                     passenger+ " is very annoyed now.\n");
-        System.out.print(passenger + " leaves the train at " + getStation() + ".\n");
+        Main.out.add(passenger + " leaves the train at " + getStation() + ".\n");
     }
 
     public boolean equals(Object that) {

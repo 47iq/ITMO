@@ -49,12 +49,12 @@ public class Passenger extends Person implements iPassenger, iSleep{
     }
 
     public void sleep() {
-        System.out.print(this+ " is sleeping. ");
+        Main.out.add(this+ " is sleeping. ");
         say("Zzz..");
     }
 
     protected void setCondition(PassengerCondition condition) {
-        System.out.print(this + " is now " + condition + ". \n");
+        Main.out.add(this + " is now " + condition + ". \n");
         this.condition = condition;
     }
 
