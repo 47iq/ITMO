@@ -10,5 +10,5 @@ public enum PassengerCondition {
         public String toString() {
             return "awake";
         }
-    },
+    };
 }
