@@ -1,0 +1,103 @@
+
+    Бутылка между тем наклонилась от тряски больше, и вода полилась из нее тонкой струйкой.
+    С удовольствием глотая эту сладкую, пахучую, приятно щиплющую за язык жидкость, Скуперфильд прикидывал в уме,
+    во сколько обошлась бы ему газированная вода, если бы понадобилось уплатить за нее.
+    Эту сумму он вычитал из суммы, затраченной на покупку пропавшей трости,
+    и испытывал удовольствие оттого, что сумма пропажи как бы становилась меньше.
+    Бутылка тем временем наклонялась больше, благодаря чему газированная вода текла не переставая.
+    В соответствии с этим текли и мысли в голове Скуперфильда.
+    Постепенно увлекшись, он стал мечтать о том, как было бы хорошо,
+    если бы при каждой железнодорожной поездке ему удавалось выпить хотя бы бутылку газированной воды бесплатно.
+    Разделив стоимость пропавшей трости на стоимость бутылки газированной воды с сиропом,
+    он вычислил количество железнодорожных поездок, которые пришлось бы совершить, чтоб вернуть сумму денег,
+    затраченных на покупку трости. Занимаясь этими приятными расчетами,
+    Скуперфильд постепенно забыл о своих огорчениях и пришел в хорошее настроение.
+    Как раз в этот момент бутылка окончательно опрокинулась и, полетев вниз, стукнула Скуперфильда по лбу.
+    Потрогав ушибленный лоб, он убедился, что на этот раз отделался шишкой.
+    Чувствуя, что боль от удара понемногу проходит, он успокоился и наконец заснул.
+
+    Поезд между тем мчался вперед.
+    Колеса мерно постукивали. Время тоже не стояло на месте. Когда Скуперфильд заснул, было далеко за полночь.
+    Не прошло и двух часов, как впереди засветились огни Брехенвиля. Колеса застучали на стрелках.
+    Поезд постепенно замедлил ход и вскоре остановился. Скуперфильд, однако, продолжал спать.
+    Проводник забыл его разбудить и вспомнил об этом, лишь когда поезд уже отошел от станции.
+    Чтоб избежать неприятных объяснений, он решил пока не будить Скуперфильда, а принялся тормошить его,
+    как только поезд остановился на следующей станции, которая имела какое-то странное название -- "Паноптикум".
+    В ответ на это Скуперфильд только отмахивался рукой и продолжал храпеть, словно не к нему обращались.
+    Видя, что поезд скоро отойдет и от этой станции,
+    проводник рассердился не на шутку и закричал Скуперфильду прямо в ухо: //(тут нет куска текста видимо)
+    Услыхав, что ему придется за что-то платить, но не разобрав за что, Скуперфильд на минутку очнулся и,
+    соскочив со скамьи, осовело уставился на проводника. Воспользовавшись этим, проводник схватил его за шиворот,
+    подтащил к выходу и вытолкнул на перрон. Вернувшись обратно, он поднял валявшуюся на полу газету,
+    достал из-под лавки цилиндр, набитый всякой всячиной, и, подойдя к двери,
+    сунул все это в руки ошалевшему Скуперфильду. Скуперфильд хотел о чем-то спросить и уже раскрыл рот,
+    но поезд как раз в это мгновение тронулся, и он так и остался на перроне с разинутым ртом.
+
+    Незнайка и Козлик даже не слыхали, что произошло ночью. Они спали достаточно крепко,
+    так как в предыдущую ночь им не удалось как следует выспаться из-за кинокошмаров.
+    Уже давно рассвело, а они продолжали спать и, наверно, проехали бы Сан-Комарик,
+    если бы проводник не разбудил их.
+    Видя, что Незнайка и Козлик даже не пошевелились, он принялся стучать по их полкам стальными щипцами,
+    которыми пользовался для пробивки билетов.
+    Услышав стук, Незнайка и Козлик проснулись.
+
+
+	Train is staying at some station. The train's conductor's name is Conductor.
+	Train starts moving and goes away from some station.
+	//Previously Passenger Scuperfield lost his Cane which costs 10000.
+	Bottle tilts.
+	Soda spills from Bottle.
+	Bottle tilts.
+	Soda from Bottle spills on Passenger Scuperfield.
+	Passenger Scuperfield drinks sweet, great smelling, pleasantly pinching mouth Soda from Bottle.
+	Passenger Scuperfield thinks: "I would have to pay 10 for this Bottle"
+	Passenger Scuperfield thinks: "The sum of my loss has lowered. It's only 9990 now!"
+	Passenger Scuperfield is now satisfied. 
+	Passenger Scuperfield thinks: "I have to take only 1000 train trips to get my money back!"
+	Passenger Scuperfield is now happy. 
+	Bottle tilts.
+	Bottle falls on Passenger Scuperfield's head.
+	Bottle hits Passenger Scuperfield's forehead.
+	Passenger Scuperfield is now having a big bump on the head. 
+	Passengers Neznayka and Kozlik are watching Horror movies
+	Passenger Scuperfield falls asleep because the time is 3 am.
+	Passenger Scuperfield is now asleep. 
+	Passengers Neznayka and Kozlik fall asleep because the time is 3 am.
+	Passengers Neznayka and Kozlik are now asleep. 
+	Passenger Scuperfield is sleeping. Passenger Scuperfield says: "Zzz.."
+	Passengers Neznayka and Kozlik are sleeping. Passengers Neznayka and Kozlik say: "Zzz.."
+	Train stops at Brehenville at 5 am.
+	Train starts moving and goes away from Brehenville.
+	Conductor checks if he forgot to tell anybody to leave the train.
+	Oh no! Conductor forgot to tell Passenger Scuperfield to leave.
+	Conductor decides to wait till the next station and not to say Passenger Scuperfield that he skipped his station, because Conductor wants to avoid explanations.
+	Conductor tries to get more concentrated. He won't forget about any passenger from now on.
+	Passenger Scuperfield is sleeping. Passenger Scuperfield says: "Zzz.."
+	Passengers Neznayka and Kozlik are sleeping. Passengers Neznayka and Kozlik say: "Zzz.."
+	Train stops at Panopticon at 6 am.
+	Conductor says: "Passenger Scuperfield, you have to leave now!"
+	Passenger Scuperfield didn't hear Conductor cause Passenger Scuperfield is sleeping.
+	Conductor shakes Passenger Scuperfield.
+	Passenger Scuperfield is still sleeping. Conductor realizes that he won't wake up and gets angry. Conductor shouts into Passenger Scuperfield's ear.
+	Passenger Scuperfield is now awake. 
+	Conductor kicks Passenger Scuperfield out of the train.
+	Passenger Scuperfield is now shocked. 
+	Current station isn't Passenger Scuperfield's destination station
+	Passenger Scuperfield leaves the train at Panopticon.
+	Passenger Scuperfield wants to say something but is too shocked to open his mouth.
+	Conductor throws out Passenger Scuperfield's newspaper.
+	Conductor throws out Passenger Scuperfield's top hat with some stuff.
+	Train starts moving and goes away from Panopticon.
+	Conductor checks if he forgot to tell anybody to leave the train.
+	Conductor didn't forget anyone.
+	Passengers Neznayka and Kozlik are sleeping. Passengers Neznayka and Kozlik say: "Zzz.."
+	Train stops at San-Komarik at 7 am.
+	Conductor says: "Passengers Neznayka and Kozlik, you have to leave now!"
+	Passengers Neznayka and Kozlik didn't hear Conductor cause Passengers Neznayka and Kozlik are sleeping.
+	Conductor shakes Passengers Neznayka and Kozlik.
+	Passengers Neznayka and Kozlik are still sleeping. Conductor takes out tongs and starts knocking on their shelves.
+	Passengers Neznayka and Kozlik are now awake. 
+	Current station is Passengers Neznayka and Kozlik's destination station.
+	Passengers Neznayka and Kozlik leave the train at San-Komarik.
+	Train starts moving and goes away from San-Komarik.
+	The train disappears in the distance...
