@@ -6,10 +6,15 @@ public abstract class SomeThingPattern implements Thing{
     private final String name;
     private final double price;
 
-    public SomeThingPattern(String name, double price) throws IllegalArgumentException{
+    public SomeThingPattern(String name, double price){
         this.name = name;
         this.price = price;
         if(price <= 0) throw new IllegalArgumentException();
+    }
+
+    public SomeThingPattern(String name){
+        this.name = name;
+        price = 300;
     }
 
     public double getPrice() {

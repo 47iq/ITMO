@@ -8,9 +8,9 @@ public class SomeConductor extends SomePerson implements Conductor {
     private double forgetfulness;
     private final Tongs tongs = new Tongs();
 
-    class Tongs extends SomeThingPattern {
+    static class Tongs extends SomeThingPattern {
         public Tongs() {
-            super("tongs", 100);
+            super("tongs");
         }
     }
 
