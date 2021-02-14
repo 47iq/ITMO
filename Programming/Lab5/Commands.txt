@@ -1,0 +1,12 @@
+add_if_max
+1
+1
+1
+1000
+100000
+true
+vip
+1
+black
+red
+spain
