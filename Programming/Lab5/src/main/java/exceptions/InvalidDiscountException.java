@@ -1,7 +1,7 @@
 package exceptions;
 
-public class InvalidDiscountException extends IllegalArgumentException{
+public class InvalidDiscountException extends InvalidTicketFieldException{
     public InvalidDiscountException() {
-        super("Invalid discount value has been entered. Discount must be double > 0 and <= 100");
+        super("Invalid discount value has been entered. Discount must be double > 0 and <= 100.");
     }
 }

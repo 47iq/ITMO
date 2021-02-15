@@ -1,8 +1,10 @@
 package main;
 
+import exceptions.InputFileNotFoundException;
 import org.json.simple.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 
 /**
@@ -21,18 +23,20 @@ public class Main {
     public static void main(String[] args) {
         //Scanner scanner = new Scanner(System.in);
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-        //System.out.println("Enter the name of the file");
         String fileName = null;
         try {
-            //fileName = args[0];
-            fileName = "Input.json";
+            if(args.length == 0)
+                throw new InputFileNotFoundException();
+            fileName = args[0];
+            AbstractCollectionManager taskManager = new CollectionManager(fileName);
+            CommandFactory.setTaskManager(taskManager);
+            setReader(input);
+            taskManager.start();
         } catch (Exception e) {
-            System.err.println("Unable to read the name of the file");
+            if(e.getMessage() != null)
+                System.err.println(e.getMessage());
+            System.err.println("Error got while executing the program.");
         }
-        AbstractTaskManager taskManager = new TaskManager(fileName);
-        CommandFactory.setTaskManager(taskManager);
-        setReader(input);
-        taskManager.start();
     }
 
     public static void setReader(BufferedReader input) {
@@ -52,8 +56,16 @@ public class Main {
         return new Coordinates(x, y);
     }
 
+    public static Coordinates getCoordinates(JSONObject jsonCoordinates) {
+        return new Coordinates(jsonCoordinates);
+    }
+
     public static Person getPerson(Long weight, EyesColor eyesColor, HairColor hairColor, Country country) {
         return new Person(weight, eyesColor, hairColor, country);
+    }
+
+    public static Person getPerson(JSONObject jsonPerson) {
+        return new Person(jsonPerson);
     }
 }
 

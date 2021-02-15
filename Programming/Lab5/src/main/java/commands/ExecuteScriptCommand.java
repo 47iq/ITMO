@@ -14,32 +14,33 @@ import java.io.FileReader;
  */
 
 public class ExecuteScriptCommand implements Command {
-    String fileName;
+
+    /**
+     * File containing script
+     */
+
+    private final File file;
 
     /**
      * Constructor of the execute_script command
-     * @param fileName {@link String}
+     * @param file file containing script
      */
 
-    public ExecuteScriptCommand(String fileName) {
-        this.fileName = fileName;
-        execute();
+    public ExecuteScriptCommand(File file) {
+        this.file = file;
     }
 
     public void execute() {
         //System.out.println("Executing script from the file has started");
         try {
-            File file = new File(fileName);
             BufferedReader reader = CommandFactory.getInput();
             BufferedReader fileReader = new BufferedReader(new FileReader(file));
             Main.setReader(fileReader);
-            CommandFactory.executeCommandsFromFile();
+            CommandFactory.executeCommandsFromFile(file);
             //System.out.println("Executing script from the file has finished");
             Main.setReader(reader);
-        } catch (FileNotFoundException e) {
-            System.err.println("There is no file with this name: " + fileName);
         } catch (Exception e) {
-            System.err.println("Error got while executing script from the file: " + fileName);
+            System.err.println("Error got while executing script from the file: " + file);
         }
     }
 }

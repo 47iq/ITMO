@@ -60,7 +60,7 @@ public class Person {
 
     /**
      * Method which casts {@link String} to {@link HairColor}
-     * @param colorStr {@link String}
+     * @param colorStr hair color in string format
      * @return hairColor {@link HairColor}
      */
 
@@ -76,7 +76,7 @@ public class Person {
 
     /**
      * Method which casts {@link String} to {@link EyesColor}
-     * @param colorStr {@link String}
+     * @param colorStr eyes color in string format
      * @return eyesColor {@link EyesColor}
      */
 
@@ -91,7 +91,7 @@ public class Person {
 
     /**
      * Method which casts {@link String} to {@link Country}
-     * @param countryStr {@link String}
+     * @param countryStr country in string format
      * @return country {@link Country}
      */
 
@@ -107,11 +107,11 @@ public class Person {
 
     /**
      * Method which casts {@link String} to {@link Long}
-     * @param weight {@link String}
+     * @param weight weight in string format
      * @return weight {@link Long}
      */
 
-    private Long castWeight(String weight) {
+    public static Long castWeight(String weight) {
         Long weightLong = Long.parseLong(weight);
         if(weightValid(weightLong))
             return weightLong;

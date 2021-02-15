@@ -1,6 +1,6 @@
 package commands;
 
-import main.AbstractTaskManager;
+import main.AbstractCollectionManager;
 import main.AbstractTicket;
 
 /**
@@ -11,23 +11,33 @@ import main.AbstractTicket;
 
 public class AddIfMaxCommand implements Command {
 
-    AbstractTaskManager taskManager;
-    AbstractTicket ticket;
+    /**
+     * Collection's manager
+     */
+
+    private final AbstractCollectionManager taskManager;
+
+    /**
+     * Ticket we want to add
+     */
+
+    private final AbstractTicket ticket;
 
     /**
      * Constructor of the add_if_max command
-     * @param taskManager {@link AbstractTaskManager}
-     * @param ticket {@link AbstractTicket}
+     * @param taskManager collection's manager
+     * @param ticket ticket we want to add
      */
 
-    public AddIfMaxCommand(AbstractTaskManager taskManager, AbstractTicket ticket) {
+    public AddIfMaxCommand(AbstractCollectionManager taskManager, AbstractTicket ticket) {
         this.taskManager = taskManager;
         this.ticket = ticket;
-        execute();
     }
 
     public void execute() {
         //System.out.println("Trying to add ticket...");
+        if(ticket == null)
+            return;
         try{
             taskManager.addIfMax(ticket);
         } catch (Exception e) {

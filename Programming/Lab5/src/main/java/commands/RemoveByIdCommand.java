@@ -1,8 +1,7 @@
 package commands;
 
 import exceptions.TicketNotFoundException;
-import main.AbstractTaskManager;
-import main.AbstractTicket;
+import main.AbstractCollectionManager;
 
 /**
  * Class of remove_by_id command
@@ -11,19 +10,28 @@ import main.AbstractTicket;
  */
 
 public class RemoveByIdCommand implements Command {
-    AbstractTaskManager taskManager;
-    int id;
+
+    /**
+     * Collection's manager
+     */
+
+    private final AbstractCollectionManager taskManager;
+
+    /**
+     * Id of the ticket we want to remove
+     */
+
+    private final int id;
 
     /**
      * Constructor of the remove_by_id command
-     * @param taskManager {@link AbstractTaskManager}
-     * @param id int
+     * @param taskManager collection's manager
+     * @param id id of the ticket we want to remove
      */
 
-    public RemoveByIdCommand(AbstractTaskManager taskManager, int id) {
+    public RemoveByIdCommand(AbstractCollectionManager taskManager, int id) {
         this.taskManager = taskManager;
         this.id = id;
-        execute();
     }
 
     public void execute() {

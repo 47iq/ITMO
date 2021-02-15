@@ -7,7 +7,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 /**
- * Class which is the realization of {@link AbstractTicket} with {@link JSONObject} parsing methods and {@link String} parsing methods.
+ * Class which is the realization of {@link AbstractTicket} with {@link JSONObject} parsing methods.
  *  @autor 47iq
  *  @version 1.0
  */
@@ -117,66 +117,27 @@ public class Ticket extends AbstractTicket {
     }
 
     /**
-     * Method which casts String price to int
-     * @param price {@link String}
-     * @return int price
-     */
-
-    private int castPrice(String price){
-        int priceInt = Integer.parseInt(price);
-        if(!AbstractTicket.priceValid(priceInt))
-            throw new InvalidPriceException();
-        else
-            return priceInt;
-    }
-
-    /**
-     * Method which casts {@link String} discount to double
-     * @param discount {@link String}t
-     * @return discount double
-     */
-
-    private double castDiscount(String discount){
-        double discountDouble = Double.parseDouble(discount);
-        if(!AbstractTicket.discountValid(discountDouble)) {
-            throw new InvalidDiscountException();
-        }
-        else
-            return discountDouble;
-    }
-
-    /**
-     * Method which casts {@link String} refundable to {@link Boolean}
-     * @param refundable {@link String}
-     * @return refundable {@link Boolean}
-     */
-
-    private Boolean castRefundable(String refundable){
-        return Boolean.parseBoolean(refundable);
-    }
-
-    /**
      * Method which casts {@link JSONObject} coordinatesJSON into main.Coordinates
-     * @param coordinatesJSON {@link JSONObject}
+     * @param coordinatesJSON coordinates in json object format
      * @return coordinates {@link Coordinates}
      */
 
     private Coordinates castCoordinates(JSONObject coordinatesJSON) {
         if(coordinatesJSON != null)
-            return new Coordinates(coordinatesJSON);
+            return Main.getCoordinates(coordinatesJSON);
         else
             throw new InvalidCoordinatesException();
     }
 
     /**
      * Method which casts {@link JSONObject} personJSON into main.Person
-     * @param personJSON {@link JSONObject}
+     * @param personJSON person in json object format
      * @return person {@link Person}
      */
 
     private Person castPerson(JSONObject personJSON) {
         if(personJSON != null) {
-            return new Person(personJSON);
+            return Main.getPerson(personJSON);
         }
         else
             throw new InvalidPersonException();

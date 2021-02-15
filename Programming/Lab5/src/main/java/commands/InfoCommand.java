@@ -1,7 +1,6 @@
 package commands;
 
-import main.AbstractTaskManager;
-import main.AbstractTicket;
+import main.AbstractCollectionManager;
 
 /**
  * Class of info command
@@ -11,16 +10,19 @@ import main.AbstractTicket;
 
 public class InfoCommand implements Command {
 
-    AbstractTaskManager taskManager;
+    /**
+     * Collection's manager
+     */
+
+    private final AbstractCollectionManager taskManager;
 
     /**
      * Constructor of the info command
-     * @param taskManager {@link AbstractTaskManager}
+     * @param taskManager collection's manager
      */
 
-    public InfoCommand(AbstractTaskManager taskManager) {
+    public InfoCommand(AbstractCollectionManager taskManager) {
         this.taskManager = taskManager;
-        execute();
     }
 
     public void execute() {

@@ -5,6 +5,7 @@ import commands.*;
 import exceptions.*;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -19,7 +20,7 @@ public abstract class CommandFactory {
      * Task manager to setup commands
      */
 
-    private static AbstractTaskManager taskManager;
+    private static AbstractCollectionManager taskManager;
 
     /**
      * Input stream
@@ -34,11 +35,17 @@ public abstract class CommandFactory {
     private static boolean inputIsFromFile = false;
 
     /**
+     * Input {@link File} (if exists)
+     */
+
+    private static File inputFile = null;
+
+    /**
      * Setter for {@link #taskManager}
      * @param manager {@link #taskManager}
      */
 
-    public static void setTaskManager(AbstractTaskManager manager) {
+    public static void setTaskManager(AbstractCollectionManager manager) {
         taskManager = manager;
     }
 
@@ -74,12 +81,13 @@ public abstract class CommandFactory {
      * Method to execute commands without printing tips for user
      */
 
-    public static void executeCommandsFromFile(){
+    public static void executeCommandsFromFile(File file){
         try {
             inputIsFromFile = true;
+            inputFile = file;
             while (true) {
                 String[] commands = input.readLine().split(" ");
-                Command command = getCommand(commands);
+                getCommand(commands).execute();
             }
         } catch (IOException | NullPointerException e) {
             //System.out.println("All commands have been executed.");
@@ -87,13 +95,14 @@ public abstract class CommandFactory {
             System.err.println("Something went wrong executing the commands.");
         } finally {
             inputIsFromFile = false;
+            inputFile = null;
         }
     }
 
     /**
      * Method to resolve commands
      * @param commandsStr String[] of command and its arguments
-     * @return command {@link Command}
+     * @return command command we want to be executed
      */
 
     public static Command getCommand(String[] commandsStr) {
@@ -106,22 +115,14 @@ public abstract class CommandFactory {
                 case "show":
                     return new ShowCommand(taskManager);
                 case "add": {
-                    AbstractTicket ticket;
-                    if(inputIsFromFile)
-                        ticket = TicketParser.parseTicketFromFile();
-                    else
-                        ticket = TicketParser.parseTicket();
+                    AbstractTicket ticket = TicketParser.parseTicket(inputIsFromFile);
                     if(ticket == null)
                         throw new NullTicketException();
                     return new AddCommand(taskManager, ticket);
                 }
                 case "update": {
                     int id = TicketParser.parseId(commandsStr[1]);
-                    AbstractTicket ticket;
-                    if(inputIsFromFile)
-                        ticket = TicketParser.parseTicketFromFile();
-                    else
-                        ticket = TicketParser.parseTicket();
+                    AbstractTicket ticket = TicketParser.parseTicket(inputIsFromFile);
                     if(ticket == null) {
                         throw new NullTicketException();
                     }
@@ -138,8 +139,10 @@ public abstract class CommandFactory {
                 case "save":
                     return new SaveCommand(taskManager);
                 case "execute_script": {
-                    String fileName = (commandsStr[1]);
-                    return new ExecuteScriptCommand(fileName);
+                    File scriptFile = new File(commandsStr[1]);
+                    if(inputIsFromFile && scriptFile.equals(inputFile))
+                            throw new FileRecursionException();
+                    return new ExecuteScriptCommand(scriptFile);
                 }
                 case "exit":
                     return new ExitCommand(taskManager);
@@ -154,21 +157,13 @@ public abstract class CommandFactory {
                 case "print_field_descending_refundable":
                     return new PrintFieldDescendingRefundableCommand(taskManager);
                 case "remove_greater": {
-                    AbstractTicket ticket;
-                    if(inputIsFromFile)
-                        ticket = TicketParser.parseTicketFromFile();
-                    else
-                        ticket = TicketParser.parseTicket();
+                    AbstractTicket ticket = TicketParser.parseTicket(inputIsFromFile);
                     if(ticket == null)
                         throw new NullTicketException();
                     return new RemoveGreaterCommand(taskManager, ticket);
                 }
                 case "add_if_max" : {
-                    AbstractTicket ticket;
-                    if(inputIsFromFile)
-                        ticket = TicketParser.parseTicketFromFile();
-                    else
-                        ticket = TicketParser.parseTicket();
+                    AbstractTicket ticket = TicketParser.parseTicket(inputIsFromFile);
                     if(ticket == null)
                         throw new NullTicketException();
                     return new AddIfMaxCommand(taskManager, ticket);
@@ -179,17 +174,17 @@ public abstract class CommandFactory {
             }
         } catch (IOException e) {
             System.err.println("Error got trying to get the command.");
-            return null;
+            return new EmptyCommand();
         } catch (IndexOutOfBoundsException e) {
             System.err.println("Error. The argument for command hasn't been entered. Check the help command " +
                     "for more information.");
-            return null;
-        } catch (UnknownCommandException | NullTicketException e) {
-            System.err.println(e.getMessage());
-            return null;
+            return new EmptyCommand();
         } catch (Exception e) {
-            System.err.println("Unknown error. Contact the app developer");
-            return null;
+            if(e.getMessage() != null)
+                System.err.println(e.getMessage());
+            else
+                System.out.println("Error got while resolving the command");
+            return new EmptyCommand();
         }
     }
 }

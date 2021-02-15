@@ -1,7 +1,7 @@
 package commands;
 
 import main.AbstractTicket;
-import main.AbstractTaskManager;
+import main.AbstractCollectionManager;
 
 /**
  * Class of add command
@@ -15,29 +15,29 @@ public class AddCommand implements Command {
      * Task manager to execute command
      */
 
-    AbstractTaskManager taskManager;
+    private final AbstractCollectionManager taskManager;
 
     /**
      * Ticket that needs to be added
      */
 
-    AbstractTicket ticket;
+    private final AbstractTicket ticket;
 
     /**
      * Constructor of the add command
-     * @param taskManager {@link AbstractTaskManager}
-     * @param ticket {@link AbstractTicket}
+     * @param taskManager collection's manager
+     * @param ticket ticket we want to add
      */
 
-    public AddCommand(AbstractTaskManager taskManager, AbstractTicket ticket) {
+    public AddCommand(AbstractCollectionManager taskManager, AbstractTicket ticket) {
         this.taskManager = taskManager;
         this.ticket = ticket;
-        if(ticket != null)
-            execute();
     }
 
     public void execute() {
         //System.out.println("Adding ticket to the collection has started");
+        if(ticket == null)
+            return;
         try {
             taskManager.addTicket(ticket);
             //System.out.println("AbstractTicket has been successfully added");

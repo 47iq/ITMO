@@ -1,7 +1,6 @@
 package commands;
 
-import main.AbstractTaskManager;
-import main.AbstractTicket;
+import main.AbstractCollectionManager;
 
 /**
  * Class of save command
@@ -11,16 +10,19 @@ import main.AbstractTicket;
 
 public class SaveCommand implements Command {
 
-    AbstractTaskManager taskManager;
+    /**
+     * Collection's manager
+     */
+
+    private final AbstractCollectionManager taskManager;
 
     /**
      * Constructor of the save command
-     * @param taskManager {@link AbstractTaskManager}
+     * @param taskManager collection's manager
      */
 
-    public SaveCommand(AbstractTaskManager taskManager) {
+    public SaveCommand(AbstractCollectionManager taskManager) {
         this.taskManager = taskManager;
-        execute();
     }
 
     public void execute() {

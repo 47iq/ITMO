@@ -10,12 +10,12 @@ public abstract class TicketMessagesFactory {
 
     /**
      * Method for getting user-friendly output of {@link AbstractTicket}
-     * @param ticket {@link AbstractTicket}
-     * @return ticketStr {@link String}
+     * @param ticket ticket we want to be outputted
+     * @return ticketStr ticket in string format
      */
 
     public static String getTicketMessage(AbstractTicket ticket) {
-        return "AbstractTicket data:\n    AbstractTicket id: " + ticket.getId() + "\n    Name: " + ticket.getName() +
+        return "Ticket data:\n    Ticket id: " + ticket.getId() + "\n    Name: " + ticket.getName() +
                 "\n    Coordinates: " + getCoordinatesMessage(ticket.getCoordinates())  + "\n    Created at: " +
                 ticket.getCreationDate() + "\n    Price: " + ticket.getPrice() + "\n    Discount: " + ticket.getDiscount() +
                 "\n    Refundable: " + ticket.getRefundable() +  "\n    Type: " + ticket.getType() + "\n    Person: " +
@@ -24,8 +24,8 @@ public abstract class TicketMessagesFactory {
 
     /**
      * Private method for getting user-friendly output of {@link Coordinates}
-     * @param coordinates {@link Coordinates}
-     * @return coordinatesStr {@link String}
+     * @param coordinates coordinates we want to be outputted
+     * @return coordinatesStr coordinates in string format
      */
 
     private static String getCoordinatesMessage(Coordinates coordinates) {
@@ -34,8 +34,8 @@ public abstract class TicketMessagesFactory {
 
     /**
      * Method for getting user-friendly output of {@link Person}
-     * @param person {@link Person}
-     * @return personStr {@link String}
+     * @param person person we want to be outputted
+     * @return personStr person in string format
      */
 
     private static String getPersonMessage(Person person) {

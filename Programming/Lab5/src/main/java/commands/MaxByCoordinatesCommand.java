@@ -1,7 +1,6 @@
 package commands;
 
-import main.AbstractTaskManager;
-import main.AbstractTicket;
+import main.AbstractCollectionManager;
 
 /**
  * Class of max_by_coordinates command
@@ -11,16 +10,19 @@ import main.AbstractTicket;
 
 public class MaxByCoordinatesCommand implements Command {
 
-    AbstractTaskManager taskManager;
+    /**
+     * Collection's manager
+     */
+
+    private final AbstractCollectionManager taskManager;
 
     /**
      * Constructor of the max_by_coordinates command
-     * @param taskManager {@link AbstractTaskManager}
+     * @param taskManager collection's manager
      */
 
-    public MaxByCoordinatesCommand(AbstractTaskManager taskManager) {
+    public MaxByCoordinatesCommand(AbstractCollectionManager taskManager) {
         this.taskManager = taskManager;
-        execute();
     }
 
     public void execute() {

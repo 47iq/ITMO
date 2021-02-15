@@ -1,5 +1,7 @@
 package main;
 
+import exceptions.InvalidDiscountException;
+import exceptions.InvalidPriceException;
 import org.json.simple.JSONObject;
 
 import java.time.ZonedDateTime;
@@ -55,7 +57,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Setter for {@link AbstractTicket#id} used to update tickets with given id's
-     * @param id int
+     * @param id ticket id
      */
 
     public void configureId(int id) {
@@ -64,7 +66,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Setter for ticket {@link AbstractTicket#type}
-     * @param type {@link TicketType}
+     * @param type ticket's type
      */
     public void setType(TicketType type) {
         this.type = type;
@@ -72,7 +74,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Getter for the ticket {@link AbstractTicket#price}
-     * @return int price
+     * @return int {@link #price}
      */
 
     public int getPrice() {
@@ -91,7 +93,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * A {@link AbstractTicket#name} validator
-     * @param name String
+     * @param name ticket's name
      * @return true if name is valid, false if not
      */
 
@@ -101,7 +103,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * A {@link AbstractTicket#discount} validator
-     * @param discount double
+     * @param discount ticket's discount
      * @return true if discount is valid, false if not
      */
 
@@ -119,7 +121,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
      * @return Type in main.TicketType format
      */
 
-    static TicketType castType(String typeStr) {
+    public static TicketType castType(String typeStr) {
         return switch (typeStr.toLowerCase()) {
             case "vip" -> TicketType.VIP;
             case "cheap" -> TicketType.CHEAP;
@@ -127,6 +129,45 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
             case "" -> null;
             default -> throw new exceptions.InvalidTypeException();
         };
+    }
+
+    /**
+     * Method which casts String price to int
+     * @param price price in string format
+     * @return int price
+     */
+
+    public static int castPrice(String price){
+        int priceInt = Integer.parseInt(price);
+        if(!AbstractTicket.priceValid(priceInt))
+            throw new InvalidPriceException();
+        else
+            return priceInt;
+    }
+
+    /**
+     * Method which casts {@link String} discount to double
+     * @param discount discount in string format
+     * @return discount double
+     */
+
+    public static double castDiscount(String discount){
+        double discountDouble = Double.parseDouble(discount);
+        if(!AbstractTicket.discountValid(discountDouble)) {
+            throw new InvalidDiscountException();
+        }
+        else
+            return discountDouble;
+    }
+
+    /**
+     * Method which casts {@link String} refundable to {@link Boolean}
+     * @param refundable refundable in string format
+     * @return refundable {@link Boolean}
+     */
+
+    public static Boolean castRefundable(String refundable){
+        return Boolean.parseBoolean(refundable);
     }
 
     public int compareTo(AbstractTicket ticket) {
@@ -219,7 +260,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Setter for {@link #coordinates}
-     * @param coordinates {@link Coordinates}
+     * @param coordinates ticket coordinates
      */
 
     public void setCoordinates(Coordinates coordinates) {
@@ -228,7 +269,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Setter for {@link #price}
-     * @param price int
+     * @param price ticket price
      */
 
     public void setPrice(int price) {
@@ -237,7 +278,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Setter for {@link #discount}
-     * @param discount double
+     * @param discount ticket discount
      */
 
     public void setDiscount(double discount) {
@@ -246,7 +287,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Setter for {@link #refundable}
-     * @param refundable {@link Boolean}
+     * @param refundable ticket refundable
      */
     public void setRefundable(Boolean refundable) {
         this.refundable = refundable;
@@ -254,7 +295,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Setter for {@link #person}
-     * @param person {@link Person}
+     * @param person ticket person
      */
 
     public void setPerson(Person person) {
@@ -263,7 +304,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Method used to convert ticket's data into JSON format
-     * @return {@link JSONObject} that contains data
+     * @return {@link JSONObject} that contains data of the ticket
      */
 
     public JSONObject toJSON() {

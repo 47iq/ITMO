@@ -1,7 +1,6 @@
 package commands;
 
-import main.AbstractTaskManager;
-import main.AbstractTicket;
+import main.AbstractCollectionManager;
 
 /**
  * Class of filter_greater_than_discount command
@@ -11,20 +10,27 @@ import main.AbstractTicket;
 
 public class FilterGreaterThanDiscountCommand implements Command {
 
-    AbstractTaskManager taskManager;
+    /**
+     * Collection's manager
+     */
 
-    double discount;
+    private final AbstractCollectionManager taskManager;
+
+    /**
+     * Discount we want to filter
+     */
+
+    private final double discount;
 
     /**
      * Constructor of the filter_greater_than_discount command
-     * @param taskManager {@link AbstractTaskManager}
-     * @param discount double
+     * @param taskManager collection's manager
+     * @param discount discount we want to filter
      */
 
-    public FilterGreaterThanDiscountCommand(AbstractTaskManager taskManager, double discount) {
+    public FilterGreaterThanDiscountCommand(AbstractCollectionManager taskManager, double discount) {
         this.discount = discount;
         this.taskManager = taskManager;
-        execute();
     }
 
     public void execute() {

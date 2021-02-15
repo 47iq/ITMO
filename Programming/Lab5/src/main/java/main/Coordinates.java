@@ -51,7 +51,7 @@ public class Coordinates implements Comparable<Coordinates> {
      * @return x double value
      */
 
-    private double castXCoordinate (String xCoordinate) {
+    public static double castXCoordinate (String xCoordinate) {
         double x = Double.parseDouble(xCoordinate);
         if (!xCoordinateValid(x))
             throw new InvalidXCoordinateException();
@@ -74,7 +74,7 @@ public class Coordinates implements Comparable<Coordinates> {
      * @return y Integer value
      */
 
-    private Integer castYCoordinate (String yCoordinate) {
+    public static Integer castYCoordinate (String yCoordinate) {
         Integer y =  Integer.parseInt(yCoordinate);
         if(!yCoordinateValid(y))
             throw new InvalidYCoordinateException();

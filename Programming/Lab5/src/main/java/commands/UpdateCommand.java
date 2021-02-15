@@ -2,7 +2,7 @@ package commands;
 
 import exceptions.TicketNotFoundException;
 import main.AbstractTicket;
-import main.AbstractTaskManager;
+import main.AbstractCollectionManager;
 
 /**
  * Class of update command
@@ -11,26 +11,42 @@ import main.AbstractTaskManager;
  */
 
 public class UpdateCommand implements Command {
-    AbstractTaskManager taskManager;
-    int id;
-    AbstractTicket ticket;
+
+    /**
+     * Collection's manager
+     */
+
+    private final AbstractCollectionManager taskManager;
+
+    /**
+     * id of the ticket we want to update
+     */
+
+    private final int id;
+
+    /**
+     * New ticket
+     */
+
+    private final AbstractTicket ticket;
 
     /**
      * Constructor of the update command
-     * @param taskManager {@link AbstractTaskManager}
-     * @param ticket {@link AbstractTicket}
+     * @param taskManager collection's manager
+     * @param id id of the ticket we want to update
+     * @param ticket new ticket
      */
 
-    public UpdateCommand(AbstractTaskManager taskManager, int id, AbstractTicket ticket) {
+    public UpdateCommand(AbstractCollectionManager taskManager, int id, AbstractTicket ticket) {
         this.taskManager = taskManager;
         this.id = id;
         this.ticket = ticket;
-        if(ticket != null)
-            execute();
     }
 
     public void execute() {
         //System.out.println("Updating ticket has started");
+        if(ticket == null)
+            return;
         try {
             if(!taskManager.elementExists(id))
                 throw new TicketNotFoundException();
