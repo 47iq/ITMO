@@ -1,6 +1,7 @@
 package commands;
 
-import main.AbstractCollectionManager;
+import main.AbstractQueueManager;
+import main.CollectionManager;
 
 /**
  * Class of print_field_descending_refundable command
@@ -14,14 +15,14 @@ public class PrintFieldDescendingRefundableCommand implements Command{
      * Collection's manager
      */
 
-    private final AbstractCollectionManager taskManager;
+    private final CollectionManager taskManager;
 
     /**
      * Constructor of the print_field_descending_refundable command
      * @param taskManager collection's manager
      */
 
-    public PrintFieldDescendingRefundableCommand(AbstractCollectionManager taskManager) {
+    public PrintFieldDescendingRefundableCommand(CollectionManager taskManager) {
         this.taskManager = taskManager;
     }
 

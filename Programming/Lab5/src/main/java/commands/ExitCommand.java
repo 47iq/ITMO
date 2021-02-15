@@ -1,6 +1,7 @@
 package commands;
 
-import main.AbstractCollectionManager;
+import main.AbstractQueueManager;
+import main.CollectionManager;
 
 /**
  * Class of exit command
@@ -14,14 +15,14 @@ public class ExitCommand implements Command {
      * Collection's manager
      */
 
-    private final AbstractCollectionManager taskManager;
+    private final CollectionManager taskManager;
 
     /**
      * Constructor of the exit command
      * @param taskManager collection's manager
      */
 
-    public ExitCommand(AbstractCollectionManager taskManager) {
+    public ExitCommand(CollectionManager taskManager) {
         this.taskManager = taskManager;
     }
 

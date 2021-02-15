@@ -1,7 +1,8 @@
 package commands;
 
 import main.AbstractTicket;
-import main.AbstractCollectionManager;
+import main.AbstractQueueManager;
+import main.CollectionManager;
 
 /**
  * Class of remove_greater command
@@ -15,7 +16,7 @@ public class RemoveGreaterCommand implements Command {
      * Collection's manager
      */
 
-    AbstractCollectionManager taskManager;
+    private final CollectionManager taskManager;
 
     /**
      * Ticket we want to compare to
@@ -29,7 +30,7 @@ public class RemoveGreaterCommand implements Command {
      * @param ticket ticket we want to compare to
      */
 
-    public RemoveGreaterCommand(AbstractCollectionManager taskManager, AbstractTicket ticket) {
+    public RemoveGreaterCommand(CollectionManager taskManager, AbstractTicket ticket) {
         this.taskManager = taskManager;
         this.ticket = ticket;
     }
@@ -39,8 +40,6 @@ public class RemoveGreaterCommand implements Command {
         try {
             if(ticket != null)
                 taskManager.removeGreater(ticket);
-            else
-                return;
             //System.out.println("Removing elements has been finished");
         } catch (Exception e) {
             System.err.println("Error got while removing elements");

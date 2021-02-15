@@ -1,6 +1,7 @@
 package commands;
 
-import main.AbstractCollectionManager;
+import main.AbstractQueueManager;
+import main.CollectionManager;
 
 /**
  * Class of remove_first command
@@ -14,14 +15,14 @@ public class RemoveFirstCommand implements Command {
      * Collection's manager
      */
 
-    private final AbstractCollectionManager taskManager;
+    private final CollectionManager taskManager;
 
     /**
      * Constructor of the remove_first command
      * @param taskManager collection's manager
      */
 
-    public RemoveFirstCommand(AbstractCollectionManager taskManager) {
+    public RemoveFirstCommand(CollectionManager taskManager) {
         this.taskManager = taskManager;
     }
 

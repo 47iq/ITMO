@@ -4,7 +4,6 @@ import exceptions.InputFileNotFoundException;
 import org.json.simple.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 
 /**
@@ -28,7 +27,7 @@ public class Main {
             if(args.length == 0)
                 throw new InputFileNotFoundException();
             fileName = args[0];
-            AbstractCollectionManager taskManager = new CollectionManager(fileName);
+            CollectionManager taskManager = new QueueManager(fileName);
             CommandFactory.setTaskManager(taskManager);
             setReader(input);
             taskManager.start();

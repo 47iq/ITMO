@@ -1,6 +1,7 @@
 package commands;
 
-import main.AbstractCollectionManager;
+import main.AbstractQueueManager;
+import main.CollectionManager;
 
 /**
  * Class of clear command
@@ -13,14 +14,14 @@ public class ClearCommand implements Command {
      * Collection's manager
      */
 
-    private final AbstractCollectionManager taskManager;
+    private final CollectionManager taskManager;
 
     /**
      * Constructor of the clear command
      * @param taskManager collection's manager
      */
 
-    public ClearCommand(AbstractCollectionManager taskManager) {
+    public ClearCommand(CollectionManager taskManager) {
         this.taskManager = taskManager;
     }
 

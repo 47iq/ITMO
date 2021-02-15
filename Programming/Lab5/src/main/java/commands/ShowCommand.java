@@ -1,6 +1,7 @@
 package commands;
 
-import main.AbstractCollectionManager;
+import main.AbstractQueueManager;
+import main.CollectionManager;
 
 /**
  * Class of show command
@@ -14,14 +15,14 @@ public class ShowCommand implements Command {
      * Collection's manager
      */
 
-    private final AbstractCollectionManager taskManager;
+    private final CollectionManager taskManager;
 
     /**
      * Constructor of the show command
      * @param taskManager collection's manager
      */
 
-    public ShowCommand(AbstractCollectionManager taskManager) {
+    public ShowCommand(CollectionManager taskManager) {
         this.taskManager = taskManager;
     }
 

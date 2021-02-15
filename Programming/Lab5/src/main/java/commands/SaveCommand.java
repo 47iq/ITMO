@@ -1,6 +1,7 @@
 package commands;
 
-import main.AbstractCollectionManager;
+import main.AbstractQueueManager;
+import main.CollectionManager;
 
 /**
  * Class of save command
@@ -14,14 +15,14 @@ public class SaveCommand implements Command {
      * Collection's manager
      */
 
-    private final AbstractCollectionManager taskManager;
+    private final CollectionManager taskManager;
 
     /**
      * Constructor of the save command
      * @param taskManager collection's manager
      */
 
-    public SaveCommand(AbstractCollectionManager taskManager) {
+    public SaveCommand(CollectionManager taskManager) {
         this.taskManager = taskManager;
     }
 

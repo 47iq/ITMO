@@ -27,13 +27,12 @@ public abstract class TicketsGetter {
             reader.close();
         } catch (IOException e) {
             System.err.println("Can't read data from the file " + dataFileName + ".\n Data reading has been stopped");
-            System.exit(1);
         }
         String dataString = new String (fileContent);
         try {
             jsonData = (JSONArray) parser.parse(dataString);
         } catch (ParseException e) {
-            System.err.println("Parsing error. Can't get data from the file");;
+            System.err.println("Parsing error. Can't get data from the file");
         }
         return jsonData;
     }

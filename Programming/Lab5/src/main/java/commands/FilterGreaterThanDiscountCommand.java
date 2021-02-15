@@ -1,6 +1,7 @@
 package commands;
 
-import main.AbstractCollectionManager;
+import main.AbstractQueueManager;
+import main.CollectionManager;
 
 /**
  * Class of filter_greater_than_discount command
@@ -14,7 +15,7 @@ public class FilterGreaterThanDiscountCommand implements Command {
      * Collection's manager
      */
 
-    private final AbstractCollectionManager taskManager;
+    private final CollectionManager taskManager;
 
     /**
      * Discount we want to filter
@@ -28,7 +29,7 @@ public class FilterGreaterThanDiscountCommand implements Command {
      * @param discount discount we want to filter
      */
 
-    public FilterGreaterThanDiscountCommand(AbstractCollectionManager taskManager, double discount) {
+    public FilterGreaterThanDiscountCommand(CollectionManager taskManager, double discount) {
         this.discount = discount;
         this.taskManager = taskManager;
     }

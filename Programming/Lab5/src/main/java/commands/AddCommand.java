@@ -1,7 +1,8 @@
 package commands;
 
 import main.AbstractTicket;
-import main.AbstractCollectionManager;
+import main.AbstractQueueManager;
+import main.CollectionManager;
 
 /**
  * Class of add command
@@ -15,7 +16,7 @@ public class AddCommand implements Command {
      * Task manager to execute command
      */
 
-    private final AbstractCollectionManager taskManager;
+    private final CollectionManager taskManager;
 
     /**
      * Ticket that needs to be added
@@ -29,7 +30,7 @@ public class AddCommand implements Command {
      * @param ticket ticket we want to add
      */
 
-    public AddCommand(AbstractCollectionManager taskManager, AbstractTicket ticket) {
+    public AddCommand(CollectionManager taskManager, AbstractTicket ticket) {
         this.taskManager = taskManager;
         this.ticket = ticket;
     }

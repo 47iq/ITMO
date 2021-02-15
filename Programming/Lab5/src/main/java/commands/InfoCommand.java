@@ -1,6 +1,7 @@
 package commands;
 
-import main.AbstractCollectionManager;
+import main.AbstractQueueManager;
+import main.CollectionManager;
 
 /**
  * Class of info command
@@ -14,14 +15,14 @@ public class InfoCommand implements Command {
      * Collection's manager
      */
 
-    private final AbstractCollectionManager taskManager;
+    private final CollectionManager taskManager;
 
     /**
      * Constructor of the info command
      * @param taskManager collection's manager
      */
 
-    public InfoCommand(AbstractCollectionManager taskManager) {
+    public InfoCommand(CollectionManager taskManager) {
         this.taskManager = taskManager;
     }
 

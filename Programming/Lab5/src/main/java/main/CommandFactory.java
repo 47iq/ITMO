@@ -20,7 +20,7 @@ public abstract class CommandFactory {
      * Task manager to setup commands
      */
 
-    private static AbstractCollectionManager taskManager;
+    private static CollectionManager taskManager;
 
     /**
      * Input stream
@@ -45,7 +45,7 @@ public abstract class CommandFactory {
      * @param manager {@link #taskManager}
      */
 
-    public static void setTaskManager(AbstractCollectionManager manager) {
+    public static void setTaskManager(CollectionManager manager) {
         taskManager = manager;
     }
 
@@ -75,6 +75,7 @@ public abstract class CommandFactory {
     public static void executeNextCommand() throws IOException{
         String[] commands = input.readLine().split(" ");
         Command command = getCommand(commands);
+        command.execute();
     }
 
     /**
@@ -109,7 +110,7 @@ public abstract class CommandFactory {
         try {
             switch (commandsStr[0]) {
                 case "help":
-                    return new HelpCommand(taskManager);
+                    return new HelpCommand();
                 case "info":
                     return new InfoCommand(taskManager);
                 case "show":

@@ -1,6 +1,6 @@
 package commands;
 
-import main.AbstractCollectionManager;
+import main.AbstractQueueManager;
 
 /**
  * Class of help command
@@ -10,15 +10,8 @@ import main.AbstractCollectionManager;
 
 public class HelpCommand implements Command {
 
-    AbstractCollectionManager taskManager;
+    public HelpCommand() {
 
-    /**
-     * Constructor of the help command
-     * @param taskManager {@link AbstractCollectionManager}
-     */
-
-    public HelpCommand(AbstractCollectionManager taskManager) {
-        this.taskManager = taskManager;
     }
 
     public void execute() {

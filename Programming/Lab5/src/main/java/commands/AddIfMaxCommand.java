@@ -1,7 +1,8 @@
 package commands;
 
-import main.AbstractCollectionManager;
+import main.AbstractQueueManager;
 import main.AbstractTicket;
+import main.CollectionManager;
 
 /**
  * Class of add_if_max command
@@ -15,7 +16,7 @@ public class AddIfMaxCommand implements Command {
      * Collection's manager
      */
 
-    private final AbstractCollectionManager taskManager;
+    private final CollectionManager taskManager;
 
     /**
      * Ticket we want to add
@@ -29,7 +30,7 @@ public class AddIfMaxCommand implements Command {
      * @param ticket ticket we want to add
      */
 
-    public AddIfMaxCommand(AbstractCollectionManager taskManager, AbstractTicket ticket) {
+    public AddIfMaxCommand(CollectionManager taskManager, AbstractTicket ticket) {
         this.taskManager = taskManager;
         this.ticket = ticket;
     }

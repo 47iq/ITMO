@@ -2,7 +2,8 @@ package commands;
 
 import exceptions.TicketNotFoundException;
 import main.AbstractTicket;
-import main.AbstractCollectionManager;
+import main.AbstractQueueManager;
+import main.CollectionManager;
 
 /**
  * Class of update command
@@ -16,7 +17,7 @@ public class UpdateCommand implements Command {
      * Collection's manager
      */
 
-    private final AbstractCollectionManager taskManager;
+    private final CollectionManager taskManager;
 
     /**
      * id of the ticket we want to update
@@ -37,7 +38,7 @@ public class UpdateCommand implements Command {
      * @param ticket new ticket
      */
 
-    public UpdateCommand(AbstractCollectionManager taskManager, int id, AbstractTicket ticket) {
+    public UpdateCommand(CollectionManager taskManager, int id, AbstractTicket ticket) {
         this.taskManager = taskManager;
         this.id = id;
         this.ticket = ticket;
