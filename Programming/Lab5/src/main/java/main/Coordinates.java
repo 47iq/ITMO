@@ -18,8 +18,8 @@ public class Coordinates implements Comparable<Coordinates> {
 
     /**
      * Constructor for getting {@link Coordinates} from its fields
-     * @param x {@link Coordinates#x}
-     * @param y {@link Coordinates#y}
+     * @param x coordinates x
+     * @param y coordinates y
      */
 
     protected Coordinates(double x, Integer y) {

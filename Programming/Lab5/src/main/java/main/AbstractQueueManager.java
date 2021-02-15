@@ -1,7 +1,9 @@
 package main;
 
+import exceptions.InvalidIdException;
+
 import java.io.Reader;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * Abstract class implementing {@link CollectionManager} which manages the execution of the application and in particular it manages {@link Queue<AbstractTicket>}.
@@ -28,6 +30,12 @@ public abstract class AbstractQueueManager implements CollectionManager{
      */
 
     protected String dataFileName;
+
+    /**
+     * Set of used id's
+     */
+
+    private static Set<Integer> idSet;
 
     public abstract void start();
 
@@ -60,4 +68,51 @@ public abstract class AbstractQueueManager implements CollectionManager{
     public abstract void saveDataToFile();
 
     public abstract boolean elementExists(int id);
+
+    /**
+     * Adds ticket ID to {@link #idSet}
+     * @param id id we want to add
+     */
+
+    public static void addID(int id) {
+        if(idSet.contains(id))
+            throw new InvalidIdException();
+        idSet.add(id);
+    }
+
+    /**
+     * Gets an unique id
+     * @return unique id
+     */
+
+    public static int getID() {
+        int id;
+        if(idSet.size() == Integer.MAX_VALUE) {
+            System.err.println("Error. Maximal number of IDs has been reached");
+            System.exit(1);
+        }
+        while (true) {
+            id = (int) (Math.random()*Integer.MAX_VALUE);
+            if(!idExists(id))
+                return id;
+        }
+    }
+
+    /**
+     * Checks if id is in {@link #idSet}
+     * @param id id we want tot check
+     * @return true if exists, false if not
+     */
+
+    public static boolean idExists(int id) {
+        return idSet.contains(id);
+    }
+
+    /**
+     * Method to initialize {@link #idSet}
+     */
+
+    public static void createSet() {
+        idSet = new HashSet<>();
+    }
 }

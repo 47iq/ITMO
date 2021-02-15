@@ -35,7 +35,7 @@ public class QueueManager extends AbstractQueueManager {
      * Creation time of {@link #tickets}
      */
 
-    private java.time.ZonedDateTime creationDate;
+    private final ZonedDateTime creationDate;
 
     /**
      * Method used to get {@link #reader}
@@ -63,6 +63,7 @@ public class QueueManager extends AbstractQueueManager {
         tickets = new PriorityQueue<>();
         creationDate = ZonedDateTime.now(ZoneId.of("Europe/Moscow"));
         isRunning = false;
+        createSet();
     }
 
 
@@ -99,7 +100,6 @@ public class QueueManager extends AbstractQueueManager {
         JSONArray jsonArray = TicketsGetter.inputTickets(dataFileName, reader, parser);
         for(Object jsonObject: jsonArray)
             addTicket((JSONObject) jsonObject);
-        jsonArray.forEach(obj->addTicket((JSONObject) obj));
     }
 
     /**
@@ -154,6 +154,7 @@ public class QueueManager extends AbstractQueueManager {
     public void printRefundable() {
         sort();
         List<AbstractTicket> ticketsList = getTicketsList();
+        ticketsList.sort(getRefundableComparator());
         for(int i = ticketsList.size() - 1; i >= 0; i--) {
             System.out.println(ticketsList.get(i).getRefundable());
         }
@@ -226,6 +227,11 @@ public class QueueManager extends AbstractQueueManager {
         tickets = new PriorityQueue<>(ticketsSet);
     }
 
+    /**
+     * Method that get maximal ticket from collection
+     * @return maximal ticket
+     */
+
     private AbstractTicket maxTicket() {
         AbstractTicket ticketMax = tickets.peek();
         for(AbstractTicket ticket: tickets) {
@@ -276,5 +282,23 @@ public class QueueManager extends AbstractQueueManager {
 
     public void saveDataToFile() {
         TicketSaver.saveTickets(tickets, dataFileName);
+    }
+
+    /**
+     * Method that gets comparator for refundable reverse sort
+     * @return comparator for sort
+     */
+
+    private Comparator<AbstractTicket> getRefundableComparator() {
+        return new Comparator<AbstractTicket>() {
+            public int compare(AbstractTicket t1, AbstractTicket t2) {
+                if(t1 == null || !t1.getRefundable()&&t2.getRefundable() )
+                    return -1;
+                else if(t1.getRefundable()&&!t2.getRefundable())
+                    return 1;
+                else
+                    return 0;
+            }
+        };
     }
 }

@@ -12,7 +12,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
-    private java.time.ZonedDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private ZonedDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private int price; //Значение поля должно быть больше 0
     private double discount; //Значение поля должно быть больше 0, Максимальное значение поля: 100
     private Boolean refundable; //Поле может быть null
@@ -21,7 +21,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Getter for {@link AbstractTicket#id}
-     * @return int {@link AbstractTicket#id}
+     * @return {@link AbstractTicket#id}
      */
 
     public int getId() {
@@ -30,7 +30,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Getter for {@link AbstractTicket#coordinates}
-     * @return {@link Coordinates} {@link AbstractTicket#coordinates}
+     * @return {@link #coordinates}
      */
 
     Coordinates getCoordinates() {
@@ -39,7 +39,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Getter for {@link AbstractTicket#discount}
-     * @return double {@link AbstractTicket#discount}
+     * @return {@link AbstractTicket#discount}
      */
 
     public double getDiscount() {
@@ -48,7 +48,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Getter for {@link AbstractTicket#refundable}
-     * @return Boolean {@link AbstractTicket#refundable}
+     * @return {@link AbstractTicket#refundable}
      */
 
     public Boolean getRefundable() {
@@ -74,7 +74,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Getter for the ticket {@link AbstractTicket#price}
-     * @return int {@link #price}
+     * @return {@link #price}
      */
 
     public int getPrice() {
@@ -116,25 +116,27 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
     }
 
     /**
-     * Method which casts String type into main.TicketType
+     * Method which casts String type into TicketType
      * @param typeStr Type in the String format
-     * @return Type in main.TicketType format
+     * @return Type in TicketType format
      */
 
     public static TicketType castType(String typeStr) {
-        return switch (typeStr.toLowerCase()) {
-            case "vip" -> TicketType.VIP;
-            case "cheap" -> TicketType.CHEAP;
-            case "usual" -> TicketType.USUAL;
-            case "" -> null;
-            default -> throw new exceptions.InvalidTypeException();
-        };
+        switch (typeStr.toLowerCase()) {
+            case "vip": return TicketType.VIP;
+            case "cheap": return TicketType.CHEAP;
+            case "usual": return TicketType.USUAL;
+            case "":
+            case "null":
+                return null;
+            default: throw new exceptions.InvalidTypeException();
+        }
     }
 
     /**
      * Method which casts String price to int
      * @param price price in string format
-     * @return int price
+     * @return ticket price
      */
 
     public static int castPrice(String price){
@@ -148,7 +150,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
     /**
      * Method which casts {@link String} discount to double
      * @param discount discount in string format
-     * @return discount double
+     * @return discount ticket discount
      */
 
     public static double castDiscount(String discount){
@@ -163,11 +165,14 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
     /**
      * Method which casts {@link String} refundable to {@link Boolean}
      * @param refundable refundable in string format
-     * @return refundable {@link Boolean}
+     * @return refundable ticket is refundable or not
      */
 
     public static Boolean castRefundable(String refundable){
-        return Boolean.parseBoolean(refundable);
+        if(refundable.equals("null") || refundable.equals(""))
+            return null;
+        else
+            return Boolean.parseBoolean(refundable);
     }
 
     public int compareTo(AbstractTicket ticket) {
@@ -180,7 +185,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Getter for {@link AbstractTicket#person}
-     * @return {@link Person} person
+     * @return {@link AbstractTicket#person}
      */
 
     public Person getPerson() {
@@ -189,7 +194,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Getter for {@link #creationDate}
-     * @return {@link ZonedDateTime} {@link #creationDate}
+     * @return {@link #creationDate}
      */
 
     public ZonedDateTime getCreationDate() {
@@ -198,7 +203,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Getter for {@link #name}
-     * @return {@link String} {@link #name}
+     * @return {@link #name}
      */
 
     public String getName() {
@@ -207,7 +212,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Getter for {@link #type}
-     * @return {@link TicketType} {{@link #type}}
+     * @return {{@link #type}}
      */
 
     public TicketType getType(){
@@ -216,7 +221,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Setter for {@link #creationDate}
-     * @param creationDate {@link ZonedDateTime}
+     * @param creationDate ticket creation date
      */
 
     protected void setCreationDate(ZonedDateTime creationDate) {
@@ -251,7 +256,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
 
     /**
      * Setter for {@link #name}
-     * @param name {@link String}
+     * @param name ticket name
      */
 
     public void setName(String name) {
@@ -319,9 +324,13 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
         jsonTicket.put("creationDate", creationDate.toString());
         jsonTicket.put("price", Integer.toString(price));
         jsonTicket.put("discount", Double.toString(discount));
-        if(refundable != null)
+        if(refundable == null)
+            jsonTicket.put("refundable", "");
+        else
             jsonTicket.put("refundable", refundable.toString());
-        if(type != null)
+        if(type == null)
+            jsonTicket.put("type", "");
+        else
             jsonTicket.put("type", type.toString());
         jsonPerson.put("weight", person.getWeight().toString());
         jsonPerson.put("eyeColor", person.getEyeColor().toString());

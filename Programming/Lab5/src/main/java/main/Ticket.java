@@ -5,6 +5,7 @@ import org.json.simple.JSONObject;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.Set;
 
 /**
  * Class which is the realization of {@link AbstractTicket} with {@link JSONObject} parsing methods.
@@ -26,8 +27,8 @@ public class Ticket extends AbstractTicket {
      */
 
     public Ticket(JSONObject jsonTicket) {
-        configureId(++ticketCounter);
-        setCreationDate(ZonedDateTime.now(ZoneId.of("Europe/Moscow")));
+        configureId(manageID(jsonTicket.get("id")));
+        setCreationDate(manageDateTime(jsonTicket.get("creationDate")));
         manageName(jsonTicket.get("name"));
         manageCoordinates(jsonTicket.get("coordinates"));
         setPrice(castPrice((String) jsonTicket.get("price")));
@@ -49,7 +50,7 @@ public class Ticket extends AbstractTicket {
      */
 
     public Ticket(String name, Coordinates coordinates, int price, double discount, Boolean refundable, TicketType type, Person person) {
-        configureId(++ticketCounter);
+        configureId(AbstractQueueManager.getID());
         setCreationDate(ZonedDateTime.now(ZoneId.of("Europe/Moscow")));
         setName(name);
         setCoordinates(coordinates);
@@ -61,6 +62,40 @@ public class Ticket extends AbstractTicket {
     }
 
     /**
+     * Method which is being used for transition of creation date into creation date field
+     * @param creationDate date of ticket creation
+     * @return creation date object
+     */
+
+    private ZonedDateTime manageDateTime(Object creationDate) {
+        try {
+            return ZonedDateTime.parse((String) creationDate);
+        } catch (Exception e) {
+            return ZonedDateTime.now(ZoneId.of("Europe/Moscow"));
+        }
+    }
+
+    /**
+     * Method which is being used for transition of creation id into creation id field
+     * @param id id of the ticket
+     * @return id object
+     */
+
+    private int manageID(Object id) {
+        try{
+            int idInt = Integer.parseInt((String) id);
+            if(!AbstractQueueManager.idExists(idInt)) {
+                AbstractQueueManager.addID(idInt);
+                return idInt;
+            }
+            else
+                throw new InvalidIdException();
+        } catch (Exception e) {
+            return AbstractQueueManager.getID();
+        }
+    }
+
+    /**
      * Method which is being used for transition of jsonName into name field
      * @param jsonName {@link Object} containing data of the name
      */
@@ -68,7 +103,7 @@ public class Ticket extends AbstractTicket {
     private void manageName(Object jsonName) {
         setName((String) jsonName);
         if(jsonName == null || !AbstractTicket.nameValid(getName()))
-            throw new exceptions.InvalidNameException();
+            throw new InvalidNameException();
     }
 
     /**

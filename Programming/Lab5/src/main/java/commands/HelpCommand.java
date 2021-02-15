@@ -10,6 +10,10 @@ import main.AbstractQueueManager;
 
 public class HelpCommand implements Command {
 
+    /**
+     * Constructor for help command
+     */
+
     public HelpCommand() {
 
     }

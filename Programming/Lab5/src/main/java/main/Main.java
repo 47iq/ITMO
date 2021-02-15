@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) {
         //Scanner scanner = new Scanner(System.in);
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-        String fileName = null;
+        String fileName;
         try {
             if(args.length == 0)
                 throw new InputFileNotFoundException();

@@ -42,7 +42,7 @@ public abstract class CommandFactory {
 
     /**
      * Setter for {@link #taskManager}
-     * @param manager {@link #taskManager}
+     * @param manager collection manager
      */
 
     public static void setTaskManager(CollectionManager manager) {
@@ -51,7 +51,7 @@ public abstract class CommandFactory {
 
     /**
      * Setter for {@link #input}
-     * @param reader {@link #input}
+     * @param reader input reader
      */
 
     public static void setInput(BufferedReader reader) {
@@ -86,7 +86,7 @@ public abstract class CommandFactory {
         try {
             inputIsFromFile = true;
             inputFile = file;
-            while (true) {
+            while (input.ready()) {
                 String[] commands = input.readLine().split(" ");
                 getCommand(commands).execute();
             }
