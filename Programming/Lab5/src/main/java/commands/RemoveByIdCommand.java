@@ -3,6 +3,7 @@ package commands;
 import exceptions.TicketNotFoundException;
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandReader;
 
 /**
  * Class of remove_by_id command
@@ -16,36 +17,43 @@ public class RemoveByIdCommand implements Command {
      * Collection's manager
      */
 
-    private final CollectionManager taskManager;
+    private final CollectionManager collectionManager;
 
     /**
      * Id of the ticket we want to remove
      */
 
-    private final int id;
+    private int id;
 
-    /**
-     * Constructor of the remove_by_id command
-     * @param taskManager collection's manager
-     * @param id id of the ticket we want to remove
-     */
+    private String arg;
 
-    public RemoveByIdCommand(CollectionManager taskManager, int id) {
-        this.taskManager = taskManager;
-        this.id = id;
+
+    public RemoveByIdCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+        this.collectionManager = collectionManager;
+        this.arg = arg;
     }
 
     public void execute() {
         //System.out.println("Trying to remove ticket by id.");
+        try{
+            id = Integer.parseInt(arg);
+        } catch (Exception e) {
+            System.err.println("Error. ID must be int.");
+            return;
+        }
         try {
-            if(!taskManager.elementExists(id))
+            if(!collectionManager.elementExists(id))
                 throw new TicketNotFoundException();
-            taskManager.removeById(id);
+            collectionManager.removeById(id);
             //System.out.println("AbstractTicket has been successfully removed.");
         } catch (TicketNotFoundException e) {
             System.err.println(e.getMessage());
         } catch (Exception e) {
             System.err.println("Error got  while removing the ticket");
         }
+    }
+
+    public static String strConvert() {
+        return "remove_by_id (id): remove ticket with the given id.";
     }
 }

@@ -2,6 +2,7 @@ package commands;
 
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandReader;
 
 /**
  * Class of info command
@@ -15,24 +16,25 @@ public class InfoCommand implements Command {
      * Collection's manager
      */
 
-    private final CollectionManager taskManager;
+    private final CollectionManager collectionManager;
 
-    /**
-     * Constructor of the info command
-     * @param taskManager collection's manager
-     */
 
-    public InfoCommand(CollectionManager taskManager) {
-        this.taskManager = taskManager;
+    public InfoCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+        this.collectionManager = collectionManager;
     }
 
     public void execute() {
         //System.out.println("Info displaying has started.");
         try {
-            taskManager.displayInfo();
+            collectionManager.displayInfo();
             //System.out.println("Info displaying has been completed");
         } catch (Exception e) {
             System.err.println("Error got while displaying the info");
         }
     }
+
+    public static String strConvert() {
+        return "info : get information about the collection.";
+    }
+
 }

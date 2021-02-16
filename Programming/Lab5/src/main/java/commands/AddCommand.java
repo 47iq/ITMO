@@ -1,8 +1,9 @@
 package commands;
 
-import main.AbstractTicket;
-import main.AbstractQueueManager;
+import exceptions.InvalidTicketException;
 import main.CollectionManager;
+import main.CommandReader;
+import main.Ticket;
 
 /**
  * Class of add command
@@ -13,37 +14,52 @@ import main.CollectionManager;
 public class AddCommand implements Command {
 
     /**
-     * Task manager to execute command
+     * Manager of the ticket collection
      */
 
-    private final CollectionManager taskManager;
+    CollectionManager collectionManager;
 
     /**
-     * Ticket that needs to be added
+     * Command reader
      */
 
-    private final AbstractTicket ticket;
+    CommandReader commandReader;
+
+    /**
+     * Ticket we want to add
+     */
+
+    Ticket ticket;
+
 
     /**
      * Constructor of the add command
-     * @param taskManager collection's manager
-     * @param ticket ticket we want to add
      */
 
-    public AddCommand(CollectionManager taskManager, AbstractTicket ticket) {
-        this.taskManager = taskManager;
-        this.ticket = ticket;
+    public AddCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+        this.collectionManager = collectionManager;
+        this.commandReader = reader;
     }
 
     public void execute() {
         //System.out.println("Adding ticket to the collection has started");
+        try{
+            ticket = commandReader.readTicket();
+        } catch (Exception e) {
+            System.err.println(new InvalidTicketException().getMessage());
+            return;
+        }
         if(ticket == null)
             return;
         try {
-            taskManager.addTicket(ticket);
+            collectionManager.addTicket(ticket);
             //System.out.println("AbstractTicket has been successfully added");
         } catch (Exception e) {
             System.err.println("Error got while adding ticket to the collection");
         }
+    }
+
+    public static String strConvert() {
+        return "add {Ticket}: add ticket to the collection.";
     }
 }

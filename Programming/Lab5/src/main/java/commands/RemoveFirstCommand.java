@@ -2,6 +2,7 @@ package commands;
 
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandReader;
 
 /**
  * Class of remove_first command
@@ -15,24 +16,24 @@ public class RemoveFirstCommand implements Command {
      * Collection's manager
      */
 
-    private final CollectionManager taskManager;
+    private final CollectionManager collectionManager;
 
-    /**
-     * Constructor of the remove_first command
-     * @param taskManager collection's manager
-     */
 
-    public RemoveFirstCommand(CollectionManager taskManager) {
-        this.taskManager = taskManager;
+    public RemoveFirstCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+        this.collectionManager = collectionManager;
     }
 
     public void execute() {
         //System.out.println("Removing the first element has started");
         try {
-            taskManager.removeFirst();
+            collectionManager.removeFirst();
             //System.out.println("The first element has been successfully removed");
         } catch (Exception e) {
             System.err.println("Error got while removing the first element");
         }
+    }
+
+    public static String strConvert() {
+        return "remove_first: remove first ticket from the collection.";
     }
 }

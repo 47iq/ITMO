@@ -1,8 +1,9 @@
 package commands;
 
-import main.AbstractTicket;
-import main.AbstractQueueManager;
+import exceptions.InvalidTicketException;
 import main.CollectionManager;
+import main.CommandReader;
+import main.Ticket;
 
 /**
  * Class of remove_greater command
@@ -16,34 +17,40 @@ public class RemoveGreaterCommand implements Command {
      * Collection's manager
      */
 
-    private final CollectionManager taskManager;
+    private final CollectionManager collectionManager;
 
     /**
      * Ticket we want to compare to
      */
 
-    private final AbstractTicket ticket;
+    private Ticket ticket;
 
-    /**
-     * Constructor of the remove_greater command
-     * @param taskManager collection's manager
-     * @param ticket ticket we want to compare to
-     */
+    private final CommandReader commandReader;
 
-    public RemoveGreaterCommand(CollectionManager taskManager, AbstractTicket ticket) {
-        this.taskManager = taskManager;
-        this.ticket = ticket;
+    public RemoveGreaterCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+        this.collectionManager = collectionManager;
+        this.commandReader = reader;
     }
 
     public void execute() {
         //System.out.println("Removing tickets greater than given has started");
+        try{
+            commandReader.readTicket();
+        } catch (Exception e) {
+            System.err.println(new InvalidTicketException().getMessage());
+            return;
+        }
         try {
             if(ticket != null)
-                taskManager.removeGreater(ticket);
+                collectionManager.removeGreater(ticket);
             //System.out.println("Removing elements has been finished");
         } catch (Exception e) {
             System.err.println("Error got while removing elements");
         }
 
+    }
+
+    public static String strConvert() {
+        return "remove_greater {Ticket}: remove tickets bigger than given.";
     }
 }

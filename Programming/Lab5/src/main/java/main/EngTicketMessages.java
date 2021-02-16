@@ -1,20 +1,24 @@
 package main;
 
 /**
- * Abstract class which manages user-friendly output of {@link AbstractTicket}
+ * Abstract class which manages user-friendly output of {@link Ticket}
  * @autor 47iq
  * @version 1.0
  */
 
-public abstract class TicketMessagesFactory {
+public class EngTicketMessages implements TicketMessenger {
+
+    public EngTicketMessages() {
+
+    }
 
     /**
-     * Method for getting user-friendly output of {@link AbstractTicket}
+     * Method for getting user-friendly output of {@link Ticket}
      * @param ticket ticket we want to be outputted
      * @return ticketStr ticket in string format
      */
 
-    public static String getTicketMessage(AbstractTicket ticket) {
+    public String getTicketMessage(Ticket ticket) {
         return "Ticket data:\n    Ticket id: " + ticket.getId() + "\n    Name: " + ticket.getName() +
                 "\n    Coordinates: " + getCoordinatesMessage(ticket.getCoordinates())  + "\n    Created at: " +
                 ticket.getCreationDate() + "\n    Price: " + ticket.getPrice() + "\n    Discount: " + ticket.getDiscount() +
@@ -28,7 +32,7 @@ public abstract class TicketMessagesFactory {
      * @return coordinatesStr coordinates in string format
      */
 
-    private static String getCoordinatesMessage(Coordinates coordinates) {
+    private String getCoordinatesMessage(Coordinates coordinates) {
         return "\n        X: " + coordinates.getX() + "\n        Y: " + coordinates.getY();
     }
 
@@ -38,7 +42,7 @@ public abstract class TicketMessagesFactory {
      * @return personStr person in string format
      */
 
-    private static String getPersonMessage(Person person) {
+    private String getPersonMessage(Person person) {
         return "\n        Weight: " + person.getWeight() + "\n        Eyes color: " + person.getEyeColor() + "\n        " +
                 "Hair color: " + person.getHairColor() + "\n        Nationality: " + person.getNationality();
     }

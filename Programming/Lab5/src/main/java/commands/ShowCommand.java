@@ -2,6 +2,7 @@ package commands;
 
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandReader;
 
 /**
  * Class of show command
@@ -15,24 +16,24 @@ public class ShowCommand implements Command {
      * Collection's manager
      */
 
-    private final CollectionManager taskManager;
+    private final CollectionManager collectionManager;
 
-    /**
-     * Constructor of the show command
-     * @param taskManager collection's manager
-     */
 
-    public ShowCommand(CollectionManager taskManager) {
-        this.taskManager = taskManager;
+    public ShowCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+        this.collectionManager = collectionManager;
     }
 
     public void execute() {
         //System.out.println("Displaying tickets");
         try {
-            taskManager.displayElements();
+            collectionManager.displayElements();
             //System.out.println("Tickets have been successfully displayed");
         } catch (Exception e) {
             System.err.println("Error got while displaying tickets");
         }
+    }
+
+    public static String strConvert() {
+        return "show: get the collection's elements.";
     }
 }

@@ -2,6 +2,7 @@ package commands;
 
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandReader;
 
 /**
  * Class of filter_greater_than_discount command
@@ -15,32 +16,38 @@ public class FilterGreaterThanDiscountCommand implements Command {
      * Collection's manager
      */
 
-    private final CollectionManager taskManager;
+    private final CollectionManager collectionManager;
 
     /**
      * Discount we want to filter
      */
 
-    private final double discount;
+    private double discount;
 
-    /**
-     * Constructor of the filter_greater_than_discount command
-     * @param taskManager collection's manager
-     * @param discount discount we want to filter
-     */
+    private String arg;
 
-    public FilterGreaterThanDiscountCommand(CollectionManager taskManager, double discount) {
-        this.discount = discount;
-        this.taskManager = taskManager;
+
+    public FilterGreaterThanDiscountCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+        this.collectionManager = collectionManager;
     }
 
     public void execute() {
         //System.out.println("Displaying elements with discount greater than given");
         try{
-            taskManager.filterDiscount(discount);
+            discount = Double.parseDouble(arg);
+        } catch (Exception e) {
+            System.err.println("Invalid discount value has been entered. Discount must be double.");
+            return;
+        }
+        try{
+            collectionManager.filterDiscount(discount);
             //System.out.println("The elements have been successfully displayed");
         } catch (Exception e) {
             System.err.println("Error got while displaying the elements");
         }
+    }
+
+    public static String strConvert() {
+        return "filter_greater_than_discount (discount): get elements, which have bigger discount than given.";
     }
 }

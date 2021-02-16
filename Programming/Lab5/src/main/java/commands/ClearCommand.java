@@ -1,7 +1,7 @@
 package commands;
 
-import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandReader;
 
 /**
  * Class of clear command
@@ -14,24 +14,28 @@ public class ClearCommand implements Command {
      * Collection's manager
      */
 
-    private final CollectionManager taskManager;
+    private final CollectionManager collectionManager;
 
     /**
      * Constructor of the clear command
-     * @param taskManager collection's manager
+     * @param collectionManager collection's manager
      */
 
-    public ClearCommand(CollectionManager taskManager) {
-        this.taskManager = taskManager;
+    public ClearCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+        this.collectionManager = collectionManager;
     }
 
     public void execute() {
         //System.out.println("Clearing the collection has started");
         try {
-            taskManager.clear();
+            collectionManager.clear();
             //System.out.println("Collection has been successfully cleared");
         } catch (Exception e) {
             System.err.println("Error got while clearing collection");
         }
+    }
+
+    public static String strConvert() {
+        return "clear: clear the collection.";
     }
 }

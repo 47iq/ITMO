@@ -2,6 +2,7 @@ package commands;
 
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandReader;
 
 /**
  * Class of print_field_descending_refundable command
@@ -15,24 +16,24 @@ public class PrintFieldDescendingRefundableCommand implements Command{
      * Collection's manager
      */
 
-    private final CollectionManager taskManager;
+    private final CollectionManager collectionManager;
 
-    /**
-     * Constructor of the print_field_descending_refundable command
-     * @param taskManager collection's manager
-     */
-
-    public PrintFieldDescendingRefundableCommand(CollectionManager taskManager) {
-        this.taskManager = taskManager;
+    public PrintFieldDescendingRefundableCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+        this.collectionManager = collectionManager;
     }
 
     public void execute() {
         //System.out.println("Displaying refundable field of the elements in the descending order");
         try{
-            taskManager.printRefundable();
+            collectionManager.printRefundable();
             //System.out.println("Refundable fields of the elements had been successfully displayed");
         } catch (Exception e) {
+            e.printStackTrace();
             System.err.println("Error got while displaying the refundable field");
         }
+    }
+
+    public static String strConvert() {
+        return "print_field_descending_refundable: get refundable fields of the elements sorted in descending order.";
     }
 }

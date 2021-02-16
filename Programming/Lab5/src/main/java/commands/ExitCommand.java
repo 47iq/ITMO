@@ -2,6 +2,7 @@ package commands;
 
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandReader;
 
 /**
  * Class of exit command
@@ -11,23 +12,18 @@ import main.CollectionManager;
 
 public class ExitCommand implements Command {
 
-    /**
-     * Collection's manager
-     */
+    private final CommandReader commandReader;
 
-    private final CollectionManager taskManager;
-
-    /**
-     * Constructor of the exit command
-     * @param taskManager collection's manager
-     */
-
-    public ExitCommand(CollectionManager taskManager) {
-        this.taskManager = taskManager;
+    public ExitCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+        this.commandReader = reader;
     }
 
     public void execute() {
         //System.out.println("Exiting program...");
-        taskManager.exit();
+        commandReader.exit();
+    }
+
+    public static String strConvert() {
+        return "exit: stop the program.";
     }
 }

@@ -1,8 +1,9 @@
 package commands;
 
-import main.AbstractQueueManager;
-import main.AbstractTicket;
+import exceptions.InvalidTicketException;
 import main.CollectionManager;
+import main.CommandReader;
+import main.Ticket;
 
 /**
  * Class of add_if_max command
@@ -16,34 +17,41 @@ public class AddIfMaxCommand implements Command {
      * Collection's manager
      */
 
-    private final CollectionManager taskManager;
+    private final CollectionManager collectionManager;
+
+    private final CommandReader commandReader;
 
     /**
      * Ticket we want to add
      */
 
-    private final AbstractTicket ticket;
+    private Ticket ticket;
 
-    /**
-     * Constructor of the add_if_max command
-     * @param taskManager collection's manager
-     * @param ticket ticket we want to add
-     */
 
-    public AddIfMaxCommand(CollectionManager taskManager, AbstractTicket ticket) {
-        this.taskManager = taskManager;
-        this.ticket = ticket;
+    public AddIfMaxCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+        this.collectionManager = collectionManager;
+        this.commandReader = reader;
     }
 
     public void execute() {
+        try{
+            ticket = commandReader.readTicket();
+        } catch (Exception e) {
+            System.err.println(new InvalidTicketException().getMessage());
+            return;
+        }
         //System.out.println("Trying to add ticket...");
         if(ticket == null)
             return;
         try{
-            taskManager.addIfMax(ticket);
+            collectionManager.addIfMax(ticket);
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Error got while adding the ticket");
         }
+    }
+
+    public static String strConvert() {
+        return "add_if_max {Ticket}: add given ticket if it is bigger than any other ticket of the collection.";
     }
 }

@@ -6,7 +6,7 @@ import java.io.Reader;
 import java.util.*;
 
 /**
- * Abstract class implementing {@link CollectionManager} which manages the execution of the application and in particular it manages {@link Queue<AbstractTicket>}.
+ * Abstract class implementing {@link CollectionManager} which manages the execution of the application and in particular it manages {@link Queue<Ticket>}.
  * @autor 47iq
  * @version 1.0
  */
@@ -14,10 +14,10 @@ import java.util.*;
 public abstract class AbstractQueueManager implements CollectionManager{
 
     /**
-     * {@link AbstractTicket} collection
+     * {@link Ticket} collection
      */
 
-    protected Queue<AbstractTicket> tickets;
+    protected Queue<Ticket> tickets;
 
     /**
      * Input stream of the {@link AbstractQueueManager}
@@ -37,25 +37,23 @@ public abstract class AbstractQueueManager implements CollectionManager{
 
     private static Set<Integer> idSet;
 
-    public abstract void start();
+    public abstract void parseDataToCollection();
 
-    public abstract void addTicket(AbstractTicket ticket);
+    public abstract void addTicket(Ticket ticket);
 
     public abstract void displayInfo();
 
-    public abstract void updateId(int id, AbstractTicket ticket);
+    public abstract void updateId(int id, Ticket ticket);
 
     public abstract void removeById(int id);
 
     public abstract void clear();
 
-    public abstract void exit();
-
     public abstract void removeFirst();
 
-    public abstract void addIfMax(AbstractTicket ticket);
+    public abstract void addIfMax(Ticket ticket);
 
-    public abstract void removeGreater(AbstractTicket ticket);
+    public abstract void removeGreater(Ticket ticket);
 
     public abstract void maxByCoordinates();
 
@@ -65,7 +63,7 @@ public abstract class AbstractQueueManager implements CollectionManager{
 
     public abstract void printRefundable();
 
-    public abstract void saveDataToFile();
+    public abstract void saveData();
 
     public abstract boolean elementExists(int id);
 
@@ -113,6 +111,6 @@ public abstract class AbstractQueueManager implements CollectionManager{
      */
 
     public static void createSet() {
-        idSet = new HashSet<>();
+        idSet = new HashSet<Integer>();
     }
 }

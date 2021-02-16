@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Collection;
-import java.util.Queue;
 
 /**
  * Abstract class which is used to save given collection of tickets to the given file
@@ -14,18 +13,30 @@ import java.util.Queue;
  * @version 1.0
  */
 
-public abstract class TicketSaver {
+public class JSONFileTicketWriter implements TicketWriter {
+
+    private Collection<Ticket> tickets = ObjectFactory.getTicketsCollection();
+
+    private final String dataFileName;
+
+    /**
+     * Constructor of JSONFileTicketManager
+     * @param dataFileName name of file
+     */
+
+    public JSONFileTicketWriter(String dataFileName){
+        this.dataFileName = dataFileName;
+    }
 
     /**
      * Method which is used to save given collection of tickets to the given file
-     * @param tickets {@link Collection<AbstractTicket>} of tickets
-     * @param dataFileName name of the output {@link File}
      */
 
-    public static void saveTickets(Collection<AbstractTicket> tickets, String dataFileName) {
+    public void saveTickets(Collection<Ticket> tickets) {
+        this.tickets = tickets;
         JSONArray jsonArray = new JSONArray();
         //int cnt = 0;
-        for (AbstractTicket ticket : tickets) {
+        for (Ticket ticket : tickets) {
             //System.out.println("Converting ticket " + ticket.getId() + "...");
             try {
                 jsonArray.add(ticket.toJSON());

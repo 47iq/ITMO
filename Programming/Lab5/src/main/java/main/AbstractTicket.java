@@ -1,13 +1,11 @@
 package main;
 
-import exceptions.InvalidDiscountException;
-import exceptions.InvalidPriceException;
 import org.json.simple.JSONObject;
 
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
-public abstract class AbstractTicket implements Comparable<AbstractTicket> {
+public abstract class AbstractTicket implements Ticket {
 
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -33,7 +31,7 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
      * @return {@link #coordinates}
      */
 
-    Coordinates getCoordinates() {
+    public Coordinates getCoordinates() {
         return coordinates;
     }
 
@@ -81,107 +79,6 @@ public abstract class AbstractTicket implements Comparable<AbstractTicket> {
         return price;
     }
 
-    /**
-     * A {@link AbstractTicket#price} validator
-     * @param price int
-     * @return true if price is valid, false if not
-     */
-
-    static boolean priceValid(int price) {
-        return price > 0;
-    }
-
-    /**
-     * A {@link AbstractTicket#name} validator
-     * @param name ticket's name
-     * @return true if name is valid, false if not
-     */
-
-    static boolean nameValid(String name) {
-        return name != null && !name.equals("");
-    }
-
-    /**
-     * A {@link AbstractTicket#discount} validator
-     * @param discount ticket's discount
-     * @return true if discount is valid, false if not
-     */
-
-    static boolean discountValid(double discount) {
-        return discount > 0 && discount <= 100;
-    }
-
-    static boolean idValid(int id) {
-        return id > 0;
-    }
-
-    /**
-     * Method which casts String type into TicketType
-     * @param typeStr Type in the String format
-     * @return Type in TicketType format
-     */
-
-    public static TicketType castType(String typeStr) {
-        switch (typeStr.toLowerCase()) {
-            case "vip": return TicketType.VIP;
-            case "cheap": return TicketType.CHEAP;
-            case "usual": return TicketType.USUAL;
-            case "":
-            case "null":
-                return null;
-            default: throw new exceptions.InvalidTypeException();
-        }
-    }
-
-    /**
-     * Method which casts String price to int
-     * @param price price in string format
-     * @return ticket price
-     */
-
-    public static int castPrice(String price){
-        int priceInt = Integer.parseInt(price);
-        if(!AbstractTicket.priceValid(priceInt))
-            throw new InvalidPriceException();
-        else
-            return priceInt;
-    }
-
-    /**
-     * Method which casts {@link String} discount to double
-     * @param discount discount in string format
-     * @return discount ticket discount
-     */
-
-    public static double castDiscount(String discount){
-        double discountDouble = Double.parseDouble(discount);
-        if(!AbstractTicket.discountValid(discountDouble)) {
-            throw new InvalidDiscountException();
-        }
-        else
-            return discountDouble;
-    }
-
-    /**
-     * Method which casts {@link String} refundable to {@link Boolean}
-     * @param refundable refundable in string format
-     * @return refundable ticket is refundable or not
-     */
-
-    public static Boolean castRefundable(String refundable){
-        if(refundable.equals("null") || refundable.equals(""))
-            return null;
-        else
-            return Boolean.parseBoolean(refundable);
-    }
-
-    public int compareTo(AbstractTicket ticket) {
-        int priceDiff = getPrice() - ticket.getPrice();
-        if(priceDiff != 0)
-            return priceDiff;
-        else
-            return getId() - ticket.getId();
-    }
 
     /**
      * Getter for {@link AbstractTicket#person}

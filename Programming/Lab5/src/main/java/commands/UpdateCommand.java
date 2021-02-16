@@ -1,9 +1,11 @@
 package commands;
 
+import exceptions.InvalidTicketException;
 import exceptions.TicketNotFoundException;
 import main.AbstractTicket;
-import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandReader;
+import main.Ticket;
 
 /**
  * Class of update command
@@ -23,30 +25,38 @@ public class UpdateCommand implements Command {
      * id of the ticket we want to update
      */
 
-    private final int id;
+    private int id;
 
     /**
      * New ticket
      */
 
-    private final AbstractTicket ticket;
+    private Ticket ticket;
 
-    /**
-     * Constructor of the update command
-     * @param taskManager collection's manager
-     * @param id id of the ticket we want to update
-     * @param ticket new ticket
-     */
+    private CommandReader commandReader;
 
-    public UpdateCommand(CollectionManager taskManager, int id, AbstractTicket ticket) {
-        this.taskManager = taskManager;
-        this.id = id;
-        this.ticket = ticket;
+    private String arg;
+
+
+    public UpdateCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+        this.taskManager = collectionManager;
     }
 
     public void execute() {
         //System.out.println("Updating ticket has started");
-        if(ticket == null)
+        try {
+            ticket = commandReader.readTicket();
+        } catch (Exception e) {
+            System.err.println(new InvalidTicketException().getMessage());
+            return;
+        }
+        try {
+            id = Integer.parseInt(arg);
+        } catch (Exception e) {
+            System.err.println("Invalid ID has been entered. ID must be int.");
+            return;
+        }
+        if (ticket == null)
             return;
         try {
             if(!taskManager.elementExists(id))
@@ -58,5 +68,9 @@ public class UpdateCommand implements Command {
         }  catch (Exception e) {
             System.err.println("Error got while updating the ticket");
         }
+    }
+
+    public static String strConvert() {
+        return "update (id) {AbstractTicket}: update ticket with the given id.";
     }
 }

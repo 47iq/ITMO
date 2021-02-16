@@ -12,7 +12,7 @@ import java.util.Objects;
  * @version 1.0
  */
 
-public class Coordinates implements Comparable<Coordinates> {
+public class Coordinates implements Comparable<Coordinates>, CoordinatesCaster {
     private double x; //Значение поля должно быть больше -172
     private Integer y; //Значение поля должно быть больше -236, Поле не может быть null
 
@@ -43,52 +43,6 @@ public class Coordinates implements Comparable<Coordinates> {
             throw new InvalidYCoordinateException();
         else
             y = castYCoordinate(yStr);
-    }
-
-    /**
-     * Method which is being used to cast x from String to double
-     * @param xCoordinate x String value
-     * @return x double value
-     */
-
-    public static double castXCoordinate (String xCoordinate) {
-        double x = Double.parseDouble(xCoordinate);
-        if (!xCoordinateValid(x))
-            throw new InvalidXCoordinateException();
-        else
-            return x;
-    }
-
-    /**
-     * X validator
-     * @return true if x is valid, false if not
-     */
-
-    public static boolean xCoordinateValid(double x) {
-        return x > -172;
-    }
-
-    /**
-     * Method which is being used to cast y from String to Integer
-     * @param yCoordinate y in the String format
-     * @return y Integer value
-     */
-
-    public static Integer castYCoordinate (String yCoordinate) {
-        Integer y =  Integer.parseInt(yCoordinate);
-        if(!yCoordinateValid(y))
-            throw new InvalidYCoordinateException();
-        else
-            return y;
-    }
-
-    /**
-     * Y validator
-     * @return true if y is valid, false if not
-     */
-
-    public static boolean yCoordinateValid(Integer y) {
-        return y != null && y > -236;
     }
 
     public String toString() {

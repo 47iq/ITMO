@@ -1,16 +1,11 @@
 package main;
 
-import java.io.*;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.*;
 
 import exceptions.EmptyTicketsException;
-import exceptions.InputFileNotFoundException;
 import exceptions.TicketNotFoundException;
-import exceptions.UnknownCommandException;
-import org.json.simple.*;
-import org.json.simple.parser.JSONParser;
 
 /**
  * Class, which is the realization of {@link AbstractQueueManager}
@@ -21,104 +16,48 @@ import org.json.simple.parser.JSONParser;
 public class QueueManager extends AbstractQueueManager {
 
     /**
-     * {@link JSONParser} to get data from json file
-     */
-    private final JSONParser parser = new JSONParser();
-
-    /**
-     * Condition of the program (true if executing, false if not)
-     */
-
-    private boolean isRunning;
-
-    /**
      * Creation time of {@link #tickets}
      */
 
     private final ZonedDateTime creationDate;
 
-    /**
-     * Method used to get {@link #reader}
-     * @return reader {@link BufferedReader} for the {@link #dataFileName}
-     * @throws FileNotFoundException if {@link #dataFileName} is null
-     */
+    private final TicketWriter saver;
 
-    private Reader getFileReader() throws FileNotFoundException {
-        File dataFile = new File(dataFileName);
-        if(dataFileName == null)
-            throw new InputFileNotFoundException();
-        return new BufferedReader(new FileReader(dataFile));
-    }
+    private final TicketsParser getter;
 
+    private final TicketMessenger ticketMessenger;
 
-    /**
-     * Constructor of the {@link QueueManager}
-     * @param dataFileName {@link String} name ot the data file
-     * @throws FileNotFoundException if {@link #dataFileName} is null
-     */
-
-    public QueueManager(String dataFileName) throws FileNotFoundException {
-        this.dataFileName = dataFileName;
-        reader = getFileReader();
+    public QueueManager(TicketsParser ticketsGetter, TicketWriter ticketSaver, TicketMessenger ticketMessenger){
+        this.getter = ticketsGetter;
+        this.saver = ticketSaver;
         tickets = new PriorityQueue<>();
         creationDate = ZonedDateTime.now(ZoneId.of("Europe/Moscow"));
-        isRunning = false;
+        this.ticketMessenger = ticketMessenger;
         createSet();
-    }
-
-
-    public void start(){
-        isRunning = true;
-        try {
-            parseDataToCollection();
-            //System.out.println("Data has been successfully parsed into the collection.\n" +
-            //        "Enter the command. You can see the command list by typing \"help\" command.");
-        } catch (Exception e) {
-            System.err.println("Error while parsing data into the collection");
-        }
-        while(isRunning)
-            try {
-                CommandFactory.executeNextCommand();
-            } catch (UnknownCommandException e) {
-                System.err.println(e.getMessage());
-            } catch (IOException e) {
-                System.err.println("Error got waiting for the command");
-            }
-        try {
-            reader.close();
-        } catch (IOException e) {
-            System.err.println("An I/O exception occurred");
-        }
-        System.exit(0);
     }
 
     /**
      * Parses data from {@link #dataFileName} to the {@link #tickets} using {@link #reader} if data is a valid JSON
      */
 
-    private void parseDataToCollection() {
-        JSONArray jsonArray = TicketsGetter.inputTickets(dataFileName, reader, parser);
-        for(Object jsonObject: jsonArray)
-            addTicket((JSONObject) jsonObject);
-    }
-
-    /**
-     * Parses {@link AbstractTicket} from {@link JSONObject} and adds it to {@link #tickets}
-     * @param jsonObject {@link JSONObject} containing data of the {@link AbstractTicket}
-     */
-
-    private void addTicket(JSONObject jsonObject) {
-        AbstractTicket ticket = null;
+    public void parseDataToCollection(){
         try {
-            ticket = Main.getTicket(jsonObject);
-            addTicket(ticket);
-            //System.out.println("AbstractTicket " + ticket.getId() + " has been added successfully.");
-        } catch (ClassCastException e) {
-            System.err.println("Error while adding ticket. All fields should be entered as strings");
+            Collection<Ticket> tickets = getter.getTickets();
+            for(Ticket ticket: tickets)
+                try {
+                    addTicket(ticket);
+                } catch (Exception e) {
+                    System.err.println("Error got adding ticket (id " + ticket.getId() + "). Ticket won't be added.");
+                }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Error while parsing data into the collection");
         }
     }
 
-    public void addTicket(AbstractTicket ticket) {
+
+
+    public void addTicket(Ticket ticket) {
         tickets.add(ticket);
     }
 
@@ -128,22 +67,22 @@ public class QueueManager extends AbstractQueueManager {
     }
 
     public void displayElements() {
-         for (AbstractTicket ticket: tickets) {
-             System.out.println(TicketMessagesFactory.getTicketMessage(ticket));
+         for (Ticket ticket: tickets) {
+             System.out.println(ticketMessenger.getTicketMessage(ticket));
          }
     }
 
     /**
-     * Gets {@link List<AbstractTicket>} containing all of the {@link #tickets}
-     * @return ticketsList {@link List<AbstractTicket>}
+     * Gets {@link List<Ticket>} containing all of the {@link #tickets}
+     * @return ticketsList {@link List<Ticket>}
      */
 
-    private List<AbstractTicket> getTicketsList() {
-        List<AbstractTicket> ticketsList = new ArrayList<>();
-        PriorityQueue<AbstractTicket> ticketsBackup = new PriorityQueue<>();
+    private List<Ticket> getTicketsList() {
+        List<Ticket> ticketsList = new ArrayList<>();
+        PriorityQueue<Ticket> ticketsBackup = new PriorityQueue<>();
         int sz = tickets.size();
         for(int i = 0; i < sz; i++){
-            AbstractTicket ticket = tickets.poll();
+            Ticket ticket = tickets.poll();
             ticketsList.add(ticket);
             ticketsBackup.add(ticket);
         }
@@ -152,8 +91,7 @@ public class QueueManager extends AbstractQueueManager {
     }
 
     public void printRefundable() {
-        sort();
-        List<AbstractTicket> ticketsList = getTicketsList();
+        List<Ticket> ticketsList = getTicketsList();
         ticketsList.sort(getRefundableComparator());
         for(int i = ticketsList.size() - 1; i >= 0; i--) {
             System.out.println(ticketsList.get(i).getRefundable());
@@ -161,9 +99,9 @@ public class QueueManager extends AbstractQueueManager {
     }
 
 
-    public void updateId(int id, AbstractTicket myTicket) {
+    public void updateId(int id, Ticket myTicket) {
         boolean found = false;
-        for(AbstractTicket ticket: tickets) {
+        for(Ticket ticket: tickets) {
             if(ticket.getId() == id) {
                 tickets.remove(ticket);
                 tickets.add(myTicket);
@@ -178,7 +116,7 @@ public class QueueManager extends AbstractQueueManager {
 
     public boolean elementExists(int id) {
         boolean found = false;
-        for(AbstractTicket ticket: tickets) {
+        for(Ticket ticket: tickets) {
             if(ticket.getId() == id) {
                 found = true;
                 break;
@@ -190,7 +128,7 @@ public class QueueManager extends AbstractQueueManager {
 
     public void removeById(int id) {
         boolean found = false;
-        for(AbstractTicket ticket: tickets) {
+        for(Ticket ticket: tickets) {
             if(ticket.getId() == id) {
                 tickets.remove(ticket);
                 found = true;
@@ -207,20 +145,16 @@ public class QueueManager extends AbstractQueueManager {
     }
 
 
-    public void exit() {
-        isRunning = false;
-    }
-
     public void removeFirst() {
         tickets.remove();
     }
 
     /**
-     * Sorts {@link #tickets} using {@link TreeSet<Ticket>}
+     * Sorts {@link #tickets} using {@link TreeSet< DefaultTicket >}
      */
 
     public void sort() {
-        SortedSet<AbstractTicket> ticketsSet = new TreeSet<>();
+        SortedSet<Ticket> ticketsSet = new TreeSet<>();
         while (!tickets.isEmpty()){
             ticketsSet.add(tickets.poll());
         }
@@ -232,26 +166,26 @@ public class QueueManager extends AbstractQueueManager {
      * @return maximal ticket
      */
 
-    private AbstractTicket maxTicket() {
-        AbstractTicket ticketMax = tickets.peek();
-        for(AbstractTicket ticket: tickets) {
+    private Ticket maxTicket() {
+        Ticket ticketMax = tickets.peek();
+        for(Ticket ticket: tickets) {
             if(ticket.compareTo(ticketMax) > 0)
                 ticketMax = ticket;
         }
         return ticketMax;
     }
 
-    public void addIfMax(AbstractTicket ticket) {
+    public void addIfMax(Ticket ticket) {
         if(!tickets.isEmpty() && ticket.compareTo(maxTicket()) > 0)
             addTicket(ticket);
             //System.out.println("Ticket has been successfully added");
     }
 
-    public void removeGreater(AbstractTicket ticket) {
-        List<AbstractTicket> ticketList = getTicketsList();
+    public void removeGreater(Ticket ticket) {
+        List<Ticket> ticketList = getTicketsList();
         Collections.sort(ticketList);
         for(int i = ticketList.size() - 1; i >= 0; i--) {
-            AbstractTicket ticketI = ticketList.get(i);
+            Ticket ticketI = ticketList.get(i);
             if(ticketI.compareTo(ticket) > 0)
                 tickets.remove(ticketI);
             else
@@ -261,27 +195,27 @@ public class QueueManager extends AbstractQueueManager {
 
     public void maxByCoordinates() {
         Coordinates maxCoordinates = Coordinates.getLeastCoordinates();
-        AbstractTicket maxTicket = null;
-        for(AbstractTicket ticket: tickets) {
+        Ticket maxTicket = null;
+        for(Ticket ticket: tickets) {
             if(maxCoordinates.compareTo(ticket.getCoordinates()) <= 0) {
                 maxCoordinates = ticket.getCoordinates();
                 maxTicket = ticket;
             }
         }
         if(maxTicket != null)
-            System.out.println(TicketMessagesFactory.getTicketMessage(maxTicket));
+            System.out.println(ticketMessenger.getTicketMessage(maxTicket));
         else
             throw new EmptyTicketsException();
     }
 
     public void filterDiscount(double discount) {
-        for(AbstractTicket ticket: tickets)
+        for(Ticket ticket: tickets)
             if(discount < ticket.getDiscount())
-                System.out.println(TicketMessagesFactory.getTicketMessage(ticket));
+                System.out.println(ticketMessenger.getTicketMessage(ticket));
     }
 
-    public void saveDataToFile() {
-        TicketSaver.saveTickets(tickets, dataFileName);
+    public void saveData() {
+        saver.saveTickets(tickets);
     }
 
     /**
@@ -289,10 +223,10 @@ public class QueueManager extends AbstractQueueManager {
      * @return comparator for sort
      */
 
-    private Comparator<AbstractTicket> getRefundableComparator() {
-        return new Comparator<AbstractTicket>() {
-            public int compare(AbstractTicket t1, AbstractTicket t2) {
-                if(t1 == null || !t1.getRefundable()&&t2.getRefundable() )
+    private Comparator<Ticket> getRefundableComparator() {
+        return new Comparator<Ticket>() {
+            public int compare(Ticket t1, Ticket t2) {
+                if(t1.getRefundable() == null || !t1.getRefundable()&&t2.getRefundable() )
                     return -1;
                 else if(t1.getRefundable()&&!t2.getRefundable())
                     return 1;

@@ -1,6 +1,12 @@
 package commands;
 
 import main.AbstractQueueManager;
+import main.CollectionManager;
+import main.CommandReader;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Class of help command
@@ -14,20 +20,27 @@ public class HelpCommand implements Command {
      * Constructor for help command
      */
 
-    public HelpCommand() {
+    CommandReader commandReader;
 
+    public HelpCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+        this.commandReader = reader;
     }
 
     public void execute() {
-        System.out.println("The list of existing commands:\n\nhelp : get information about the commands\ninfo : get information about the collection\n" +
-                "show: get the collection's elements\n" + "add {AbstractTicket}: add ticket to the collection\n" +
-                "update (id) {AbstractTicket}: update ticket with the given id\nremove_by_id (id): remove ticket with the given id\n" +
-                "clear: clear the collection\nsave: save the collection into the file\nexecute_script (file_name)" +
-                ": execute script from the given file\nexit: stop the program\nremove_first: remove first ticket from the collection\n" +
-                "add_if_max {AbstractTicket}: add given ticket if it is bigger than any other ticket of the collection\n" +
-                "remove_greater {AbstractTicket}: remove tickets bigger than given\nmax_by coordinates: get the ticket, biggest by coordinates\n" +
-                "filter_greater_than_discount (discount): get elements, which have bigger discount than given\n" +
-                "print_field_descending_refundable: get refundable fields of the elements sorted in descending order\n\n" +
-                "Notice that arguments in round brackets \"( )\" must be entered in the same line as the command!");
+        Map<String, Class<? extends Command>> commands = commandReader.getCommandFactory().getAllCommands();
+        Set<String> keys = commands.keySet();
+        System.out.println("The list of existing commands:\n");
+        try {
+            for (String key : keys) {
+                System.out.println(commands.get(key).getMethod("strConvert").invoke(null));
+            }
+        } catch (Exception e) {
+            System.err.println("Not every command has been displayed due to programmer's error. Please, contact the developer.");
+        }
+        System.out.println("\nNotice that arguments in round brackets \"( )\" must be entered in the same line as the command!");
+    }
+
+    public static String strConvert() {
+        return "help : get information about the commands.";
     }
 }

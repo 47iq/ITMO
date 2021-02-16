@@ -2,6 +2,7 @@ package commands;
 
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandReader;
 
 /**
  * Class of save command
@@ -15,24 +16,24 @@ public class SaveCommand implements Command {
      * Collection's manager
      */
 
-    private final CollectionManager taskManager;
+    private final CollectionManager collectionManager;
 
-    /**
-     * Constructor of the save command
-     * @param taskManager collection's manager
-     */
 
-    public SaveCommand(CollectionManager taskManager) {
-        this.taskManager = taskManager;
+    public SaveCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+        this.collectionManager = collectionManager;
     }
 
     public void execute() {
         //System.out.println("Saving the collection has started");
         try {
-            taskManager.saveDataToFile();
+            collectionManager.saveData();
             //System.out.println("Collection has been successfully saved");
         } catch (Exception e) {
             System.err.println("Error got while saving the collection");
         }
+    }
+
+    public static String strConvert() {
+        return "save: save the collection into the file.";
     }
 }
