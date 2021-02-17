@@ -3,6 +3,7 @@ package commands;
 import exceptions.TicketNotFoundException;
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandFactory;
 import main.CommandReader;
 
 /**
@@ -19,22 +20,20 @@ public class RemoveByIdCommand implements Command {
 
     private final CollectionManager collectionManager;
 
-    /**
-     * Id of the ticket we want to remove
-     */
-
-    private int id;
-
-    private String arg;
+    private final String arg;
 
 
-    public RemoveByIdCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+    public RemoveByIdCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
         this.collectionManager = collectionManager;
         this.arg = arg;
     }
 
     public void execute() {
         //System.out.println("Trying to remove ticket by id.");
+        /**
+         * Id of the ticket we want to remove
+         */
+        int id;
         try{
             id = Integer.parseInt(arg);
         } catch (Exception e) {

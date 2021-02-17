@@ -2,6 +2,7 @@ package commands;
 
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandFactory;
 import main.CommandReader;
 
 /**
@@ -19,7 +20,7 @@ public class RemoveFirstCommand implements Command {
     private final CollectionManager collectionManager;
 
 
-    public RemoveFirstCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+    public RemoveFirstCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
         this.collectionManager = collectionManager;
     }
 

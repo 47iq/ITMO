@@ -2,6 +2,7 @@ package commands;
 
 import exceptions.InvalidTicketException;
 import main.CollectionManager;
+import main.CommandFactory;
 import main.CommandReader;
 import main.Ticket;
 
@@ -17,32 +18,27 @@ public class AddCommand implements Command {
      * Manager of the ticket collection
      */
 
-    CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
 
     /**
      * Command reader
      */
 
-    CommandReader commandReader;
-
-    /**
-     * Ticket we want to add
-     */
-
-    Ticket ticket;
+    private final CommandReader commandReader;
 
 
     /**
      * Constructor of the add command
      */
 
-    public AddCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+    public AddCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
         this.collectionManager = collectionManager;
         this.commandReader = reader;
     }
 
     public void execute() {
         //System.out.println("Adding ticket to the collection has started");
+        Ticket ticket;
         try{
             ticket = commandReader.readTicket();
         } catch (Exception e) {

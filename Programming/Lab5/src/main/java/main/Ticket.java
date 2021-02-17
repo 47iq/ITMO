@@ -4,7 +4,7 @@ import org.json.simple.JSONObject;
 
 import java.time.ZonedDateTime;
 
-public interface Ticket extends TicketFieldCaster, Comparable<Ticket>{
+public interface Ticket extends Comparable<Ticket> {
     double getDiscount();
     int getId();
     Boolean getRefundable();
@@ -21,7 +21,6 @@ public interface Ticket extends TicketFieldCaster, Comparable<Ticket>{
     void setDiscount(double discount);
     void setRefundable(Boolean refundable);
     void setPerson(Person person);
-    JSONObject toJSON();
     Coordinates getCoordinates();
     default int compareTo(Ticket ticket) {
         int priceDiff = getPrice() - ticket.getPrice();
@@ -30,4 +29,5 @@ public interface Ticket extends TicketFieldCaster, Comparable<Ticket>{
         else
             return getId() - ticket.getId();
     }
+    JSONObject toJSON();
 }

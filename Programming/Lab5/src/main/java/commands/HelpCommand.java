@@ -2,6 +2,7 @@ package commands;
 
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandFactory;
 import main.CommandReader;
 
 import java.util.HashMap;
@@ -20,14 +21,17 @@ public class HelpCommand implements Command {
      * Constructor for help command
      */
 
-    CommandReader commandReader;
+    private CommandReader commandReader;
 
-    public HelpCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+    private CommandFactory commandFactory;
+
+    public HelpCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
         this.commandReader = reader;
+        this.commandFactory = commandFactory;
     }
 
     public void execute() {
-        Map<String, Class<? extends Command>> commands = commandReader.getCommandFactory().getAllCommands();
+        Map<String, Class<? extends Command>> commands = commandFactory.getAllCommands();
         Set<String> keys = commands.keySet();
         System.out.println("The list of existing commands:\n");
         try {

@@ -2,6 +2,7 @@ package commands;
 
 import exceptions.InvalidTicketException;
 import main.CollectionManager;
+import main.CommandFactory;
 import main.CommandReader;
 import main.Ticket;
 
@@ -19,23 +20,21 @@ public class RemoveGreaterCommand implements Command {
 
     private final CollectionManager collectionManager;
 
-    /**
-     * Ticket we want to compare to
-     */
-
-    private Ticket ticket;
-
     private final CommandReader commandReader;
 
-    public RemoveGreaterCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+    public RemoveGreaterCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
         this.collectionManager = collectionManager;
         this.commandReader = reader;
     }
 
     public void execute() {
         //System.out.println("Removing tickets greater than given has started");
+        /**
+         * Ticket we want to compare to
+         */
+        Ticket ticket;
         try{
-            commandReader.readTicket();
+            ticket = commandReader.readTicket();
         } catch (Exception e) {
             System.err.println(new InvalidTicketException().getMessage());
             return;

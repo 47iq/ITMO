@@ -194,7 +194,7 @@ public class QueueManager extends AbstractQueueManager {
     }
 
     public void maxByCoordinates() {
-        Coordinates maxCoordinates = Coordinates.getLeastCoordinates();
+        Coordinates maxCoordinates = ObjectFactory.getLeastCoordinates();
         Ticket maxTicket = null;
         for(Ticket ticket: tickets) {
             if(maxCoordinates.compareTo(ticket.getCoordinates()) <= 0) {

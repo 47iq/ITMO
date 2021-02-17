@@ -13,7 +13,7 @@ import java.util.Collection;
  * Class to parse tickers from json file
  */
 
-public class JSONTicketsReader implements TicketsParser, TicketFieldCaster {
+public class JSONFileTicketsReader implements TicketsParser, CasterOfDefaultTicket {
 
     private String dataFileName;
     private Reader reader;
@@ -25,7 +25,7 @@ public class JSONTicketsReader implements TicketsParser, TicketFieldCaster {
      * @throws FileNotFoundException if file not found
      */
 
-    public JSONTicketsReader(String dataFileName) throws FileNotFoundException {
+    public JSONFileTicketsReader(String dataFileName) throws FileNotFoundException {
         this.dataFileName = dataFileName;
         reader = getFileReader();
     }
@@ -64,14 +64,13 @@ public class JSONTicketsReader implements TicketsParser, TicketFieldCaster {
     public Collection<Ticket> getTickets() {
         Collection<Ticket> tickets = ObjectFactory.getTicketsCollection();
         JSONArray ticketsJSON = getJSONTickets();
-        try {
-            for (Object obj : ticketsJSON) {
+        for (Object obj : ticketsJSON)
+            try {
                 tickets.add(ObjectFactory.getTicket((JSONObject) obj));
+            } catch (Exception e) {
+                String id;
+                System.err.println("Error got while adding ticket from JSON.");
             }
-        }catch (ClassCastException e) {
-            System.err.println("Error while adding ticket. All fields should be entered as strings");
-            return tickets;
-        }
         return tickets;
     }
 }

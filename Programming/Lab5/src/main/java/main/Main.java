@@ -3,8 +3,6 @@ package main;
 import commands.*;
 import exceptions.InputFileNotFoundException;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,10 +26,10 @@ public class Main {
             if(args.length == 0)
                 throw new InputFileNotFoundException();
             fileName = args[0];
-            TicketMessenger ticketMessenger = new EngTicketMessages();
-            CommandFactory commandFactory = new DefaultCommandFactory(getCommands());
-            QueueManager queueManager = new QueueManager(new JSONTicketsReader(fileName), new JSONFileTicketWriter(fileName), ticketMessenger);
-            CommandReader commandReader= new CmdCommandReader(commandFactory, queueManager);
+            TicketMessenger ticketMessenger = new ENGTicketMessages();
+            CommandFactory commandFactory = SingletonCommandFactory.getInstance(getCommands());
+            QueueManager queueManager = new QueueManager(new JSONFileTicketsReader(fileName), new JSONFileTicketWriter(fileName), ticketMessenger);
+            CommandReader commandReader= new ConsoleCommandReader(commandFactory, queueManager);
             queueManager.parseDataToCollection();
             commandReader.readCommands();
         } catch (Exception e) {

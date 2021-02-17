@@ -15,7 +15,7 @@ import java.util.Collection;
 
 public class JSONFileTicketWriter implements TicketWriter {
 
-    private Collection<Ticket> tickets = ObjectFactory.getTicketsCollection();
+    private Collection<? extends Ticket> tickets = ObjectFactory.getTicketsCollection();
 
     private final String dataFileName;
 
@@ -30,9 +30,10 @@ public class JSONFileTicketWriter implements TicketWriter {
 
     /**
      * Method which is used to save given collection of tickets to the given file
+     * @param tickets
      */
 
-    public void saveTickets(Collection<Ticket> tickets) {
+    public void saveTickets(Collection<? extends Ticket> tickets) {
         this.tickets = tickets;
         JSONArray jsonArray = new JSONArray();
         //int cnt = 0;

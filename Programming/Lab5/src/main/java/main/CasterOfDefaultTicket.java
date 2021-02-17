@@ -2,7 +2,7 @@ package main;
 
 import exceptions.*;
 
-public interface TicketFieldCaster extends CoordinatesCaster, PersonCaster{
+public interface CasterOfDefaultTicket extends CasterOfDefaultCoordinates, CasterOfDefaultPerson {
     /**
      * Parses and validates {@link Ticket#getRefundable()} from {@link String}
      * @param inputStr refundable in string format

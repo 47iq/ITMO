@@ -11,7 +11,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class AbstractCommandReader implements CommandReader, TicketFieldCaster {
+public abstract class AbstractCommandReader implements CommandReader{
 
     protected CollectionManager manager;
 

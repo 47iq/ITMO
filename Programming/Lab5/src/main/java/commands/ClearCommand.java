@@ -1,6 +1,7 @@
 package commands;
 
 import main.CollectionManager;
+import main.CommandFactory;
 import main.CommandReader;
 
 /**
@@ -21,7 +22,7 @@ public class ClearCommand implements Command {
      * @param collectionManager collection's manager
      */
 
-    public ClearCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+    public ClearCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
         this.collectionManager = collectionManager;
     }
 

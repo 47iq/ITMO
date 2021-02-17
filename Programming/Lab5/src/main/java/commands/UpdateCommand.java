@@ -2,10 +2,7 @@ package commands;
 
 import exceptions.InvalidTicketException;
 import exceptions.TicketNotFoundException;
-import main.AbstractTicket;
-import main.CollectionManager;
-import main.CommandReader;
-import main.Ticket;
+import main.*;
 
 /**
  * Class of update command
@@ -27,23 +24,21 @@ public class UpdateCommand implements Command {
 
     private int id;
 
-    /**
-     * New ticket
-     */
-
-    private Ticket ticket;
-
     private CommandReader commandReader;
 
     private String arg;
 
 
-    public UpdateCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+    public UpdateCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
         this.taskManager = collectionManager;
     }
 
     public void execute() {
         //System.out.println("Updating ticket has started");
+        /**
+         * New ticket
+         */
+        Ticket ticket;
         try {
             ticket = commandReader.readTicket();
         } catch (Exception e) {

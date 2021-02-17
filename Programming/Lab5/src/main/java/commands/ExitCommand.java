@@ -2,6 +2,7 @@ package commands;
 
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandFactory;
 import main.CommandReader;
 
 /**
@@ -14,7 +15,7 @@ public class ExitCommand implements Command {
 
     private final CommandReader commandReader;
 
-    public ExitCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+    public ExitCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
         this.commandReader = reader;
     }
 

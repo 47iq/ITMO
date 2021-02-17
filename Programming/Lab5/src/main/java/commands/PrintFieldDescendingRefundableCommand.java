@@ -2,6 +2,7 @@ package commands;
 
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandFactory;
 import main.CommandReader;
 
 /**
@@ -18,7 +19,7 @@ public class PrintFieldDescendingRefundableCommand implements Command{
 
     private final CollectionManager collectionManager;
 
-    public PrintFieldDescendingRefundableCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+    public PrintFieldDescendingRefundableCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
         this.collectionManager = collectionManager;
     }
 

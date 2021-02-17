@@ -27,11 +27,14 @@ public class ExecuteScriptCommand implements Command, ScriptContaining {
 
     private CommandReader commandReader;
 
+    private CommandFactory commandFactory;
 
-    public ExecuteScriptCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+
+    public ExecuteScriptCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
         this.collectionManager = collectionManager;
         this.commandReader = reader;
         this.fileName = arg;
+        this.commandFactory = commandFactory;
     }
 
     public void execute() {
@@ -42,7 +45,7 @@ public class ExecuteScriptCommand implements Command, ScriptContaining {
         }
         //System.out.println("Executing script from the file has started");
         try {
-            CommandReader fileCommandReader = ObjectFactory.getFileReader(commandReader.getCommandFactory(), collectionManager, file);
+            CommandReader fileCommandReader = ObjectFactory.getFileReader(commandFactory, collectionManager, file);
             fileCommandReader.readCommands();
             //System.out.println("Executing script from the file has finished");
         } catch (Exception e) {

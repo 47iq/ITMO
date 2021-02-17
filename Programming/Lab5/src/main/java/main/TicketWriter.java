@@ -8,5 +8,5 @@ public interface TicketWriter {
      * Saves tickets
      * @param tickets tickets collection
      */
-    void saveTickets(Collection<Ticket> tickets);
+    void saveTickets(Collection<? extends Ticket> tickets);
 }

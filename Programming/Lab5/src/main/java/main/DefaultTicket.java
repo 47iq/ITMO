@@ -12,7 +12,7 @@ import java.time.ZonedDateTime;
  *  @version 1.0
  */
 
-public class DefaultTicket extends AbstractTicket {
+public class DefaultTicket extends AbstractTicket implements CasterOfDefaultTicket {
 
     /**
      * Constructor for getting {@link DefaultTicket}, which is used to parse JSON ticket data into the Java code
@@ -31,27 +31,17 @@ public class DefaultTicket extends AbstractTicket {
         managePerson(jsonTicket.get("person"));
     }
 
-    /**
-     * Constructor for getting {@link DefaultTicket} from its fields
-     * @param name {@link AbstractTicket#getName()}
-     * @param coordinates {@link AbstractTicket#getCoordinates()}
-     * @param price {@link AbstractTicket#getPrice()}
-     * @param discount {@link AbstractTicket#getDiscount()}
-     * @param refundable {@link AbstractTicket#getRefundable()}
-     * @param type {@link AbstractTicket#getType()}
-     * @param person {@link AbstractTicket#getPerson()}
-     */
-
-    public DefaultTicket(String name, Coordinates coordinates, int price, double discount, Boolean refundable, TicketType type, Person person) {
+    public DefaultTicket(String name, double x, Integer y, int price, double discount, Boolean refundable, TicketType type, Long weight,
+                         EyesColor eyesColor, HairColor hairColor, Country country) {
         configureId(AbstractQueueManager.getID());
         setCreationDate(ZonedDateTime.now(ZoneId.of("Europe/Moscow")));
         setName(name);
-        setCoordinates(coordinates);
+        setCoordinates(ObjectFactory.getCoordinates(x, y));
         setPrice(price);
         setDiscount(discount);
         setRefundable(refundable);
         setType(type);
-        setPerson(person);
+        setPerson(ObjectFactory.getPerson(weight, eyesColor, hairColor, country));
     }
 
     /**

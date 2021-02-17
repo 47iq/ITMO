@@ -2,6 +2,7 @@ package commands;
 
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandFactory;
 import main.CommandReader;
 
 /**
@@ -19,7 +20,7 @@ public class SaveCommand implements Command {
     private final CollectionManager collectionManager;
 
 
-    public SaveCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+    public SaveCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
         this.collectionManager = collectionManager;
     }
 

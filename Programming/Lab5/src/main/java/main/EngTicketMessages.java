@@ -6,9 +6,9 @@ package main;
  * @version 1.0
  */
 
-public class EngTicketMessages implements TicketMessenger {
+public class ENGTicketMessages implements TicketMessenger {
 
-    public EngTicketMessages() {
+    public ENGTicketMessages() {
 
     }
 

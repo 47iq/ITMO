@@ -2,6 +2,7 @@ package commands;
 
 import main.AbstractQueueManager;
 import main.CollectionManager;
+import main.CommandFactory;
 import main.CommandReader;
 
 /**
@@ -27,7 +28,7 @@ public class FilterGreaterThanDiscountCommand implements Command {
     private String arg;
 
 
-    public FilterGreaterThanDiscountCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
+    public FilterGreaterThanDiscountCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
         this.collectionManager = collectionManager;
     }
 

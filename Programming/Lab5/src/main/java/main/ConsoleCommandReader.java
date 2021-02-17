@@ -4,9 +4,9 @@ import exceptions.InvalidTicketFieldException;
 
 import java.io.*;
 
-public class CmdCommandReader extends AbstractCommandReader {
+public class ConsoleCommandReader extends AbstractCommandReader implements CasterOfDefaultTicket {
 
-    public CmdCommandReader(CommandFactory commandFactory, CollectionManager manager) {
+    public ConsoleCommandReader(CommandFactory commandFactory, CollectionManager manager) {
         reader = new BufferedReader(new InputStreamReader(System.in));
         super.commandFactory = commandFactory;
         super.manager = manager;
@@ -35,106 +35,106 @@ public class CmdCommandReader extends AbstractCommandReader {
         HairColor personHairColor = catchCastHairColor(reader.readLine().trim());
         System.out.println("Enter person's nationality. Choose one of the following: RUSSIA, SPAIN, FRANCE, CHINA");
         Country country = catchCastCountry(reader.readLine().trim());
-        return ObjectFactory.getTicket(name, ObjectFactory.getCoordinates(xCoordinate, yCoordinate), price, discount,
-                refundable, type, ObjectFactory.getPerson(weight, personEyesColor, personHairColor, country));
+        return ObjectFactory.getTicket(name, xCoordinate, yCoordinate, price, discount,
+                refundable, type, weight, personEyesColor, personHairColor, country);
     }
 
     private String catchCastName(String str) throws IOException {
         try{
-            return super.castName(str);
+            return castName(str);
         } catch (Exception e) {
             repeatInput(e);
-            return super.castName(reader.readLine());
+            return castName(reader.readLine());
         }
     }
 
     private double catchCastX(String str) throws IOException {
         try{
-            return super.castXCoordinate(str);
+            return castXCoordinate(str);
         } catch (Exception e) {
             repeatInput(e);
-            return super.castXCoordinate(reader.readLine());
+            return castXCoordinate(reader.readLine());
         }
     }
 
     private Integer catchCastY(String str) throws IOException {
         try{
-            return super.castYCoordinate(str);
+            return castYCoordinate(str);
         } catch (Exception e) {
             repeatInput(e);
-            return super.castYCoordinate(reader.readLine());
+            return castYCoordinate(reader.readLine());
         }
     }
 
     private double catchCastDiscount(String str) throws IOException {
         try{
-            return super.castDiscount(str);
+            return castDiscount(str);
         } catch (Exception e) {
             repeatInput(e);
-            return super.castDiscount(reader.readLine());
+            return castDiscount(reader.readLine());
         }
     }
 
     private int catchCastPrice(String str) throws IOException {
         try{
-            return super.castPrice(str);
+            return castPrice(str);
         } catch (Exception e) {
             repeatInput(e);
-            return super.castPrice(reader.readLine());
+            return castPrice(reader.readLine());
         }
     }
 
     private TicketType catchCastType(String str) throws IOException {
         try{
-            return super.castType(str);
+            return castType(str);
         } catch (Exception e) {
             repeatInput(e);
-            return super.castType(reader.readLine());
+            return castType(reader.readLine());
         }
     }
 
     private Boolean catchCastRefundable(String str) throws IOException {
         try{
-            return super.castRefundable(str);
+            return castRefundable(str);
         } catch (Exception e) {
             repeatInput(e);
-            return super.castRefundable(reader.readLine());
+            return castRefundable(reader.readLine());
         }
     }
 
     private Country catchCastCountry(String str) throws IOException {
         try{
-            return super.castCountry(str);
+            return castCountry(str);
         } catch (Exception e) {
             repeatInput(e);
-            return super.castCountry(reader.readLine());
+            return castCountry(reader.readLine());
         }
     }
 
     private Long catchCastWeight(String str) throws IOException {
         try{
-            return super.castWeight(str);
+            return castWeight(str);
         } catch (Exception e) {
             repeatInput(e);
-            return super.castWeight(reader.readLine());
+            return castWeight(reader.readLine());
         }
     }
 
     private EyesColor catchCastEyesColor(String str) throws IOException {
         try{
-            return super.castEyesColor(str);
+            return castEyesColor(str);
         } catch (Exception e) {
             repeatInput(e);
-            return super.castEyesColor(reader.readLine());
+            return castEyesColor(reader.readLine());
         }
     }
 
     private HairColor catchCastHairColor(String str) throws IOException {
         try{
-            return super.castHairColor(str);
+            return castHairColor(str);
         } catch (Exception e) {
             repeatInput(e);
-            return super.castHairColor(reader.readLine());
+            return castHairColor(reader.readLine());
         }
     }
 

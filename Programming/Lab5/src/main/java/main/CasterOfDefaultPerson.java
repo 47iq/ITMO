@@ -5,7 +5,7 @@ import exceptions.InvalidEyesColorException;
 import exceptions.InvalidHairColorException;
 import exceptions.InvalidWeightException;
 
-public interface PersonCaster {
+public interface CasterOfDefaultPerson {
     /**
      * Method which casts {@link String} to {@link HairColor}
      * @param colorStr hair color in string format

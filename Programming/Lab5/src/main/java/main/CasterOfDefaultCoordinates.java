@@ -5,7 +5,7 @@ import exceptions.InvalidYCoordinateException;
 
 import java.io.IOException;
 
-public interface CoordinatesCaster {
+public interface CasterOfDefaultCoordinates {
     /**
      * Method which is being used to cast x from String to double
      * @param xCoordinate x String value

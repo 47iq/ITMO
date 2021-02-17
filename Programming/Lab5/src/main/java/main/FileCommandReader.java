@@ -2,7 +2,7 @@ package main;
 
 import java.io.*;
 
-public class FileCommandReader extends AbstractCommandReader{
+public class FileCommandReader extends AbstractCommandReader implements CasterOfDefaultTicket {
 
     public FileCommandReader(CommandFactory commandFactory, CollectionManager manager, File file) throws FileNotFoundException {
         reader = new BufferedReader(new FileReader(file));
@@ -22,7 +22,7 @@ public class FileCommandReader extends AbstractCommandReader{
         EyesColor personEyesColor = castEyesColor(reader.readLine().trim());
         HairColor personHairColor = castHairColor(reader.readLine().trim());
         Country country = castCountry(reader.readLine().trim());
-        return ObjectFactory.getTicket(name, ObjectFactory.getCoordinates(xCoordinate, yCoordinate), price, discount, refundable, type, ObjectFactory.getPerson(weight, personEyesColor, personHairColor, country));
+        return ObjectFactory.getTicket(name, xCoordinate, yCoordinate, price, discount, refundable, type, weight, personEyesColor, personHairColor, country);
     }
 
     protected boolean readyForInput() throws IOException {
