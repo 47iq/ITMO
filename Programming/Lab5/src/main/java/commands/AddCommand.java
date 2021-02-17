@@ -1,10 +1,10 @@
 package commands;
 
 import exceptions.InvalidTicketException;
-import main.CollectionManager;
-import main.CommandFactory;
-import main.CommandReader;
-import main.Ticket;
+import manager.CollectionManager;
+import manager.CommandFactory;
+import manager.CommandReader;
+import ticket.Ticket;
 
 /**
  * Class of add command

@@ -1,11 +1,9 @@
 package commands;
 
-import main.AbstractQueueManager;
-import main.CollectionManager;
-import main.CommandFactory;
-import main.CommandReader;
+import manager.CollectionManager;
+import manager.CommandFactory;
+import manager.CommandReader;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 

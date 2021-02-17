@@ -2,7 +2,8 @@ package commands;
 
 import exceptions.InvalidTicketException;
 import exceptions.TicketNotFoundException;
-import main.*;
+import manager.*;
+import ticket.Ticket;
 
 /**
  * Class of update command

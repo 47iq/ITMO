@@ -1,8 +1,8 @@
 package commands;
 
-import main.CollectionManager;
-import main.CommandFactory;
-import main.CommandReader;
+import manager.CollectionManager;
+import manager.CommandFactory;
+import manager.CommandReader;
 
 /**
  * Class of clear command

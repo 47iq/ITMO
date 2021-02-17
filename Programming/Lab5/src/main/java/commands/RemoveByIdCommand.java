@@ -1,10 +1,9 @@
 package commands;
 
 import exceptions.TicketNotFoundException;
-import main.AbstractQueueManager;
-import main.CollectionManager;
-import main.CommandFactory;
-import main.CommandReader;
+import manager.CollectionManager;
+import manager.CommandFactory;
+import manager.CommandReader;
 
 /**
  * Class of remove_by_id command

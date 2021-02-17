@@ -1,11 +1,8 @@
 package commands;
 
-import main.*;
+import manager.*;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 
 /**
  * Class of execute_script command
