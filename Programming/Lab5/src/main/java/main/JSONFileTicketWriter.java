@@ -19,8 +19,6 @@ public class JSONFileTicketWriter implements TicketWriter {
 
     private Collection<Ticket> tickets = new ArrayList<>();
 
-    private final ServerObjectFactory ticketFactory;
-
     private final String dataFileName;
 
     /**
@@ -28,14 +26,13 @@ public class JSONFileTicketWriter implements TicketWriter {
      * @param dataFileName name of file
      */
 
-    public JSONFileTicketWriter(String dataFileName, ServerObjectFactory ticketFactory){
+    public JSONFileTicketWriter(String dataFileName){
         this.dataFileName = dataFileName;
-        this.ticketFactory = ticketFactory;
     }
 
     /**
      * Method which is used to save given collection of tickets to the given file
-     * @param tickets
+     * @param tickets ticket collection we want to save into the file
      */
 
     public void saveTickets(Collection<Ticket> tickets) {

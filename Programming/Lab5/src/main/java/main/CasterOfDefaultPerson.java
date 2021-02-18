@@ -8,6 +8,10 @@ import main.ticket.Country;
 import main.ticket.EyesColor;
 import main.ticket.HairColor;
 
+/**
+ * Interface that provides methods which validate and cast Default {@link main.ticket.Person}'s fields
+ */
+
 public interface CasterOfDefaultPerson {
     /**
      * Method which casts {@link String} to {@link HairColor}

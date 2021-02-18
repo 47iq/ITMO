@@ -4,6 +4,10 @@ import main.ticket.Ticket;
 
 import java.util.List;
 
+/**
+ * Interface of the ticket collection manager
+ */
+
 public interface CollectionManager {
     /**
      * Starts the execution of {@link CollectionManager}

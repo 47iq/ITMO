@@ -5,7 +5,12 @@ import main.ticket.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 
+/**
+ * Class for creation of objects for client application
+ */
+
 public class DefaultClientObjectFactory implements ClientObjectFactory {
+
     public CommandReader getFileReader(CommandFactory commandFactory, CollectionManager collectionManager, File file) throws FileNotFoundException {
         return new FileCommandReader(commandFactory, collectionManager, file, this);
     }

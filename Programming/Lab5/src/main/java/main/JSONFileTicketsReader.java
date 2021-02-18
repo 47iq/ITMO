@@ -18,14 +18,18 @@ import java.util.Collection;
 public class JSONFileTicketsReader implements TicketReader, CasterOfDefaultTicket {
 
     private final String dataFileName;
+
     private final Reader reader;
+
     private final JSONParser parser = new JSONParser();
+
     private final ServerObjectFactory ticketFactory;
 
     /**
-     * Constructor that also opens file input stream reader
-     * @param dataFileName name of file
-     * @throws FileNotFoundException if file not found
+     * JSONFileTicketsReader constructor
+     * @param dataFileName name of JSON file
+     * @param ticketFactory object factory
+     * @throws FileNotFoundException if file doesn't exist
      */
 
     public JSONFileTicketsReader(String dataFileName, ServerObjectFactory ticketFactory) throws FileNotFoundException {

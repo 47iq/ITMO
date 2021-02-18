@@ -17,9 +17,6 @@ public class AddIfMaxCommand implements SimpleCommand {
     }
 
     public void execute(CollectionManager collectionManager, CommandReader commandReader, String arg) {
-        /**
-         * Ticket we want to add
-         */
         Ticket ticket;
         try{
             ticket = commandReader.readTicket();

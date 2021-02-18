@@ -29,9 +29,9 @@ public class Main {
             ClientObjectFactory clientObjectFactory= new DefaultClientObjectFactory();
             ServerObjectFactory serverObjectFactory= new DefaultServerObjectFactory();
             Map<String, Class<? extends Command>> commands = getCommands();
-            Messenger messenger = new ENGMessages();
+            Messenger messenger = new ENGMessages(getCommands());
             CommandFactory commandFactory = SingletonCommandFactory.getInstance(commands, clientObjectFactory, messenger);
-            QueueManager queueManager = new QueueManager(new JSONFileTicketsReader(fileName, serverObjectFactory), new JSONFileTicketWriter(fileName, serverObjectFactory), serverObjectFactory);
+            QueueManager queueManager = new QueueManager(new JSONFileTicketsReader(fileName, serverObjectFactory), new JSONFileTicketWriter(fileName), serverObjectFactory);
             CommandReader commandReader= new ConsoleCommandReader(commandFactory, queueManager, clientObjectFactory, messenger);
             queueManager.parseDataToCollection();
             commandReader.readCommands();

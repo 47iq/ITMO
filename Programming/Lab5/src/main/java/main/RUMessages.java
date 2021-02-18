@@ -1,10 +1,25 @@
 package main;
 
+import commands.Command;
+
+import java.util.Map;
+
+/**
+ * Class for Russian localization of {@link Messenger}
+ */
+
 public class RUMessages extends AbstractMessenger {
 
-    public RUMessages() {
+    /**
+     * Constructor for RUMessages
+     * @param commandMap command-keyed map for configuration
+     */
+
+    public RUMessages(Map<String, Class<? extends Command>> commandMap) {
         setTicketFieldTranslations();
         setCommandTranslations();
+        if(!commands.keySet().containsAll(commandMap.keySet()))
+            System.err.println("Предупреждение: не все команды будут выведены при вводе команды \"help\".");
     }
 
     protected void setTicketFieldTranslations() {

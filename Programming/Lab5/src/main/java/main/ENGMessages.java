@@ -1,18 +1,23 @@
 package main;
 
+import commands.Command;
 import main.ticket.Ticket;
 
+import java.util.Map;
+
 /**
- * Abstract class which manages user-friendly output of {@link Ticket}
+ * Class of English localization of {@link Messenger}
  * @autor 47iq
  * @version 1.0
  */
 
 public class ENGMessages extends AbstractMessenger {
 
-    public ENGMessages() {
+    public ENGMessages(Map<String, Class<? extends Command>> commandMap) {
         setTicketFieldTranslations();
         setCommandTranslations();
+        if(!commands.keySet().containsAll(commandMap.keySet()))
+            System.err.println("Warning: not all commands are listed in \"help\" command.");
     }
 
     protected void setTicketFieldTranslations() {

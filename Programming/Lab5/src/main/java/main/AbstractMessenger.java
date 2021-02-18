@@ -5,11 +5,21 @@ import main.ticket.Ticket;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Abstract class for messenger realization
+ */
+
 public abstract class AbstractMessenger implements Messenger {
 
     protected Map<String, String> translations = new HashMap<>();
 
     protected Map<String, String> commands = new HashMap<>();
+
+    /**
+     * Returns localized user output of the ticket in string format
+     * @param ticket ticket we want to convert
+     * @return ticket in string format
+     */
 
     public String getTicketMessage(Ticket ticket) {
         String message = "";
@@ -28,6 +38,11 @@ public abstract class AbstractMessenger implements Messenger {
         message += getFieldMessage("nationality", ticket.getPerson().getNationality());
         return message;
     }
+
+    /**
+     * Returns localized information about existing commands in string format
+     * @return information about the commands
+     */
 
     public String getCommandsMessages() {
         StringBuilder message = new StringBuilder();

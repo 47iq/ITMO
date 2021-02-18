@@ -4,10 +4,14 @@ import main.ticket.Ticket;
 
 import java.util.Collection;
 
+/**
+ * Interface of ticket reader
+ */
+
 public interface TicketReader {
     /**
-     * Gets tickets from file
-     * @return manager.ticket collection
+     * Gets tickets
+     * @return ticket collection
      */
     Collection<Ticket> getTickets();
 }

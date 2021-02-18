@@ -37,7 +37,7 @@ public abstract class AbstractCommandReader implements CommandReader{
                 if (e.getMessage() != null)
                     System.err.println(e.getMessage());
                 else
-                    System.err.println("Error got while getting the manager.ticket.");
+                    System.err.println("Error got while getting command.");
             }
         try {
             reader.close();

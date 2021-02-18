@@ -8,6 +8,10 @@ import java.time.ZonedDateTime;
 import java.util.Collection;
 import java.util.PriorityQueue;
 
+/**
+ * Class that creates object for the server application
+ */
+
 public class DefaultServerObjectFactory implements ServerObjectFactory {
 
     public Ticket convertTicket(Ticket ticket) {

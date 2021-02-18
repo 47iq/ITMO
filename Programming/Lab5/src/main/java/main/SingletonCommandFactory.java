@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Singleton class which parses commands and creates objects of them ({@link Command})
+ * Singleton class which parses {@link Command} and executes it
  * @autor 47iq
  * @version 1.0
  */
@@ -32,6 +32,14 @@ public class SingletonCommandFactory implements CommandFactory{
         this.messenger = messenger;
     }
 
+    /**
+     * Method to get instance of CommandFactory
+     * @param commands map of command classes
+     * @param ticketFactory object factory
+     * @param messenger messenger
+     * @return command factory
+     */
+
     public static CommandFactory getInstance(Map<String, Class<? extends Command>> commands, ClientObjectFactory ticketFactory, Messenger messenger) {
         if(instance == null) {
             instance = new SingletonCommandFactory(commands, ticketFactory, messenger);
@@ -39,15 +47,11 @@ public class SingletonCommandFactory implements CommandFactory{
         return instance;
     }
 
-    public Command getCommand(String commandName) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    private Command getCommand(String commandName) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         Class[] params = {};
         Constructor<? extends Command> constructor = commands.get(commandName).getConstructor(params);
         Command command = constructor.newInstance();
         return command;
-    }
-
-    public Map<String, Class<? extends Command>> getAllCommands() {
-        return commands;
     }
 
     public void executeCommand(String commandName, CommandReader commandReader, String arg, CollectionManager collectionManager) {
@@ -57,23 +61,14 @@ public class SingletonCommandFactory implements CommandFactory{
         } catch (Exception e) {
             throw new UnknownCommandException();
         }
-        try {
+        if(command instanceof SimpleCommand)
             executeSimpleCommand((SimpleCommand) command, commandReader, arg, collectionManager);
-            return;
-        } catch (Exception e) {
-            //
-        }
-        try {
+        else if(command instanceof MessagingCommand)
             executeMessagingCommand((MessagingCommand) command, commandReader, arg, collectionManager);
-            return;
-        } catch (Exception e) {
-            //
-        }
-        try {
+        else if(command instanceof ScriptCommand)
             executeScriptCommand((ScriptCommand) command, commandReader, arg, collectionManager);
-        } catch (Exception e) {
-            System.err.println("Something went wrong executing the program.");
-        }
+        else
+            System.err.println("Error got while executing the command.");
     }
 
     private void executeSimpleCommand(SimpleCommand command, CommandReader commandReader, String arg, CollectionManager collectionManager) {

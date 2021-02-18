@@ -5,7 +5,19 @@ import main.ticket.*;
 
 import java.io.*;
 
+/**
+ * Class that is used for reading commands from console
+ */
+
 public class ConsoleCommandReader extends AbstractCommandReader implements CasterOfDefaultTicket {
+
+    /**
+     * Constructor for console reader
+     * @param commandFactory factory to resolve commands
+     * @param manager ticket collection's manager
+     * @param ticketFactory object factory
+     * @param messenger class that provides local messaging
+     */
 
     public ConsoleCommandReader(CommandFactory commandFactory, CollectionManager manager, ClientObjectFactory ticketFactory, Messenger messenger) {
         reader = new BufferedReader(new InputStreamReader(System.in));

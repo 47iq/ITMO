@@ -3,6 +3,10 @@ package main;
 import exceptions.InvalidXCoordinateException;
 import exceptions.InvalidYCoordinateException;
 
+/**
+ * Interface providing methods to validate and cast Default {@link main.ticket.Coordinates} fields
+ */
+
 public interface CasterOfDefaultCoordinates {
     /**
      * Method which is being used to cast x from String to double
