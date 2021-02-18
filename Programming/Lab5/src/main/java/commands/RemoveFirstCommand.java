@@ -9,20 +9,13 @@ import main.CommandReader;
  * @version 1.0
  */
 
-public class RemoveFirstCommand implements Command {
+public class RemoveFirstCommand implements SimpleCommand {
 
-    /**
-     * Collection's manager
-     */
+    public RemoveFirstCommand() {
 
-    private final CollectionManager collectionManager;
-
-
-    public RemoveFirstCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
-        this.collectionManager = collectionManager;
     }
 
-    public void execute() {
+    public void execute(CollectionManager collectionManager, CommandReader reader, String arg) {
         //System.out.println("Removing the first element has started");
         try {
             collectionManager.removeFirst();

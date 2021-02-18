@@ -9,15 +9,13 @@ import main.CommandReader;
  * @version 1.0
  */
 
-public class ExitCommand implements Command {
+public class ExitCommand implements SimpleCommand {
 
-    private final CommandReader commandReader;
+    public ExitCommand() {
 
-    public ExitCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
-        this.commandReader = reader;
     }
 
-    public void execute() {
+    public void execute(CollectionManager collectionManager, CommandReader commandReader, String arg) {
         //System.out.println("Exiting program...");
         commandReader.exit();
     }

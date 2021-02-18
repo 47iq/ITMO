@@ -10,38 +10,19 @@ import java.io.File;
  * @version 1.0
  */
 
-public class ExecuteScriptCommand implements Command, ScriptContaining {
+public class ExecuteScriptCommand implements ScriptCommand {
 
-    /**
-     * File containing script
-     */
+    public ExecuteScriptCommand() {
 
-    private File file;
-
-    private String fileName;
-
-    private CollectionManager collectionManager;
-
-    private CommandReader commandReader;
-
-    private CommandFactory commandFactory;
-
-    private ClientObjectFactory ticketFactory;
-
-
-    public ExecuteScriptCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory, ClientObjectFactory ticketFactory) {
-        this.collectionManager = collectionManager;
-        this.commandReader = reader;
-        this.fileName = arg;
-        this.commandFactory = commandFactory;
-        this.ticketFactory = ticketFactory;
     }
 
-    public void execute() {
+    public void execute(CollectionManager collectionManager, CommandReader commandReader, String fileName, CommandFactory commandFactory, ClientObjectFactory ticketFactory) {
+        File file;
         try{
             file = new File(fileName);
         } catch (Exception e) {
             System.err.println("File named: " + fileName + " not found.");
+            return;
         }
         //System.out.println("Executing script from the file has started");
         try {
@@ -53,9 +34,5 @@ public class ExecuteScriptCommand implements Command, ScriptContaining {
         } finally {
             commandReader.readCommands();
         }
-    }
-
-    public String getFileName(){
-        return fileName;
     }
 }

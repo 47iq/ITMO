@@ -11,26 +11,13 @@ import main.ticket.Ticket;
  * @version 1.0
  */
 
-public class RemoveGreaterCommand implements Command {
+public class RemoveGreaterCommand implements SimpleCommand {
 
-    /**
-     * Collection's manager
-     */
+    public RemoveGreaterCommand() {
 
-    private final CollectionManager collectionManager;
-
-    private final CommandReader commandReader;
-
-    public RemoveGreaterCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
-        this.collectionManager = collectionManager;
-        this.commandReader = reader;
     }
 
-    public void execute() {
-        //System.out.println("Removing tickets greater than given has started");
-        /**
-         * Ticket we want to compare to
-         */
+    public void execute(CollectionManager collectionManager, CommandReader commandReader, String arg) {
         Ticket ticket;
         try{
             ticket = commandReader.readTicket();

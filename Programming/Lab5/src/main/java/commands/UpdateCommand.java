@@ -11,22 +11,13 @@ import main.ticket.Ticket;
  * @version 1.0
  */
 
-public class UpdateCommand implements Command {
+public class UpdateCommand implements SimpleCommand {
 
-    private final CollectionManager taskManager;
+    public UpdateCommand() {
 
-    private final CommandReader commandReader;
-
-    private final String arg;
-
-
-    public UpdateCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
-        this.taskManager = collectionManager;
-        this.commandReader = reader;
-        this.arg = arg;
     }
 
-    public void execute() {
+    public void execute(CollectionManager collectionManager, CommandReader commandReader, String arg) {
         //System.out.println("Updating manager.ticket has started");
         Ticket ticket;
         try {
@@ -45,9 +36,9 @@ public class UpdateCommand implements Command {
         if (ticket == null)
             return;
         try {
-            if(!taskManager.elementExists(id))
+            if(!collectionManager.elementExists(id))
                 throw new TicketNotFoundException();
-            taskManager.updateId(id, ticket);
+            collectionManager.updateId(id, ticket);
             //System.out.println("AbstractTicket has been successfully updated");
         } catch (TicketNotFoundException e) {
             System.err.println(e.getMessage());

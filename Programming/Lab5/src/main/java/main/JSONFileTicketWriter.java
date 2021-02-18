@@ -6,6 +6,7 @@ import org.json.simple.JSONArray;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -16,7 +17,7 @@ import java.util.Collection;
 
 public class JSONFileTicketWriter implements TicketWriter {
 
-    private Collection<Ticket> tickets;
+    private Collection<Ticket> tickets = new ArrayList<>();
 
     private final ServerObjectFactory ticketFactory;
 
@@ -30,7 +31,6 @@ public class JSONFileTicketWriter implements TicketWriter {
     public JSONFileTicketWriter(String dataFileName, ServerObjectFactory ticketFactory){
         this.dataFileName = dataFileName;
         this.ticketFactory = ticketFactory;
-        tickets = ticketFactory.getTicketsCollection();
     }
 
     /**

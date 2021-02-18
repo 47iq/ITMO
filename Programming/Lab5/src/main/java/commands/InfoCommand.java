@@ -10,23 +10,13 @@ import java.util.List;
  * @version 1.0
  */
 
-public class InfoCommand implements Command {
+public class InfoCommand implements MessagingCommand {
 
-    /**
-     * Collection's manager
-     */
+    public InfoCommand() {
 
-    private final CollectionManager collectionManager;
-
-    private final Messenger messenger;
-
-
-    public InfoCommand(CollectionManager collectionManager, CommandReader reader, String arg, Messenger messenger) {
-        this.collectionManager = collectionManager;
-        this.messenger = messenger;
     }
 
-    public void execute() {
+    public void execute(CollectionManager collectionManager, CommandReader reader, String arg, Messenger messenger) {
         //System.out.println("Info displaying has started.");
         try {
             List<String> info = collectionManager.displayInfo();

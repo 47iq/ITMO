@@ -1,13 +1,8 @@
 package main;
 
-import commands.Command;
-import commands.ScriptContaining;
-import exceptions.ScriptFileRecursionException;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,26 +20,16 @@ public abstract class AbstractCommandReader implements CommandReader{
 
     protected Messenger messenger;
 
-    protected static Set<File> files = new HashSet<>();
-
     public void readCommands() {
         isRunning = true;
         while (isRunning)
             try {
                 if (readyForInput()) {
-                    Command command = getNextCommand();
-                    if(command instanceof ScriptContaining) {
-                        File file = new File(((ScriptContaining) command).getFileName());
-                        if(files.contains(file)) {
-                            isRunning = false;
-                            throw new ScriptFileRecursionException();
-                        }
-                        files.add(file);
-                        command.execute();
-                        files.remove(file);
-                    }
+                    String[] command = reader.readLine().trim().split("\\s+");
+                    if (command.length == 1)
+                        commandFactory.executeCommand(command[0], this, null, manager);
                     else
-                        command.execute();
+                        commandFactory.executeCommand(command[0], this, command[1], manager);
                 }
                 else
                     isRunning = false;
@@ -61,14 +46,6 @@ public abstract class AbstractCommandReader implements CommandReader{
         } finally {
             isRunning = false;
         }
-    }
-
-    protected Command getNextCommand() throws IOException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-        String[] command = reader.readLine().trim().split("\\s+");
-        if (command.length == 1)
-            return commandFactory.getCommand(command[0], this, null, manager);
-        else
-            return commandFactory.getCommand(command[0], this, command[1], manager);
     }
 
     public void exit() {

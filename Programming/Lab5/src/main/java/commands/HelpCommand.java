@@ -8,15 +8,12 @@ import main.*;
  * @version 1.0
  */
 
-public class HelpCommand implements Command {
+public class HelpCommand implements MessagingCommand {
 
-    private final Messenger messenger;
-
-    public HelpCommand(CollectionManager collectionManager, CommandReader reader, String arg, Messenger messenger) {
-        this.messenger = messenger;
+    public HelpCommand() {
     }
 
-    public void execute() {
+    public void execute(CollectionManager collectionManager, CommandReader reader, String arg, Messenger messenger) {
         System.out.println(messenger.getCommandsMessages());
     }
 }

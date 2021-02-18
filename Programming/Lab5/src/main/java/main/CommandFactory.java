@@ -6,6 +6,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
 public interface CommandFactory {
-    Command getCommand(String commandName, CommandReader commandReader, String arg, CollectionManager collectionManager) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException;
     Map<String, Class<? extends Command>> getAllCommands();
+    void executeCommand(String command, CommandReader commandReader, String arg, CollectionManager collectionManager);
 }

@@ -11,23 +11,13 @@ import java.util.List;
  * @version 1.0
  */
 
-public class ShowCommand implements Command {
+public class ShowCommand implements MessagingCommand {
 
-    /**
-     * Collection's manager
-     */
+    public ShowCommand() {
 
-    private final CollectionManager collectionManager;
-
-    private final Messenger messenger;
-
-
-    public ShowCommand(CollectionManager collectionManager, CommandReader reader, String arg, Messenger messenger) {
-        this.collectionManager = collectionManager;
-        this.messenger = messenger;
     }
 
-    public void execute() {
+    public void execute(CollectionManager collectionManager, CommandReader reader, String arg, Messenger messenger) {
         //System.out.println("Displaying tickets");
         try {
             List<Ticket> ticketList = collectionManager.displayElements();

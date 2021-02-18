@@ -59,46 +59,46 @@ public class ENGMessages extends AbstractMessenger {
     }
 
     public String getNameInputInvitationMessage() {
-        return "Enter manager.ticket name:";
+        return "Enter ticket name:";
     }
 
     public String getXInputInvitationMessage() {
-        return "Enter manager.ticket x coordinate:";
+        return "Enter ticket x coordinate:";
     }
 
     public String getYInputInvitationMessage() {
-        return "Enter manager.ticket y coordinate:";
+        return "Enter ticket y coordinate:";
     }
 
     public String getDiscountInputInvitationMessage() {
-        return "Enter manager.ticket discount:";
+        return "Enter ticket discount:";
     }
 
     public String getPriceInputInvitationMessage() {
-        return "Enter manager.ticket price:";
+        return "Enter ticket price:";
     }
 
     public String getRefundableInputInvitationMessage() {
-        return "Enter manager.ticket refundable: ";
+        return "Enter ticket refundable: ";
     }
 
     public String getTicketTypeInputInvitationMessage() {
-        return "Enter manager.ticket type {VIP, CHEAP, USUAL}:";
+        return "Enter ticket type {VIP, CHEAP, USUAL}:";
     }
 
     public String getWeightInputInvitationMessage() {
-        return "Enter manager.ticket buyer's weight: ";
+        return "Enter ticket buyer's weight: ";
     }
 
     public String getEyeColorInputInvitationMessage() {
-        return "Enter manager.ticket buyer's eye color {BLACK, BLUE, YELLOW}: ";
+        return "Enter ticket buyer's eye color {BLACK, BLUE, YELLOW}: ";
     }
 
     public String getHairColorInputInvitationMessage() {
-        return "Enter manager.ticket buyer's hair color {BLACK, RED, GREEN, YELLOW}: ";
+        return "Enter ticket buyer's hair color {BLACK, RED, GREEN, YELLOW}: ";
     }
 
     public String getCountryInputInvitationMessage() {
-        return "Enter manager.ticket buyer's nationality {RUSSIA, FRANCE, SPAIN, CHINA}: ";
+        return "Enter ticket buyer's nationality {RUSSIA, FRANCE, SPAIN, CHINA}: ";
     }
 }

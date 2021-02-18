@@ -11,30 +11,13 @@ import java.util.List;
  * @version 1.0
  */
 
-public class FilterGreaterThanDiscountCommand implements Command {
+public class FilterGreaterThanDiscountCommand implements MessagingCommand {
 
-    /**
-     * Collection's manager
-     */
-
-    private final CollectionManager collectionManager;
-
-    private final String arg;
-
-    private final Messenger messenger;
-
-
-    public FilterGreaterThanDiscountCommand(CollectionManager collectionManager, CommandReader reader, String arg, Messenger messenger) {
-        this.collectionManager = collectionManager;
-        this.arg = arg;
-        this.messenger = messenger;
+    public FilterGreaterThanDiscountCommand() {
     }
 
-    public void execute() {
+    public void execute(CollectionManager collectionManager, CommandReader reader, String arg, Messenger messenger) {
         //System.out.println("Displaying elements with discount greater than given");
-        /**
-         * Discount we want to filter
-         */
         double discount;
         try {
             discount = Double.parseDouble(arg);

@@ -8,23 +8,13 @@ import main.*;
  * @version 1.0
  */
 
-public class MaxByCoordinatesCommand implements Command {
-
-    /**
-     * Collection's manager
-     */
-
-    private final CollectionManager collectionManager;
-
-    private final Messenger messenger;
+public class MaxByCoordinatesCommand implements MessagingCommand {
 
 
-    public MaxByCoordinatesCommand(CollectionManager collectionManager, CommandReader reader, String arg, Messenger messenger) {
-        this.collectionManager = collectionManager;
-        this.messenger = messenger;
+    public MaxByCoordinatesCommand() {
     }
 
-    public void execute() {
+    public void execute(CollectionManager collectionManager, CommandReader reader, String arg, Messenger messenger) {
         //System.out.println("Getting the max by coordinates manager.ticket");
         try{
             System.out.println(messenger.getTicketMessage(collectionManager.maxByCoordinates()));

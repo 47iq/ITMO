@@ -11,19 +11,13 @@ import java.util.List;
  * @version 1.0
  */
 
-public class PrintFieldDescendingRefundableCommand implements Command{
+public class PrintFieldDescendingRefundableCommand implements SimpleCommand{
 
-    /**
-     * Collection's manager
-     */
+    public PrintFieldDescendingRefundableCommand() {
 
-    private final CollectionManager collectionManager;
-
-    public PrintFieldDescendingRefundableCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
-        this.collectionManager = collectionManager;
     }
 
-    public void execute() {
+    public void execute(CollectionManager collectionManager, CommandReader reader, String arg) {
         //System.out.println("Displaying refundable field of the elements in the descending order");
         try{
             List<Boolean> refundableList = collectionManager.getRefundableList();

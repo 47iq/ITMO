@@ -9,20 +9,12 @@ import main.CommandReader;
  * @version 1.0
  */
 
-public class SaveCommand implements Command {
+public class SaveCommand implements SimpleCommand {
 
-    /**
-     * Collection's manager
-     */
-
-    private final CollectionManager collectionManager;
-
-
-    public SaveCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
-        this.collectionManager = collectionManager;
+    public SaveCommand() {
     }
 
-    public void execute() {
+    public void execute(CollectionManager collectionManager, CommandReader reader, String arg) {
         //System.out.println("Saving the collection has started");
         try {
             collectionManager.saveData();

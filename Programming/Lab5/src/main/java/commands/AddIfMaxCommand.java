@@ -11,23 +11,12 @@ import main.ticket.Ticket;
  * @version 1.0
  */
 
-public class AddIfMaxCommand implements Command {
+public class AddIfMaxCommand implements SimpleCommand {
 
-    /**
-     * Collection's manager
-     */
-
-    private final CollectionManager collectionManager;
-
-    private final CommandReader commandReader;
-
-
-    public AddIfMaxCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
-        this.collectionManager = collectionManager;
-        this.commandReader = reader;
+    public AddIfMaxCommand() {
     }
 
-    public void execute() {
+    public void execute(CollectionManager collectionManager, CommandReader commandReader, String arg) {
         /**
          * Ticket we want to add
          */

@@ -10,27 +10,13 @@ import main.CommandReader;
  * @version 1.0
  */
 
-public class RemoveByIdCommand implements Command {
+public class RemoveByIdCommand implements SimpleCommand {
 
-    /**
-     * Collection's manager
-     */
+    public RemoveByIdCommand() {
 
-    private final CollectionManager collectionManager;
-
-    private final String arg;
-
-
-    public RemoveByIdCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
-        this.collectionManager = collectionManager;
-        this.arg = arg;
     }
 
-    public void execute() {
-        //System.out.println("Trying to remove manager.ticket by id.");
-        /**
-         * Id of the manager.ticket we want to remove
-         */
+    public void execute(CollectionManager collectionManager, CommandReader reader, String arg) {
         int id;
         try{
             id = Integer.parseInt(arg);

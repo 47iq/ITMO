@@ -10,9 +10,5 @@ public interface Command {
     /**
      * Method that executes command
      */
-    void execute();
-
-    /**
-     * Method
-     */
+    //void execute();
 }

@@ -9,23 +9,12 @@ import main.CommandReader;
  * @version 1.0
  */
 
-public class ClearCommand implements Command {
-    /**
-     * Collection's manager
-     */
+public class ClearCommand implements SimpleCommand {
 
-    private final CollectionManager collectionManager;
-
-    /**
-     * Constructor of the clear command
-     * @param collectionManager collection's manager
-     */
-
-    public ClearCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
-        this.collectionManager = collectionManager;
+    public ClearCommand() {
     }
 
-    public void execute() {
+    public void execute(CollectionManager collectionManager, CommandReader reader, String arg) {
         //System.out.println("Clearing the collection has started");
         try {
             collectionManager.clear();

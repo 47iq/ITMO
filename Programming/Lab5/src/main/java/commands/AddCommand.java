@@ -11,31 +11,17 @@ import main.ticket.Ticket;
  * @version 1.0
  */
 
-public class AddCommand implements Command {
-
-    /**
-     * Manager of the manager.ticket collection
-     */
-
-    private final CollectionManager collectionManager;
-
-    /**
-     * Command reader
-     */
-
-    private final CommandReader commandReader;
-
+public class AddCommand implements SimpleCommand {
 
     /**
      * Constructor of the add command
      */
 
-    public AddCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
-        this.collectionManager = collectionManager;
-        this.commandReader = reader;
+    public AddCommand() {
+
     }
 
-    public void execute() {
+    public void execute(CollectionManager collectionManager, CommandReader commandReader, String arg) {
         //System.out.println("Adding manager.ticket to the collection has started");
         Ticket ticket;
         try{
