@@ -1,10 +1,9 @@
 package commands;
 
 import exceptions.InvalidTicketException;
-import manager.CollectionManager;
-import manager.CommandFactory;
-import manager.CommandReader;
-import ticket.Ticket;
+import main.CollectionManager;
+import main.CommandReader;
+import main.ticket.Ticket;
 
 /**
  * Class of add_if_max command
@@ -23,7 +22,7 @@ public class AddIfMaxCommand implements Command {
     private final CommandReader commandReader;
 
 
-    public AddIfMaxCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
+    public AddIfMaxCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
         this.collectionManager = collectionManager;
         this.commandReader = reader;
     }
@@ -39,18 +38,14 @@ public class AddIfMaxCommand implements Command {
             System.err.println(new InvalidTicketException().getMessage());
             return;
         }
-        //System.out.println("Trying to add ticket...");
+        //System.out.println("Trying to add manager.ticket...");
         if(ticket == null)
             return;
         try{
             collectionManager.addIfMax(ticket);
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println("Error got while adding the ticket");
+            System.err.println("Error got while adding the manager.ticket");
         }
-    }
-
-    public static String strConvert() {
-        return "add_if_max {Ticket}: add given ticket if it is bigger than any other ticket of the collection.";
     }
 }

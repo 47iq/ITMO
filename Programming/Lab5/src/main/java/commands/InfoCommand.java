@@ -1,8 +1,8 @@
 package commands;
 
-import manager.CollectionManager;
-import manager.CommandFactory;
-import manager.CommandReader;
+import main.*;
+
+import java.util.List;
 
 /**
  * Class of info command
@@ -18,23 +18,22 @@ public class InfoCommand implements Command {
 
     private final CollectionManager collectionManager;
 
+    private final Messenger messenger;
 
-    public InfoCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
+
+    public InfoCommand(CollectionManager collectionManager, CommandReader reader, String arg, Messenger messenger) {
         this.collectionManager = collectionManager;
+        this.messenger = messenger;
     }
 
     public void execute() {
         //System.out.println("Info displaying has started.");
         try {
-            collectionManager.displayInfo();
+            List<String> info = collectionManager.displayInfo();
+            System.out.println(messenger.getCollectionMessage(info.get(0), info.get(1), info.get(2)));
             //System.out.println("Info displaying has been completed");
         } catch (Exception e) {
             System.err.println("Error got while displaying the info");
         }
     }
-
-    public static String strConvert() {
-        return "info : get information about the collection.";
-    }
-
 }

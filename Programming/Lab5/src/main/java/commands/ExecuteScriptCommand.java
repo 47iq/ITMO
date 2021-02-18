@@ -1,6 +1,6 @@
 package commands;
 
-import manager.*;
+import main.*;
 
 import java.io.File;
 
@@ -26,12 +26,15 @@ public class ExecuteScriptCommand implements Command, ScriptContaining {
 
     private CommandFactory commandFactory;
 
+    private ClientObjectFactory ticketFactory;
 
-    public ExecuteScriptCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
+
+    public ExecuteScriptCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory, ClientObjectFactory ticketFactory) {
         this.collectionManager = collectionManager;
         this.commandReader = reader;
         this.fileName = arg;
         this.commandFactory = commandFactory;
+        this.ticketFactory = ticketFactory;
     }
 
     public void execute() {
@@ -42,7 +45,7 @@ public class ExecuteScriptCommand implements Command, ScriptContaining {
         }
         //System.out.println("Executing script from the file has started");
         try {
-            CommandReader fileCommandReader = ObjectFactory.getFileReader(commandFactory, collectionManager, file);
+            CommandReader fileCommandReader = ticketFactory.getFileReader(commandFactory, collectionManager, file);
             fileCommandReader.readCommands();
             //System.out.println("Executing script from the file has finished");
         } catch (Exception e) {
@@ -54,9 +57,5 @@ public class ExecuteScriptCommand implements Command, ScriptContaining {
 
     public String getFileName(){
         return fileName;
-    }
-
-    public static String strConvert() {
-        return "execute_script (file_name): execute script from the given file.";
     }
 }

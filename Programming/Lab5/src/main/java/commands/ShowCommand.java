@@ -1,8 +1,9 @@
 package commands;
 
-import manager.CollectionManager;
-import manager.CommandFactory;
-import manager.CommandReader;
+import main.*;
+import main.ticket.Ticket;
+
+import java.util.List;
 
 /**
  * Class of show command
@@ -18,22 +19,24 @@ public class ShowCommand implements Command {
 
     private final CollectionManager collectionManager;
 
+    private final Messenger messenger;
 
-    public ShowCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
+
+    public ShowCommand(CollectionManager collectionManager, CommandReader reader, String arg, Messenger messenger) {
         this.collectionManager = collectionManager;
+        this.messenger = messenger;
     }
 
     public void execute() {
         //System.out.println("Displaying tickets");
         try {
-            collectionManager.displayElements();
+            List<Ticket> ticketList = collectionManager.displayElements();
+            for (Ticket ticket: ticketList) {
+                System.out.println(messenger.getTicketMessage(ticket));
+            }
             //System.out.println("Tickets have been successfully displayed");
         } catch (Exception e) {
             System.err.println("Error got while displaying tickets");
         }
-    }
-
-    public static String strConvert() {
-        return "show: get the collection's elements.";
     }
 }

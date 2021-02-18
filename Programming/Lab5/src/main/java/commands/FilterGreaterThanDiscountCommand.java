@@ -1,8 +1,9 @@
 package commands;
 
-import manager.CollectionManager;
-import manager.CommandFactory;
-import manager.CommandReader;
+import main.*;
+import main.ticket.Ticket;
+
+import java.util.List;
 
 /**
  * Class of filter_greater_than_discount command
@@ -18,36 +19,36 @@ public class FilterGreaterThanDiscountCommand implements Command {
 
     private final CollectionManager collectionManager;
 
-    /**
-     * Discount we want to filter
-     */
+    private final String arg;
 
-    private double discount;
-
-    private String arg;
+    private final Messenger messenger;
 
 
-    public FilterGreaterThanDiscountCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
+    public FilterGreaterThanDiscountCommand(CollectionManager collectionManager, CommandReader reader, String arg, Messenger messenger) {
         this.collectionManager = collectionManager;
+        this.arg = arg;
+        this.messenger = messenger;
     }
 
     public void execute() {
         //System.out.println("Displaying elements with discount greater than given");
-        try{
+        /**
+         * Discount we want to filter
+         */
+        double discount;
+        try {
             discount = Double.parseDouble(arg);
         } catch (Exception e) {
             System.err.println("Invalid discount value has been entered. Discount must be double.");
             return;
         }
-        try{
-            collectionManager.filterDiscount(discount);
+        try {
+            List<Ticket> tickets = collectionManager.filterDiscount(discount);
+            for(Ticket ticket: tickets)
+                System.out.println(messenger.getTicketMessage(ticket));
             //System.out.println("The elements have been successfully displayed");
         } catch (Exception e) {
             System.err.println("Error got while displaying the elements");
         }
-    }
-
-    public static String strConvert() {
-        return "filter_greater_than_discount (discount): get elements, which have bigger discount than given.";
     }
 }

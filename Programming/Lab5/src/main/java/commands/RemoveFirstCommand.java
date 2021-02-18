@@ -1,8 +1,7 @@
 package commands;
 
-import manager.CollectionManager;
-import manager.CommandFactory;
-import manager.CommandReader;
+import main.CollectionManager;
+import main.CommandReader;
 
 /**
  * Class of remove_first command
@@ -19,7 +18,7 @@ public class RemoveFirstCommand implements Command {
     private final CollectionManager collectionManager;
 
 
-    public RemoveFirstCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
+    public RemoveFirstCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
         this.collectionManager = collectionManager;
     }
 
@@ -31,9 +30,5 @@ public class RemoveFirstCommand implements Command {
         } catch (Exception e) {
             System.err.println("Error got while removing the first element");
         }
-    }
-
-    public static String strConvert() {
-        return "remove_first: remove first ticket from the collection.";
     }
 }

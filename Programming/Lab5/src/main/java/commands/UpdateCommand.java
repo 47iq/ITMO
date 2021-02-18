@@ -2,8 +2,8 @@ package commands;
 
 import exceptions.InvalidTicketException;
 import exceptions.TicketNotFoundException;
-import manager.*;
-import ticket.Ticket;
+import main.*;
+import main.ticket.Ticket;
 
 /**
  * Class of update command
@@ -13,32 +13,21 @@ import ticket.Ticket;
 
 public class UpdateCommand implements Command {
 
-    /**
-     * Collection's manager
-     */
-
     private final CollectionManager taskManager;
 
-    /**
-     * id of the ticket we want to update
-     */
+    private final CommandReader commandReader;
 
-    private int id;
-
-    private CommandReader commandReader;
-
-    private String arg;
+    private final String arg;
 
 
-    public UpdateCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
+    public UpdateCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
         this.taskManager = collectionManager;
+        this.commandReader = reader;
+        this.arg = arg;
     }
 
     public void execute() {
-        //System.out.println("Updating ticket has started");
-        /**
-         * New ticket
-         */
+        //System.out.println("Updating manager.ticket has started");
         Ticket ticket;
         try {
             ticket = commandReader.readTicket();
@@ -46,6 +35,7 @@ public class UpdateCommand implements Command {
             System.err.println(new InvalidTicketException().getMessage());
             return;
         }
+        int id;
         try {
             id = Integer.parseInt(arg);
         } catch (Exception e) {
@@ -62,11 +52,7 @@ public class UpdateCommand implements Command {
         } catch (TicketNotFoundException e) {
             System.err.println(e.getMessage());
         }  catch (Exception e) {
-            System.err.println("Error got while updating the ticket");
+            System.err.println("Error got while updating the manager.ticket");
         }
-    }
-
-    public static String strConvert() {
-        return "update (id) {AbstractTicket}: update ticket with the given id.";
     }
 }

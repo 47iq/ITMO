@@ -1,8 +1,7 @@
 package commands;
 
-import manager.CollectionManager;
-import manager.CommandFactory;
-import manager.CommandReader;
+import main.CollectionManager;
+import main.CommandReader;
 
 /**
  * Class of save command
@@ -19,7 +18,7 @@ public class SaveCommand implements Command {
     private final CollectionManager collectionManager;
 
 
-    public SaveCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
+    public SaveCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
         this.collectionManager = collectionManager;
     }
 
@@ -31,9 +30,5 @@ public class SaveCommand implements Command {
         } catch (Exception e) {
             System.err.println("Error got while saving the collection");
         }
-    }
-
-    public static String strConvert() {
-        return "save: save the collection into the file.";
     }
 }

@@ -1,8 +1,7 @@
 package commands;
 
-import manager.CollectionManager;
-import manager.CommandFactory;
-import manager.CommandReader;
+import main.CollectionManager;
+import main.CommandReader;
 
 /**
  * Class of exit command
@@ -14,16 +13,12 @@ public class ExitCommand implements Command {
 
     private final CommandReader commandReader;
 
-    public ExitCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
+    public ExitCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
         this.commandReader = reader;
     }
 
     public void execute() {
         //System.out.println("Exiting program...");
         commandReader.exit();
-    }
-
-    public static String strConvert() {
-        return "exit: stop the program.";
     }
 }

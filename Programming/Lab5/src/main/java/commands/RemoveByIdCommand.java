@@ -1,9 +1,8 @@
 package commands;
 
 import exceptions.TicketNotFoundException;
-import manager.CollectionManager;
-import manager.CommandFactory;
-import manager.CommandReader;
+import main.CollectionManager;
+import main.CommandReader;
 
 /**
  * Class of remove_by_id command
@@ -22,15 +21,15 @@ public class RemoveByIdCommand implements Command {
     private final String arg;
 
 
-    public RemoveByIdCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
+    public RemoveByIdCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
         this.collectionManager = collectionManager;
         this.arg = arg;
     }
 
     public void execute() {
-        //System.out.println("Trying to remove ticket by id.");
+        //System.out.println("Trying to remove manager.ticket by id.");
         /**
-         * Id of the ticket we want to remove
+         * Id of the manager.ticket we want to remove
          */
         int id;
         try{
@@ -47,11 +46,7 @@ public class RemoveByIdCommand implements Command {
         } catch (TicketNotFoundException e) {
             System.err.println(e.getMessage());
         } catch (Exception e) {
-            System.err.println("Error got  while removing the ticket");
+            System.err.println("Error got  while removing the manager.ticket");
         }
-    }
-
-    public static String strConvert() {
-        return "remove_by_id (id): remove ticket with the given id.";
     }
 }

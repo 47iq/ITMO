@@ -1,10 +1,9 @@
 package commands;
 
 import exceptions.InvalidTicketException;
-import manager.CollectionManager;
-import manager.CommandFactory;
-import manager.CommandReader;
-import ticket.Ticket;
+import main.CollectionManager;
+import main.CommandReader;
+import main.ticket.Ticket;
 
 /**
  * Class of remove_greater command
@@ -22,7 +21,7 @@ public class RemoveGreaterCommand implements Command {
 
     private final CommandReader commandReader;
 
-    public RemoveGreaterCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
+    public RemoveGreaterCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
         this.collectionManager = collectionManager;
         this.commandReader = reader;
     }
@@ -47,9 +46,5 @@ public class RemoveGreaterCommand implements Command {
             System.err.println("Error got while removing elements");
         }
 
-    }
-
-    public static String strConvert() {
-        return "remove_greater {Ticket}: remove tickets bigger than given.";
     }
 }

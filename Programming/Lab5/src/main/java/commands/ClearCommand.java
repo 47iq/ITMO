@@ -1,8 +1,7 @@
 package commands;
 
-import manager.CollectionManager;
-import manager.CommandFactory;
-import manager.CommandReader;
+import main.CollectionManager;
+import main.CommandReader;
 
 /**
  * Class of clear command
@@ -22,7 +21,7 @@ public class ClearCommand implements Command {
      * @param collectionManager collection's manager
      */
 
-    public ClearCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
+    public ClearCommand(CollectionManager collectionManager, CommandReader reader, String arg) {
         this.collectionManager = collectionManager;
     }
 
@@ -34,9 +33,5 @@ public class ClearCommand implements Command {
         } catch (Exception e) {
             System.err.println("Error got while clearing collection");
         }
-    }
-
-    public static String strConvert() {
-        return "clear: clear the collection.";
     }
 }

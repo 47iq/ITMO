@@ -1,8 +1,6 @@
 package commands;
 
-import manager.CollectionManager;
-import manager.CommandFactory;
-import manager.CommandReader;
+import main.*;
 
 /**
  * Class of max_by_coordinates command
@@ -18,22 +16,21 @@ public class MaxByCoordinatesCommand implements Command {
 
     private final CollectionManager collectionManager;
 
+    private final Messenger messenger;
 
-    public MaxByCoordinatesCommand(CollectionManager collectionManager, CommandReader reader, String arg, CommandFactory commandFactory) {
+
+    public MaxByCoordinatesCommand(CollectionManager collectionManager, CommandReader reader, String arg, Messenger messenger) {
         this.collectionManager = collectionManager;
+        this.messenger = messenger;
     }
 
     public void execute() {
-        //System.out.println("Getting the max by coordinates ticket");
+        //System.out.println("Getting the max by coordinates manager.ticket");
         try{
-            collectionManager.maxByCoordinates();
-            //System.out.println("The max by coordinates ticket has been successfully displayed");
+            System.out.println(messenger.getTicketMessage(collectionManager.maxByCoordinates()));
+            //System.out.println("The max by coordinates manager.ticket has been successfully displayed");
         } catch (Exception e) {
             System.err.println("Error got while displaying the max by coordinates element");
         }
-    }
-
-    public static String strConvert() {
-        return "max_by coordinates: get the ticket, biggest by coordinates.";
     }
 }
