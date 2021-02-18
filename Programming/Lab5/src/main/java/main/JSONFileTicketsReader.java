@@ -15,7 +15,7 @@ import java.util.Collection;
  * Class to parse tickers from json file
  */
 
-public class JSONFileTicketsReader implements TicketReader, CasterOfDefaultTicket {
+public class JSONFileTicketsReader implements TicketReader {
 
     private final String dataFileName;
 
@@ -47,8 +47,8 @@ public class JSONFileTicketsReader implements TicketReader, CasterOfDefaultTicke
         return new BufferedReader(new FileReader(dataFile));
     }
 
-    public Collection<Ticket> getTickets() {
-        Collection<Ticket> tickets = new ArrayList<>();
+    public Collection<ServerTicket> getTickets() {
+        Collection<ServerTicket> tickets = new ArrayList<>();
         JSONArray ticketsJSON = getJSONTickets();
         for (Object obj : ticketsJSON)
             try {
@@ -78,18 +78,19 @@ public class JSONFileTicketsReader implements TicketReader, CasterOfDefaultTicke
         return jsonData;
     }
 
-    private Ticket getTicket(JSONObject jsonTicket) {
+    private ServerTicket getTicket(JSONObject jsonTicket) {
         try {
-            Object id = jsonTicket.get("id");
-            Object time = jsonTicket.get("creationDate");
-            String name = (String) jsonTicket.get("name");
-            Coordinates coordinates = getCoordinates((JSONObject) jsonTicket.get("coordinates"));
-            int price = castPrice((String) jsonTicket.get("price"));
-            double discount = castDiscount((String) jsonTicket.get("discount"));
-            Boolean refundable = manageRefundable(jsonTicket.get("refundable"));
-            TicketType type = manageType(jsonTicket.get("type"));
-            Person person = getPerson((JSONObject) jsonTicket.get("person"));
-            return ticketFactory.getTicket(id, time, name, coordinates, price, discount, refundable, type, person);
+            ServerTicket ticket = ticketFactory.getServerTicket();
+            ticket.setIdStr((String) jsonTicket.get("id"));
+            ticket.setDateStr((String) jsonTicket.get("creationDate"));
+            ticket.setNameStr((String) jsonTicket.get("name"));
+            ticket.setCoordinates(getCoordinates((JSONObject) jsonTicket.get("coordinates")));
+            ticket.setPriceStr((String) jsonTicket.get("price"));
+            ticket.setDiscountStr((String) jsonTicket.get("discount"));
+            ticket.setRefundableStr(manageRefundable(jsonTicket.get("refundable")));
+            ticket.setTypeStr(manageType(jsonTicket.get("type")));
+            ticket.setPerson(getPerson((JSONObject) jsonTicket.get("person")));
+            return ticket;
         } catch (Exception e) {
             throw new InvalidTicketException();
         }
@@ -97,9 +98,10 @@ public class JSONFileTicketsReader implements TicketReader, CasterOfDefaultTicke
 
     private Coordinates getCoordinates(JSONObject jsonCoordinates) {
         try {
-            double x = castXCoordinate((String) jsonCoordinates.get("x"));
-            Integer y = castYCoordinate((String) jsonCoordinates.get("y"));
-            return ticketFactory.getCoordinates(x, y);
+            DefaultCoordinates coordinates = ticketFactory.getCoordinates();
+            coordinates.setXStr((String) jsonCoordinates.get("x"));
+            coordinates.setYStr((String) jsonCoordinates.get("y"));
+            return coordinates;
         } catch (Exception e) {
             throw new InvalidCoordinatesException();
         }
@@ -107,34 +109,35 @@ public class JSONFileTicketsReader implements TicketReader, CasterOfDefaultTicke
 
     private Person getPerson(JSONObject jsonObject) {
         try {
-            Long weight = manageWeight(jsonObject.get("weight"));
-            EyesColor eyesColor = castEyesColor((String) jsonObject.get("eyeColor"));
-            HairColor hairColor = castHairColor((String) jsonObject.get("hairColor"));
-            Country country = castCountry((String) jsonObject.get("nationality"));
-            return ticketFactory.getPerson(weight, eyesColor, hairColor, country);
+            DefaultPerson person = ticketFactory.getPerson();
+            person.setWeightStr(manageWeight(jsonObject.get("weight")));
+            person.setEyeColorStr((String)  jsonObject.get("eyeColor"));
+            person.setHairColorStr((String) jsonObject.get("hairColor"));
+            person.setNationalityStr((String) jsonObject.get("nationality"));
+            return person;
         } catch (Exception e) {
             throw new InvalidPersonException();
         }
     }
 
 
-    private Long manageWeight(Object jsonWeight) {
+    private String manageWeight(Object jsonWeight) {
         if(jsonWeight == null)
             return null;
-        return castWeight((String) jsonWeight);
+        return ((String) jsonWeight);
     }
 
-    private Boolean manageRefundable(Object jsonRefundable) {
+    private String manageRefundable(Object jsonRefundable) {
         if(jsonRefundable == null)
             return null;
         else
-            return castRefundable((String) jsonRefundable);
+            return ((String) jsonRefundable);
     }
 
-    private TicketType manageType(Object jsonType) {
+    private String manageType(Object jsonType) {
         if(jsonType == null)
             return null;
         else
-            return castType((String) jsonType);
+            return ((String) jsonType);
     }
 }

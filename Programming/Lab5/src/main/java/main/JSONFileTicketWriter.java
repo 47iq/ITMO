@@ -1,5 +1,6 @@
 package main;
 
+import main.ticket.ServerTicket;
 import main.ticket.Ticket;
 import org.json.simple.JSONArray;
 
@@ -17,8 +18,6 @@ import java.util.Collection;
 
 public class JSONFileTicketWriter implements TicketWriter {
 
-    private Collection<Ticket> tickets = new ArrayList<>();
-
     private final String dataFileName;
 
     /**
@@ -35,8 +34,7 @@ public class JSONFileTicketWriter implements TicketWriter {
      * @param tickets ticket collection we want to save into the file
      */
 
-    public void saveTickets(Collection<Ticket> tickets) {
-        this.tickets = tickets;
+    public void saveTickets(Collection<ServerTicket> tickets) {
         JSONArray jsonArray = new JSONArray();
         //int cnt = 0;
         for (Ticket ticket : tickets) {

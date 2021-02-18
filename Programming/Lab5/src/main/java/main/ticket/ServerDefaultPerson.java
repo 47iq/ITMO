@@ -1,10 +1,6 @@
 package main.ticket;
 
-import exceptions.InvalidCountryException;
-import exceptions.InvalidEyesColorException;
-import exceptions.InvalidHairColorException;
 import main.CasterOfDefaultPerson;
-import org.json.simple.JSONObject;
 
 /**
  * Class which stores and manages person's data
@@ -13,11 +9,15 @@ import org.json.simple.JSONObject;
  */
 
 
-public class ServerDefaultPerson extends AbstractPerson implements CasterOfDefaultPerson {
+public class ServerDefaultPerson extends DefaultPerson implements CasterOfDefaultPerson {
     public ServerDefaultPerson(Long weight, EyesColor eyesColor, HairColor hairColor, Country country) {
         setWeight(weight);
         setEyeColor(eyesColor);
         setHairColor(hairColor);
         setNationality(country);
+    }
+
+    public ServerDefaultPerson() {
+
     }
 }

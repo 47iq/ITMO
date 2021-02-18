@@ -6,14 +6,13 @@ import java.time.ZonedDateTime;
 
 public interface Ticket extends Comparable<Ticket> {
     double getDiscount();
-    int getId();
     Boolean getRefundable();
-    void configureId(int id);
     void setType(TicketType type);
     int getPrice();
     Person getPerson();
-    ZonedDateTime getCreationDate();
     String getName();
+    int getId();
+    ZonedDateTime getCreationDate();
     TicketType getType();
     void setName(String name);
     void setCoordinates(Coordinates coordinates);
@@ -27,7 +26,12 @@ public interface Ticket extends Comparable<Ticket> {
         if(priceDiff != 0)
             return priceDiff;
         else
-            return getId() - ticket.getId();
+            return getName().compareTo(ticket.getName());
     }
     JSONObject toJSON();
+    void setNameStr(String name);
+    void setPriceStr(String price);
+    void setDiscountStr(String discount);
+    void setRefundableStr(String refundable);
+    void setTypeStr(String type);
 }

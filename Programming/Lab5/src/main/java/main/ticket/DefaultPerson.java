@@ -1,8 +1,10 @@
 package main.ticket;
 
+import main.CasterOfDefaultPerson;
+
 import java.util.Objects;
 
-public abstract class AbstractPerson implements Person{
+public abstract class DefaultPerson implements Person, CasterOfDefaultPerson {
     private Long weight; //Поле может быть null, Значение поля должно быть больше 0
     private EyesColor eyeColor; //Поле не может быть null
     private HairColor hairColor; //Поле не может быть null
@@ -76,5 +78,21 @@ public abstract class AbstractPerson implements Person{
 
     public void setNationality(Country nationality) {
         this.nationality = nationality;
+    }
+
+    public void setWeightStr(String weight) {
+        setWeight(castWeight(weight));
+    }
+
+    public void setEyeColorStr(String eyeColor) {
+        setEyeColor(castEyesColor(eyeColor));
+    }
+
+    public void setHairColorStr(String hairColor) {
+        setHairColor(castHairColor(hairColor));
+    }
+
+    public void setNationalityStr(String nationality) {
+        setNationality(castCountry(nationality));
     }
 }

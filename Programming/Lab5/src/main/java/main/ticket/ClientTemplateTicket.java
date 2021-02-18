@@ -3,7 +3,11 @@ package main.ticket;
 import main.CasterOfDefaultTicket;
 import main.ClientObjectFactory;
 
-public class ClientTemplateTicket extends AbstractTicket implements CasterOfDefaultTicket {
+public class ClientTemplateTicket extends DefaultTicket implements CasterOfDefaultTicket {
+
+    public ClientTemplateTicket() {
+
+    }
 
     public ClientTemplateTicket(String name, double x, Integer y, int price, double discount, Boolean refundable, TicketType type, Long weight,
                                EyesColor eyesColor, HairColor hairColor, Country country, ClientObjectFactory ticketFactory) {

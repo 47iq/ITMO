@@ -1,6 +1,7 @@
 package main;
 
 import exceptions.InvalidIdException;
+import main.ticket.ServerTicket;
 import main.ticket.Ticket;
 
 import java.io.Reader;
@@ -18,7 +19,7 @@ public abstract class AbstractQueueManager implements CollectionManager{
      * {@link Ticket} collection
      */
 
-    protected Queue<Ticket> tickets;
+    protected Queue<ServerTicket> tickets;
 
     /**
      * Input stream of the {@link AbstractQueueManager}

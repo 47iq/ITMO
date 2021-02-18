@@ -1,6 +1,6 @@
 package main.ticket;
 
-public class ClientTemplateCoordinates extends AbstractCoordinates{
+public class ClientTemplateCoordinates extends DefaultCoordinates {
 
     /**
      * Constructor for getting {@link Coordinates} from its fields
@@ -11,5 +11,9 @@ public class ClientTemplateCoordinates extends AbstractCoordinates{
     public ClientTemplateCoordinates(double x, Integer y) {
         setX(x);
         setY(y);
+    }
+
+    public ClientTemplateCoordinates() {
+
     }
 }

@@ -9,7 +9,7 @@ import java.io.*;
  * Class that is used for reading commands from console
  */
 
-public class ConsoleCommandReader extends AbstractCommandReader implements CasterOfDefaultTicket {
+public class ConsoleCommandReader extends AbstractCommandReader {
 
     /**
      * Constructor for console reader
@@ -28,128 +28,132 @@ public class ConsoleCommandReader extends AbstractCommandReader implements Caste
     }
 
     public Ticket readTicket() throws IOException {
+        DefaultTicket ticket = ticketFactory.getDefaultTicket();
+        DefaultCoordinates coordinates = ticketFactory.getDefaultCoordinates();
+        DefaultPerson person = ticketFactory.getDefaultPerson();
         System.out.println(messenger.getNameInputInvitationMessage());
-        String name = catchCastName(reader.readLine());
+        catchSetName(reader.readLine(), ticket);
         System.out.println(messenger.getXInputInvitationMessage());
-        double xCoordinate = catchCastX(reader.readLine().trim());
+        catchSetX(reader.readLine().trim(), coordinates);
         System.out.println(messenger.getYInputInvitationMessage());
-        Integer yCoordinate = catchCastY(reader.readLine().trim());
+        catchSetY(reader.readLine().trim(), coordinates);
         System.out.println(messenger.getDiscountInputInvitationMessage());
-        double discount = catchCastDiscount(reader.readLine().trim());
+        catchSetDiscount(reader.readLine().trim(), ticket);
         System.out.println(messenger.getPriceInputInvitationMessage());
-        int price = catchCastPrice(reader.readLine().trim());
+        catchSetPrice(reader.readLine().trim(), ticket);
         System.out.println(messenger.getRefundableInputInvitationMessage());
-        Boolean refundable = catchCastRefundable(reader.readLine().trim());
+        catchSetRefundable(reader.readLine().trim(), ticket);
         System.out.println(messenger.getTicketTypeInputInvitationMessage());
-        TicketType type = catchCastType(reader.readLine().trim());
+        catchSetType(reader.readLine().trim(), ticket);
         System.out.println(messenger.getWeightInputInvitationMessage());
-        Long weight = catchCastWeight(reader.readLine().trim());
+        catchSetWeight(reader.readLine().trim(), person);
         System.out.println(messenger.getEyeColorInputInvitationMessage());
-        EyesColor personEyesColor = catchCastEyesColor(reader.readLine().trim());
+        catchSetEyesColor(reader.readLine().trim(), person);
         System.out.println(messenger.getHairColorInputInvitationMessage());
-        HairColor personHairColor = catchCastHairColor(reader.readLine().trim());
+        catchSetHairColor(reader.readLine().trim(), person);
         System.out.println(messenger.getCountryInputInvitationMessage());
-        Country country = catchCastCountry(reader.readLine().trim());
-        return ticketFactory.getTicket(name, xCoordinate, yCoordinate, price, discount,
-                refundable, type, weight, personEyesColor, personHairColor, country);
+        catchSetCountry(reader.readLine().trim(), person);
+        ticket.setCoordinates(coordinates);
+        ticket.setPerson(person);
+        return ticket;
     }
 
-    private String catchCastName(String str) throws IOException {
+    private void catchSetName(String str, DefaultTicket ticket) throws IOException {
         try{
-            return castName(str);
+            ticket.setNameStr(str);
         } catch (Exception e) {
             repeatInput(e);
-            return castName(reader.readLine());
+            catchSetName(reader.readLine(), ticket);
         }
     }
 
-    private double catchCastX(String str) throws IOException {
+    private void catchSetX(String str, DefaultCoordinates coordinates) throws IOException {
         try{
-            return castXCoordinate(str);
+            coordinates.setXStr(str);
         } catch (Exception e) {
             repeatInput(e);
-            return castXCoordinate(reader.readLine());
+            catchSetX(reader.readLine(), coordinates);
         }
     }
 
-    private Integer catchCastY(String str) throws IOException {
+    private void catchSetY(String str, DefaultCoordinates coordinates) throws IOException {
         try{
-            return castYCoordinate(str);
+            coordinates.setYStr(str);
         } catch (Exception e) {
             repeatInput(e);
-            return castYCoordinate(reader.readLine());
+            catchSetY(reader.readLine(), coordinates);
         }
     }
 
-    private double catchCastDiscount(String str) throws IOException {
+    private void catchSetDiscount(String str, DefaultTicket ticket) throws IOException {
         try{
-            return castDiscount(str);
+            ticket.setDiscountStr(str);
         } catch (Exception e) {
             repeatInput(e);
-            return castDiscount(reader.readLine());
+            catchSetDiscount(reader.readLine(), ticket);
         }
     }
 
-    private int catchCastPrice(String str) throws IOException {
+    private void catchSetPrice(String str, DefaultTicket ticket) throws IOException {
         try{
-            return castPrice(str);
+            ticket.setPriceStr(str);
         } catch (Exception e) {
             repeatInput(e);
-            return castPrice(reader.readLine());
+            catchSetPrice(reader.readLine(), ticket);
         }
     }
 
-    private TicketType catchCastType(String str) throws IOException {
+    private void catchSetType(String str, DefaultTicket ticket) throws IOException {
         try{
-            return castType(str);
+            ticket.setTypeStr(str);
         } catch (Exception e) {
             repeatInput(e);
-            return castType(reader.readLine());
+            catchSetType(reader.readLine(), ticket);
         }
     }
 
-    private Boolean catchCastRefundable(String str) throws IOException {
+    private void catchSetRefundable(String str, DefaultTicket ticket) throws IOException {
         try{
-            return castRefundable(str);
+            ticket.setRefundableStr(str);
         } catch (Exception e) {
             repeatInput(e);
-            return castRefundable(reader.readLine());
+            catchSetRefundable(reader.readLine(), ticket);
         }
     }
 
-    private Country catchCastCountry(String str) throws IOException {
+    private void catchSetCountry(String str, DefaultPerson person) throws IOException {
         try{
-            return castCountry(str);
+            person.setNationalityStr(str);
         } catch (Exception e) {
             repeatInput(e);
-            return castCountry(reader.readLine());
+            catchSetCountry(reader.readLine(), person);
         }
     }
 
-    private Long catchCastWeight(String str) throws IOException {
+    private void catchSetWeight(String str, DefaultPerson person) throws IOException {
         try{
-            return castWeight(str);
+            person.setWeightStr(str);
         } catch (Exception e) {
             repeatInput(e);
-            return castWeight(reader.readLine());
+            catchSetWeight(reader.readLine(), person);
         }
     }
 
-    private EyesColor catchCastEyesColor(String str) throws IOException {
+    private void catchSetEyesColor(String str, DefaultPerson person) throws IOException {
         try{
-            return castEyesColor(str);
+            person.setEyeColorStr(str);
         } catch (Exception e) {
             repeatInput(e);
-            return castEyesColor(reader.readLine());
+            catchSetEyesColor(reader.readLine(), person);
         }
     }
 
-    private HairColor catchCastHairColor(String str) throws IOException {
+    private void catchSetHairColor(String str, DefaultPerson person) throws IOException {
         try{
-            return castHairColor(str);
+            person.setHairColorStr(str);
         } catch (Exception e) {
             repeatInput(e);
-            return castHairColor(reader.readLine());
+            catchSetHairColor(reader.readLine(), person);
         }
     }
 

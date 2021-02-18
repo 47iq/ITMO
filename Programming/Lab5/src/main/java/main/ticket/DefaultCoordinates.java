@@ -1,8 +1,10 @@
 package main.ticket;
 
+import main.CasterOfDefaultCoordinates;
+
 import java.util.Objects;
 
-public abstract class AbstractCoordinates implements Coordinates {
+public abstract class DefaultCoordinates implements Coordinates, CasterOfDefaultCoordinates {
     private double x; //Значение поля должно быть больше -172
     private Integer y; //Значение поля должно быть больше -236, Поле не может быть null
 
@@ -41,5 +43,13 @@ public abstract class AbstractCoordinates implements Coordinates {
 
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    public void setXStr(String x) {
+        setX(castXCoordinate(x));
+    }
+
+    public void setYStr(String y) {
+        setY(castYCoordinate(y));
     }
 }

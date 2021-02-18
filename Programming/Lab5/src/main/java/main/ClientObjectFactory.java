@@ -12,25 +12,6 @@ import java.io.FileNotFoundException;
 public interface ClientObjectFactory {
 
     /**
-     * {@link Ticket} creator
-     * @param name ticket name
-     * @param x ticket x coordinate
-     * @param y ticket y coordinate
-     * @param price ticket price
-     * @param discount ticket discount
-     * @param refundable ticket refundable
-     * @param type ticket type
-     * @param weight person weight
-     * @param eyesColor person eye color
-     * @param hairColor person hair color
-     * @param country person nationality
-     * @return Ticket
-     */
-
-    Ticket getTicket(String name, double x, Integer y, int price, double discount, Boolean refundable, TicketType type, Long weight,
-                     EyesColor eyesColor, HairColor hairColor, Country country);
-
-    /**
      * {@link Person} creator
      * @param weight person weight
      * @param eyesColor person eye color
@@ -60,4 +41,10 @@ public interface ClientObjectFactory {
      */
 
     CommandReader getFileReader(CommandFactory commandFactory, CollectionManager collectionManager, File file) throws FileNotFoundException;
+
+    DefaultTicket getDefaultTicket();
+
+    DefaultCoordinates getDefaultCoordinates();
+
+    DefaultPerson getDefaultPerson();
 }

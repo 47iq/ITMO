@@ -1,5 +1,6 @@
 package main;
 
+import main.ticket.ServerTicket;
 import main.ticket.Ticket;
 
 import java.util.Collection;
@@ -14,5 +15,5 @@ public interface TicketWriter {
      * Saves tickets collection
      * @param tickets tickets collection
      */
-    void saveTickets(Collection<Ticket> tickets);
+    void saveTickets(Collection<ServerTicket> tickets);
 }

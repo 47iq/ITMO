@@ -1,11 +1,12 @@
 package main.ticket;
 
+import main.CasterOfDefaultTicket;
 import org.json.simple.JSONObject;
 
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
-public abstract class AbstractTicket implements Ticket {
+public abstract class DefaultTicket implements Ticket, CasterOfDefaultTicket {
 
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -18,8 +19,8 @@ public abstract class AbstractTicket implements Ticket {
     private Person person; //Поле не может быть null
 
     /**
-     * Getter for {@link AbstractTicket#id}
-     * @return {@link AbstractTicket#id}
+     * Getter for {@link DefaultTicket#id}
+     * @return {@link DefaultTicket#id}
      */
 
     public int getId() {
@@ -27,7 +28,7 @@ public abstract class AbstractTicket implements Ticket {
     }
 
     /**
-     * Getter for {@link AbstractTicket#coordinates}
+     * Getter for {@link DefaultTicket#coordinates}
      * @return {@link #coordinates}
      */
 
@@ -36,8 +37,8 @@ public abstract class AbstractTicket implements Ticket {
     }
 
     /**
-     * Getter for {@link AbstractTicket#discount}
-     * @return {@link AbstractTicket#discount}
+     * Getter for {@link DefaultTicket#discount}
+     * @return {@link DefaultTicket#discount}
      */
 
     public double getDiscount() {
@@ -45,8 +46,8 @@ public abstract class AbstractTicket implements Ticket {
     }
 
     /**
-     * Getter for {@link AbstractTicket#refundable}
-     * @return {@link AbstractTicket#refundable}
+     * Getter for {@link DefaultTicket#refundable}
+     * @return {@link DefaultTicket#refundable}
      */
 
     public Boolean getRefundable() {
@@ -54,16 +55,16 @@ public abstract class AbstractTicket implements Ticket {
     }
 
     /**
-     * Setter for {@link AbstractTicket#id} used to update tickets with given id's
+     * Setter for {@link DefaultTicket#id} used to update tickets with given id's
      * @param id manager.ticket id
      */
 
-    public void configureId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * Setter for manager.ticket {@link AbstractTicket#type}
+     * Setter for manager.ticket {@link DefaultTicket#type}
      * @param type manager.ticket's type
      */
     public void setType(TicketType type) {
@@ -71,7 +72,7 @@ public abstract class AbstractTicket implements Ticket {
     }
 
     /**
-     * Getter for the manager.ticket {@link AbstractTicket#price}
+     * Getter for the manager.ticket {@link DefaultTicket#price}
      * @return {@link #price}
      */
 
@@ -81,8 +82,8 @@ public abstract class AbstractTicket implements Ticket {
 
 
     /**
-     * Getter for {@link AbstractTicket#person}
-     * @return {@link AbstractTicket#person}
+     * Getter for {@link DefaultTicket#person}
+     * @return {@link DefaultTicket#person}
      */
 
     public Person getPerson() {
@@ -135,7 +136,7 @@ public abstract class AbstractTicket implements Ticket {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AbstractTicket ticket = (AbstractTicket) o;
+        DefaultTicket ticket = (DefaultTicket) o;
         return id == ticket.id &&
                 price == ticket.price &&
                 Double.compare(ticket.discount, discount) == 0 &&
@@ -235,5 +236,21 @@ public abstract class AbstractTicket implements Ticket {
         jsonPerson.put("nationality", person.getNationality().toString());
         jsonTicket.put("person", jsonPerson);
         return jsonTicket;
+    }
+
+    public void setNameStr(String name) {
+        setName(castName(name));
+    }
+    public void setPriceStr(String price) {
+        setPrice(castPrice(price));
+    }
+    public void setDiscountStr(String discount) {
+        setDiscount(castDiscount(discount));
+    }
+    public void setRefundableStr(String refundable) {
+        setRefundable(castRefundable(refundable));
+    }
+    public void setTypeStr(String type) {
+        setType(castType(type));
     }
 }

@@ -1,5 +1,6 @@
 package main;
 
+import main.ticket.ServerTicket;
 import main.ticket.Ticket;
 
 import java.util.Collection;
@@ -13,5 +14,5 @@ public interface TicketReader {
      * Gets tickets
      * @return ticket collection
      */
-    Collection<Ticket> getTickets();
+    Collection<ServerTicket> getTickets();
 }

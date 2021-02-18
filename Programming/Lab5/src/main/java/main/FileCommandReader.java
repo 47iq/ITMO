@@ -8,7 +8,7 @@ import java.io.*;
  * Class that is used for reading commands(scripts) from file
  */
 
-public class FileCommandReader extends AbstractCommandReader implements CasterOfDefaultTicket {
+public class FileCommandReader extends AbstractCommandReader {
 
     /**
      * Constructor for file command reader
@@ -27,18 +27,23 @@ public class FileCommandReader extends AbstractCommandReader implements CasterOf
     }
 
     public Ticket readTicket() throws IOException {
-        String name = castName(reader.readLine());
-        double xCoordinate = castXCoordinate(reader.readLine().trim());
-        Integer yCoordinate = castYCoordinate(reader.readLine().trim());
-        double discount = castDiscount(reader.readLine().trim());
-        int price = castPrice(reader.readLine().trim());
-        Boolean refundable = castRefundable(reader.readLine().trim());
-        TicketType type = castType(reader.readLine().trim());
-        Long weight = castWeight(reader.readLine().trim());
-        EyesColor personEyesColor = castEyesColor(reader.readLine().trim());
-        HairColor personHairColor = castHairColor(reader.readLine().trim());
-        Country country = castCountry(reader.readLine().trim());
-        return ticketFactory.getTicket(name, xCoordinate, yCoordinate, price, discount, refundable, type, weight, personEyesColor, personHairColor, country);
+        DefaultTicket ticket = ticketFactory.getDefaultTicket();
+        DefaultCoordinates coordinates = ticketFactory.getDefaultCoordinates();
+        DefaultPerson person = ticketFactory.getDefaultPerson();
+        ticket.setNameStr(reader.readLine());
+        coordinates.setXStr(reader.readLine().trim());
+        coordinates.setYStr(reader.readLine().trim());
+        ticket.setDiscountStr(reader.readLine().trim());
+        ticket.setPriceStr(reader.readLine().trim());
+        ticket.setRefundableStr(reader.readLine().trim());
+        ticket.setTypeStr(reader.readLine().trim());
+        person.setWeightStr(reader.readLine().trim());
+        person.setEyeColorStr(reader.readLine().trim());
+        person.setHairColorStr(reader.readLine().trim());
+        person.setNationalityStr(reader.readLine().trim());
+        ticket.setCoordinates(coordinates);
+        ticket.setPerson(person);
+        return ticket;
     }
 
     protected boolean readyForInput() throws IOException {
