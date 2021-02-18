@@ -8,6 +8,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -43,7 +44,7 @@ public class JSONFileTicketsReader implements TicketReader, CasterOfDefaultTicke
     }
 
     public Collection<Ticket> getTickets() {
-        Collection<Ticket> tickets = ticketFactory.getTicketsCollection();
+        Collection<Ticket> tickets = new ArrayList<>();
         JSONArray ticketsJSON = getJSONTickets();
         for (Object obj : ticketsJSON)
             try {

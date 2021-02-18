@@ -26,10 +26,6 @@ public class DefaultServerObjectFactory implements ServerObjectFactory {
         return new ServerDefaultPerson(weight, eyesColor, hairColor, country);
     }
 
-    public Collection<Ticket> getTicketsCollection() {
-        return new PriorityQueue<>();
-    }
-
     public Coordinates getLeastCoordinates() {
         return new ServerDefaultCoordinates(-171, -235);
     }

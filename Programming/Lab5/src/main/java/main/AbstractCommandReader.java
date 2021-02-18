@@ -75,9 +75,5 @@ public abstract class AbstractCommandReader implements CommandReader{
         isRunning = false;
     }
 
-    public CommandFactory getCommandFactory() {
-        return commandFactory;
-    }
-
     protected abstract boolean readyForInput() throws IOException;
 }
