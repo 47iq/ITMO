@@ -7,7 +7,7 @@ import java.io.Reader;
 import java.util.*;
 
 /**
- * Abstract class implementing {@link CollectionManager} which manages the execution of the application and in particular it manages {@link Queue< Ticket >}.
+ * Abstract class implementing {@link CollectionManager} which manages the execution of the application and in particular it manages {@link Queue<Ticket>}.
  * @autor 47iq
  * @version 1.0
  */
@@ -49,6 +49,15 @@ public abstract class AbstractQueueManager implements CollectionManager{
         if(idSet.contains(id))
             throw new InvalidIdException();
         idSet.add(id);
+    }
+
+    /**
+     * Removes ID from {@link #idSet}
+     * @param id id we want to remove
+     */
+
+    public static void removeID(int id) {
+        idSet.remove(id);
     }
 
     /**

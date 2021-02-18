@@ -63,6 +63,8 @@ public interface CasterOfDefaultPerson {
      */
 
     default Long castWeight(String weight) {
+        if(weight == null || weight.equals(""))
+            return null;
         Long weightLong = Long.parseLong(weight);
         if(weightValid(weightLong))
             return weightLong;

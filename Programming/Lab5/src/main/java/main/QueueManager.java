@@ -140,6 +140,7 @@ public class QueueManager extends AbstractQueueManager {
         for(Ticket ticket: tickets) {
             if(ticket.getId() == id) {
                 tickets.remove(ticket);
+                AbstractQueueManager.removeID(ticket.getId());
                 found = true;
                 break;
             }
@@ -155,11 +156,16 @@ public class QueueManager extends AbstractQueueManager {
 
 
     public void removeFirst() {
-        tickets.remove();
+        try {
+            Ticket ticket = tickets.poll();
+            AbstractQueueManager.removeID(ticket.getId());
+        } catch (Exception e) {
+            System.err.println("Error. Ticket queue is already empty.");
+        }
     }
 
     /**
-     * Sorts {@link #tickets} using {@link TreeSet<  ServerDefaultTicket  >}
+     * Sorts {@link #tickets} using {@link TreeSet<ServerDefaultTicket>}
      */
 
     public void sort() {
@@ -197,8 +203,10 @@ public class QueueManager extends AbstractQueueManager {
         Collections.sort(ticketList);
         for(int i = ticketList.size() - 1; i >= 0; i--) {
             Ticket ticketI = ticketList.get(i);
-            if(ticketI.compareTo(ticket) > 0)
+            if(ticketI.compareTo(ticket) > 0) {
                 tickets.remove(ticketI);
+                AbstractQueueManager.removeID(ticketI.getId());
+            }
             else
                 break;
         }

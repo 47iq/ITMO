@@ -38,20 +38,6 @@ public interface CasterOfDefaultTicket extends CasterOfDefaultCoordinates, Caste
 
 
     /**
-     * Parses and validates {@link Ticket#getId()} from {@link String}
-     * @param inputStr id in string format
-     * @return id int
-     */
-
-    default int castId(String inputStr) {
-        int id = Integer.parseInt(inputStr);
-        if(idValid(id))
-            return id;
-        else
-            throw new InvalidIdException();
-    }
-
-    /**
      * A price validator
      * @param price int
      * @return true if price is valid, false if not
@@ -79,10 +65,6 @@ public interface CasterOfDefaultTicket extends CasterOfDefaultCoordinates, Caste
 
     default boolean discountValid(double discount) {
         return discount > 0 && discount <= 100;
-    }
-
-    default boolean idValid(int id) {
-        return id > 0;
     }
 
     /**

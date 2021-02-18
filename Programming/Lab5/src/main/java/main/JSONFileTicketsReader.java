@@ -1,7 +1,7 @@
 package main;
 
-import exceptions.InputFileNotFoundException;
-import main.ticket.Ticket;
+import exceptions.*;
+import main.ticket.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -16,10 +16,10 @@ import java.util.Collection;
 
 public class JSONFileTicketsReader implements TicketReader, CasterOfDefaultTicket {
 
-    private String dataFileName;
-    private Reader reader;
-    private JSONParser parser = new JSONParser();
-    private ServerObjectFactory ticketFactory;
+    private final String dataFileName;
+    private final Reader reader;
+    private final JSONParser parser = new JSONParser();
+    private final ServerObjectFactory ticketFactory;
 
     /**
      * Constructor that also opens file input stream reader
@@ -30,20 +30,29 @@ public class JSONFileTicketsReader implements TicketReader, CasterOfDefaultTicke
     public JSONFileTicketsReader(String dataFileName, ServerObjectFactory ticketFactory) throws FileNotFoundException {
         this.dataFileName = dataFileName;
         this.ticketFactory = ticketFactory;
-        reader = getFileReader();
+        try {
+            reader = getFileReader();
+        } catch (Exception e) {
+            throw new InputFileNotFoundException();
+        }
     }
 
     private Reader getFileReader() throws FileNotFoundException {
         File dataFile = new File(dataFileName);
-        if(dataFileName == null)
-            throw new InputFileNotFoundException();
         return new BufferedReader(new FileReader(dataFile));
     }
 
-    /**
-     * Method used to get {@link JSONArray} of {@link Ticket} from {@link File} by its {@link String} name
-     * @return {@link JSONArray} array of json tickets
-     */
+    public Collection<Ticket> getTickets() {
+        Collection<Ticket> tickets = ticketFactory.getTicketsCollection();
+        JSONArray ticketsJSON = getJSONTickets();
+        for (Object obj : ticketsJSON)
+            try {
+                tickets.add(getTicket((JSONObject) obj));
+            } catch (Exception e) {
+                System.err.println("Error got while adding ticket from JSON file.");
+            }
+        return tickets;
+    }
 
     private JSONArray getJSONTickets() {
         File dataFile = new File(dataFileName);
@@ -64,16 +73,63 @@ public class JSONFileTicketsReader implements TicketReader, CasterOfDefaultTicke
         return jsonData;
     }
 
-    public Collection<Ticket> getTickets() {
-        Collection<Ticket> tickets = ticketFactory.getTicketsCollection();
-        JSONArray ticketsJSON = getJSONTickets();
-        for (Object obj : ticketsJSON)
-            try {
-                tickets.add(ticketFactory.getTicket((JSONObject) obj));
-            } catch (Exception e) {
-                String id;
-                System.err.println("Error got while adding manager.ticket from JSON.");
-            }
-        return tickets;
+    private Ticket getTicket(JSONObject jsonTicket) {
+        try {
+            Object id = jsonTicket.get("id");
+            Object time = jsonTicket.get("creationDate");
+            String name = (String) jsonTicket.get("name");
+            Coordinates coordinates = getCoordinates((JSONObject) jsonTicket.get("coordinates"));
+            int price = castPrice((String) jsonTicket.get("price"));
+            double discount = castDiscount((String) jsonTicket.get("discount"));
+            Boolean refundable = manageRefundable(jsonTicket.get("refundable"));
+            TicketType type = manageType(jsonTicket.get("type"));
+            Person person = getPerson((JSONObject) jsonTicket.get("person"));
+            return ticketFactory.getTicket(id, time, name, coordinates, price, discount, refundable, type, person);
+        } catch (Exception e) {
+            throw new InvalidTicketException();
+        }
+    }
+
+    private Coordinates getCoordinates(JSONObject jsonCoordinates) {
+        try {
+            double x = castXCoordinate((String) jsonCoordinates.get("x"));
+            Integer y = castYCoordinate((String) jsonCoordinates.get("y"));
+            return ticketFactory.getCoordinates(x, y);
+        } catch (Exception e) {
+            throw new InvalidCoordinatesException();
+        }
+    }
+
+    private Person getPerson(JSONObject jsonObject) {
+        try {
+            Long weight = manageWeight(jsonObject.get("weight"));
+            EyesColor eyesColor = castEyesColor((String) jsonObject.get("eyeColor"));
+            HairColor hairColor = castHairColor((String) jsonObject.get("hairColor"));
+            Country country = castCountry((String) jsonObject.get("nationality"));
+            return ticketFactory.getPerson(weight, eyesColor, hairColor, country);
+        } catch (Exception e) {
+            throw new InvalidPersonException();
+        }
+    }
+
+
+    private Long manageWeight(Object jsonWeight) {
+        if(jsonWeight == null)
+            return null;
+        return castWeight((String) jsonWeight);
+    }
+
+    private Boolean manageRefundable(Object jsonRefundable) {
+        if(jsonRefundable == null)
+            return null;
+        else
+            return castRefundable((String) jsonRefundable);
+    }
+
+    private TicketType manageType(Object jsonType) {
+        if(jsonType == null)
+            return null;
+        else
+            return castType((String) jsonType);
     }
 }

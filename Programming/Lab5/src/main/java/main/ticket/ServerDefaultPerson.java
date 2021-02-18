@@ -14,29 +14,6 @@ import org.json.simple.JSONObject;
 
 
 public class ServerDefaultPerson extends AbstractPerson implements CasterOfDefaultPerson {
-
-    /**
-     * Constructor to get person from {@link JSONObject}
-     * @param jsonObject {@link JSONObject}
-     */
-
-    public ServerDefaultPerson(JSONObject jsonObject){
-        Object weightJSON = jsonObject.get("weight");
-        if(weightJSON != null)
-            setWeight(castWeight((String) weightJSON));
-        else
-            setWeight(null);
-        if(jsonObject.get("eyeColor") == null)
-            throw new InvalidEyesColorException();
-        else setEyeColor(castEyesColor((String) jsonObject.get("eyeColor")));
-        if(jsonObject.get("hairColor") == null)
-            throw new InvalidHairColorException();
-        else setHairColor(castHairColor((String) jsonObject.get("hairColor")));
-        if(jsonObject.get("nationality") == null)
-            throw new InvalidCountryException();
-        else setNationality(castCountry((String) jsonObject.get("nationality")));
-    }
-
     public ServerDefaultPerson(Long weight, EyesColor eyesColor, HairColor hairColor, Country country) {
         setWeight(weight);
         setEyeColor(eyesColor);

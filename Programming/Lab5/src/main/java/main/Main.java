@@ -29,7 +29,7 @@ public class Main {
             ClientObjectFactory clientObjectFactory= new DefaultClientObjectFactory();
             ServerObjectFactory serverObjectFactory= new DefaultServerObjectFactory();
             Map<String, Class<? extends Command>> commands = getCommands();
-            Messenger messenger = new RUMessages();
+            Messenger messenger = new ENGMessages();
             CommandFactory commandFactory = SingletonCommandFactory.getInstance(commands, clientObjectFactory, messenger);
             QueueManager queueManager = new QueueManager(new JSONFileTicketsReader(fileName, serverObjectFactory), new JSONFileTicketWriter(fileName, serverObjectFactory), serverObjectFactory);
             CommandReader commandReader= new ConsoleCommandReader(commandFactory, queueManager, clientObjectFactory, messenger);

@@ -22,18 +22,4 @@ public class ServerDefaultCoordinates extends AbstractCoordinates implements Cas
         setX(x);
         setY(y);
     }
-
-    /**
-     * Constructor used to get manager.ticket.Coordinates objects from the JSON data
-     * @param jsonCoordinates JSONObject of coordinates
-     */
-
-    public ServerDefaultCoordinates(JSONObject jsonCoordinates){
-        setX(castXCoordinate((String) jsonCoordinates.get("x")));
-        String yStr = (String) jsonCoordinates.get("y");
-        if(yStr == null)
-            throw new InvalidYCoordinateException();
-        else
-            setY(castYCoordinate(yStr));
-    }
 }
