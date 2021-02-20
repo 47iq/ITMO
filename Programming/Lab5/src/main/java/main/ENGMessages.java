@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class ENGMessages extends AbstractMessenger {
 
-    public ENGMessages(Map<String, Class<? extends Command>> commandMap) {
+    public ENGMessages(Map<String, Command> commandMap) {
         setTicketFieldTranslations();
         setCommandTranslations();
         if(!commands.keySet().containsAll(commandMap.keySet()))

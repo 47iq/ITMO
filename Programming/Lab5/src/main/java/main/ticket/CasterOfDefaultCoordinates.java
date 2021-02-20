@@ -1,4 +1,4 @@
-package main;
+package main.ticket;
 
 import exceptions.InvalidXCoordinateException;
 import exceptions.InvalidYCoordinateException;

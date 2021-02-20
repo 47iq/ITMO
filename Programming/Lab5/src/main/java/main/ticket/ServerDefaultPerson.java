@@ -1,7 +1,5 @@
 package main.ticket;
 
-import main.CasterOfDefaultPerson;
-
 /**
  * Class which stores and manages person's data
  * @autor 47iq
@@ -9,7 +7,7 @@ import main.CasterOfDefaultPerson;
  */
 
 
-public class ServerDefaultPerson extends DefaultPerson implements CasterOfDefaultPerson {
+public class ServerDefaultPerson extends DefaultPerson {
     public ServerDefaultPerson(Long weight, EyesColor eyesColor, HairColor hairColor, Country country) {
         setWeight(weight);
         setEyeColor(eyesColor);

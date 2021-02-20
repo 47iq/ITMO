@@ -28,7 +28,7 @@ public class Main {
             fileName = args[0];
             ClientObjectFactory clientObjectFactory= new DefaultClientObjectFactory();
             ServerObjectFactory serverObjectFactory= new DefaultServerObjectFactory();
-            Map<String, Class<? extends Command>> commands = getCommands();
+            Map<String, Command> commands = getCommands();
             Messenger messenger = new ENGMessages(getCommands());
             CommandFactory commandFactory = SingletonCommandFactory.getInstance(commands, clientObjectFactory, messenger);
             QueueManager queueManager = new QueueManager(new JSONFileTicketsReader(fileName, serverObjectFactory), new JSONFileTicketWriter(fileName), serverObjectFactory);
@@ -42,24 +42,24 @@ public class Main {
         }
     }
 
-    public static Map<String, Class<? extends Command>> getCommands() {
-        HashMap<String, Class<? extends Command>> commands = new HashMap<>();
-        commands.put("help", HelpCommand.class);
-        commands.put("info", InfoCommand.class);
-        commands.put("show", ShowCommand.class);
-        commands.put("add", AddCommand.class);
-        commands.put("add_if_max", AddIfMaxCommand.class);
-        commands.put("update", UpdateCommand.class);
-        commands.put("save", SaveCommand.class);
-        commands.put("remove_by_id", RemoveByIdCommand.class);
-        commands.put("remove_greater", RemoveGreaterCommand.class);
-        commands.put("remove_first", RemoveFirstCommand.class);
-        commands.put("max_by_coordinates", MaxByCoordinatesCommand.class);
-        commands.put("filter_greater_than_discount", FilterGreaterThanDiscountCommand.class);
-        commands.put("print_field_descending_refundable", PrintFieldDescendingRefundableCommand.class);
-        commands.put("exit", ExitCommand.class);
-        commands.put("execute_script", ExecuteScriptCommand.class);
-        commands.put("clear", ClearCommand.class);
+    public static Map<String, Command> getCommands() {
+        HashMap<String, Command> commands = new HashMap<>();
+        commands.put("help", new HelpCommand());
+        commands.put("info", new InfoCommand());
+        commands.put("show", new ShowCommand());
+        commands.put("add", new AddCommand());
+        commands.put("add_if_max", new AddIfMaxCommand());
+        commands.put("update", new UpdateCommand());
+        commands.put("save", new SaveCommand());
+        commands.put("remove_by_id", new RemoveByIdCommand());
+        commands.put("remove_greater", new RemoveGreaterCommand());
+        commands.put("remove_first", new RemoveFirstCommand());
+        commands.put("max_by_coordinates", new MaxByCoordinatesCommand());
+        commands.put("filter_greater_than_discount", new FilterGreaterThanDiscountCommand());
+        commands.put("print_field_descending_refundable", new PrintFieldDescendingRefundableCommand());
+        commands.put("exit", new ExitCommand());
+        commands.put("execute_script", new ExecuteScriptCommand());
+        commands.put("clear", new ClearCommand());
         return commands;
     }
 }

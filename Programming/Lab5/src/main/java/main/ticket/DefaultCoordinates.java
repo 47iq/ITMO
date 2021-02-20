@@ -1,7 +1,5 @@
 package main.ticket;
 
-import main.CasterOfDefaultCoordinates;
-
 import java.util.Objects;
 
 public abstract class DefaultCoordinates implements Coordinates, CasterOfDefaultCoordinates {

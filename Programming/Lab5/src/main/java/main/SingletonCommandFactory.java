@@ -21,12 +21,12 @@ public class SingletonCommandFactory implements CommandFactory{
 
     private static SingletonCommandFactory instance = null;
 
-    private final Map<String, Class<? extends Command>> commands;
+    private final Map<String, Command> commands;
     private final ClientObjectFactory ticketFactory;
     private final Messenger messenger;
     protected static Set<File> files = new HashSet<>();
 
-    private SingletonCommandFactory(Map<String, Class<? extends Command>> commands, ClientObjectFactory ticketFactory, Messenger messenger) {
+    private SingletonCommandFactory(Map<String, Command> commands, ClientObjectFactory ticketFactory, Messenger messenger) {
         this.commands = commands;
         this.ticketFactory = ticketFactory;
         this.messenger = messenger;
@@ -40,7 +40,7 @@ public class SingletonCommandFactory implements CommandFactory{
      * @return command factory
      */
 
-    public static CommandFactory getInstance(Map<String, Class<? extends Command>> commands, ClientObjectFactory ticketFactory, Messenger messenger) {
+    public static CommandFactory getInstance(Map<String, Command> commands, ClientObjectFactory ticketFactory, Messenger messenger) {
         if(instance == null) {
             instance = new SingletonCommandFactory(commands, ticketFactory, messenger);
         }
@@ -48,10 +48,8 @@ public class SingletonCommandFactory implements CommandFactory{
     }
 
     private Command getCommand(String commandName) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        Class[] params = {};
-        Constructor<? extends Command> constructor = commands.get(commandName).getConstructor(params);
-        Command command = constructor.newInstance();
-        return command;
+        return commands.get(commandName);
+
     }
 
     public void executeCommand(String commandName, CommandReader commandReader, String arg, CollectionManager collectionManager) {

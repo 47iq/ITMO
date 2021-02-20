@@ -1,4 +1,4 @@
-package main;
+package main.ticket;
 
 import exceptions.*;
 import main.ticket.Ticket;
@@ -8,7 +8,7 @@ import main.ticket.TicketType;
  * Interface that provides methods which validate and cast Default {@link main.ticket.Ticket}'s fields
  */
 
-public interface CasterOfDefaultTicket extends CasterOfDefaultCoordinates, CasterOfDefaultPerson {
+public interface CasterOfDefaultTicket {
     /**
      * Parses and validates {@link Ticket#getRefundable()} from {@link String}
      * @param inputStr refundable in string format

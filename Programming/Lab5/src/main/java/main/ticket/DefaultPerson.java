@@ -1,7 +1,5 @@
 package main.ticket;
 
-import main.CasterOfDefaultPerson;
-
 import java.util.Objects;
 
 public abstract class DefaultPerson implements Person, CasterOfDefaultPerson {

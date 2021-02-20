@@ -1,10 +1,13 @@
 package main.ticket;
 
-import main.CasterOfDefaultTicket;
 import org.json.simple.JSONObject;
 
 import java.time.ZonedDateTime;
 import java.util.Objects;
+
+/**
+ * Default realization of {@link Ticket}
+ */
 
 public abstract class DefaultTicket implements Ticket, CasterOfDefaultTicket {
 

@@ -1,6 +1,5 @@
 package main.ticket;
 
-import main.CasterOfDefaultTicket;
 import main.ClientObjectFactory;
 
 public class ClientTemplateTicket extends DefaultTicket implements CasterOfDefaultTicket {
