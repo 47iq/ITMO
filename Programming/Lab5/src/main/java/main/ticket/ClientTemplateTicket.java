@@ -2,7 +2,7 @@ package main.ticket;
 
 import main.ClientObjectFactory;
 
-public class ClientTemplateTicket extends DefaultTicket implements CasterOfDefaultTicket {
+public class ClientTemplateTicket extends DefaultTicket{
 
     public ClientTemplateTicket() {
 
