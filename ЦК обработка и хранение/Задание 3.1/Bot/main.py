@@ -10,7 +10,7 @@ lin = f1.readlines()
 single = 0
 double = 0
 interrupt = 0
-flag = lin[0].split(",")[1] - lin[0].split(",")[2] 
+flag = int(lin[1].split(",")[1]) - int(lin[1].split(",")[2])
 for line in lin:
     try:
         line = line.split(",")
