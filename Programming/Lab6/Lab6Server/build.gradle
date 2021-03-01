@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+apply plugin: 'idea'
+group 'org.example'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.0'
+    compile "org.apache.clerezza.ext:org.json.simple:0.4"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "main.Main"
+    }
+}

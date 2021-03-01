@@ -1,0 +1,406 @@
+[2021-02-27T13:27:53,072 INFO ] main.Main - Server started on port 3110, file Input.json
+[2021-02-27T13:27:53,085 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T13:27:53,113 INFO ] main.JSONFileTicketsReader - 11 tickets have been parsed from file.
+[2021-02-27T13:27:53,117 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T13:28:45,571 INFO ] main.ServerCommandFactory - Unknown command : 4456 got.
+[2021-02-27T13:28:48,592 INFO ] main.ServerCommandFactory - Unknown command : exi got.
+[2021-02-27T13:28:51,623 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T13:28:51,624 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-27T13:31:44,459 INFO ] main.Main - Server started on port 3110, file Input.json
+[2021-02-27T13:31:44,474 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T13:31:44,512 INFO ] main.JSONFileTicketsReader - 11 tickets have been parsed from file.
+[2021-02-27T13:31:44,519 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T13:32:16,954 ERROR] main.ConnectionWorker - Unknown error got while executing command
+[2021-02-27T13:32:21,846 ERROR] main.ConnectionWorker - Unknown error got while executing command
+[2021-02-27T13:32:43,865 INFO ] main.ServerCommandFactory - Unknown command : 34 got.
+[2021-02-27T13:32:45,877 INFO ] main.ServerCommandFactory - Executing admin command: exit
+[2021-02-27T13:32:45,887 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T13:32:45,887 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-27T13:33:40,159 INFO ] main.Main - Server started on port 3110, file Input.json
+[2021-02-27T13:33:40,175 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T13:33:40,210 INFO ] main.JSONFileTicketsReader - 11 tickets have been parsed from file.
+[2021-02-27T13:33:40,215 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T13:34:16,427 ERROR] main.ConnectionWorker - Unknown error got while executing command
+[2021-02-27T13:34:51,208 INFO ] main.Main - Server started on port 3110, file Input.json
+[2021-02-27T13:34:51,222 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T13:34:51,250 INFO ] main.JSONFileTicketsReader - 11 tickets have been parsed from file.
+[2021-02-27T13:34:51,255 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T13:35:30,884 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T13:35:30,885 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T13:35:35,922 INFO ] main.ServerCommandFactory - Executing command: show
+[2021-02-27T13:35:35,923 INFO ] main.QueueManager - Sent collection elements.
+[2021-02-27T13:36:26,248 INFO ] main.ServerCommandFactory - Executing command: add
+[2021-02-27T13:36:26,250 INFO ] main.QueueManager - Added ticket AbstractTicket{id=1902899361, name='tyt'} 
+[2021-02-27T13:36:30,276 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T13:36:30,276 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T13:36:46,057 INFO ] main.ServerCommandFactory - Executing admin command: exit
+[2021-02-27T13:36:46,060 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T13:36:46,060 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-27T13:46:01,308 INFO ] main.Main - Server started on port 3110, file Input.json
+[2021-02-27T13:46:01,318 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T13:46:01,341 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T13:46:01,347 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T13:46:42,499 INFO ] main.ServerCommandFactory - Executing admin command: exit_no_save
+[2021-02-27T13:46:42,499 INFO ] commands.ExitNoSaveCommand - Program has been exited.
+[2021-02-27T14:21:17,480 INFO ] main.Main - Server started on port 3110, file Input.json
+[2021-02-27T14:21:17,489 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T14:21:17,511 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T14:21:17,513 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T14:21:41,581 INFO ] main.ServerCommandFactory - Unknown command : fg got.
+[2021-02-27T14:21:48,295 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T14:21:48,295 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T14:22:02,603 INFO ] main.ServerCommandFactory - Executing admin command: exit_no_save
+[2021-02-27T14:22:02,604 INFO ] commands.ExitNoSaveCommand - Program has been exited.
+[2021-02-27T14:29:49,568 INFO ] main.Main - Server started on port 3110, file Input.json
+[2021-02-27T14:29:49,576 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T14:29:49,592 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T14:29:49,595 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T14:30:52,347 INFO ] main.ServerCommandFactory - Executing command: add
+[2021-02-27T14:30:52,356 INFO ] main.QueueManager - Added ticket AbstractTicket{id=1198086134, name='1'} 
+[2021-02-27T14:30:59,212 INFO ] main.ServerCommandFactory - Unknown command : info got.
+[2021-02-27T14:31:07,457 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T14:31:07,458 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T14:31:18,352 INFO ] main.ServerCommandFactory - Executing admin command: exit_no_save
+[2021-02-27T14:31:18,353 INFO ] commands.ExitNoSaveCommand - Program has been exited.
+[2021-02-27T15:28:52,820 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T15:28:52,826 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T15:28:52,843 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T15:28:52,845 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T15:29:36,667 INFO ] main.ServerCommandFactory - Executing admin command: save
+[2021-02-27T15:29:36,671 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T15:30:04,773 INFO ] main.ServerCommandFactory - Executing command: show
+[2021-02-27T15:30:04,773 INFO ] main.QueueManager - Sent collection elements.
+[2021-02-27T15:30:35,186 INFO ] main.ServerCommandFactory - Executing admin command: exit
+[2021-02-27T15:30:35,191 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T15:30:35,192 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-27T15:41:11,614 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T15:41:11,621 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T15:41:11,647 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T15:41:11,649 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T15:41:49,097 INFO ] main.ServerCommandFactory - Executing admin command: exit
+[2021-02-27T15:41:49,102 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T15:41:49,102 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-27T16:43:18,404 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T16:43:18,413 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T16:43:18,433 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T16:43:18,436 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T16:43:36,185 INFO ] main.ServerCommandFactory - Unknown command : ww got.
+[2021-02-27T16:43:51,945 INFO ] main.ServerCommandFactory - Executing command: show
+[2021-02-27T16:43:51,945 INFO ] main.QueueManager - Sent collection elements.
+[2021-02-27T16:44:03,425 INFO ] main.ServerCommandFactory - Executing command: show
+[2021-02-27T16:44:03,425 INFO ] main.QueueManager - Sent collection elements.
+[2021-02-27T16:44:06,057 INFO ] main.ServerCommandFactory - Unknown command : swho got.
+[2021-02-27T16:44:09,216 INFO ] main.ServerCommandFactory - Executing command: show
+[2021-02-27T16:44:09,216 INFO ] main.QueueManager - Sent collection elements.
+[2021-02-27T16:44:34,133 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T16:44:34,133 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T16:44:45,436 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T16:44:45,437 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T16:44:47,462 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T16:44:47,462 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T16:44:57,934 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T16:44:57,934 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T16:45:00,554 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T16:45:00,555 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T16:45:31,046 INFO ] main.ServerCommandFactory - Executing command: add
+[2021-02-27T16:45:31,057 INFO ] main.QueueManager - Added ticket AbstractTicket{id=864860781, name='tyu'} 
+[2021-02-27T16:45:39,818 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T16:45:39,818 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T16:45:47,062 INFO ] main.ServerCommandFactory - Unknown command :  got.
+[2021-02-27T16:46:11,835 INFO ] main.ServerCommandFactory - Executing admin command: exit_no_save
+[2021-02-27T16:46:11,835 INFO ] commands.ExitNoSaveCommand - Program has been exited.
+[2021-02-27T16:56:57,793 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T16:56:57,801 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T16:56:57,817 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T16:56:57,820 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T16:57:50,445 INFO ] main.ServerCommandFactory - Executing command: help
+[2021-02-27T16:58:01,565 INFO ] main.ServerCommandFactory - Executing command: help
+[2021-02-27T16:58:03,602 INFO ] main.ServerCommandFactory - Executing command: help
+[2021-02-27T16:58:10,166 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T16:58:10,166 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T16:58:14,600 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T16:58:14,600 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T16:58:34,075 INFO ] main.ServerCommandFactory - Executing admin command: exit_no_save
+[2021-02-27T16:58:34,076 INFO ] commands.ExitNoSaveCommand - Program has been exited.
+[2021-02-27T17:06:31,330 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T17:06:31,336 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T17:06:31,355 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T17:06:31,357 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T17:06:44,679 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T17:06:44,679 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T17:06:46,593 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T17:06:46,594 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T17:06:49,072 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T17:06:49,072 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T17:06:50,933 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T17:06:50,933 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T17:06:57,140 INFO ] main.ServerCommandFactory - Executing command: show
+[2021-02-27T17:06:57,140 INFO ] main.QueueManager - Sent collection elements.
+[2021-02-27T17:07:08,462 INFO ] main.ServerCommandFactory - Executing admin command: exit
+[2021-02-27T17:07:08,473 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T17:07:08,473 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-27T17:54:13,174 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T17:54:13,181 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T17:54:13,198 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T17:54:13,201 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T17:54:46,238 INFO ] main.ServerCommandFactory - Executing admin command: exit
+[2021-02-27T17:54:46,241 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T17:54:46,242 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-27T18:19:56,074 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T18:19:56,086 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T18:19:56,106 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T18:19:56,109 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T18:20:32,045 INFO ] main.ServerCommandFactory - Executing command: show
+[2021-02-27T18:20:32,045 INFO ] main.QueueManager - Sent collection elements.
+[2021-02-27T18:20:36,647 INFO ] main.ServerCommandFactory - Unknown command : ee got.
+[2021-02-27T18:26:33,945 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T18:26:33,953 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T18:26:33,970 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T18:26:33,973 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T18:27:13,719 INFO ] main.ServerCommandFactory - Executing command: help
+[2021-02-27T18:27:17,748 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-27T18:27:17,749 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-27T18:27:25,836 INFO ] main.ServerCommandFactory - Unknown command : hgf got.
+[2021-02-27T18:27:54,807 INFO ] main.ServerCommandFactory - Executing command: update
+[2021-02-27T18:28:04,868 INFO ] main.ServerCommandFactory - Executing admin command: exit
+[2021-02-27T18:28:04,871 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T18:28:04,871 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-27T18:28:43,796 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T18:28:43,804 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T18:28:43,828 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T18:28:43,830 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T18:28:48,783 INFO ] main.ServerCommandFactory - Executing admin command: exit
+[2021-02-27T18:28:48,788 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T18:28:48,789 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-27T18:29:29,415 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T18:29:29,422 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T18:29:29,438 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T18:29:29,441 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T18:29:32,660 INFO ] main.ServerCommandFactory - Executing admin command: save
+[2021-02-27T18:29:32,663 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T18:29:34,679 INFO ] main.ServerCommandFactory - Executing admin command: exit
+[2021-02-27T18:29:34,683 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T18:29:34,683 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-27T19:51:04,195 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T19:51:04,203 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T19:51:04,219 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T19:51:04,222 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T19:51:09,057 INFO ] main.ServerCommandFactory - Executing admin command: exit
+[2021-02-27T19:51:09,061 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T19:51:09,061 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-27T19:52:14,725 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T19:52:14,745 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T19:52:14,781 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T19:52:14,786 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T19:52:19,785 INFO ] main.ServerCommandFactory - Executing admin command: exit
+[2021-02-27T19:52:19,789 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T19:52:19,790 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-27T23:46:07,214 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T23:46:07,222 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T23:46:07,243 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T23:46:07,246 INFO ] connection.DefaultServer - Starting command reading...
+[2021-02-27T23:46:37,580 INFO ] main.ServerCommandFactory - Executing admin command: exit
+[2021-02-27T23:46:37,583 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T23:46:37,583 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-27T23:46:46,946 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T23:46:46,954 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T23:46:46,983 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T23:46:46,987 INFO ] connection.DefaultServer - Starting command reading...
+[2021-02-27T23:48:54,946 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T23:48:54,953 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T23:48:54,971 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T23:48:54,974 INFO ] main.connection.DefaultServer - Starting command reading...
+[2021-02-27T23:49:54,188 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T23:49:54,196 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T23:49:54,213 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T23:49:54,216 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T23:51:33,189 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-27T23:51:33,197 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-27T23:51:33,215 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-27T23:51:33,218 INFO ] main.DefaultServer - Starting command reading...
+[2021-02-27T23:51:44,447 INFO ] main.ServerCommandFactory - Executing command: show
+[2021-02-27T23:51:44,447 INFO ] main.QueueManager - Sent collection elements.
+[2021-02-27T23:51:58,504 INFO ] main.ServerCommandFactory - Executing admin command: exit
+[2021-02-27T23:51:58,510 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-27T23:51:58,510 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-28T00:10:30,425 INFO ] main.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-28T00:10:30,442 INFO ] main.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-28T00:10:30,461 INFO ] main.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-28T00:10:30,464 INFO ] main.connection.DefaultServer - Starting command reading...
+[2021-02-28T00:10:54,772 INFO ] main.ServerCommandFactory - Executing command: show
+[2021-02-28T00:10:54,772 INFO ] main.QueueManager - Sent collection elements.
+[2021-02-28T00:10:59,624 INFO ] main.ServerCommandFactory - Executing command: info
+[2021-02-28T00:10:59,624 INFO ] main.QueueManager - Sent info about collection.
+[2021-02-28T00:11:14,380 INFO ] main.ServerCommandFactory - Executing admin command: exit
+[2021-02-28T00:11:14,388 INFO ] main.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-28T00:11:14,389 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-28T00:41:29,271 INFO ] app.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-28T00:41:29,283 INFO ] app.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-28T00:41:29,303 INFO ] app.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-28T00:41:29,308 INFO ] app.connection.DefaultServer - Starting command reading...
+[2021-02-28T00:41:34,365 INFO ] app.ServerCommandFactory - Executing admin command: exit
+[2021-02-28T00:41:34,370 INFO ] app.filework.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-28T00:41:34,371 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-28T00:41:37,535 INFO ] app.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-28T00:41:37,543 INFO ] app.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-28T00:41:37,561 INFO ] app.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-28T00:41:37,563 INFO ] app.connection.DefaultServer - Starting command reading...
+[2021-02-28T00:41:51,516 INFO ] app.ServerCommandFactory - Executing command: show
+[2021-02-28T00:41:51,516 INFO ] app.collection.QueueManager - Sent collection elements.
+[2021-02-28T00:41:56,197 INFO ] app.ServerCommandFactory - Executing command: info
+[2021-02-28T00:41:56,197 INFO ] app.collection.QueueManager - Sent info about collection.
+[2021-02-28T00:42:26,488 INFO ] app.ServerCommandFactory - Executing command: print_field_descending_refundable
+[2021-02-28T00:42:26,488 INFO ] app.collection.QueueManager - Sent refundable list.
+[2021-02-28T00:42:55,379 INFO ] app.ServerCommandFactory - Executing admin command: exit
+[2021-02-28T00:42:55,382 INFO ] app.filework.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-28T00:42:55,382 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-28T13:24:22,249 INFO ] app.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-28T13:24:22,258 INFO ] app.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-28T13:24:22,279 INFO ] app.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-28T13:24:22,281 INFO ] app.connection.DefaultServer - Starting command reading...
+[2021-02-28T13:24:35,515 INFO ] app.command_manager.CommandVisitor - Executing command: class commands.HelpCommand
+[2021-02-28T13:24:39,434 INFO ] app.command_manager.CommandVisitor - Executing command: class commands.InfoCommand
+[2021-02-28T13:24:39,434 INFO ] app.collection.QueueManager - Sent info about collection.
+[2021-02-28T13:24:49,612 INFO ] app.command_manager.CommandVisitor - Executing admin command: class commands.ExitCommand
+[2021-02-28T13:24:49,618 INFO ] app.filework.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-28T13:24:49,619 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-28T13:32:44,518 INFO ] server.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-28T13:32:44,526 INFO ] server.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-28T13:32:44,544 INFO ] server.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-28T13:32:44,546 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-02-28T13:32:50,628 INFO ] server.command_manager.CommandVisitor - Executing admin command: class commands.ExitCommand
+[2021-02-28T13:32:50,632 INFO ] server.filework.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-02-28T13:32:50,632 INFO ] commands.ExitCommand - Program has been exited.
+[2021-02-28T14:38:45,230 INFO ] server.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-28T14:38:45,239 INFO ] server.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-28T14:38:45,259 INFO ] server.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-28T14:38:45,261 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-02-28T14:38:51,703 INFO ] server.command_manager.ServerCommandFactory - Unknown command : 34 got.
+[2021-02-28T14:38:56,626 INFO ] server.command_manager.ServerCommandFactory - Unknown command : 3 got.
+[2021-02-28T14:38:59,648 INFO ] server.command_manager.ServerCommandFactory - Unknown command : 333 got.
+[2021-02-28T14:39:02,684 INFO ] server.command_manager.ServerCommandFactory - Unknown command : 3456 got.
+[2021-02-28T14:40:20,457 INFO ] server.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-28T14:40:20,465 INFO ] server.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-28T14:40:20,481 INFO ] server.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-28T14:40:20,483 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-02-28T14:40:24,983 INFO ] server.command_manager.ServerCommandFactory - Unknown command : ы3 got.
+[2021-02-28T14:40:26,976 INFO ] server.command_manager.ServerCommandFactory - Unknown command : 34 got.
+[2021-02-28T14:40:28,992 INFO ] server.command_manager.ServerCommandFactory - Unknown command : ка got.
+[2021-02-28T14:40:31,007 INFO ] server.command_manager.ServerCommandFactory - Unknown command : аааа got.
+[2021-02-28T14:40:35,055 INFO ] server.command_manager.ServerCommandFactory - Unknown command : аамииииииииииииц got.
+[2021-02-28T14:40:40,095 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-02-28T14:40:45,136 INFO ] server.command_manager.ServerCommandFactory - Unknown command : hell got.
+[2021-02-28T14:40:51,198 INFO ] server.command_manager.ServerCommandFactory - Unknown command : save got.
+[2021-02-28T14:41:15,448 INFO ] server.command_manager.ServerCommandFactory - Unknown command : lxaxlaxax got.
+[2021-02-28T14:41:18,471 INFO ] server.command_manager.ServerCommandFactory - Unknown command : aaaaax got.
+[2021-02-28T14:41:19,486 INFO ] server.command_manager.ServerCommandFactory - Unknown command : axa got.
+[2021-02-28T14:41:44,944 INFO ] server.command_manager.ServerCommandFactory - Unknown command : loopa got.
+[2021-02-28T14:41:48,955 INFO ] server.command_manager.ServerCommandFactory - Unknown command : loooopa got.
+[2021-02-28T14:41:50,985 INFO ] server.command_manager.ServerCommandFactory - Unknown command : alla got.
+[2021-02-28T14:41:54,023 INFO ] server.command_manager.ServerCommandFactory - Unknown command : alala got.
+[2021-02-28T14:41:57,060 INFO ] server.command_manager.ServerCommandFactory - Unknown command : ,a,a,am got.
+[2021-02-28T14:42:05,141 INFO ] server.command_manager.ServerCommandFactory - Unknown command : пупа got.
+[2021-02-28T14:42:08,175 INFO ] server.command_manager.ServerCommandFactory - Unknown command : лупа got.
+[2021-02-28T14:42:12,212 INFO ] server.command_manager.ServerCommandFactory - Unknown command : бутса got.
+[2021-02-28T14:43:15,890 INFO ] server.command_manager.ServerCommandFactory - Unknown command : max_by_coordinates got.
+[2021-02-28T14:43:18,927 INFO ] server.command_manager.ServerCommandFactory - Unknown command : max_by_coordinates got.
+[2021-02-28T14:52:51,850 INFO ] server.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-28T14:52:51,858 INFO ] server.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-28T14:52:51,876 INFO ] server.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-28T14:52:51,878 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-02-28T14:52:55,962 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-02-28T14:52:55,962 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-02-28T14:53:01,995 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.MaxByCoordinatesCommand
+[2021-02-28T14:53:01,995 INFO ] server.collection.QueueManager - Sent max by coordinates ticket.
+[2021-02-28T14:53:23,182 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-02-28T14:53:23,182 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-02-28T14:53:38,299 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.RemoveByIdCommand
+[2021-02-28T14:53:38,301 INFO ] server.collection.QueueManager - Removed ticket with id 6.
+[2021-02-28T14:53:41,314 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-02-28T14:53:41,315 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-02-28T14:54:07,540 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.RemoveFirstCommand
+[2021-02-28T14:54:07,540 INFO ] server.collection.QueueManager - Cleared the collection.
+[2021-02-28T14:54:12,562 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-02-28T14:54:12,562 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-02-28T14:54:30,723 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.FilterGreaterThanDiscountCommand
+[2021-02-28T14:54:30,724 INFO ] server.collection.QueueManager - Send discount-filtered collection (discount = 45.0)
+[2021-02-28T14:54:59,122 INFO ] server.command_manager.CommandVisitor - Executing admin command: class server.commands.ExitNoSaveCommand
+[2021-02-28T14:54:59,123 INFO ] server.commands.ExitNoSaveCommand - Program has been exited.
+[2021-02-28T14:55:03,346 INFO ] server.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-02-28T14:55:03,353 INFO ] server.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-02-28T14:55:03,371 INFO ] server.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-02-28T14:55:03,373 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-01T22:27:08,174 INFO ] server.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-03-01T22:27:08,185 INFO ] server.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-03-01T22:27:08,213 INFO ] server.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-03-01T22:27:08,216 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-01T22:27:36,668 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-01T22:27:36,668 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-01T22:29:25,293 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-01T22:29:25,295 INFO ] server.collection.QueueManager - Updated ticket with id 1902899361.
+[2021-03-01T22:29:29,507 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-01T22:29:29,507 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-01T22:30:16,924 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.MaxByCoordinatesCommand
+[2021-03-01T22:30:16,925 INFO ] server.collection.QueueManager - Sent max by coordinates ticket.
+[2021-03-01T22:34:37,074 INFO ] server.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-03-01T22:34:37,081 INFO ] server.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-03-01T22:34:37,097 INFO ] server.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-03-01T22:34:37,099 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-01T22:34:57,693 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.MaxByCoordinatesCommand
+[2021-03-01T22:34:57,693 INFO ] server.collection.QueueManager - Sent max by coordinates ticket.
+[2021-03-01T22:38:36,992 INFO ] server.command_manager.CommandVisitor - Executing admin command: class server.commands.ExitCommand
+[2021-03-01T22:38:36,995 INFO ] server.filework.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-03-01T22:38:36,996 INFO ] server.commands.ExitCommand - Program has been exited.
+[2021-03-01T23:06:10,676 INFO ] server.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-03-01T23:06:10,688 INFO ] server.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-03-01T23:06:10,712 INFO ] server.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-03-01T23:06:10,715 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-01T23:06:32,001 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-01T23:06:32,001 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-01T23:06:37,709 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-01T23:06:37,710 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-01T23:06:42,705 INFO ] server.command_manager.CommandVisitor - Executing admin command: class server.commands.ExitCommand
+[2021-03-01T23:06:42,707 INFO ] server.filework.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-03-01T23:06:42,708 INFO ] server.commands.ExitCommand - Program has been exited.
+[2021-03-01T23:07:58,994 INFO ] server.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-03-01T23:07:59,004 INFO ] server.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-03-01T23:07:59,021 INFO ] server.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-03-01T23:07:59,023 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-01T23:08:02,931 INFO ] server.command_manager.CommandVisitor - Executing admin command: class server.commands.ExitCommand
+[2021-03-01T23:08:02,935 INFO ] server.filework.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-03-01T23:08:02,935 INFO ] server.commands.ExitCommand - Program has been exited.
+[2021-03-01T23:21:51,502 INFO ] server.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-03-01T23:21:51,516 INFO ] server.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-03-01T23:21:51,539 INFO ] server.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-03-01T23:21:51,542 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-01T23:21:56,478 INFO ] server.command_manager.CommandVisitor - Executing admin command: class server.commands.ExitCommand
+[2021-03-01T23:21:56,481 INFO ] server.filework.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-03-01T23:21:56,482 INFO ] server.commands.ExitCommand - Program has been exited.
+[2021-03-01T23:22:22,188 INFO ] server.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-03-01T23:22:22,199 INFO ] server.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-03-01T23:22:22,219 INFO ] server.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-03-01T23:22:22,221 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-01T23:22:25,241 INFO ] server.command_manager.CommandVisitor - Executing admin command: class server.commands.ExitCommand
+[2021-03-01T23:22:25,244 INFO ] server.filework.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-03-01T23:22:25,244 INFO ] server.commands.ExitCommand - Program has been exited.
+[2021-03-01T23:22:53,691 INFO ] server.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-03-01T23:22:53,716 INFO ] server.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-03-01T23:22:53,733 INFO ] server.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-03-01T23:22:53,735 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-01T23:22:56,665 INFO ] server.command_manager.CommandVisitor - Executing admin command: class server.commands.ExitCommand
+[2021-03-01T23:22:56,668 INFO ] server.filework.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-03-01T23:22:56,668 INFO ] server.commands.ExitCommand - Program has been exited.
+[2021-03-01T23:23:28,974 INFO ] server.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-03-01T23:23:28,983 INFO ] server.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-03-01T23:23:28,999 INFO ] server.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-03-01T23:23:29,001 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-01T23:23:32,982 INFO ] server.command_manager.CommandVisitor - Executing admin command: class server.commands.ExitCommand
+[2021-03-01T23:23:32,985 INFO ] server.filework.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-03-01T23:23:32,986 INFO ] server.commands.ExitCommand - Program has been exited.
+[2021-03-01T23:24:44,653 INFO ] server.Main - Server started at port: 3110, resource file for collection: Input.json
+[2021-03-01T23:24:44,663 INFO ] server.filework.JSONFileTicketsReader - Data has been successfully parsed from file.
+[2021-03-01T23:24:44,686 INFO ] server.filework.JSONFileTicketsReader - 12 tickets have been parsed from file.
+[2021-03-01T23:24:44,688 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-01T23:24:47,580 INFO ] server.command_manager.CommandVisitor - Executing admin command: class server.commands.ExitCommand
+[2021-03-01T23:24:47,585 INFO ] server.filework.JSONFileTicketWriter - Data has been successfully saved to file.
+[2021-03-01T23:24:47,585 INFO ] server.commands.ExitCommand - Program has been exited.
