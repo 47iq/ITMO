@@ -1,0 +1,6 @@
+[2021-03-02T14:58:18,134 ERROR] server.Main - class exceptions.InputFileNotFoundException got while executing the program.
+[2021-03-02T14:59:44,769 ERROR] server.Main - class exceptions.InputFileNotFoundException got while executing the program.
+[2021-03-02T15:01:14,158 ERROR] server.Main - class exceptions.InputFileNotFoundException got while executing the program.
+[2021-03-02T20:50:45,624 ERROR] server.Main - class java.net.BindException got while executing the program.
+[2021-03-02T20:51:04,276 ERROR] server.Main - class java.net.BindException got while executing the program.
+[2021-03-02T20:51:18,636 ERROR] server.Main - class java.net.BindException got while executing the program.

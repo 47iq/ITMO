@@ -1,0 +1,102 @@
+client/DefaultClient.java
+ client.DefaultClient
+exceptions/InvalidWeightException.java
+ exceptions.InvalidWeightException
+exceptions/EmptyTicketsException.java
+ exceptions.EmptyTicketsException
+exceptions/TicketNotFoundException.java
+ exceptions.TicketNotFoundException
+client/reader/CommandReader.java
+ client.reader.CommandReader
+exceptions/FileRecursionException.java
+ exceptions.FileRecursionException
+client/Main.java
+ client.Main
+exceptions/InvalidTicketFieldException.java
+ exceptions.InvalidTicketFieldException
+client/commands/ScriptCommand.java
+ client.commands.ScriptCommand
+client/Client.java
+ client.Client
+exceptions/InvalidIdException.java
+ exceptions.InvalidIdException
+client/ticket/ClientTemplateTicket.java
+ client.ticket.ClientTemplateTicket
+client/commands/ExitCommand.java
+ client.commands.ExitCommand
+exceptions/InvalidDiscountException.java
+ exceptions.InvalidDiscountException
+client/connection/DefaultResponseReader.java
+ client.connection.DefaultResponseReader
+client/ObjectFactory.java
+ client.ObjectFactory
+exceptions/ScriptFileRecursionException.java
+ exceptions.ScriptFileRecursionException
+exceptions/InvalidYCoordinateException.java
+ exceptions.InvalidYCoordinateException
+client/connection/RequestFactory.java
+ client.connection.RequestFactory
+exceptions/InvalidEyesColorException.java
+ exceptions.InvalidEyesColorException
+client/messages/MessagesENG.java
+ client.messages.MessagesENG
+client/messages/Messenger.java
+ client.messages.Messenger
+client/ClientObjectFactory.java
+ client.ClientObjectFactory
+client/connection/ResponseReader.java
+ client.connection.ResponseReader
+exceptions/InvalidXCoordinateException.java
+ exceptions.InvalidXCoordinateException
+exceptions/InvalidTicketException.java
+ exceptions.InvalidTicketException
+client/commands/ClientServerCommand.java
+ client.commands.ClientServerCommand
+exceptions/InvalidRefundableException.java
+ exceptions.InvalidRefundableException
+client/commands/DefaultExitCommand.java
+ client.commands.DefaultExitCommand
+client/messages/ClientMessenger.java
+ client.messages.ClientMessenger
+client/reader/ConsoleCommandReader.java
+ client.reader.ConsoleCommandReader
+exceptions/InvalidNameException.java
+ exceptions.InvalidNameException
+client/commands/ExecuteScriptCommand.java
+ client.commands.ExecuteScriptCommand
+client/messages/MessagesRU.java
+ client.messages.MessagesRU
+exceptions/InvalidTypeException.java
+ exceptions.InvalidTypeException
+client/connection/DefaultRequestFactory.java
+ client.connection.DefaultRequestFactory
+exceptions/InvalidCoordinatesException.java
+ exceptions.InvalidCoordinatesException
+exceptions/InvalidPriceException.java
+ exceptions.InvalidPriceException
+client/commands/ClientHelpCommand.java
+ client.commands.ClientHelpCommand
+client/ticket/ClientTemplateCoordinates.java
+ client.ticket.ClientTemplateCoordinates
+client/ticket/ClientTemplatePerson.java
+ client.ticket.ClientTemplatePerson
+client/reader/FileCommandReader.java
+ client.reader.FileCommandReader
+exceptions/InputFileNotFoundException.java
+ exceptions.InputFileNotFoundException
+exceptions/InvalidCountryException.java
+ exceptions.InvalidCountryException
+exceptions/InvalidPersonException.java
+ exceptions.InvalidPersonException
+client/reader/AbstractCommandReader.java
+ client.reader.AbstractCommandReader
+client/connection/RequestSender.java
+ client.connection.RequestSender
+exceptions/UnknownCommandException.java
+ exceptions.UnknownCommandException
+exceptions/InvalidHairColorException.java
+ exceptions.InvalidHairColorException
+exceptions/NullTicketException.java
+ exceptions.NullTicketException
+client/connection/DefaultRequestSender.java
+ client.connection.DefaultRequestSender

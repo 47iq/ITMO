@@ -1,8 +1,0 @@
-[2021-02-26T23:30:13,736 ERROR] main.DefaultServer - Error. Can't execute server command.
-[2021-02-26T23:30:15,749 ERROR] main.DefaultServer - Error. Can't execute server command.
-[2021-02-26T23:30:16,766 ERROR] main.DefaultServer - Error. Can't execute server command.
-[2021-02-26T23:30:17,780 ERROR] main.DefaultServer - Error. Can't execute server command.
-[2021-02-26T23:30:18,780 ERROR] main.DefaultServer - Error. Can't execute server command.
-[2021-02-27T13:32:16,954 ERROR] main.ConnectionWorker - Unknown error got while executing command
-[2021-02-27T13:32:21,846 ERROR] main.ConnectionWorker - Unknown error got while executing command
-[2021-02-27T13:34:16,427 ERROR] main.ConnectionWorker - Unknown error got while executing command
