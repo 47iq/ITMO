@@ -1,0 +1,114 @@
+client/DefaultClient.java
+ client.DefaultClient
+client/messages/ErrorPrinter.java
+ client.messages.ErrorPrinter
+client/exceptions/ClientException.java
+ client.exceptions.ClientException
+client/reader/CommandReader.java
+ client.reader.CommandReader
+client/commands/ClientCommand.java
+ client.commands.ClientCommand
+client/exceptions/FieldNumberFormatException.java
+ client.exceptions.FieldNumberFormatException
+client/messages/ExceptionMessengerRU.java
+ client.messages.ExceptionMessengerRU
+client/exceptions/TerminalException.java
+ client.exceptions.TerminalException
+client/Main.java
+ client.Main
+client/messages/DefaultPrinter.java
+ client.messages.DefaultPrinter
+client/exceptions/ScriptException.java
+ client.exceptions.ScriptException
+client/commands/ScriptCommand.java
+ client.commands.ScriptCommand
+client/exceptions/LocalMessengerException.java
+ client.exceptions.LocalMessengerException
+client/Client.java
+ client.Client
+client/commands/MessageCommand.java
+ client.commands.MessageCommand
+client/command_manager/ClientCommandFactory.java
+ client.command_manager.ClientCommandFactory
+client/exceptions/LoginException.java
+ client.exceptions.LoginException
+client/messages/DefaultExceptionMessenger.java
+ client.messages.DefaultExceptionMessenger
+client/connection/ConnectionManager.java
+ client.connection.ConnectionManager
+client/exceptions/NotEnoughAgrsException.java
+ client.exceptions.NotEnoughAgrsException
+client/ticket/ClientTemplateTicket.java
+ client.ticket.ClientTemplateTicket
+client/commands/ExitCommand.java
+ client.commands.ExitCommand
+client/commands/LoginCommand.java
+ client.commands.LoginCommand
+client/connection/DefaultResponseReader.java
+ client.connection.DefaultResponseReader
+client/ObjectFactory.java
+ client.ObjectFactory
+client/exceptions/CommandInputException.java
+ client.exceptions.CommandInputException
+client/exceptions/ScriptFileNotFoundException.java
+ client.exceptions.ScriptFileNotFoundException
+client/messages/Messenger.java
+ client.messages.Messenger
+client/commands/AuthCommand.java
+ client.commands.AuthCommand
+client/ClientObjectFactory.java
+ client.ClientObjectFactory
+client/connection/DefaultConnectionManager.java
+ client.connection.DefaultConnectionManager
+client/connection/ResponseReader.java
+ client.connection.ResponseReader
+client/commands/RegisterCommand.java
+ client.commands.RegisterCommand
+client/commands/ClientServerCommand.java
+ client.commands.ClientServerCommand
+client/messages/DefaultErrorPrinter.java
+ client.messages.DefaultErrorPrinter
+client/exceptions/ClientExceptionMessenger.java
+ client.exceptions.ClientExceptionMessenger
+client/messages/ExceptionMessengerENG.java
+ client.messages.ExceptionMessengerENG
+client/commands/DefaultExitCommand.java
+ client.commands.DefaultExitCommand
+client/messages/ClientMessenger.java
+ client.messages.ClientMessenger
+client/reader/ConsoleCommandReader.java
+ client.reader.ConsoleCommandReader
+client/commands/ExecuteScriptCommand.java
+ client.commands.ExecuteScriptCommand
+client/messages/MessengerENG.java
+ client.messages.MessengerENG
+client/exceptions/CommunicationException.java
+ client.exceptions.CommunicationException
+client/exceptions/ScriptFileRecursionException.java
+ client.exceptions.ScriptFileRecursionException
+client/exceptions/ConnectionException.java
+ client.exceptions.ConnectionException
+client/commands/ClientHelpCommand.java
+ client.commands.ClientHelpCommand
+client/command_manager/CommandFactory.java
+ client.command_manager.CommandFactory
+client/commands/LoginFreeCommand.java
+ client.commands.LoginFreeCommand
+client/ticket/ClientTemplateCoordinates.java
+ client.ticket.ClientTemplateCoordinates
+client/ticket/ClientTemplatePerson.java
+ client.ticket.ClientTemplatePerson
+client/reader/FileCommandReader.java
+ client.reader.FileCommandReader
+client/messages/MessengerRU.java
+ client.messages.MessengerRU
+client/reader/AbstractCommandReader.java
+ client.reader.AbstractCommandReader
+client/exceptions/FieldInputException.java
+ client.exceptions.FieldInputException
+client/connection/RequestSender.java
+ client.connection.RequestSender
+client/messages/Printer.java
+ client.messages.Printer
+client/connection/DefaultRequestSender.java
+ client.connection.DefaultRequestSender
