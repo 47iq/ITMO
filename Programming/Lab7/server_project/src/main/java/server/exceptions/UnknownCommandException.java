@@ -8,6 +8,6 @@ public class UnknownCommandException extends IllegalArgumentException implements
 
 
     public String accept(ServerExceptionMessenger visitor) {
-        return visitor.doForUnknownCommand();
+        return visitor.visit(this);
     }
 }

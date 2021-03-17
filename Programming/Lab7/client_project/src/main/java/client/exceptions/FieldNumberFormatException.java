@@ -7,6 +7,6 @@ public class FieldNumberFormatException extends NumberFormatException implements
     }
 
     public String accept(ClientExceptionMessenger visitor) {
-        return visitor.doForNumberFormat();
+        return visitor.visit(this);
     }
 }

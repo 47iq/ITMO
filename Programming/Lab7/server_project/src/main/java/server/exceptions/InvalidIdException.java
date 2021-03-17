@@ -7,6 +7,6 @@ public class InvalidIdException extends InvalidTicketFieldException implements S
     }
 
     public String accept(ServerExceptionMessenger visitor) {
-        return visitor.doForID();
+        return visitor.visit(this);
     }
 }

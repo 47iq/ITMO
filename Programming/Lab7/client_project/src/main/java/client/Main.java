@@ -20,6 +20,7 @@ import java.util.Map;
 import client.exceptions.ClientExceptionMessenger;
 import org.apache.logging.log4j.LogManager;
 
+
 /**
  * Class which starts the program
  * @autor 47iq

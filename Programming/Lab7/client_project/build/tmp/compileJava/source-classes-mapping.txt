@@ -28,10 +28,10 @@ client/Client.java
  client.Client
 client/commands/MessageCommand.java
  client.commands.MessageCommand
-client/command_manager/ClientCommandFactory.java
- client.command_manager.ClientCommandFactory
 client/exceptions/LoginException.java
  client.exceptions.LoginException
+client/command_manager/ClientCommandFactory.java
+ client.command_manager.ClientCommandFactory
 client/messages/DefaultExceptionMessenger.java
  client.messages.DefaultExceptionMessenger
 client/connection/ConnectionManager.java

@@ -7,6 +7,6 @@ public class NotEnoughAgrsException extends RuntimeException implements ClientEx
     }
 
     public String accept(ClientExceptionMessenger visitor) {
-        return visitor.doForArgs();
+        return visitor.visit(this);
     }
 }

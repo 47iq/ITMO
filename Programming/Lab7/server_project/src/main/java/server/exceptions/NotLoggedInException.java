@@ -7,6 +7,6 @@ public class NotLoggedInException extends RuntimeException implements ServerExce
     }
 
     public String accept(ServerExceptionMessenger visitor) {
-        return visitor.doForNotLogged();
+        return visitor.visit(this);
     }
 }

@@ -7,6 +7,6 @@ public class UnknownException extends RuntimeException implements ServerExceptio
     }
 
     public String accept(ServerExceptionMessenger visitor) {
-        return visitor.doForUnknownExc();
+        return visitor.visit(this);
     }
 }

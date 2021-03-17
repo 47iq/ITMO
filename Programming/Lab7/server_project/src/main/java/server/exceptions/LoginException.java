@@ -7,6 +7,6 @@ public class LoginException extends Exception implements ServerException {
     }
 
     public String accept(ServerExceptionMessenger visitor) {
-        return visitor.doForLogin();
+        return visitor.visit(this);
     }
 }

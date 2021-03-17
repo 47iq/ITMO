@@ -1,41 +1,75 @@
-server/exceptions/InvalidPriceException.java
- server.exceptions.InvalidPriceException
-server/exceptions/InvalidXCoordinateException.java
- server.exceptions.InvalidXCoordinateException
+common/DefaultCoordinates.java
+ common.DefaultCoordinates
+common/TicketType.java
+ common.TicketType
 common/RequestType.java
  common.RequestType
 common/EyesColor.java
  common.EyesColor
 common/Country.java
  common.Country
-server/exceptions/InvalidCountryException.java
- server.exceptions.InvalidCountryException
-server/exceptions/InvalidTicketFieldException.java
- server.exceptions.InvalidTicketFieldException
+common/DefaultTicket.java
+ common.DefaultTicket
+common/Coordinates.java
+ common.Coordinates
 common/DefaultRequest.java
  common.DefaultRequest
 common/DefaultResponse.java
  common.DefaultResponse
+common/TicketValidator.java
+ common.TicketValidator
+common/Ticket.java
+ common.Ticket
+common/Request.java
+ common.Request
+common/Response.java
+ common.Response
+common/User.java
+ common.User
+common/DefaultPerson.java
+ common.DefaultPerson
+common/Person.java
+ common.Person
+common/PersonValidator.java
+ common.PersonValidator
+common/Command.java
+ common.Command
+common/DefaultUser.java
+ common.DefaultUser
+common/CoordinatesValidator.java
+ common.CoordinatesValidator
+common/HairColor.java
+ common.HairColor
+server/exceptions/InvalidPriceException.java
+ server.exceptions.InvalidPriceException
+server/exceptions/InvalidXCoordinateException.java
+ server.exceptions.InvalidXCoordinateException
+server/exceptions/CommonExceptionMessenger.java
+ server.exceptions.CommonExceptionMessenger
+server/exceptions/InvalidRefundableException.java
+ server.exceptions.InvalidRefundableException
+server/exceptions/InvalidEyesColorException.java
+ server.exceptions.InvalidEyesColorException
+server/exceptions/InvalidCountryException.java
+ server.exceptions.InvalidCountryException
+server/exceptions/InvalidTicketFieldException.java
+ server.exceptions.InvalidTicketFieldException
+common/DefaultCoordinatesValidator.java
+ common.DefaultCoordinatesValidator
+server/exceptions/InvalidTicketException.java
+ server.exceptions.InvalidTicketException
+server/exceptions/InvalidHairColorException.java
+ server.exceptions.InvalidHairColorException
 server/exceptions/InvalidWeightException.java
  server.exceptions.InvalidWeightException
 server/exceptions/ExceptionMessenger.java
  server.exceptions.ExceptionMessenger
 server/exceptions/InvalidYCoordinateException.java
  server.exceptions.InvalidYCoordinateException
-common/Response.java
- common.Response
 server/exceptions/InvalidDiscountException.java
  server.exceptions.InvalidDiscountException
-common/DefaultPerson.java
- common.DefaultPerson
-common/Person.java
- common.Person
 common/DefaultTicketValidator.java
  common.DefaultTicketValidator
-common/Command.java
- common.Command
-common/DefaultUser.java
- common.DefaultUser
 server/exceptions/InvalidNameException.java
  server.exceptions.InvalidNameException
 server/exceptions/InvalidTypeException.java
@@ -44,37 +78,3 @@ common/DefaultPersonValidator.java
  common.DefaultPersonValidator
 server/exceptions/CommonException.java
  server.exceptions.CommonException
-common/HairColor.java
- common.HairColor
-common/CoordinatesValidator.java
- common.CoordinatesValidator
-common/PersonValidator.java
- common.PersonValidator
-common/User.java
- common.User
-server/exceptions/CommonExceptionMessenger.java
- server.exceptions.CommonExceptionMessenger
-server/exceptions/InvalidRefundableException.java
- server.exceptions.InvalidRefundableException
-server/exceptions/InvalidEyesColorException.java
- server.exceptions.InvalidEyesColorException
-common/Ticket.java
- common.Ticket
-common/DefaultCoordinatesValidator.java
- common.DefaultCoordinatesValidator
-server/exceptions/InvalidTicketException.java
- server.exceptions.InvalidTicketException
-common/Coordinates.java
- common.Coordinates
-common/DefaultTicket.java
- common.DefaultTicket
-common/TicketValidator.java
- common.TicketValidator
-server/exceptions/InvalidHairColorException.java
- server.exceptions.InvalidHairColorException
-common/Request.java
- common.Request
-common/TicketType.java
- common.TicketType
-common/DefaultCoordinates.java
- common.DefaultCoordinates

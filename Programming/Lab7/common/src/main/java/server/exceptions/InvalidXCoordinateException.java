@@ -6,6 +6,6 @@ public class InvalidXCoordinateException extends InvalidTicketFieldException imp
     }
 
     public String accept(ExceptionMessenger visitor) {
-        return visitor.doForXCoordinate();
+        return visitor.visit(this);
     }
 }

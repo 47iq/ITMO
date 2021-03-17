@@ -7,6 +7,6 @@ public class InvalidPriceException extends InvalidTicketFieldException implement
     }
 
     public String accept(ExceptionMessenger visitor) {
-        return visitor.doForPrice();
+        return visitor.visit(this);
     }
 }

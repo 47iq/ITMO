@@ -6,6 +6,6 @@ public class ScriptFileRecursionException extends RuntimeException implements Cl
     }
 
     public String accept(ClientExceptionMessenger visitor) {
-        return visitor.doForScriptRecursion();
+        return visitor.visit(this);
     }
 }

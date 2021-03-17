@@ -8,6 +8,6 @@ public class CommandExecutionException extends RuntimeException implements Serve
 
 
     public String accept(ServerExceptionMessenger visitor) {
-        return visitor.doForCommandExec();
+        return visitor.visit(this);
     }
 }

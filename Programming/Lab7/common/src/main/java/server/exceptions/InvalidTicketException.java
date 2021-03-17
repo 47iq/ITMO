@@ -7,6 +7,6 @@ public class InvalidTicketException extends IllegalArgumentException implements 
     }
 
     public String accept(ExceptionMessenger visitor) {
-        return visitor.doForTicket();
+        return visitor.visit(this);
     }
 }

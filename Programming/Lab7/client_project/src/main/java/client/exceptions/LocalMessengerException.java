@@ -6,6 +6,6 @@ public class LocalMessengerException extends RuntimeException implements ClientE
     }
 
     public String accept(ClientExceptionMessenger visitor) {
-        return visitor.doForLocalMessenger();
+        return visitor.visit(this);
     }
 }

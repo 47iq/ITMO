@@ -6,6 +6,6 @@ public class ConnectionException extends RuntimeException implements ClientExcep
     }
 
     public String accept(ClientExceptionMessenger visitor) {
-        return visitor.doForConnection();
+        return visitor.visit(this);
     }
 }

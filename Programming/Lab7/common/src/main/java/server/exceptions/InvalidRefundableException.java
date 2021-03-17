@@ -6,6 +6,6 @@ public class InvalidRefundableException extends InvalidTicketFieldException impl
     }
 
     public String accept(ExceptionMessenger visitor) {
-        return visitor.doForRefundable();
+        return visitor.visit(this);
     }
 }

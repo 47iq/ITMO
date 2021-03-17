@@ -6,6 +6,6 @@ public class InvalidYCoordinateException extends InvalidTicketFieldException imp
     }
 
     public String accept(ExceptionMessenger visitor) {
-        return visitor.doForYCoordinate();
+        return visitor.visit(this);
     }
 }

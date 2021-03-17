@@ -7,6 +7,6 @@ public class InvalidWeightException extends InvalidTicketFieldException implemen
     }
 
     public String accept(ExceptionMessenger visitor) {
-        return visitor.doForWeight();
+        return visitor.visit(this);
     }
 }

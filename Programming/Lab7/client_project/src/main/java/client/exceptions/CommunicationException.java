@@ -6,6 +6,6 @@ public class CommunicationException extends RuntimeException implements ClientEx
     }
 
     public String accept(ClientExceptionMessenger visitor) {
-        return visitor.doForCommunication();
+        return visitor.visit(this);
     }
 }

@@ -7,6 +7,6 @@ public class InvalidNameException extends InvalidTicketFieldException implements
     }
 
     public String accept(ExceptionMessenger visitor) {
-        return visitor.doForName();
+        return visitor.visit(this);
     }
 }

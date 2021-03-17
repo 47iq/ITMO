@@ -1,90 +1,98 @@
 package server.messages;
 
+import server.exceptions.*;
+
 public class ErrorMessengerRU extends DefaultExceptionMessenger {
 
-    public String doForXCoordinate() {
+    public String visit(InvalidXCoordinateException e) {
         return "Некорректное значение x координаты. Число должно быть десятичной дробью большей -172.";
     }
 
-    public String doForYCoordinate() {
+    public String visit(InvalidYCoordinateException e) {
         return "Некорректное значение y координаты. Число должно быть целым большим -236.";
     }
 
-    public String doForCountry() {
+    public String visit(InvalidCountryException e) {
         return "Некорректная национальность. Национальность должна быть одной из представленных в списке.";
     }
 
-    public String doForDiscount() {
+    public String visit(InvalidDiscountException e) {
         return "Некорректное значение скидки. Число должно быть десятичной дробью большей 0 и меньше или равно 100.";
     }
 
-    public String doForEyes() {
+    public String visit(InvalidEyesColorException e) {
         return "Некорректный цвет глаз. Цвет глаз должен быть одним из представленных в списке.";
     }
 
-    public String doForHair() {
+    public String visit(InvalidHairColorException e) {
         return "Некорректный цвет волос. Цвет волос должен быть одним из представленных в списке.";
     }
 
-    public String doForName() {
+    public String visit(InvalidNameException e) {
         return "Некорректное название. Название должно быть непустой строкой.";
     }
 
-    public String doForPrice() {
+    public String visit(InvalidPriceException e) {
         return "Некорректная цена. Цена должна быть целым числом, большим 0.";
     }
 
-    public String doForRefundable() {
+    public String visit(InvalidRefundableException e) {
         return "Некорректное значение возвратности. Возвратность должна быть одним из {\"true\", \"false\", \"\"}.";
     }
 
-    public String doForType() {
+    public String visit(InvalidTypeException e) {
         return "Некорректный тип. Тип должен быть одним из представленных в списке, либо отсутствовать.";
     }
 
-    public String doForWeight() {
+    public String visit(InvalidWeightException e) {
         return "Некорректный вес. Вес должен быть целым числом типа Long, большим 0, либо отсутствовать.";
     }
 
-    public String doForTicket() {
+    public String visit(InvalidTicketException e) {
         return "Некорректный билет.";
     }
 
-    public String doForUnknownCommand() {
+    public String visit(InvalidTicketFieldException e) {
+        return "Некорректное поле билета.";
+    }
+
+    public String visit(UnknownCommandException e) {
         return "Ошибка: неизвестная команда.";
     }
 
-    public String doForCommandExec() {
+    public String visit(CommandExecutionException e) {
         return "Ошибка во время исполнения команды. Пожалуйста, свяжитесь с администратором приложения.";
     }
 
-    public String doForUnknownExc() {
-        return "Неизвестная ошибка.";
-    }
-
-    public String doForBroken() {
+    public String visit(BrokenPackageException e) {
         return "Ошибка: пакет, отправленный клиентом, не может быть прочитан.";
     }
 
-    public String doForUnknownType() {
+    public String visit(UnknownTypeException e) {
         return "Ошибка. Неизвестный тип запроса к серверу. Пожалуйста, обновите приложение до последней версии.";
     }
 
-    public String doForID() {
+    public String visit(UnknownException e) {
+        return "Неизвестная ошибка.";
+    }
+
+    public String visit(InvalidIdException e) {
         return "Ошибка. ID должен быть целым числом.";
     }
 
-    public String doForLogin() {
+    public String visit(LoginException e) {
         return "Ошибка. Неверный логин или пароль.";
     }
 
-    public String doForRegistration() {
+    public String visit(RegistrationException e) {
         return "Ошибка во время регистрации. Попробуйте снова.";
     }
 
-    public String doForNotLogged() {
+    public String visit(NotLoggedInException e) {
         return "Ошибка. Пользователь должен войти в аккаунт для исполнения команд.";
     }
 
-    public String doForUserExists() { return "Ошибка. Данный логин уже занят. Выберите другой логин."; }
+    public String visit(UserExistsException e) {
+        return "Ошибка. Данный логин уже занят. Выберите другой логин.";
+    }
 }

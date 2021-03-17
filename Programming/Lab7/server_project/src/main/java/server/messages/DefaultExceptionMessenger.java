@@ -4,43 +4,43 @@ import server.exceptions.*;
 
 public abstract class DefaultExceptionMessenger extends CommonExceptionMessenger implements ServerExceptionMessenger {
 
-    public String doForUnknownCommand() {
-        return new UnknownCommandException().getMessage();
+    public String visit(UnknownCommandException e) {
+        return e.getMessage();
     }
 
-    public String doForCommandExec() {
-        return new CommandExecutionException().getMessage();
+    public String visit(CommandExecutionException e) {
+        return e.getMessage();
     }
 
-    public String doForUnknownExc() {
-        return new UnknownException().getMessage();
+    public String visit(BrokenPackageException e) {
+        return e.getMessage();
     }
 
-    public String doForBroken() {
-        return new BrokenPackageException().getMessage();
+    public String visit(UnknownTypeException e) {
+        return e.getMessage();
     }
 
-    public String doForUnknownType() {
-        return new UnknownTypeException().getMessage();
+    public String visit(UnknownException e) {
+        return e.getMessage();
     }
 
-    public String doForID() {
-        return new InvalidIdException().getMessage();
+    public String visit(InvalidIdException e) {
+        return e.getMessage();
     }
 
-    public String doForLogin() {
-        return new LoginException().getMessage();
+    public String visit(LoginException e) {
+        return e.getMessage();
     }
 
-    public String doForRegistration() {
-        return new RegistrationException().getMessage();
+    public String visit(RegistrationException e) {
+        return e.getMessage();
     }
 
-    public String doForNotLogged() {
-        return new NotLoggedInException().getMessage();
+    public String visit(NotLoggedInException e) {
+        return e.getMessage();
     }
 
-    public String doForUserExists() {
-        return new UserExistsException().getMessage();
+    public String visit(UserExistsException e) {
+        return e.getMessage();
     }
 }

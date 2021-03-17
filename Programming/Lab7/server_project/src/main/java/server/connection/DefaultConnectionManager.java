@@ -70,17 +70,15 @@ public class DefaultConnectionManager implements ConnectionManager {
     private Response getResponse(Request request, Locale locale) {
         Response response;
         ServerExceptionMessenger errMessenger = serverObjectFactory.getLocalErrMessenger(locale);
-        if (request.getType().equals(RequestType.EXECUTE)) {
-            response = execute(request, locale);
-        } else if (request.getType().equals(RequestType.ASK_TICKET)) {
-            response = sendTicketNeeded(request);
-        } else  if(request.getType().equals(RequestType.REGISTER)) {
-            response = register(request, errMessenger);
-        } else  if(request.getType().equals(RequestType.LOGIN)) {
-            response = login(request, errMessenger);
-        } else {
-            LogManager.getLogger().error("Unknown request type got. Sending error answer to the client...");
-            response = serverObjectFactory.getResponse(false, new UnknownTypeException().accept(errMessenger));
+        switch (request.getType()) {
+            case EXECUTE -> response = execute(request, locale);
+            case ASK_TICKET -> response = sendTicketNeeded(request);
+            case REGISTER -> response = register(request, errMessenger);
+            case LOGIN -> response = login(request, errMessenger);
+            default -> {
+                LogManager.getLogger().error("Unknown request type got. Sending error answer to the client...");
+                response = serverObjectFactory.getResponse(false, new UnknownTypeException().accept(errMessenger));
+            }
         }
         return response;
     }

@@ -10,6 +10,6 @@ public class ScriptException extends RuntimeException implements ClientException
     }
 
     public String accept(ClientExceptionMessenger visitor) {
-        return visitor.doForScript(name);
+        return visitor.visit(this, name);
     }
 }

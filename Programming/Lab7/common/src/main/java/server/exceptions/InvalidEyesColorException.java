@@ -8,6 +8,6 @@ public class InvalidEyesColorException extends InvalidTicketFieldException imple
     }
 
     public String accept(ExceptionMessenger visitor) {
-        return visitor.doForEyes();
+        return visitor.visit(this);
     }
 }

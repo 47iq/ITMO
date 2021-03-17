@@ -3,16 +3,16 @@ package client.exceptions;
 import server.exceptions.ExceptionMessenger;
 
 public interface ClientExceptionMessenger extends ExceptionMessenger {
-    String doForCommandInput();
-    String doForCommunication();
-    String doForConnection();
-    String doForFieldInput();
-    String doForLocalMessenger();
-    String doForLogin();
-    String doForScript(String name);
-    String doForScriptFileNF(String name);
-    String doForScriptRecursion();
-    String doForTerminal();
-    String doForNumberFormat();
-    String doForArgs();
+    String visit(CommandInputException e);
+    String visit(CommunicationException e);
+    String visit(FieldInputException e);
+    String visit(LocalMessengerException e);
+    String visit(LoginException e);
+    String visit(ScriptException e, String filename);
+    String visit(ScriptFileNotFoundException e, String filename);
+    String visit(ScriptFileRecursionException e);
+    String visit(TerminalException e);
+    String visit(NumberFormatException e);
+    String visit(NotEnoughAgrsException e);
+    String visit(ConnectionException e);
 }

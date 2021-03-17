@@ -7,6 +7,6 @@ public class InvalidCountryException extends InvalidTicketFieldException impleme
     }
 
     public String accept(ExceptionMessenger visitor) {
-        return visitor.doForCountry();
+        return visitor.visit(this);
     }
 }

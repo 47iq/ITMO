@@ -7,6 +7,6 @@ public class UserExistsException extends RuntimeException implements ServerExcep
     }
 
     public String accept(ServerExceptionMessenger visitor) {
-        return visitor.doForUserExists();
+        return visitor.visit(this);
     }
 }

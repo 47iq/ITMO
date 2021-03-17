@@ -10,6 +10,6 @@ public class ScriptFileNotFoundException extends RuntimeException implements Cli
     }
 
     public String accept(ClientExceptionMessenger visitor) {
-        return visitor.doForScriptFileNF(name);
+        return visitor.visit(this, name);
     }
 }

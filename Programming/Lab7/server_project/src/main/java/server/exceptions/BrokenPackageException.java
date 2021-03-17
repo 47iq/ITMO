@@ -7,6 +7,6 @@ public class BrokenPackageException extends RuntimeException implements ServerEx
     }
 
     public String accept(ServerExceptionMessenger visitor) {
-        return visitor.doForBroken();
+        return visitor.visit(this);
     }
 }

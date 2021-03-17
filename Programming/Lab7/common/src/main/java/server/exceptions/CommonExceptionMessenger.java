@@ -1,52 +1,55 @@
 package server.exceptions;
 
 public abstract class CommonExceptionMessenger implements ExceptionMessenger {
-
-    public String doForXCoordinate() {
-        return new InvalidXCoordinateException().getMessage();
+    public String visit(InvalidXCoordinateException e) {
+        return e.getMessage();
     }
 
-    public String doForYCoordinate() {
-        return new InvalidYCoordinateException().getMessage();
+    public String visit(InvalidYCoordinateException e) {
+        return e.getMessage();
     }
 
-    public String doForCountry() {
-        return new InvalidCountryException().getMessage();
+    public String visit(InvalidCountryException e) {
+        return e.getMessage();
     }
 
-    public String doForDiscount() {
-        return new InvalidDiscountException().getMessage();
+    public String visit(InvalidDiscountException e) {
+        return e.getMessage();
     }
 
-    public String doForEyes() {
-        return new InvalidEyesColorException().getMessage();
+    public String visit(InvalidEyesColorException e) {
+        return e.getMessage();
     }
 
-    public String doForHair() {
-        return new InvalidHairColorException().getMessage();
+    public String visit(InvalidHairColorException e) {
+        return e.getMessage();
     }
 
-    public String doForName() {
-        return new InvalidNameException().getMessage();
+    public String visit(InvalidNameException e) {
+        return e.getMessage();
     }
 
-    public String doForPrice() {
-        return new InvalidPriceException().getMessage();
+    public String visit(InvalidPriceException e) {
+        return e.getMessage();
     }
 
-    public String doForRefundable() {
-        return new InvalidRefundableException().getMessage();
+    public String visit(InvalidRefundableException e) {
+        return e.getMessage();
     }
 
-    public String doForType() {
-        return new InvalidTypeException().getMessage();
+    public String visit(InvalidTypeException e) {
+        return e.getMessage();
     }
 
-    public String doForWeight() {
-        return new InvalidWeightException().getMessage();
+    public String visit(InvalidWeightException e) {
+        return e.getMessage();
     }
 
-    public String doForTicket() {
-        return new InvalidTicketException().getMessage();
+    public String visit(InvalidTicketException e) {
+        return e.getMessage();
+    }
+
+    public String visit(InvalidTicketFieldException e) {
+        return e.getMessage();
     }
 }

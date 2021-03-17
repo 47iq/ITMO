@@ -7,6 +7,6 @@ public class InvalidTypeException extends InvalidTicketFieldException implements
     }
 
     public String accept(ExceptionMessenger visitor) {
-        return visitor.doForType();
+        return visitor.visit(this);
     }
 }

@@ -6,6 +6,6 @@ public class LoginException extends RuntimeException implements ClientException 
     }
 
     public String accept(ClientExceptionMessenger visitor) {
-        return visitor.doForLogin();
+        return visitor.visit(this);
     }
 }

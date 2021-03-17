@@ -3505,3 +3505,21 @@
 [2021-03-16T02:19:44,517 INFO ] server.connection.DefaultServer - Starting command reading...
 [2021-03-16T02:19:52,529 INFO ] server.command_manager.CommandVisitor - Executing admin command: class server.commands.ExitCommand
 [2021-03-16T02:19:52,530 INFO ] server.commands.ExitCommand - Program has been exited.
+[2021-03-16T11:42:30,577 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-16T11:42:30,637 INFO ] server.Main - Server started at port: 3110
+[2021-03-16T11:42:30,887 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-16T11:42:47,557 INFO ] server.connection.DefaultConnectionManager - User: 47iq has logged in.
+[2021-03-16T11:42:51,446 INFO ] server.command_manager.CommandVisitor - Executing admin command: class server.commands.ExitCommand
+[2021-03-16T11:42:51,447 INFO ] server.commands.ExitCommand - Program has been exited.
+[2021-03-16T13:54:24,464 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-16T13:54:24,538 INFO ] server.Main - Server started at port: 3110
+[2021-03-16T13:54:24,599 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-16T13:54:46,809 INFO ] server.connection.DefaultConnectionManager - User: 47iq has logged in.
+[2021-03-16T13:54:49,847 INFO ] server.command_manager.ServerCommandFactory - Unknown command : show got.
+[2021-03-16T13:55:08,956 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-16T13:55:10,970 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-16T13:55:10,970 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-16T13:55:12,977 INFO ] server.command_manager.ServerCommandFactory - Unknown command : we got.
+[2021-03-16T14:25:36,283 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-16T14:25:36,317 INFO ] server.Main - Server started at port: 3110
+[2021-03-16T14:25:36,489 INFO ] server.connection.DefaultServer - Starting command reading...

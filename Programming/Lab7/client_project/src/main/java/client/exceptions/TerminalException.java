@@ -6,6 +6,6 @@ public class TerminalException extends RuntimeException implements ClientExcepti
     }
 
     public String accept(ClientExceptionMessenger visitor) {
-        return visitor.doForTerminal();
+        return visitor.visit(this);
     }
 }

@@ -8,6 +8,6 @@ public class InvalidHairColorException extends InvalidTicketFieldException imple
     }
 
     public String accept(ExceptionMessenger visitor) {
-        return visitor.doForHair();
+        return visitor.visit(this);
     }
 }

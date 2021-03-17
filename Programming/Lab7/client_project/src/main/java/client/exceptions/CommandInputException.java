@@ -6,6 +6,6 @@ public class CommandInputException extends RuntimeException implements ClientExc
     }
 
     public String accept(ClientExceptionMessenger visitor) {
-        return visitor.doForCommandInput();
+        return visitor.visit(this);
     }
 }

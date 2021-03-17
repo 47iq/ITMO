@@ -6,6 +6,6 @@ public class InvalidDiscountException extends InvalidTicketFieldException implem
     }
 
     public String accept(ExceptionMessenger visitor) {
-        return visitor.doForDiscount();
+        return visitor.visit(this);
     }
 }

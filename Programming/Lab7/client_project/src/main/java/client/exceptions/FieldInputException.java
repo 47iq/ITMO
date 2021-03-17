@@ -6,6 +6,6 @@ public class FieldInputException extends RuntimeException implements ClientExcep
     }
 
     public String accept(ClientExceptionMessenger visitor) {
-        return visitor.doForFieldInput();
+        return visitor.visit(this);
     }
 }
