@@ -2433,3 +2433,5 @@
 [2021-03-16T02:09:40,232 ERROR] server.connection.DefaultConnectionManager - Unknown user tried to execute command.
 [2021-03-16T02:13:30,859 ERROR] server.connection.DefaultConnectionManager - Unknown user tried to execute command.
 [2021-03-16T02:13:34,878 ERROR] server.connection.DefaultConnectionManager - Unknown user tried to execute command.
+[2021-03-18T22:47:07,162 ERROR] server.datawork.PostgresDataBaseManager - Error. Can't connect to data base: exception class org.postgresql.util.PSQLException
+[2021-03-18T22:48:33,417 ERROR] server.connection.DefaultConnectionManager - Unknown user tried to execute command.

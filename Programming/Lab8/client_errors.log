@@ -1,0 +1,24 @@
+[2021-03-05T22:43:18,315 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@25084a1e
+[2021-03-05T22:59:55,435 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@25084a1e
+[2021-03-05T23:00:23,886 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@25084a1e
+[2021-03-05T23:01:51,013 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@25084a1e
+[2021-03-05T23:02:10,418 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@383bfa16
+[2021-03-05T23:03:57,621 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@25084a1e
+[2021-03-05T23:04:48,837 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@156b88f5
+[2021-03-05T23:06:13,587 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@25084a1e
+[2021-03-05T23:07:11,421 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@25084a1e
+[2021-03-05T23:07:26,430 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@25084a1e
+[2021-03-05T23:08:06,477 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@25084a1e
+[2021-03-05T23:09:32,435 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@25084a1e
+[2021-03-05T23:10:01,675 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@25084a1e
+[2021-03-05T23:14:48,961 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@54a7079e
+[2021-03-05T23:15:15,634 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@7db12bb6
+[2021-03-05T23:21:47,248 ERROR] client.connection.DefaultRequestFactory - [Ljava.lang.StackTraceElement;@29215f06
+[2021-03-05T23:24:02,458 ERROR] client.connection.DefaultRequestFactory - Request creation error: class java.lang.ClassCastException
+[2021-03-05T23:24:48,320 ERROR] client.connection.DefaultRequestFactory - Request creation error: class java.lang.ClassCastException
+[2021-03-05T23:29:15,687 ERROR] client.connection.DefaultRequestFactory - Request creation error: class java.lang.ClassCastException
+[2021-03-07T19:39:37,155 ERROR] client.connection.DefaultRequestFactory - Request creation error: class java.net.SocketException
+[2021-03-07T23:19:42,133 ERROR] client.connection.DefaultRequestFactory - Request creation error: class java.net.SocketException
+[2021-03-07T23:20:55,102 ERROR] client.connection.DefaultRequestFactory - Request creation error: class java.net.SocketException
+[2021-03-07T23:23:12,265 ERROR] client.connection.DefaultRequestFactory - Request creation error: class java.net.SocketException
+[2021-03-07T23:23:56,989 ERROR] client.connection.DefaultRequestFactory - Request creation error: class java.net.SocketException

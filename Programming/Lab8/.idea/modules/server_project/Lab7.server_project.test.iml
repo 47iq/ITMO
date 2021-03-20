@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.system.module.type="sourceSet" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output-test url="file://$MODULE_DIR$/../../../server_project/build/classes/java/test" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../server_project/src/test" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="Lab7.server_project.main" />
+    <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-core:2.14.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.clerezza.ext:org.json.simple:0.4" level="project" />
+    <orderEntry type="module" module-name="Lab7.common.main" />
+    <orderEntry type="library" name="Gradle: org.postgresql:postgresql:42.2.19" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-api:2.14.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.googlecode.json-simple:json-simple:1.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.checkerframework:checker-qual:3.5.0" level="project" />
+  </component>
+  <component name="TestModuleProperties" production-module="Lab7.server_project.main" />
+</module>

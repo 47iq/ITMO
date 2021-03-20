@@ -3523,3 +3523,15 @@
 [2021-03-16T14:25:36,283 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
 [2021-03-16T14:25:36,317 INFO ] server.Main - Server started at port: 3110
 [2021-03-16T14:25:36,489 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-18T22:47:07,162 ERROR] server.datawork.PostgresDataBaseManager - Error. Can't connect to data base: exception class org.postgresql.util.PSQLException
+[2021-03-18T22:48:20,964 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-18T22:48:21,004 INFO ] server.Main - Server started at port: 3110
+[2021-03-18T22:48:21,017 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-18T22:48:33,417 ERROR] server.connection.DefaultConnectionManager - Unknown user tried to execute command.
+[2021-03-18T22:50:21,470 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-18T22:50:21,497 INFO ] server.Main - Server started at port: 3110
+[2021-03-18T22:50:21,508 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-18T22:50:52,848 INFO ] server.command_manager.ServerCommandFactory - Unknown command : show got.
+[2021-03-18T22:51:05,927 INFO ] server.command_manager.ServerCommandFactory - Unknown command : info got.
+[2021-03-18T22:51:35,101 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-18T22:51:35,101 INFO ] server.collection.QueueManager - Sent collection elements.
