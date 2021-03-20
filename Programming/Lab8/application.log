@@ -3600,3 +3600,21 @@
 [2021-03-21T00:20:35,465 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
 [2021-03-21T00:20:35,493 INFO ] server.Main - Server started at port: 3110
 [2021-03-21T00:20:35,504 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-21T00:49:56,753 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-21T00:49:56,776 INFO ] server.Main - Server started at port: 3110
+[2021-03-21T00:49:56,787 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-21T00:50:24,077 INFO ] server.connection.DefaultConnectionManager - User: 47iq has logged in.
+[2021-03-21T01:08:23,497 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-21T01:08:23,520 INFO ] server.Main - Server started at port: 3110
+[2021-03-21T01:08:23,530 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-21T01:08:51,409 INFO ] server.connection.DefaultConnectionManager - User: 47iq has logged in.
+[2021-03-21T01:09:44,083 INFO ] server.connection.DefaultConnectionManager - User: 47iq has logged in.
+[2021-03-21T01:49:49,176 INFO ] server.connection.DefaultConnectionManager - User: 47iq has logged in.
+[2021-03-21T01:50:57,919 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-21T01:50:57,952 INFO ] server.Main - Server started at port: 3110
+[2021-03-21T01:50:57,966 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-21T01:51:04,631 INFO ] server.connection.DefaultConnectionManager - User: 47iq has logged in.
+[2021-03-21T02:01:00,515 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-21T02:01:00,539 INFO ] server.Main - Server started at port: 3110
+[2021-03-21T02:01:00,549 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-21T02:01:18,034 INFO ] server.connection.DefaultConnectionManager - User: 47iq has logged in.

@@ -25,38 +25,34 @@
         </ImageView>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
-            <HBox alignment="CENTER" layoutY="22.0" prefHeight="42.0" prefWidth="700.0" spacing="70.0">
+            <TextField fx:id="fileNameField" alignment="CENTER" layoutX="578.0" layoutY="339.0" prefHeight="25.0" prefWidth="108.0" promptText="Файл" />
+            <VBox alignment="TOP_CENTER" layoutY="1.0" prefHeight="400.0" prefWidth="700.0" spacing="20.0">
                <children>
-                  <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Выйти из аккаунта" textAlignment="CENTER">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-                      <Text fx:id="addText" fill="#fdfeff" stroke="#030303" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" text="Ticket Data base" textAlignment="CENTER" wrappingWidth="231.0">
-                          <font>
-                              <Font size="31.0" />
-                          </font>
-                      </Text>
-                  <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Завершить работу" textAlignment="CENTER">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-            <Button fx:id="execButton" layoutX="596.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="execute script" />
-            <TextField fx:id="fileNameField" layoutX="596.0" layoutY="339.0" prefHeight="25.0" prefWidth="90.0" promptText="Файл" />
-            <VBox alignment="CENTER" layoutX="95.0" layoutY="43.0" prefHeight="314.0" prefWidth="510.0" spacing="20.0">
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
-               <children>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="700.0" spacing="70.0">
+                     <children>
+                        <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Выйти из аккаунта" textAlignment="CENTER">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                            <Text fx:id="addText" fill="#fdfeff" stroke="#030303" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" text="Ticket Data base" textAlignment="CENTER" wrappingWidth="231.0">
+                                <font>
+                                    <Font size="31.0" />
+                                </font>
+                            </Text>
+                        <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Завершить работу" textAlignment="CENTER">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
                   <VBox alignment="CENTER" spacing="10.0">
                      <children>
                         <Text fx:id="deleteText" fill="#fdfeff" stroke="#030303" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" text="Информация" textAlignment="CENTER" wrappingWidth="417.0">
@@ -111,7 +107,11 @@
                      </children>
                   </VBox>
                </children>
+               <padding>
+                  <Insets top="33.0" />
+               </padding>
             </VBox>
+            <Button fx:id="execButton" layoutX="578.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="execute script" textAlignment="CENTER" />
             </children>
         </AnchorPane>
     </children>

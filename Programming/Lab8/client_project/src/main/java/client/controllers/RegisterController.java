@@ -79,7 +79,7 @@ public class RegisterController implements Initializable {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("mainScene.fxml"));
             Scene scene = new Scene(root);
-            stage.setTitle("organization database");
+            stage.setTitle("Database manager");
             stage.setScene(scene);
             stage.show();
             stage.setMinHeight(400);
@@ -93,6 +93,7 @@ public class RegisterController implements Initializable {
 
     private void fieldsAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
+        //FIXME
         alert.setTitle("Error");
         alert.setHeaderText("Error! Fields must be filled.");
         alert.showAndWait();
@@ -100,6 +101,7 @@ public class RegisterController implements Initializable {
 
     private void matchingAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
+        //FIXME
         alert.setTitle("Error");
         alert.setHeaderText("Error! Passwords don't match.");
         alert.showAndWait();

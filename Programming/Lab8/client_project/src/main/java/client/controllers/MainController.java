@@ -61,7 +61,8 @@ public class MainController implements Initializable {
             }
         });
         exitButton.setOnAction(actionEvent -> {
-            System.exit(0);
+            Stage stage = (Stage) exitButton.getScene().getWindow();
+            stage.close();
         });
         clearButton.setOnAction(actionEvent -> {
             ClientContext.getCommandReader().getResponse("clear");
@@ -76,6 +77,36 @@ public class MainController implements Initializable {
                 }
             else
                 displayNoFileError();
+        });
+        updateButton.setOnAction(actionEvent -> {
+            Stage stage = new Stage();
+            try {
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("update.fxml"));
+                Scene scene = new Scene(root, 700, 400);
+                stage.setTitle("Authorization");
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.show();
+                stage = (Stage) backButton.getScene().getWindow();
+                stage.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        addButton.setOnAction(actionEvent -> {
+            Stage stage = new Stage();
+            try {
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("add.fxml"));
+                Scene scene = new Scene(root, 700, 400);
+                stage.setTitle("Authorization");
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.show();
+                stage = (Stage) backButton.getScene().getWindow();
+                stage.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
     }
 

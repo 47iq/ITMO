@@ -67,7 +67,7 @@ public class LoginController implements Initializable {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("mainScene.fxml"));
             Scene scene = new Scene(root);
-            stage.setTitle("organization database");
+            stage.setTitle("Database manager");
             stage.setScene(scene);
             stage.show();
             stage.setMinHeight(400);

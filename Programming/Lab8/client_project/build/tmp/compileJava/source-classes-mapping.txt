@@ -44,16 +44,16 @@ client/ticket/ClientTemplateTicket.java
  client.ticket.ClientTemplateTicket
 client/commands/ExitCommand.java
  client.commands.ExitCommand
-client/controllers/MainController.java
- client.controllers.MainController
+client/reader/FileCommandReader.java
+ client.reader.FileCommandReader
 client/connection/DefaultResponseReader.java
  client.connection.DefaultResponseReader
 client/ObjectFactory.java
  client.ObjectFactory
 client/exceptions/CommandInputException.java
  client.exceptions.CommandInputException
-client/controllers/LoginController.java
- client.controllers.LoginController
+client/commands/ExecuteScriptCommand.java
+ client.commands.ExecuteScriptCommand
 client/exceptions/ScriptFileNotFoundException.java
  client.exceptions.ScriptFileNotFoundException
 client/controllers/WelcomeController.java
@@ -114,11 +114,15 @@ client/connection/DefaultConnectionManager.java
  client.connection.DefaultConnectionManager
 client/ClientContext.java
  client.ClientContext
-client/commands/ExecuteScriptCommand.java
- client.commands.ExecuteScriptCommand
-client/reader/FileCommandReader.java
- client.reader.FileCommandReader
-client/Main.java
- client.Main
 client/controllers/RegisterController.java
  client.controllers.RegisterController
+client/controllers/LoginController.java
+ client.controllers.LoginController
+client/controllers/UpdateController.java
+ client.controllers.UpdateController
+client/controllers/AddController.java
+ client.controllers.AddController
+client/Main.java
+ client.Main
+client/controllers/MainController.java
+ client.controllers.MainController

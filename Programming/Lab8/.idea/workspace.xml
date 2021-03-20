@@ -9,39 +9,23 @@
       <change afterPath="$PROJECT_DIR$/../Lab7/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Lab7/.idea/Lab7.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Lab7/.idea/dataSources/6de3d189-4a6e-47dc-8dac-a1e74ed225d7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab7/.idea/dataSources/6de3d189-4a6e-47dc-8dac-a1e74ed225d7/storage_v2/_src_/database/tickets.5_YksQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab7/.idea/dataSources/6de3d189-4a6e-47dc-8dac-a1e74ed225d7/storage_v2/_src_/database/tickets.5_YksQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Lab7/.idea/dataSources/6de3d189-4a6e-47dc-8dac-a1e74ed225d7/storage_v2/_src_/database/tickets.5_YksQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Lab7/.idea/dataSources/6de3d189-4a6e-47dc-8dac-a1e74ed225d7/storage_v2/_src_/database/tickets.5_YksQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab7/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Lab7/server_project/build/classes/java/main/server/connection/DefaultConnectionManager$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.7/fileChanges/last-build.bin" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.gradle/6.7/gc.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.gradle/configuration-cache/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/Lab7.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules/client_project/Lab7.client_project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/client_project/Lab7.client_project.main.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules/client_project/Lab7.client_project.test.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules/common/Lab7.common.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/common/Lab7.common.main.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules/common/Lab7.common.test.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules/server_project/Lab7.server_project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/server_project/Lab7.server_project.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/server_project/Lab7.server_project.test.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_03_2021_18_50_[Default_Changelist]/AbstractCommandReader.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_03_2021_18_50_[Default_Changelist]/AbstractQueueManager.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_03_2021_18_50_[Default_Changelist]/AddCommand.class" afterDir="false" />
@@ -257,173 +241,98 @@
       <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_03_2021_18_50_[Default_Changelist]/sha1-checksums.bin" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_03_2021_18_50_[Default_Changelist]/taskHistory.bin" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_03_2021_18_50_[Default_Changelist]/taskHistory1.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/application.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_errors.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/In.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/Client.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/ClientContext.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/DefaultClient.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/Invoker.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/ObjectFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/command_manager/ClientCommandFactory.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/command_manager/CommandFactory.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/commands/AuthCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/commands/ClientCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/commands/ClientHelpCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/commands/ClientServerCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/commands/DefaultExitCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/commands/ExecuteScriptCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/commands/ExitCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/commands/LoginCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/commands/LoginFreeCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/commands/MessageCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/commands/RegisterCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/commands/ScriptCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/connection/ConnectionManager.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/connection/DefaultConnectionManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/connection/DefaultRequestSender.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/connection/DefaultResponseReader.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/connection/RequestSender.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/connection/ResponseReader.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/controllers/LoginController.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/controllers/MainController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/controllers/RegisterController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/controllers/WelcomeController.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/ClientException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/ClientExceptionMessenger.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/CommandInputException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/CommunicationException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/ConnectionException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/FieldInputException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/FieldNumberFormatException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/LocalMessengerException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/LoginException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/NotEnoughAgrsException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/ScriptException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/ScriptFileNotFoundException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/ScriptFileRecursionException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/TerminalException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/messages/ClientMessenger.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/messages/DefaultErrorPrinter.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/messages/DefaultExceptionMessenger.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/messages/DefaultPrinter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/messages/ErrorPrinter.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/messages/ExceptionMessengerENG.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/messages/ExceptionMessengerRU.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/messages/Messenger.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/messages/MessengerENG.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/messages/MessengerRU.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/messages/Printer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/reader/AbstractCommandReader.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/reader/CommandReader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/reader/DefaultControllerCommandReader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/reader/FileCommandReader.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/ticket/ClientTemplateCoordinates.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/ticket/ClientTemplatePerson.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/ticket/ClientTemplateTicket.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/resources/main/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/resources/main/image.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/resources/main/log4j2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/resources/main/login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/resources/main/mainscene.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/build/resources/main/register.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/resources/main/welcome.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/Client.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/ClientContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/DefaultClient.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/Invoker.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/ObjectFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/command_manager/ClientCommandFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/command_manager/CommandFactory.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/commands/AuthCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/commands/ClientCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/commands/ClientHelpCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/commands/ClientServerCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/commands/DefaultExitCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/commands/ExecuteScriptCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/commands/ExitCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/commands/LoginCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/commands/LoginFreeCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/commands/MessageCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/commands/RegisterCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/commands/ScriptCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/connection/ConnectionManager.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/connection/DefaultConnectionManager.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/connection/DefaultRequestSender.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/connection/DefaultResponseReader.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/connection/RequestSender.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/connection/ResponseReader.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/controllers/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/controllers/MainController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/controllers/RegisterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/controllers/WelcomeController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/ClientException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/ClientExceptionMessenger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/CommandInputException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/CommunicationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/ConnectionException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/FieldInputException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/FieldNumberFormatException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/LocalMessengerException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/LoginException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/NotEnoughAgrsException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/ScriptException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/ScriptFileNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/ScriptFileRecursionException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/TerminalException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/messages/ClientMessenger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/messages/DefaultErrorPrinter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/messages/DefaultExceptionMessenger.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/messages/DefaultPrinter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/messages/ErrorPrinter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/messages/ExceptionMessengerENG.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/messages/ExceptionMessengerRU.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/messages/Messenger.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/messages/MessengerENG.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/messages/MessengerRU.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/messages/Printer.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/reader/AbstractCommandReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/reader/CommandReader.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/reader/DefaultControllerCommandReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/reader/FileCommandReader.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/ticket/ClientTemplateCoordinates.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/ticket/ClientTemplatePerson.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/java/client/ticket/ClientTemplateTicket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/resources/icon.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/resources/image.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/resources/log4j2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_project/src/main/resources/login.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/resources/mainScene.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/resources/register.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client_project/src/main/resources/welcome.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build.gradle" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/Command.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/Coordinates.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/CoordinatesValidator.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/Country.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/DefaultCoordinates.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/DefaultCoordinatesValidator.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/DefaultPerson.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/DefaultPersonValidator.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/DefaultRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/DefaultResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/DefaultTicket.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/DefaultTicketValidator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/DefaultUser.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/EyesColor.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/HairColor.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/Person.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/PersonValidator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/Request.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/RequestType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/Response.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/Ticket.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/TicketType.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/TicketValidator.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/User.class" afterDir="false" />
@@ -434,219 +343,126 @@
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/server/exceptions/InvalidDiscountException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/server/exceptions/InvalidEyesColorException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/server/exceptions/InvalidHairColorException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/server/exceptions/InvalidNameException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/server/exceptions/InvalidPriceException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/server/exceptions/InvalidRefundableException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/server/exceptions/InvalidTicketException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/server/exceptions/InvalidTicketFieldException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/server/exceptions/InvalidTypeException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/server/exceptions/InvalidWeightException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/server/exceptions/InvalidXCoordinateException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/classes/java/main/server/exceptions/InvalidYCoordinateException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/libs/common-1.0-SNAPSHOT.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/build/tmp/jar/MANIFEST.MF" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/src/main/java/common/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/common/Coordinates.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/src/main/java/common/CoordinatesValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/common/Country.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/src/main/java/common/DefaultCoordinates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/common/DefaultCoordinatesValidator.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/src/main/java/common/DefaultPerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/common/DefaultPersonValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/common/DefaultRequest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/src/main/java/common/DefaultResponse.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/src/main/java/common/DefaultTicket.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/src/main/java/common/DefaultTicketValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/common/DefaultUser.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/src/main/java/common/EyesColor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/common/HairColor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/common/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/common/PersonValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/common/Request.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/src/main/java/common/RequestType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/common/Response.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/src/main/java/common/Ticket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/common/TicketType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/common/TicketValidator.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/src/main/java/common/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/CommonException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/CommonExceptionMessenger.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/ExceptionMessenger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/InvalidCountryException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/InvalidDiscountException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/InvalidEyesColorException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/InvalidHairColorException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/InvalidNameException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/InvalidPriceException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/InvalidRefundableException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/InvalidTicketException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/InvalidTicketFieldException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/InvalidTypeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/InvalidWeightException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/InvalidXCoordinateException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/server/exceptions/InvalidYCoordinateException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/errors.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/Main.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/ObjectFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/ServerObjectFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/collection/AbstractQueueManager.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/collection/CollectionManager.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/collection/QueueManager.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/command_manager/CommandFactory.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/command_manager/CommandVisitor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/command_manager/ServerCommandFactory.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/command_manager/Visitor.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/AddCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/AddIfMaxCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/ClearCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/Command.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/ExitCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/ExitNoSaveCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/FilterGreaterThanDiscountCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/HelpCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/InfoCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/MaxByCoordinatesCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/MessagingCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/PrintFieldDescendingRefundableCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/RemoveByIdCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/RemoveFirstCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/RemoveGreaterCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/SaveCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/ServerCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/ShowCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/SimpleCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/TicketCommand.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/commands/UpdateCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/ConnectionBuilder.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/ConnectionManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/DefaultConnectionBuilder.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/DefaultConnectionManager$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/DefaultConnectionManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/DefaultRequestReader.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/DefaultResponseSender.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/DefaultServer.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/RequestReader.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/ResponseSender.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/Server.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/CryptoModule.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/DataBaseManager.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/PostgresDataBaseManager.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/PostgresTicketsDataBase.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/PostgresUsersDataBase.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/SHA384CryptoModule.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/TicketReader.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/TicketWriter.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/TicketsDataBase.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/UsersDataBase.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/exceptions/BrokenPackageException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/exceptions/CommandExecutionException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/exceptions/InputFileNotFoundException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/exceptions/InvalidIdException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/exceptions/LoginException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/exceptions/NotLoggedInException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/exceptions/RegistrationException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/exceptions/ServerException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/exceptions/ServerExceptionMessenger.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/exceptions/UnknownCommandException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/exceptions/UnknownException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/exceptions/UnknownTypeException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/exceptions/UserExistsException.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/messages/DefaultExceptionMessenger.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/messages/ErrorMessengerENG.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/messages/ErrorMessengerRU.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/messages/MessagesENG.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/messages/MessagesRU.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/messages/Messenger.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/messages/ServerMessenger.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/ticket/ServerDefaultCoordinates.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/ticket/ServerDefaultPerson.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/ticket/ServerDefaultTicket.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/ticket/ServerTicket.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/resources/main/log4j2.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/ObjectFactory.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/ServerObjectFactory.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/collection/AbstractQueueManager.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/collection/CollectionManager.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/collection/QueueManager.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/command_manager/CommandFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/command_manager/CommandVisitor.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/command_manager/ServerCommandFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/command_manager/Visitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/AddCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/AddIfMaxCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/ClearCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/Command.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/ExitCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/ExitNoSaveCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/FilterGreaterThanDiscountCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/HelpCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/InfoCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/MaxByCoordinatesCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/MessagingCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/PrintFieldDescendingRefundableCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/RemoveByIdCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/RemoveFirstCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/RemoveGreaterCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/SaveCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/ServerCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/ShowCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/SimpleCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/TicketCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/commands/UpdateCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/connection/ConnectionBuilder.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/connection/ConnectionManager.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/connection/DefaultConnectionBuilder.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/connection/DefaultConnectionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/connection/DefaultRequestReader.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/connection/DefaultResponseSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/connection/DefaultServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/connection/RequestReader.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/connection/ResponseSender.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/connection/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/CryptoModule.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/DataBaseManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/PostgresDataBaseManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/PostgresTicketsDataBase.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/PostgresUsersDataBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/SHA384CryptoModule.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/TicketReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/TicketWriter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/TicketsDataBase.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/UsersDataBase.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/exceptions/BrokenPackageException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/exceptions/CommandExecutionException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/exceptions/InputFileNotFoundException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/exceptions/InvalidIdException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/exceptions/LoginException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/exceptions/NotLoggedInException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/exceptions/RegistrationException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/exceptions/ServerException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/exceptions/ServerExceptionMessenger.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/exceptions/UnknownCommandException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/exceptions/UnknownException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/exceptions/UnknownTypeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/exceptions/UserExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/messages/DefaultExceptionMessenger.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/messages/ErrorMessengerENG.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/messages/ErrorMessengerRU.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/messages/MessagesENG.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/messages/MessagesRU.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/messages/Messenger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/messages/ServerMessenger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/ticket/ServerDefaultCoordinates.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/ticket/ServerDefaultPerson.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/ticket/ServerDefaultTicket.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/ticket/ServerTicket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/resources/log4j2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Discrete Maths/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Discrete Maths/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Lab1/blank" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab1/blank" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Lab2/blank" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab2/blank" afterDir="false" />
@@ -1931,7 +1747,7 @@
       <workItem from="1616090518799" duration="10061000" />
       <workItem from="1616139351701" duration="20028000" />
       <workItem from="1616234648405" duration="7043000" />
-      <workItem from="1616248530377" duration="12153000" />
+      <workItem from="1616248530377" duration="17146000" />
     </task>
     <task id="LOCAL-00001" summary="Lab8 v0">
       <created>1616268337056</created>
