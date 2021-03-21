@@ -3618,3 +3618,47 @@
 [2021-03-21T02:01:00,539 INFO ] server.Main - Server started at port: 3110
 [2021-03-21T02:01:00,549 INFO ] server.connection.DefaultServer - Starting command reading...
 [2021-03-21T02:01:18,034 INFO ] server.connection.DefaultConnectionManager - User: 47iq has logged in.
+[2021-03-21T22:38:43,785 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-21T22:38:43,809 INFO ] server.Main - Server started at port: 3110
+[2021-03-21T22:38:43,848 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-21T22:39:23,593 INFO ] server.connection.DefaultConnectionManager - User: 48iq has logged in.
+[2021-03-21T22:39:40,242 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ClearCommand
+[2021-03-21T22:39:40,251 INFO ] server.collection.QueueManager - Cleared the collection.
+[2021-03-21T22:47:39,521 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-21T22:47:39,545 INFO ] server.Main - Server started at port: 3110
+[2021-03-21T22:47:39,555 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-21T22:47:59,332 INFO ] server.connection.DefaultConnectionManager - User: 47iq has logged in.
+[2021-03-21T22:49:42,595 INFO ] server.connection.DefaultConnectionManager - User: 47iq has logged in.
+[2021-03-21T22:50:03,065 INFO ] server.command_manager.ServerCommandFactory - Unknown command : clear got.
+[2021-03-21T22:56:08,604 INFO ] server.connection.DefaultConnectionManager - User: 47iq has logged in.
+[2021-03-21T22:56:10,428 INFO ] server.command_manager.ServerCommandFactory - Unknown command : info got.
+[2021-03-21T22:56:13,713 INFO ] server.command_manager.ServerCommandFactory - Unknown command : info got.
+[2021-03-21T22:56:16,746 INFO ] server.command_manager.ServerCommandFactory - Unknown command : help got.
+[2021-03-21T22:57:37,940 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-21T22:57:37,967 INFO ] server.Main - Server started at port: 3110
+[2021-03-21T22:57:37,979 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-21T22:57:39,531 INFO ] server.connection.DefaultConnectionManager - User: 47iq has logged in.
+[2021-03-21T22:57:45,281 INFO ] server.command_manager.ServerCommandFactory - Unknown command : info got.
+[2021-03-21T22:57:52,689 INFO ] server.command_manager.ServerCommandFactory - Unknown command : help got.
+[2021-03-21T22:57:55,797 INFO ] server.command_manager.ServerCommandFactory - Unknown command : help got.
+[2021-03-21T22:58:30,264 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-21T22:58:30,289 INFO ] server.Main - Server started at port: 3110
+[2021-03-21T22:58:30,299 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-21T22:58:31,621 INFO ] server.connection.DefaultConnectionManager - User: 48iq has logged in.
+[2021-03-21T22:58:33,566 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-21T22:58:33,567 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-21T22:58:38,821 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-21T22:58:49,783 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-21T22:58:52,278 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-21T23:00:56,392 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-21T23:00:56,417 INFO ] server.Main - Server started at port: 3110
+[2021-03-21T23:00:56,428 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-21T23:01:01,352 INFO ] server.connection.DefaultConnectionManager - User: 48iq has logged in.
+[2021-03-21T23:01:08,523 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-21T23:01:08,523 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-21T23:01:10,066 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-21T23:01:10,067 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-21T23:01:27,207 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-21T23:01:31,088 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-21T23:01:58,376 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-21T23:02:00,736 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand

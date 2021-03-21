@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -12,10 +13,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddController implements Initializable {
+public class ArgController implements Initializable {
     public Button backButton;
+    public ImageView imgView;
     public Text addText;
 
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
         backButton.setOnAction(actionEvent -> {
             Stage stage = new Stage();

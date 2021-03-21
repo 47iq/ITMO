@@ -28,7 +28,7 @@
             <children>
                 <VBox alignment="TOP_CENTER" layoutY="1.0" prefHeight="400.0" prefWidth="700.0" spacing="20.0">
                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="700.0" spacing="70.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="700.0" spacing="85.0">
                             <children>
                                 <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Назад" textAlignment="CENTER">
                                     <opaqueInsets>

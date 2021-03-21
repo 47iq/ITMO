@@ -92,8 +92,8 @@ client/exceptions/ScriptFileRecursionException.java
  client.exceptions.ScriptFileRecursionException
 client/exceptions/ConnectionException.java
  client.exceptions.ConnectionException
-client/Invoker.java
- client.Invoker
+client/controllers/ArgController.java
+ client.controllers.ArgController
 client/command_manager/CommandFactory.java
  client.command_manager.CommandFactory
 client/reader/DefaultControllerCommandReader.java
