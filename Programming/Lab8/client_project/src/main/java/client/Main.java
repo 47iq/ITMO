@@ -63,7 +63,7 @@ public class Main extends Application {
         exceptionMessenger = objectFactory.getLocalErrorHandler();
         out = new DefaultPrinter(System.out);
         err = new DefaultErrorPrinter(System.err);
-        runUI(primaryStage);
+        ClientContext.showScene("welcome.fxml");
     }
 
     public static Printer getOut() {
@@ -76,21 +76,6 @@ public class Main extends Application {
 
     public static ClientExceptionMessenger getExceptionMessenger() {
         return exceptionMessenger;
-    }
-
-    private void runUI(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        URL xmlUrl = getClass().getResource("/welcome.fxml");
-        loader.setLocation(xmlUrl);
-        Parent root = loader.load();
-        primaryStage.setScene(new Scene(root));
-        loader.setController(new MainController());
-        primaryStage.setTitle("DataBase manager");
-        InputStream iconStream = getClass().getResourceAsStream("/icon.png");
-        Image image = new Image(iconStream);
-        primaryStage.getIcons().add(image);
-        primaryStage.setResizable(false);
-        primaryStage.show();
     }
 }
 

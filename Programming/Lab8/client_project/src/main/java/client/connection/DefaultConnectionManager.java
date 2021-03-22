@@ -66,7 +66,7 @@ public class DefaultConnectionManager implements ConnectionManager {
                 if(command instanceof AuthCommand)
                     commandRequest.setUser(user);
                 if (ticketResponse.isSuccessful() && ticketResponse.getMessage().equals("true")) {
-                    //commandRequest.setTicket(commandReader.readTicket());
+                    commandRequest.setTicket(commandReader.readTicket());
                 } else if (!ticketResponse.isSuccessful())
                     Main.getErr().println(ticketResponse.getMessage());
 

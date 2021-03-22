@@ -75,16 +75,9 @@ public class RegisterController implements Initializable {
     }
 
     private void success() {
-        Stage stage = new Stage();
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("mainScene.fxml"));
-            Scene scene = new Scene(root);
-            stage.setTitle("Database manager");
-            stage.setScene(scene);
-            stage.show();
-            stage.setMinHeight(400);
-            stage.setMinWidth(700);
-            stage = (Stage) submitButton.getScene().getWindow();
+            ClientContext.showScene("mainScene.fxml");
+            Stage stage = (Stage) submitButton.getScene().getWindow();
             stage.close();
         } catch (IOException e) {
             e.printStackTrace();

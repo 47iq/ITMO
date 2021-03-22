@@ -17,5 +17,13 @@ public interface Person {
     void setHairColor(HairColor hairColor);
 
     void setNationality(Country nationality);
+
+    void setWeightStr(String  weight);
+
+    void setEyeColorStr(String eyeColor);
+
+    void setHairColorStr(String  hairColor);
+
+    void setNationalityStr(String  nationality);
 }
 

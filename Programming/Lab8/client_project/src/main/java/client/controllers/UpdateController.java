@@ -1,5 +1,6 @@
 package client.controllers;
 
+import client.ClientContext;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -16,19 +17,17 @@ public class UpdateController implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources) {
         backButton.setOnAction(actionEvent -> {
-            Stage stage = new Stage();
             try {
-                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("mainScene.fxml"));
-                Scene scene = new Scene(root, 700, 400);
-                stage.setTitle("Authorization");
-                stage.setScene(scene);
-                stage.setResizable(false);
-                stage.show();
-                stage = (Stage) backButton.getScene().getWindow();
-                stage.close();
+                ClientContext.showScene("mainScene.fxml");
+                exit();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
+    }
+
+    private void exit() {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        stage.close();
     }
 }

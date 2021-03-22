@@ -30,7 +30,7 @@ public class LoginController implements Initializable {
             String password = passwordField.getText();
             if (!login.equals("") && !password.equals("")) {
                 Response response = ClientContext.getCommandReader().getResponse(String.format("login %s %s", login, password));
-                if(response.isSuccessful())
+                if (response.isSuccessful())
                     success();
                 else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -46,16 +46,9 @@ public class LoginController implements Initializable {
             }
         });
         backButton.setOnAction(actionEvent -> {
-            Stage stage = new Stage();
             try {
-                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("welcome.fxml"));
-                Scene scene = new Scene(root, 700, 400);
-                stage.setTitle("Authorization");
-                stage.setScene(scene);
-                stage.setResizable(false);
-                stage.show();
-                stage = (Stage) backButton.getScene().getWindow();
-                stage.close();
+                ClientContext.showScene("welcome.fxml");
+                exit();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -63,19 +56,16 @@ public class LoginController implements Initializable {
     }
 
     private void success() {
-        Stage stage = new Stage();
-        try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("mainScene.fxml"));
-            Scene scene = new Scene(root);
-            stage.setTitle("Database manager");
-            stage.setScene(scene);
-            stage.show();
-            stage.setMinHeight(400);
-            stage.setMinWidth(700);
-            stage = (Stage) submitButton.getScene().getWindow();
-            stage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            try {
+                ClientContext.showScene("mainScene.fxml");
+                exit();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+
+    private void exit() {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        stage.close();
     }
 }

@@ -3,6 +3,7 @@ package client.reader;
 import client.Main;
 import client.ObjectFactory;
 import client.connection.ConnectionManager;
+import client.ticket.TicketBuilder;
 import common.*;
 
 import java.io.*;
@@ -12,6 +13,8 @@ import java.io.*;
  */
 
 public class FileCommandReader extends AbstractCommandReader {
+
+    private TicketBuilder builder;
 
     /**
      * Constructor for file command reader
@@ -25,39 +28,32 @@ public class FileCommandReader extends AbstractCommandReader {
         reader = new BufferedReader(new FileReader(file));
         super.ticketFactory = ticketFactory;
         super.commandFactory = commandFactory;
+        builder = ticketFactory.getTicketBuilder();
     }
 
     public Ticket readTicket() throws IOException {
-        DefaultTicket ticket = ticketFactory.getDefaultTicket();
-        DefaultCoordinates coordinates = ticketFactory.getDefaultCoordinates();
-        DefaultPerson person = ticketFactory.getDefaultPerson();
-        ticket.setNameStr(reader.readLine());
-        coordinates.setXStr(reader.readLine().trim());
-        coordinates.setYStr(reader.readLine().trim());
-        ticket.setDiscountStr(reader.readLine().trim());
-        ticket.setPriceStr(reader.readLine().trim());
-        ticket.setRefundableStr(reader.readLine().trim());
-        ticket.setTypeStr(reader.readLine().trim());
-        person.setWeightStr(reader.readLine().trim());
-        person.setEyeColorStr(reader.readLine().trim());
-        person.setHairColorStr(reader.readLine().trim());
-        person.setNationalityStr(reader.readLine().trim());
-        ticket.setCoordinates(coordinates);
-        ticket.setPerson(person);
-        return ticket;
+        builder.setName(reader.readLine());
+        builder.setX(reader.readLine().trim());
+        builder.setY(reader.readLine().trim());
+        builder.setDiscount(reader.readLine().trim());
+        builder.setPrice(reader.readLine().trim());
+        builder.setRefundable(reader.readLine().trim());
+        builder.setType(reader.readLine().trim());
+        builder.setWeight(reader.readLine().trim());
+        builder.setEyeColor(reader.readLine().trim());
+        builder.setHairColor(reader.readLine().trim());
+        builder.setCountry(reader.readLine().trim());
+        return builder.getResult();
+    }
+
+    public TicketBuilder getBuilder() {
+        return builder;
     }
 
     public User readUser() throws IOException {
         String login = reader.readLine();
         String password = reader.readLine();
         return ticketFactory.getUser(login, password);
-    }
-
-    protected void processResponse(Response request) {
-        if(!request.isSuccessful())
-            Main.getErr().print(request.getMessage());
-        else
-            Main.getOut().print(request.getMessage());
     }
 
     protected boolean readyForInput() throws IOException {

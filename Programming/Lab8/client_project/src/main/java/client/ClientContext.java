@@ -8,14 +8,19 @@ import client.messages.*;
 import client.reader.CommandReader;
 import client.reader.DefaultControllerCommandReader;
 import client.reader.FileCommandReader;
-import client.ticket.ClientTemplateCoordinates;
-import client.ticket.ClientTemplatePerson;
-import client.ticket.ClientTemplateTicket;
+import client.ticket.*;
 import common.*;
 import client.exceptions.ClientExceptionMessenger;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.InetAddress;
 import java.nio.channels.SocketChannel;
 import java.util.HashMap;
@@ -31,6 +36,16 @@ public class ClientContext implements ObjectFactory {
     private final Locale locale;
 
     private static CommandReader commandReader;
+
+    private static String currentCommand;
+
+    public static String getCurrentCommand() {
+        return currentCommand;
+    }
+
+    public static void setCurrentCommand(String currentCommand) {
+        ClientContext.currentCommand = currentCommand;
+    }
 
     public static void setCommandReader(CommandReader commandReader) {
         ClientContext.commandReader = commandReader;
@@ -133,5 +148,24 @@ public class ClientContext implements ObjectFactory {
 
     public Response getResponse(boolean successful, String message) {
         return new DefaultResponse(successful, message);
+    }
+
+    public static void showScene(String sceneFile) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(ClientContext.class.getClassLoader().getResource(sceneFile));
+        Scene scene = new Scene(root);
+        stage.setTitle("Database manager");
+        InputStream iconStream = ClientContext.class.getResourceAsStream("/icon.png");
+        Image image = new Image(iconStream);
+        stage.getIcons().add(image);
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.setMinHeight(400);
+        stage.setMinWidth(700);
+        stage.show();
+    }
+
+    public TicketBuilder getTicketBuilder() {
+        return new DefaultTicketBuilder(this);
     }
 }

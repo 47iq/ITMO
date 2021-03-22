@@ -41,12 +41,12 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="46.0" prefWidth="700.0" spacing="150.0">
                <children>
-                    <Button fx:id="logInButton" mnemonicParsing="false" prefHeight="12.0" prefWidth="152.0" text="Log in" textAlignment="CENTER" textFill="#04080f">
+                    <Button fx:id="logInButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="186.0" text="Войти" textAlignment="CENTER" textFill="#04080f">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                    <Button fx:id="registerButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="31.0" prefWidth="154.0" text="Register" textAlignment="CENTER" textFill="#04080f">
+                    <Button fx:id="registerButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="46.0" prefWidth="178.0" text="Зарегистрироваться" textAlignment="CENTER" textFill="#04080f">
                      <font>
                         <Font size="16.0" />
                      </font>

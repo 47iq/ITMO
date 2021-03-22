@@ -3,11 +3,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
@@ -24,61 +22,49 @@
                 <Rectangle2D height="1600.0" minX="700.0" minY="400.0" width="2800.0" />
             </viewport>
         </ImageView>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0">
-            <children>
-                <VBox alignment="TOP_CENTER" layoutY="1.0" prefHeight="400.0" prefWidth="700.0" spacing="90.0">
-                    <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="700.0" spacing="70.0">
-                            <children>
-                                <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Назад" textAlignment="CENTER">
-                                    <opaqueInsets>
-                                        <Insets />
-                                    </opaqueInsets>
-                                    <font>
-                                        <Font size="14.0" />
-                                    </font>
-                                </Button>
-                                <Text fx:id="addText" fill="#fdfeff" stroke="#030303" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" text="Ticket Data base" textAlignment="CENTER" wrappingWidth="231.0">
-                                    <font>
-                                        <Font size="31.0" />
-                                    </font>
-                                </Text>
-                            </children>
-                            <padding>
-                                <Insets left="12.0" />
-                            </padding>
-                        </HBox>
-                        <VBox alignment="CENTER">
-                            <children>
-                                <HBox alignment="CENTER" spacing="100.0">
-                                    <children>
-                                        <HBox prefHeight="100.0" prefWidth="200.0">
-                                            <HBox.margin>
-                                                <Insets />
-                                            </HBox.margin>
-                                 <children>
-                                    <ChoiceBox prefHeight="25.0" prefWidth="198.0" />
-                                 </children>
-                                        </HBox>
-                                        <HBox prefHeight="100.0" prefWidth="200.0">
-                                            <children>
-                                                <TextField prefHeight="25.0" prefWidth="257.0" promptText="Аргумент" />
-                                            </children>
-                                        </HBox>
-                                    </children>
-                                </HBox>
-                                <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="131.0" text="Выполнить" />
-                            </children>
-                            <padding>
-                                <Insets bottom="20.0" />
-                            </padding>
-                        </VBox>
-                    </children>
-                    <padding>
-                        <Insets top="33.0" />
-                    </padding>
-                </VBox>
-            </children>
-        </AnchorPane>
+          <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="700.0" spacing="90.0">
+              <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="700.0" spacing="70.0">
+                      <children>
+                          <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Назад" textAlignment="CENTER">
+                              <opaqueInsets>
+                                  <Insets />
+                              </opaqueInsets>
+                              <font>
+                                  <Font size="14.0" />
+                              </font>
+                          </Button>
+                          <Text fx:id="addText" fill="#fdfeff" stroke="#030303" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" text="Ticket Data base" textAlignment="CENTER" wrappingWidth="231.0">
+                              <font>
+                                  <Font size="31.0" />
+                              </font>
+                          </Text>
+                      </children>
+                      <padding>
+                          <Insets left="12.0" />
+                      </padding>
+                  </HBox>
+                  <VBox alignment="CENTER">
+                      <children>
+                          <HBox alignment="CENTER" spacing="100.0">
+                              <children>
+                                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="306.0">
+                                      <children>
+                                          <TextField fx:id="arg" prefHeight="31.0" prefWidth="258.0" promptText="Аргумент" />
+                                      </children>
+                                  </HBox>
+                              </children>
+                          </HBox>
+                          <Button fx:id="commandButton" mnemonicParsing="false" prefHeight="21.0" prefWidth="131.0" text="Выполнить" />
+                      </children>
+                      <padding>
+                          <Insets bottom="20.0" />
+                      </padding>
+                  </VBox>
+              </children>
+              <padding>
+                  <Insets top="33.0" />
+              </padding>
+          </VBox>
     </children>
 </StackPane>

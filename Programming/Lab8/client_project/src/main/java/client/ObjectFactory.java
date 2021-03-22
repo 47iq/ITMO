@@ -6,6 +6,7 @@ import client.connection.ResponseReader;
 import client.exceptions.ClientExceptionMessenger;
 import client.messages.Messenger;
 import client.reader.CommandReader;
+import client.ticket.TicketBuilder;
 import common.*;
 
 import java.io.File;
@@ -44,4 +45,6 @@ public interface ObjectFactory {
     CommandReader getControllerCommandReader();
 
     Response getResponse(boolean successful, String message);
+
+    TicketBuilder getTicketBuilder();
 }

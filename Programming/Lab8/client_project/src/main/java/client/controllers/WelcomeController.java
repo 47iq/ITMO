@@ -1,5 +1,6 @@
 package client.controllers;
 
+import client.ClientContext;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -20,12 +21,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class WelcomeController implements Initializable {
-    public Text title2;
-    public Text title1;
     public Button logInButton;
     public Button registerButton;
     public ChoiceBox<String> language;
     public ImageView imgView;
+    public Button exitButton;
+    public Text addText;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -33,38 +34,28 @@ public class WelcomeController implements Initializable {
         language.setItems(types);
         language.setValue("Russian");
         logInButton.setOnAction(actionEvent -> {
-            String ll = language.getValue();
-            Stage stage = new Stage();
             try {
-                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-                Scene scene = new Scene(root, 700, 400);
-                //FIXME
-                stage.setTitle("welcome");
-                stage.setScene(scene);
-                stage.setResizable(false);
-                stage.show();
-                stage = (Stage) registerButton.getScene().getWindow();
-                stage.close();
+                ClientContext.showScene("login.fxml");
+                exit();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
         registerButton.setOnAction(actionEvent -> {
-            String ll = language.getValue();
-            Stage stage = new Stage();
             try {
-                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
-                Scene scene = new Scene(root, 700, 400);
-                //FIXME
-                stage.setTitle("registration");
-                stage.setScene(scene);
-                stage.setResizable(false);
-                stage.show();
-                stage = (Stage) registerButton.getScene().getWindow();
-                stage.close();
+                ClientContext.showScene("register.fxml");
+                exit();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
+        exitButton.setOnAction(actionEvent -> {
+            exit();
+        });
+    }
+
+    private void exit() {
+        Stage stage = (Stage) registerButton.getScene().getWindow();
+        stage.close();
     }
 }
