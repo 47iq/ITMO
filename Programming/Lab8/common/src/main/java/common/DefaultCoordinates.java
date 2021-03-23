@@ -14,7 +14,7 @@ public class DefaultCoordinates implements Coordinates, Serializable {
 
     private transient static CoordinatesValidator validator;
 
-    private DefaultCoordinates(Coordinates coordinates) {
+    DefaultCoordinates(Coordinates coordinates) {
         this.x = coordinates.getX();
         this.y = coordinates.getY();
     }

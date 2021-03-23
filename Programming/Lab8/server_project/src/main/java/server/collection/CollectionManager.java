@@ -1,6 +1,7 @@
 package server.collection;
 
 import common.Ticket;
+import common.UpdateData;
 
 import java.util.List;
 
@@ -32,9 +33,10 @@ public interface CollectionManager {
      * Updates {@link Ticket} with the id equal to given in collection
      * @param id int
      * @param ticket manager.ticket we want to insert
+     * @param updateData
      */
 
-    void updateId(int id, Ticket ticket, String owner);
+    void updateId(int id, Ticket ticket, String owner, UpdateData updateData);
 
     /**
      * Removes {@link Ticket} with the id equal to given from collection
@@ -93,4 +95,6 @@ public interface CollectionManager {
      */
 
     List<Boolean> getRefundableList();
+
+    List<Ticket> getTicketList();
 }

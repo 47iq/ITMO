@@ -5,6 +5,7 @@ import client.ObjectFactory;
 import common.Coordinates;
 import common.Person;
 import common.Ticket;
+import server.exceptions.*;
 
 public class DefaultTicketBuilder implements TicketBuilder{
 
@@ -21,47 +22,91 @@ public class DefaultTicketBuilder implements TicketBuilder{
     }
 
     public void setName(String name) {
-        ticket.setName(name);
+        try {
+            ticket.setName(name);
+        } catch (Exception e) {
+            throw new InvalidNameException();
+        }
     }
 
     public void setX(String x) {
-        coordinates.setXStr(x);
+        try {
+            coordinates.setXStr(x);
+        } catch (Exception e) {
+            throw new InvalidXCoordinateException();
+        }
     }
 
     public void setY(String y) {
-        coordinates.setYStr(y);
+        try {
+            coordinates.setYStr(y);
+        } catch (Exception e) {
+            throw new InvalidYCoordinateException();
+        }
     }
 
     public void setPrice(String price) {
-        ticket.setPriceStr(price);
+        try {
+            ticket.setPriceStr(price);
+        } catch (Exception e) {
+            throw new InvalidPriceException();
+        }
     }
 
     public void setDiscount(String discount) {
-        ticket.setDiscountStr(discount);
+        try {
+            ticket.setDiscountStr(discount);
+        } catch (Exception e) {
+            throw new InvalidDiscountException();
+        }
     }
 
     public void setRefundable(String refundable) {
-        ticket.setRefundableStr(refundable);
+        try {
+            ticket.setRefundableStr(refundable);
+        } catch (Exception e) {
+            throw new InvalidRefundableException();
+        }
     }
 
     public void setType(String type) {
-        ticket.setTypeStr(type);
+        try {
+            ticket.setTypeStr(type);
+        } catch (Exception e) {
+            throw new InvalidTypeException();
+        }
     }
 
     public void setWeight(String weight) {
-        person.setWeightStr(weight);
+        try {
+            person.setWeightStr(weight);
+        } catch (Exception e) {
+            throw new InvalidRefundableException();
+        }
     }
 
     public void setEyeColor(String eyeColor) {
-        person.setEyeColorStr(eyeColor);
+        try {
+            person.setEyeColorStr(eyeColor);
+        } catch (Exception e) {
+            throw new InvalidRefundableException();
+        }
     }
 
     public void setHairColor(String hairColor) {
-        person.setHairColorStr(hairColor);
+        try {
+            person.setHairColorStr(hairColor);
+        } catch (Exception e) {
+            throw new InvalidRefundableException();
+        }
     }
 
     public void setCountry(String country) {
-        person.setNationalityStr(country);
+        try {
+            person.setNationalityStr(country);
+        } catch (Exception e) {
+            throw new InvalidRefundableException();
+        }
     }
 
     public Ticket getResult() {

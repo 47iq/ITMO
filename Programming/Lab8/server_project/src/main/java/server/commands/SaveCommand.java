@@ -21,6 +21,6 @@ public class SaveCommand implements ServerCommand {
     }
 
     public Response accept(Visitor visitor) {
-        return visitor.doForServer(this);
+        return visitor.visit(this);
     }
 }

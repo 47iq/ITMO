@@ -4,15 +4,13 @@ import common.Response;
 import common.Ticket;
 import server.ObjectFactory;
 import server.collection.CollectionManager;
-import server.commands.MessagingCommand;
-import server.commands.ServerCommand;
-import server.commands.SimpleCommand;
-import server.commands.TicketCommand;
+import server.commands.*;
 import server.messages.Messenger;
 
 public interface Visitor {
-    Response doForSimple(SimpleCommand command);
-    Response doForMessaging(MessagingCommand command);
-    Response doForServer(ServerCommand command);
-    Response doForTicket(TicketCommand command);
+    Response visit(TicketCommand ticketCommand);
+    Response visit(SimpleCommand simpleCommand);
+    Response visit(MessagingCommand messagingCommand);
+    Response visit(ServerCommand serverCommand);
+    Response visit(UpdatingCommand serverCommand);
 }

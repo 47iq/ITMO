@@ -31,6 +31,6 @@ public class PrintFieldDescendingRefundableCommand implements SimpleCommand{
     }
 
     public Response accept(Visitor visitor) {
-        return visitor.doForSimple(this);
+        return visitor.visit(this);
     }
 }

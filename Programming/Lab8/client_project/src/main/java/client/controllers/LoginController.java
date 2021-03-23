@@ -30,9 +30,10 @@ public class LoginController implements Initializable {
             String password = passwordField.getText();
             if (!login.equals("") && !password.equals("")) {
                 Response response = ClientContext.getCommandReader().getResponse(String.format("login %s %s", login, password));
-                if (response.isSuccessful())
+                if (response.isSuccessful()) {
+                    ClientContext.setCurrentUser(login);
                     success();
-                else {
+                } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
                     alert.setHeaderText(response.getMessage());

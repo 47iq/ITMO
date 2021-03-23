@@ -29,4 +29,10 @@ public interface Ticket extends Comparable<Ticket> {
     void setTypeStr(String type);
     void setOwner(String owner);
     String getOwner();
+    double getX();
+    Integer getY();
+    Long getWeight();
+    Country getNationality();
+    HairColor getHairColor();
+    EyesColor getEyeColor();
 }

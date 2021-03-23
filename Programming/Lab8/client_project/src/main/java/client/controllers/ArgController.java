@@ -23,11 +23,13 @@ public class ArgController implements Initializable {
     public Text addText;
     public Button commandButton;
     public TextField arg;
+    public Text userText;
 
     private String curCommand = ClientContext.getCurrentCommand();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        userText.setText(ClientContext.getCurrentUser());
         commandButton.setText(curCommand);
         backButton.setOnAction(actionEvent -> {
             try {

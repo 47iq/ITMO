@@ -36,9 +36,10 @@ public class RegisterController implements Initializable {
             if (fieldsFilled(login, password)) {
                 if(passwordsMatch(password, passwordConfirmation)) {
                     Response response = ClientContext.getCommandReader().getResponse(String.format("register %s %s", login, password));
-                    if (response.isSuccessful())
+                    if (response.isSuccessful()) {
+                        ClientContext.setCurrentUser(login);
                         success();
-                    else {
+                    } else {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Error");
                         alert.setHeaderText(response.getMessage());

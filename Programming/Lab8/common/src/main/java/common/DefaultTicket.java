@@ -27,9 +27,9 @@ public class DefaultTicket implements Ticket, Serializable {
     private String owner;
     private transient static TicketValidator validator;
 
-    private DefaultTicket(Ticket ticket) {
-        this.coordinates = ticket.getCoordinates();
-        this.person = ticket.getPerson();
+    public DefaultTicket(Ticket ticket) {
+        this.coordinates = new DefaultCoordinates(ticket.getCoordinates());
+        this.person = new DefaultPerson(ticket.getPerson());
         this.price = ticket.getPrice();
         this.discount = ticket.getDiscount();
         this.refundable = ticket.getRefundable();
@@ -37,6 +37,7 @@ public class DefaultTicket implements Ticket, Serializable {
         this.creationDate = ticket.getCreationDate();
         this.type = ticket.getType();
         this.name = ticket.getName();
+        this.owner = ticket.getOwner();
     }
 
     public DefaultTicket(){}
@@ -250,12 +251,40 @@ public class DefaultTicket implements Ticket, Serializable {
     public void setTypeStr(String type) {
         setType(validator.castType(type));
     }
-
     public String getOwner() {
         return owner;
     }
-
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    @Override
+    public double getX() {
+        return coordinates.getX();
+    }
+
+    @Override
+    public Integer getY() {
+        return coordinates.getY();
+    }
+
+    @Override
+    public Long getWeight() {
+        return person.getWeight();
+    }
+
+    @Override
+    public Country getNationality() {
+        return person.getNationality();
+    }
+
+    @Override
+    public HairColor getHairColor() {
+        return person.getHairColor();
+    }
+
+    @Override
+    public EyesColor getEyeColor() {
+        return person.getEyeColor();
     }
 }

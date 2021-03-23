@@ -1,15 +1,11 @@
 package server.datawork;
 
-import common.Coordinates;
-import common.DefaultPerson;
-import common.Person;
-import common.Ticket;
+import common.*;
 import org.apache.logging.log4j.LogManager;
 import server.ServerObjectFactory;
 import server.ticket.ServerTicket;
 
 import java.sql.*;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -28,14 +24,99 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
         create();
     }
 
-    public void update(ServerTicket ticket, int id, String owner) throws SQLException {
-        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE tickets SET owner = ?, name = ?, " +
-                "coordinates_x = ?, coordinates_y = ?, creationDate = ?, price = ? , discount = ?, refundable = ?, type = ?, " +
-                "person_weight = ?, person_eyes = ?, person_hair = ?, person_nation = ?, id = ? WHERE id = ?");
-        updateStatement(ticket, preparedStatement);
-        preparedStatement.setInt(14, ticket.getId());
-        preparedStatement.setInt(15, ticket.getId());
+    public void update(ServerTicket ticket, int id, String owner, UpdateData updateData) throws SQLException {
+        int index = 1;
+        //FIXME remove
+        System.out.println(updateData.isNameSelected());
+        String sql = prepareString(updateData);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(index, ticket.getOwner());
+        index++;
+        if(updateData.isNameSelected()) {
+            preparedStatement.setString(index, ticket.getName());
+            index++;
+        }
+        if(updateData.isXSelected()) {
+            preparedStatement.setDouble(index, ticket.getCoordinates().getX());
+            index++;
+        }
+        if(updateData.isYSelected()) {
+            preparedStatement.setInt(index, ticket.getCoordinates().getY());
+            index++;
+        }
+        if(updateData.isPriceSelected()) {
+            preparedStatement.setInt(index, ticket.getPrice());
+            index++;
+        }
+        if(updateData.isDiscountSelected()) {
+            preparedStatement.setDouble(index, ticket.getDiscount());
+            index++;
+        }
+        if(updateData.isRefundableSelected()) {
+            if (ticket.getRefundable() == null)
+                preparedStatement.setNull(index, Types.BOOLEAN);
+            else
+                preparedStatement.setBoolean(index, ticket.getRefundable());
+            index++;
+        }
+        if(updateData.isTypeSelected()) {
+            if (ticket.getType() == null)
+                preparedStatement.setNull(index, Types.VARCHAR);
+            else
+                preparedStatement.setString(index, ticket.getType().toString());
+            index++;
+        }
+        if(updateData.isWeightSelected()) {
+            if (ticket.getPerson().getWeight() == null)
+                preparedStatement.setNull(index, Types.INTEGER);
+            else
+                preparedStatement.setLong(index, ticket.getPerson().getWeight());
+            index++;
+        }
+        if(updateData.isEyeColorSelected()) {
+            preparedStatement.setString(index, ticket.getPerson().getEyeColor().toString());
+            index++;
+        }
+        if(updateData.isHairColorSelected()) {
+            preparedStatement.setString(index, ticket.getPerson().getHairColor().toString());
+            index++;
+        }
+        if(updateData.isCountrySelected()) {
+            preparedStatement.setString(index, ticket.getPerson().getNationality().toString());
+            index++;
+        }
+        preparedStatement.setInt(index, id);
+        index++;
+        preparedStatement.setInt(index, id);
         preparedStatement.execute();
+    }
+
+    private String prepareString(UpdateData updateData) {
+        String sql = "UPDATE tickets SET owner = ?";
+        if(updateData.isNameSelected())
+            sql += ", name = ?";
+        if(updateData.isXSelected())
+            sql += ", coordinates_x = ?";
+        if(updateData.isYSelected())
+            sql += ", coordinates_y = ?";
+        if(updateData.isPriceSelected())
+            sql += ", price = ?";
+        if(updateData.isDiscountSelected())
+            sql += ", discount = ?";
+        if(updateData.isRefundableSelected())
+            sql += ", refundable = ?";
+        if(updateData.isTypeSelected())
+            sql += ", type = ?";
+        if(updateData.isWeightSelected())
+            sql += ", person_weight = ?";
+        if(updateData.isEyeColorSelected())
+            sql += ", person_eyes = ?";
+        if(updateData.isHairColorSelected())
+            sql += ", person_hair = ?";
+        if(updateData.isCountrySelected())
+            sql += ", person_nation = ?";
+        sql += ", id = ? WHERE id = ?";
+        return sql;
     }
 
     public void clear(String owner) throws SQLException {

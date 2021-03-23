@@ -10,6 +10,5 @@ import server.command_manager.Visitor;
  */
 
 public interface Command {
-
     Response accept(Visitor visitor);
 }

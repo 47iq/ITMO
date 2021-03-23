@@ -44,8 +44,10 @@ public class MainController implements Initializable {
     public Button updateButton;
     public Button exitButton;
     public TextField fileNameField;
+    public Text userText;
 
     public void initialize(URL location, ResourceBundle resources) {
+        userText.setText(ClientContext.getCurrentUser());
         backButton.setOnAction(actionEvent -> {
             try {
                 ClientContext.showScene("welcome.fxml");
@@ -117,7 +119,12 @@ public class MainController implements Initializable {
             execute("clear");
         });
         showButton.setOnAction(actionEvent -> {
-            execute("show");
+            try {
+                ClientContext.showScene("table.fxml");
+                exit();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
         removeFirstButton.setOnAction(actionEvent -> {
             execute("remove_first");

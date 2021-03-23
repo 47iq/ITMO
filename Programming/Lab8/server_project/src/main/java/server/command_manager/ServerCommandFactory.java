@@ -2,6 +2,8 @@ package server.command_manager;
 
 import common.Response;
 import common.Ticket;
+import common.UpdateData;
+import server.commands.UpdateCommand;
 import server.exceptions.CommonException;
 import server.exceptions.ServerExceptionMessenger;
 import server.exceptions.UnknownCommandException;
@@ -48,11 +50,12 @@ public class ServerCommandFactory implements CommandFactory{
         this.serverCommands = serverCommands;
     }
 
-    public Response executeCommand(String commandName, Ticket ticket, String arg, String user, Locale locale) {
+    public Response executeCommand(String commandName, Ticket ticket, String arg, String user,
+                                   Locale locale, UpdateData updateData) {
         Command command;
         Messenger messenger = ticketFactory.getLocalMessenger(locale);
         ServerExceptionMessenger errVisitor = ticketFactory.getLocalErrMessenger(locale);
-        Visitor visitor = ticketFactory.getCommandVisitor(arg, ticket, collectionManager, ticketFactory, messenger, user);
+        Visitor visitor = ticketFactory.getCommandVisitor(arg, ticket, collectionManager, ticketFactory, messenger, user, updateData);
         if (user != null && user.equals(System.getenv("ADMIN")))
             command = getServerCommand(commandName);
         else
@@ -63,6 +66,8 @@ public class ServerCommandFactory implements CommandFactory{
             if(e instanceof CommonException)
                 ticketFactory.getResponse(false, ((CommonException) e).accept(errVisitor));
             LogManager.getLogger().info("Unknown command : {} got.", commandName);
+            //TODO remove
+            e.printStackTrace();
             return ticketFactory.getResponse(false, new UnknownCommandException().accept(errVisitor));
         }
     }

@@ -33,6 +33,6 @@ public class AddCommand implements TicketCommand {
     }
 
     public Response accept(Visitor visitor) {
-        return visitor.doForTicket(this);
+        return visitor.visit(this);
     }
 }

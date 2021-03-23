@@ -4,6 +4,8 @@ server/exceptions/InvalidXCoordinateException.java
  server.exceptions.InvalidXCoordinateException
 common/RequestType.java
  common.RequestType
+common/UpdateData.java
+ common.UpdateData
 common/EyesColor.java
  common.EyesColor
 common/Country.java
@@ -12,24 +14,26 @@ server/exceptions/InvalidCountryException.java
  server.exceptions.InvalidCountryException
 server/exceptions/InvalidTicketFieldException.java
  server.exceptions.InvalidTicketFieldException
-common/TicketType.java
- common.TicketType
 common/DefaultResponse.java
  common.DefaultResponse
+common/DefaultPerson.java
+ common.DefaultPerson
+common/DefaultUpdateData.java
+ common.DefaultUpdateData
 server/exceptions/InvalidWeightException.java
  server.exceptions.InvalidWeightException
 server/exceptions/ExceptionMessenger.java
  server.exceptions.ExceptionMessenger
 server/exceptions/InvalidYCoordinateException.java
  server.exceptions.InvalidYCoordinateException
-common/Response.java
- common.Response
+common/TicketType.java
+ common.TicketType
 server/exceptions/InvalidDiscountException.java
  server.exceptions.InvalidDiscountException
-server/exceptions/InvalidHairColorException.java
- server.exceptions.InvalidHairColorException
-common/TicketValidator.java
- common.TicketValidator
+common/DefaultCoordinates.java
+ common.DefaultCoordinates
+common/Person.java
+ common.Person
 common/DefaultTicketValidator.java
  common.DefaultTicketValidator
 common/Command.java
@@ -58,23 +62,23 @@ server/exceptions/InvalidRefundableException.java
  server.exceptions.InvalidRefundableException
 server/exceptions/InvalidEyesColorException.java
  server.exceptions.InvalidEyesColorException
-server/exceptions/InvalidTicketException.java
- server.exceptions.InvalidTicketException
+server/exceptions/InvalidHairColorException.java
+ server.exceptions.InvalidHairColorException
 common/DefaultCoordinatesValidator.java
  common.DefaultCoordinatesValidator
+server/exceptions/InvalidTicketException.java
+ server.exceptions.InvalidTicketException
 common/Coordinates.java
  common.Coordinates
+common/Response.java
+ common.Response
+common/TicketValidator.java
+ common.TicketValidator
 common/DefaultRequest.java
  common.DefaultRequest
-common/DefaultTicket.java
- common.DefaultTicket
-common/Request.java
- common.Request
-common/DefaultCoordinates.java
- common.DefaultCoordinates
-common/DefaultPerson.java
- common.DefaultPerson
-common/Person.java
- common.Person
 common/Ticket.java
  common.Ticket
+common/Request.java
+ common.Request
+common/DefaultTicket.java
+ common.DefaultTicket

@@ -75,8 +75,8 @@ public class ServerObjectFactory implements ObjectFactory {
     }
 
     public Visitor getCommandVisitor(String curArg, Ticket curTicket, CollectionManager collectionManager,
-                                     ObjectFactory factory, Messenger messenger, String login) {
-        return new CommandVisitor(curArg, curTicket, collectionManager, factory, messenger, login);
+                                     ObjectFactory factory, Messenger messenger, String login, UpdateData updateData) {
+        return new CommandVisitor(curArg, curTicket, collectionManager, factory, messenger, login, updateData);
     }
 
     private ServerExceptionMessenger getRUVisitor() {

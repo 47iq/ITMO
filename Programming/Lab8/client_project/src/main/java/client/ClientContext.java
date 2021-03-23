@@ -11,9 +11,12 @@ import client.reader.FileCommandReader;
 import client.ticket.*;
 import common.*;
 import client.exceptions.ClientExceptionMessenger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -39,8 +42,18 @@ public class ClientContext implements ObjectFactory {
 
     private static String currentCommand;
 
+    private static String currentUser;
+
     public static String getCurrentCommand() {
         return currentCommand;
+    }
+
+    public static String getCurrentUser() {
+        return currentUser;
+    }
+
+    public static void setCurrentUser(String currentUser) {
+        ClientContext.currentUser = currentUser;
     }
 
     public static void setCurrentCommand(String currentCommand) {
@@ -163,6 +176,28 @@ public class ClientContext implements ObjectFactory {
         stage.setMinHeight(400);
         stage.setMinWidth(700);
         stage.show();
+    }
+
+    public static void initBoxes(ChoiceBox<String> type, ChoiceBox<String> eyes, ChoiceBox<String> hair, ChoiceBox<String> country) {
+        ObservableList<String> types = FXCollections.observableArrayList("VIP", "CHEAP", "USUAL", "");
+        type.setItems(types);
+        ObservableList<String> eyeTypes = FXCollections.observableArrayList("BLACK", "BLUE", "YELLOW");
+        eyes.setItems(eyeTypes);
+        ObservableList<String> hairTypes = FXCollections.observableArrayList("BLACK", "GREEN", "YELLOW", "RED");
+        hair.setItems(hairTypes);
+        ObservableList<String> countryTypes = FXCollections.observableArrayList("RUSSIA", "CHINA", "SPAIN", "FRANCE");
+        country.setItems(countryTypes);
+    }
+
+    public UpdateData getDefaultUpdateData() {
+        return new DefaultUpdateData(true, true, true,true,
+                true,true, true, true, true,
+                true, true);
+    }
+
+    @Override
+    public UpdateData getUpdateData() {
+        return new DefaultUpdateData();
     }
 
     public TicketBuilder getTicketBuilder() {

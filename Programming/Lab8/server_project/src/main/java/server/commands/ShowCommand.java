@@ -1,5 +1,6 @@
 package server.commands;
 
+import common.DefaultTicket;
 import common.Response;
 import common.Ticket;
 import server.Main;
@@ -10,6 +11,7 @@ import server.exceptions.CommandExecutionException;
 import server.messages.Messenger;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Class of show command
@@ -30,10 +32,14 @@ public class ShowCommand implements MessagingCommand {
         for (Ticket ticket1 : ticketList) {
             message.append(messenger.getTicketMessage(ticket1)).append("\n");
         }
-        return factory.getResponse(true, message.toString());
+        Response response = factory.getResponse(true, message.toString());
+        response.setCollection(collectionManager.getTicketList());
+        //TODO
+        System.out.println(response.getCollection());
+        return response;
     }
 
     public Response accept(Visitor visitor) {
-        return visitor.doForMessaging(this);
+        return visitor.visit(this);
     }
 }

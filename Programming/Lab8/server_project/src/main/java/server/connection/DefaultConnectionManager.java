@@ -1,9 +1,6 @@
 package server.connection;
 
-import common.Request;
-import common.RequestType;
-import common.Response;
-import common.Ticket;
+import common.*;
 import org.apache.logging.log4j.LogManager;
 import server.ObjectFactory;
 import server.command_manager.CommandFactory;
@@ -90,11 +87,12 @@ public class DefaultConnectionManager implements ConnectionManager {
             String commandName = request.getCommandName();
             Ticket ticket = request.getTicket();
             String arg = request.getArg();
+            UpdateData updateData = request.getUpdateData();
             if(checkAccess(request)) {
                 user = request.getUser().getLogin();
                 if(ticket != null)
                     ticket.setOwner(user);
-                return commandFactory.executeCommand(commandName, ticket, arg, user, locale);
+                return commandFactory.executeCommand(commandName, ticket, arg, user, locale, updateData);
             } else
                 throw new NotLoggedInException();
         } catch (NotLoggedInException e) {

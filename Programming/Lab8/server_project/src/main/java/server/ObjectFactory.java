@@ -1,9 +1,6 @@
 package server;
 
-import common.DefaultCoordinates;
-import common.DefaultPerson;
-import common.Response;
-import common.Ticket;
+import common.*;
 import server.collection.CollectionManager;
 import server.command_manager.Visitor;
 import server.datawork.TicketsDataBase;
@@ -48,5 +45,5 @@ public interface ObjectFactory {
     ServerExceptionMessenger getLocalErrMessenger(Locale locale);
 
     Visitor getCommandVisitor(String curArg, Ticket curTicket, CollectionManager collectionManager,
-                              ObjectFactory factory, Messenger messenger, String login);
+                              ObjectFactory factory, Messenger messenger, String login, UpdateData updateData);
 }

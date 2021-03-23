@@ -1,6 +1,8 @@
 package server.collection;
 
+import common.DefaultTicket;
 import common.Ticket;
+import common.UpdateData;
 import org.apache.logging.log4j.LogManager;
 import server.ObjectFactory;
 import server.datawork.DataBaseManager;
@@ -112,11 +114,12 @@ public class QueueManager extends AbstractQueueManager {
                 .collect(Collectors.toList());
     }
 
-    public void updateId(int id, Ticket myTicket, String owner) {
+    public void updateId(int id, Ticket myTicket, String owner, UpdateData updateData) {
         try {
             lock();
-            dataBaseManager.getTicketsData().update(ticketFactory.convertTicket(myTicket), id, owner);
-            tickets = Stream
+            dataBaseManager.getTicketsData().update(ticketFactory.convertTicket(myTicket), id, owner, updateData);
+            //FIXME!!!!!!!!!!!!!
+            /*tickets = Stream
                     .concat(tickets
                                     .stream()
                                     .filter(x -> x.getId() == id && x.getOwner().equals(owner))
@@ -124,7 +127,7 @@ public class QueueManager extends AbstractQueueManager {
                             tickets
                                     .stream()
                                     .filter(x -> x.getId() != id || !x.getOwner().equals(owner)))
-                    .collect(Collectors.toCollection(PriorityQueue::new));
+                    .collect(Collectors.toCollection(PriorityQueue::new));*/
             LogManager.getLogger().info("Updated ticket with id {}.", id);
             unlock();
         } catch (SQLException e) {
@@ -231,6 +234,10 @@ public class QueueManager extends AbstractQueueManager {
                 .stream()
                 .filter(x->x.getDiscount()>(discount))
                 .collect(Collectors.toList());
+    }
+
+    public List<Ticket> getTicketList() {
+        return tickets.stream().map(DefaultTicket::new).collect(Collectors.toList());
     }
 
     private void lock() {

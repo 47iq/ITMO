@@ -24,6 +24,11 @@
         </ImageView>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
+            <Text fx:id="userText" fill="#fffdfd" layoutX="15.0" layoutY="20.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.5" text="User nick" wrappingWidth="152.5367488861084">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Text>
             <VBox alignment="TOP_CENTER" layoutY="1.0" prefHeight="400.0" prefWidth="700.0" spacing="20.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="42.0" prefWidth="700.0" spacing="70.0">

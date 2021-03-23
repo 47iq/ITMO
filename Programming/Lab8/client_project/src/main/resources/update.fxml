@@ -27,6 +27,11 @@
         </ImageView>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
+            <Text fx:id="userText" fill="#fffdfd" layoutX="15.0" layoutY="20.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.5" text="User nick" wrappingWidth="152.5367488861084">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Text>
                 <VBox alignment="TOP_CENTER" layoutY="1.0" prefHeight="400.0" prefWidth="700.0" spacing="20.0">
                     <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="700.0" spacing="70.0">
@@ -55,7 +60,7 @@
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <TextField prefHeight="25.0" prefWidth="177.0" promptText="ID билета" />
+                                    <TextField fx:id="id" prefHeight="25.0" prefWidth="177.0" promptText="ID билета" />
                                  </children>
                                  <HBox.margin>
                                     <Insets />
@@ -63,8 +68,8 @@
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <TextField prefHeight="25.0" prefWidth="257.0" promptText="Название" />
-                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
+                                    <TextField fx:id="name" prefHeight="25.0" prefWidth="257.0" promptText="Название" />
+                                    <CheckBox fx:id="nameBox" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -73,8 +78,8 @@
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <TextField prefHeight="25.0" prefWidth="259.0" promptText="Цена" />
-                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
+                                    <TextField fx:id="price" prefHeight="25.0" prefWidth="259.0" promptText="Цена" />
+                                    <CheckBox fx:id="priceBox" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets />
@@ -82,8 +87,8 @@
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <TextField prefHeight="25.0" prefWidth="257.0" promptText="Скидка" />
-                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
+                                    <TextField fx:id="discount" prefHeight="25.0" prefWidth="257.0" promptText="Скидка" />
+                                    <CheckBox fx:id="discountBox" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -92,8 +97,8 @@
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <TextField prefHeight="25.0" prefWidth="259.0" promptText="Возвратность" />
-                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
+                                    <TextField fx:id="refundable" prefHeight="25.0" prefWidth="259.0" promptText="Возвратность" />
+                                    <CheckBox fx:id="refundableBox" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets />
@@ -101,8 +106,8 @@
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <ChoiceBox prefHeight="25.0" prefWidth="255.0" />
-                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
+                                    <ChoiceBox fx:id="type" prefHeight="25.0" prefWidth="255.0" />
+                                    <CheckBox fx:id="typeBox" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -111,8 +116,8 @@
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <TextField prefHeight="25.0" prefWidth="259.0" promptText="X-координата" />
-                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
+                                    <TextField prefHeight="25.0" prefWidth="259.0" promptText="X-координата" fx:id="x" />
+                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" fx:id="xBox" />
                                  </children>
                                  <HBox.margin>
                                     <Insets />
@@ -120,8 +125,8 @@
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <TextField prefHeight="25.0" prefWidth="257.0" promptText="Y-координата" />
-                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
+                                    <TextField fx:id="y" prefHeight="25.0" prefWidth="257.0" promptText="Y-координата" />
+                                    <CheckBox fx:id="yBox" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -130,8 +135,8 @@
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <TextField prefHeight="25.0" prefWidth="259.0" promptText="Вес владельца" />
-                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
+                                    <TextField fx:id="weight" prefHeight="25.0" prefWidth="259.0" promptText="Вес владельца" />
+                                    <CheckBox fx:id="weightBox" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets />
@@ -139,8 +144,8 @@
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <ChoiceBox prefHeight="25.0" prefWidth="255.0" />
-                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
+                                    <ChoiceBox fx:id="eyes" prefHeight="25.0" prefWidth="255.0" />
+                                    <CheckBox fx:id="eyesBox" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -149,19 +154,19 @@
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <ChoiceBox prefHeight="25.0" prefWidth="255.0" />
-                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
+                                    <ChoiceBox fx:id="hair" prefHeight="25.0" prefWidth="255.0" />
+                                    <CheckBox fx:id="hairBox" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <ChoiceBox prefHeight="25.0" prefWidth="255.0" />
-                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
+                                    <ChoiceBox fx:id="country" prefHeight="25.0" prefWidth="255.0" />
+                                    <CheckBox fx:id="countryBox" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" />
                                  </children>
                               </HBox>
                            </children>
                         </HBox>
-                        <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="126.0" text="Обновить поля" />
+                        <Button fx:id="updateButton" mnemonicParsing="false" prefHeight="42.0" prefWidth="126.0" text="Обновить поля" />
                      </children>
                      <padding>
                         <Insets bottom="20.0" />

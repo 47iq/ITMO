@@ -30,6 +30,6 @@ public class InfoCommand implements MessagingCommand {
     }
 
     public Response accept(Visitor visitor) {
-        return visitor.doForMessaging(this);
+        return visitor.visit(this);
     }
 }

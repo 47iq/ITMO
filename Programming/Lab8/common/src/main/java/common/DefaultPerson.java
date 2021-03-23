@@ -16,7 +16,7 @@ public class DefaultPerson implements Person, Serializable {
 
     private transient static PersonValidator validator;
 
-    private DefaultPerson(Person person) {
+    DefaultPerson(Person person) {
         this.weight = person.getWeight();
         this.eyeColor = person.getEyeColor();
         this.hairColor = person.getHairColor();

@@ -2,13 +2,11 @@ package server.command_manager;
 
 import common.Response;
 import common.Ticket;
+import common.UpdateData;
 import org.apache.logging.log4j.LogManager;
 import server.ObjectFactory;
 import server.collection.CollectionManager;
-import server.commands.MessagingCommand;
-import server.commands.ServerCommand;
-import server.commands.SimpleCommand;
-import server.commands.TicketCommand;
+import server.commands.*;
 import server.messages.Messenger;
 
 public class CommandVisitor implements Visitor{
@@ -19,39 +17,47 @@ public class CommandVisitor implements Visitor{
     private ObjectFactory factory;
     private Messenger messenger;
     private String login;
+    private UpdateData updateData;
 
     public CommandVisitor() {
 
     }
 
     public CommandVisitor(String curArg, Ticket curTicket, CollectionManager collectionManager, ObjectFactory factory,
-                          Messenger messenger, String login) {
+                          Messenger messenger, String login, UpdateData updateData) {
         this.curArg = curArg;
         this.curTicket = curTicket;
         this.collectionManager = collectionManager;
         this.factory = factory;
         this.messenger = messenger;
         this.login = login;
+        this.updateData = updateData;
     }
 
-    public Response doForSimple(SimpleCommand command) {
+    public Response visit(SimpleCommand command) {
         LogManager.getLogger().info("Executing command: {}", command.getClass());
         return command.execute(collectionManager, curArg, factory, login);
     }
 
-    public Response doForMessaging(MessagingCommand command) {
+    public Response visit(MessagingCommand command) {
         LogManager.getLogger().info("Executing command: {}", command.getClass());
         return command.execute(collectionManager, curTicket, curArg, messenger, factory);
     }
 
-    public Response doForServer(ServerCommand command) {
+    public Response visit(ServerCommand command) {
         LogManager.getLogger().info("Executing admin command: {}", command.getClass());
         command.execute(collectionManager);
         return null;
     }
 
-    public Response doForTicket(TicketCommand command) {
+    public Response visit(TicketCommand command) {
         LogManager.getLogger().info("Executing command: {}", command.getClass());
         return command.execute(collectionManager, curTicket, curArg, factory, login);
+    }
+
+    @Override
+    public Response visit(UpdatingCommand command) {
+        LogManager.getLogger().info("Executing command: {}", command.getClass());
+        return command.execute(collectionManager, curTicket, curArg, updateData, factory, login);
     }
 }

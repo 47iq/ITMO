@@ -1,10 +1,12 @@
 package common;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Locale;
 
 public class DefaultRequest implements Request, Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private RequestType type;
@@ -17,12 +19,22 @@ public class DefaultRequest implements Request, Serializable {
 
     private User user;
 
+    private UpdateData updateData;
+
     private final String commandName;
 
     public DefaultRequest(RequestType type, String commandName, Locale locale) {
         this.commandName = commandName;
         this.type = type;
         this.locale = locale;
+    }
+
+    public UpdateData getUpdateData() {
+        return updateData;
+    }
+
+    public void setUpdateData(UpdateData updateData) {
+        this.updateData = updateData;
     }
 
     public Ticket getTicket() {

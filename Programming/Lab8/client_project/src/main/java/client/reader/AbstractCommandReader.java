@@ -1,20 +1,13 @@
 package client.reader;
 
-import client.Main;
 import client.ObjectFactory;
 import client.connection.ConnectionManager;
-import client.exceptions.CommandInputException;
-import client.exceptions.ConnectionException;
 import client.messages.Messenger;
-import common.Request;
 import common.Response;
-import org.apache.logging.log4j.LogManager;
 
 import java.io.BufferedReader;
-import java.io.EOFException;
 import java.io.IOException;
 import java.net.ConnectException;
-import java.util.NoSuchElementException;
 
 public abstract class AbstractCommandReader implements CommandReader{
 
@@ -26,13 +19,13 @@ public abstract class AbstractCommandReader implements CommandReader{
 
     protected Messenger messenger;
 
-    public final Response executeNext() {
+    public final void executeNext() {
         try {
             String command = reader.readLine();
-            return getResponse(command);
+            getResponse(command);
         } catch (IOException e) {
             //FIXME
-            return ticketFactory.getResponse(false, "IOException");
+            ticketFactory.getResponse(false, "IOException");
         }
     }
 

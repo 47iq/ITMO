@@ -50,10 +50,8 @@ public class FileCommandReader extends AbstractCommandReader {
         return builder;
     }
 
-    public User readUser() throws IOException {
-        String login = reader.readLine();
-        String password = reader.readLine();
-        return ticketFactory.getUser(login, password);
+    public UpdateData getUpdateData() {
+        return ticketFactory.getDefaultUpdateData();
     }
 
     protected boolean readyForInput() throws IOException {

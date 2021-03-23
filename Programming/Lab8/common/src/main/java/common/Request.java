@@ -24,4 +24,8 @@ public interface Request {
     void setUser(User user);
 
     void setType(RequestType type);
+
+    UpdateData getUpdateData();
+
+    void setUpdateData(UpdateData data);
 }

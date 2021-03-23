@@ -32,6 +32,6 @@ public class RemoveByIdCommand implements SimpleCommand {
     }
 
     public Response accept(Visitor visitor) {
-        return visitor.doForSimple(this);
+        return visitor.visit(this);
     }
 }

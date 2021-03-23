@@ -47,4 +47,8 @@ public interface ObjectFactory {
     Response getResponse(boolean successful, String message);
 
     TicketBuilder getTicketBuilder();
+
+    UpdateData getDefaultUpdateData();
+
+    UpdateData getUpdateData();
 }

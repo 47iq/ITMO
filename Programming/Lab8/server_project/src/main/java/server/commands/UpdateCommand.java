@@ -2,6 +2,7 @@ package server.commands;
 
 import common.Response;
 import common.Ticket;
+import common.UpdateData;
 import server.Main;
 import server.exceptions.CommandExecutionException;
 import server.exceptions.InvalidIdException;
@@ -16,14 +17,17 @@ import server.command_manager.Visitor;
  * @version 1.0
  */
 
-public class UpdateCommand implements TicketCommand {
+public class UpdateCommand implements UpdatingCommand {
 
     public UpdateCommand() {
 
     }
 
-    public Response execute(CollectionManager collectionManager, Ticket ticket, String arg, ObjectFactory factory, String login) {
+    public Response execute(CollectionManager collectionManager, Ticket ticket, String arg, UpdateData updateData,
+                            ObjectFactory factory, String login) {
         int id;
+        //TODO: Remove
+        System.out.println("HERE");
         try {
             id = Integer.parseInt(arg);
         } catch (Exception e) {
@@ -31,11 +35,11 @@ public class UpdateCommand implements TicketCommand {
         }
         if (ticket == null)
             throw new InvalidTicketException();
-        collectionManager.updateId(id, ticket, login);
+        collectionManager.updateId(id, ticket, login, updateData);
         return factory.getResponse(true, "");
     }
 
     public Response accept(Visitor visitor) {
-        return visitor.doForTicket(this);
+        return visitor.visit(this);
     }
 }

@@ -3,9 +3,8 @@ package client.reader;
 import client.ticket.TicketBuilder;
 import common.Response;
 import common.Ticket;
-import common.User;
+import common.UpdateData;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 
 /**
@@ -14,7 +13,8 @@ import java.io.IOException;
 
 public interface CommandReader {
     Ticket readTicket() throws IOException;
-    Response executeNext();
+    void executeNext();
     Response getResponse(String command);
     TicketBuilder getBuilder();
+    UpdateData getUpdateData();
 }

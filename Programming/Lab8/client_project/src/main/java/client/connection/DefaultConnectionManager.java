@@ -1,5 +1,6 @@
 package client.connection;
 
+import client.ClientContext;
 import client.Main;
 import client.ObjectFactory;
 import client.command_manager.CommandFactory;
@@ -58,6 +59,7 @@ public class DefaultConnectionManager implements ConnectionManager {
                 if(command != null)
                     commandRequest = manageClientServer((ClientServerCommand) command, commandRequest);
                 commandRequest.setUser(user);
+                commandRequest.setUpdateData(commandReader.getUpdateData());
                 ticketRequest.setUser(user);
                 updateConnection();
                 requestSender.sendRequest(ticketRequest);

@@ -27,6 +27,6 @@ public class RemoveGreaterCommand implements TicketCommand {
     }
 
     public Response accept(Visitor visitor) {
-        return visitor.doForTicket(this);
+        return visitor.visit(this);
     }
 }

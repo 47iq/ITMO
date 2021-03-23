@@ -21,6 +21,8 @@ public class DefaultResponseReader implements  ResponseReader{
         Response response = unwrapResponse(readBytes());
         channel.socket().close();
         channel.close();
+        //TODO
+        System.out.println(response);
         return response;
     }
 
