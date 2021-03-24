@@ -81,11 +81,6 @@ public class AddController implements Initializable {
         });
     }
 
-    private void exit() {
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        stage.close();
-    }
-
     private void displayError(Exception e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
@@ -119,8 +114,7 @@ public class AddController implements Initializable {
 
     private void goBack() {
         try {
-            ClientContext.showScene("mainScene.fxml");
-            exit();
+            ClientContext.showScene((Stage) backButton.getScene().getWindow(), "mainScene.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -48,6 +48,16 @@
                                         <Font size="31.0" />
                                     </font>
                                 </Text>
+                        <HBox alignment="CENTER" prefHeight="42.0" prefWidth="156.0" spacing="5.0">
+                           <children>
+                              <Button fx:id="filterButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="73.0" text="Фильтр" textAlignment="CENTER">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Button>
+                              <Button fx:id="resetButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="63.0" text="Сброс" />
+                           </children>
+                        </HBox>
                             </children>
                             <padding>
                                 <Insets left="12.0" />

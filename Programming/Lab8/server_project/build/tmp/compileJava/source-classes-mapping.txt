@@ -102,16 +102,16 @@ server/commands/ExitNoSaveCommand.java
  server.commands.ExitNoSaveCommand
 server/commands/UpdatingCommand.java
  server.commands.UpdatingCommand
-server/ticket/ServerDefaultTicket.java
- server.ticket.ServerDefaultTicket
+server/commands/SimpleCommand.java
+ server.commands.SimpleCommand
 server/commands/RemoveGreaterCommand.java
  server.commands.RemoveGreaterCommand
 server/messages/MessagesENG.java
  server.messages.MessagesENG
 server/command_manager/ServerCommandFactory.java
  server.command_manager.ServerCommandFactory
-server/Main.java
- server.Main
+server/connection/RequestReader.java
+ server.connection.RequestReader
 server/commands/Command.java
  server.commands.Command
 server/commands/FilterGreaterThanDiscountCommand.java
@@ -125,8 +125,8 @@ server/commands/ShowCommand.java
  server.commands.ShowCommand
 server/commands/PrintFieldDescendingRefundableCommand.java
  server.commands.PrintFieldDescendingRefundableCommand
-server/collection/QueueManager.java
- server.collection.QueueManager
+server/messages/ServerMessenger.java
+ server.messages.ServerMessenger
 server/commands/InfoCommand.java
  server.commands.InfoCommand
 server/datawork/PostgresDataBaseManager.java
@@ -145,9 +145,9 @@ server/connection/DefaultServer.java
  server.connection.DefaultServer
 server/commands/ServerCommand.java
  server.commands.ServerCommand
-server/messages/ServerMessenger.java
- server.messages.ServerMessenger
-server/connection/RequestReader.java
- server.connection.RequestReader
-server/commands/SimpleCommand.java
- server.commands.SimpleCommand
+server/ticket/ServerDefaultTicket.java
+ server.ticket.ServerDefaultTicket
+server/Main.java
+ server.Main
+server/collection/QueueManager.java
+ server.collection.QueueManager

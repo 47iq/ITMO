@@ -27,6 +27,7 @@ import java.io.InputStream;
 import java.net.InetAddress;
 import java.nio.channels.SocketChannel;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -43,6 +44,16 @@ public class ClientContext implements ObjectFactory {
     private static String currentCommand;
 
     private static String currentUser;
+
+    private static List<Ticket> currentCollection;
+
+    public static List<Ticket> getCurrentCollection() {
+        return currentCollection;
+    }
+
+    public static void setCurrentCollection(List<Ticket> currentCollection) {
+        ClientContext.currentCollection = currentCollection;
+    }
 
     public static String getCurrentCommand() {
         return currentCommand;
@@ -163,7 +174,7 @@ public class ClientContext implements ObjectFactory {
         return new DefaultResponse(successful, message);
     }
 
-    public static void showScene(String sceneFile) throws IOException {
+    public static void showStage(String sceneFile) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(ClientContext.class.getClassLoader().getResource(sceneFile));
         Scene scene = new Scene(root);
@@ -175,6 +186,13 @@ public class ClientContext implements ObjectFactory {
         stage.setScene(scene);
         stage.setMinHeight(400);
         stage.setMinWidth(700);
+        stage.show();
+    }
+
+    public static void showScene(Stage stage, String sceneFile) throws IOException {
+        Parent root = FXMLLoader.load(ClientContext.class.getClassLoader().getResource(sceneFile));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
         stage.show();
     }
 

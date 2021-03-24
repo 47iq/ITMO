@@ -35,27 +35,18 @@ public class WelcomeController implements Initializable {
         language.setValue("Russian");
         logInButton.setOnAction(actionEvent -> {
             try {
-                ClientContext.showScene("login.fxml");
-                exit();
+                ClientContext.showScene((Stage) logInButton.getScene().getWindow(),"login.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
         registerButton.setOnAction(actionEvent -> {
             try {
-                ClientContext.showScene("register.fxml");
-                exit();
+                ClientContext.showScene((Stage) logInButton.getScene().getWindow(), "register.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
-        exitButton.setOnAction(actionEvent -> {
-            exit();
-        });
-    }
-
-    private void exit() {
-        Stage stage = (Stage) registerButton.getScene().getWindow();
-        stage.close();
+        exitButton.setOnAction(actionEvent -> System.exit(0));
     }
 }

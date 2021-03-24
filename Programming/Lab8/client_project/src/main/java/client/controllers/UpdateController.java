@@ -161,15 +161,9 @@ public class UpdateController implements Initializable {
 
     private void goBack() {
         try {
-            ClientContext.showScene("mainScene.fxml");
-            exit();
+            ClientContext.showScene((Stage) backButton.getScene().getWindow(),"mainScene.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private void exit() {
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        stage.close();
     }
 }

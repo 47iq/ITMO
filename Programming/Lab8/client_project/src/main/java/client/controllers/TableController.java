@@ -24,6 +24,7 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static javafx.scene.control.TableView.CONSTRAINED_RESIZE_POLICY;
@@ -49,22 +50,16 @@ public class TableController implements Initializable {
     public TableColumn<Ticket, String> ownerCollum;
     public Text userText;
     public Text addText;
+    public Button filterButton;
+    public Button resetButton;
+
+    private List<Ticket> tickets;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        tickets = ClientContext.getCurrentCollection();
         userText.setText(ClientContext.getCurrentUser());
-        show();
-        backButton.setOnAction(actionEvent -> {
-            goBack();
-        });
-    }
-
-    public void show() {
-        System.out.println(ClientContext.getCommandReader().getResponse("show").getCollection());
-        ObservableList<Ticket> tickets = FXCollections.observableArrayList(
-                ClientContext.getCommandReader().getResponse("show").getCollection()
-        );
         idCollum.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameCollum.setCellValueFactory(new PropertyValueFactory<>("name"));
         priceCollum.setCellValueFactory(new PropertyValueFactory<>("price"));
@@ -78,21 +73,38 @@ public class TableController implements Initializable {
         hairCollum.setCellValueFactory(new PropertyValueFactory<>("hairColor"));
         countryCollum.setCellValueFactory(new PropertyValueFactory<>("nationality"));
         ownerCollum.setCellValueFactory(new PropertyValueFactory<>("owner"));
-        table.setItems(tickets);
+        show();
+        backButton.setOnAction(actionEvent -> {
+            goBack();
+        });
+        filterButton.setOnAction(actionEvent -> {
+            filter();
+        });
+        resetButton.setOnAction(actionEvent-> {
+            tickets = ClientContext.getCommandReader().getResponse("show").getCollection();
+            show();
+        });
     }
 
+    public void show() {
+        ObservableList<Ticket> ticketItems = FXCollections.observableArrayList(tickets);
+        table.setItems(ticketItems);
+    }
 
-    private void goBack() {
+    private void filter() {
         try {
-            ClientContext.showScene("mainScene.fxml");
-            exit();
+            ClientContext.setCurrentCollection(tickets);
+            ClientContext.showScene((Stage) backButton.getScene().getWindow(),"filter.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void exit() {
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        stage.close();
+    private void goBack() {
+        try {
+            ClientContext.showScene((Stage) backButton.getScene().getWindow(),"mainScene.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,5 +1,5 @@
-client/controllers/AddController.java
- client.controllers.AddController
+client/reader/FileCommandReader.java
+ client.reader.FileCommandReader
 client/messages/Printer.java
  client.messages.Printer
 client/messages/ErrorPrinter.java
@@ -34,8 +34,8 @@ client/ticket/ClientTemplatePerson.java
  client.ticket.ClientTemplatePerson
 client/commands/MessageCommand.java
  client.commands.MessageCommand
-client/commands/ClientHelpCommand.java
- client.commands.ClientHelpCommand
+client/ObjectFactory.java
+ client.ObjectFactory
 client/exceptions/LoginException.java
  client.exceptions.LoginException
 client/messages/DefaultExceptionMessenger.java
@@ -72,63 +72,66 @@ client/messages/Messenger.java
  client.messages.Messenger
 client/ticket/ClientTemplateCoordinates.java
  client.ticket.ClientTemplateCoordinates
-client/controllers/WelcomeController.java
- client.controllers.WelcomeController
+client/commands/AuthCommand.java
+ client.commands.AuthCommand
 client/ticket/TicketBuilder.java
  client.ticket.TicketBuilder
 client/connection/ResponseReader.java
  client.connection.ResponseReader
-client/controllers/RegisterController.java
- client.controllers.RegisterController
+client/ticket/DefaultTicketBuilder.java
+ client.ticket.DefaultTicketBuilder
 client/DefaultClient.java
  client.DefaultClient
 client/connection/RequestSender.java
  client.connection.RequestSender
 client/reader/CommandReader.java
  client.reader.CommandReader
-client/controllers/LoginController.java
- client.controllers.LoginController
-client/controllers/ArgController.java
- client.controllers.ArgController
-client/controllers/MainController.java
- client.controllers.MainController
+client/connection/DefaultRequestSender.java
+ client.connection.DefaultRequestSender
+client/commands/ScriptCommand.java
+ client.commands.ScriptCommand
+client/reader/AbstractCommandReader.java
+ client.reader.AbstractCommandReader
 client/commands/DefaultExitCommand.java
  client.commands.DefaultExitCommand
-client/controllers/UpdateController.java
- client.controllers.UpdateController
+client/ticket/ClientTemplateTicket.java
+ client.ticket.ClientTemplateTicket
 client/command_manager/CommandFactory.java
  client.command_manager.CommandFactory
 client/commands/LoginCommand.java
  client.commands.LoginCommand
-client/connection/DefaultConnectionManager.java
- client.connection.DefaultConnectionManager
-client/commands/RegisterCommand.java
- client.commands.RegisterCommand
-client/controllers/TableController.java
- client.controllers.TableController
-client/ClientContext.java
- client.ClientContext
-client/ObjectFactory.java
- client.ObjectFactory
-client/reader/FileCommandReader.java
- client.reader.FileCommandReader
-client/Main.java
- client.Main
-client/ticket/DefaultTicketBuilder.java
- client.ticket.DefaultTicketBuilder
-client/reader/AbstractCommandReader.java
- client.reader.AbstractCommandReader
-client/commands/ScriptCommand.java
- client.commands.ScriptCommand
-client/commands/ExecuteScriptCommand.java
- client.commands.ExecuteScriptCommand
 client/reader/DefaultControllerCommandReader.java
  client.reader.DefaultControllerCommandReader
-client/connection/DefaultRequestSender.java
- client.connection.DefaultRequestSender
+client/commands/RegisterCommand.java
+ client.commands.RegisterCommand
+client/commands/ClientHelpCommand.java
+ client.commands.ClientHelpCommand
 client/command_manager/ClientCommandFactory.java
  client.command_manager.ClientCommandFactory
-client/commands/AuthCommand.java
- client.commands.AuthCommand
-client/ticket/ClientTemplateTicket.java
- client.ticket.ClientTemplateTicket
+client/Main.java
+ client.Main
+client/connection/DefaultConnectionManager.java
+ client.connection.DefaultConnectionManager
+client/commands/ExecuteScriptCommand.java
+ client.commands.ExecuteScriptCommand
+client/ClientContext.java
+ client.ClientContext
+client/controllers/RegisterController.java
+ client.controllers.RegisterController
+client/controllers/UpdateController.java
+ client.controllers.UpdateController
+client/controllers/ArgController.java
+ client.controllers.ArgController
+client/controllers/LoginController.java
+ client.controllers.LoginController
+client/controllers/TableController.java
+ client.controllers.TableController
+client/controllers/FilterController.java
+ client.controllers.FilterController
+ client.controllers.FilterController$FilterCondition
+client/controllers/AddController.java
+ client.controllers.AddController
+client/controllers/WelcomeController.java
+ client.controllers.WelcomeController
+client/controllers/MainController.java
+ client.controllers.MainController

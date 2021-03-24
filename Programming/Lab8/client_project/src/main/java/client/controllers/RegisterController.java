@@ -77,7 +77,7 @@ public class RegisterController implements Initializable {
 
     private void success() {
         try {
-            ClientContext.showScene("mainScene.fxml");
+            ClientContext.showScene((Stage) backButton.getScene().getWindow(),"mainScene.fxml");
             Stage stage = (Stage) submitButton.getScene().getWindow();
             stage.close();
         } catch (IOException e) {

@@ -118,16 +118,32 @@ public class QueueManager extends AbstractQueueManager {
         try {
             lock();
             dataBaseManager.getTicketsData().update(ticketFactory.convertTicket(myTicket), id, owner, updateData);
-            //FIXME!!!!!!!!!!!!!
-            /*tickets = Stream
-                    .concat(tickets
-                                    .stream()
-                                    .filter(x -> x.getId() == id && x.getOwner().equals(owner))
-                                    .map(x -> x = ServerTicket.copyFromTicket(x, myTicket)),
-                            tickets
-                                    .stream()
-                                    .filter(x -> x.getId() != id || !x.getOwner().equals(owner)))
-                    .collect(Collectors.toCollection(PriorityQueue::new));*/
+            Ticket ticket = tickets
+                    .stream()
+                    .filter(x -> x.getId() == id && x.getOwner().equals(owner))
+                    .max(Ticket::compareTo).get();
+            if(updateData.isNameSelected())
+                ticket.setName(myTicket.getName());
+            if (updateData.isPriceSelected())
+                ticket.setPrice(myTicket.getPrice());
+            if (updateData.isDiscountSelected())
+                ticket.setDiscount(myTicket.getDiscount());
+            if(updateData.isTypeSelected())
+                ticket.setType(myTicket.getType());
+            if(updateData.isRefundableSelected())
+                ticket.setRefundable(myTicket.getRefundable());
+            if(updateData.isXSelected())
+                ticket.getCoordinates().setX(myTicket.getX());
+            if(updateData.isYSelected())
+                ticket.getCoordinates().setY(myTicket.getY());
+            if(updateData.isWeightSelected())
+                ticket.getPerson().setWeight(myTicket.getWeight());
+            if(updateData.isEyeColorSelected())
+                ticket.getPerson().setEyeColor(myTicket.getEyeColor());
+            if(updateData.isHairColorSelected())
+                ticket.getPerson().setHairColor(myTicket.getHairColor());
+            if(updateData.isCountrySelected())
+                ticket.getPerson().setNationality(myTicket.getNationality());
             LogManager.getLogger().info("Updated ticket with id {}.", id);
             unlock();
         } catch (SQLException e) {

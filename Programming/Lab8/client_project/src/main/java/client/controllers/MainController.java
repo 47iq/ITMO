@@ -50,16 +50,14 @@ public class MainController implements Initializable {
         userText.setText(ClientContext.getCurrentUser());
         backButton.setOnAction(actionEvent -> {
             try {
-                ClientContext.showScene("welcome.fxml");
-                exit();
+                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"welcome.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
         updateButton.setOnAction(actionEvent -> {
             try {
-                ClientContext.showScene("update.fxml");
-                exit();
+                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"update.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -67,8 +65,7 @@ public class MainController implements Initializable {
         removeGreaterButton.setOnAction(actionEvent -> {
             try {
                 ClientContext.setCurrentCommand("remove_greater");
-                ClientContext.showScene("add.fxml");
-                exit();
+                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"add.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -76,8 +73,7 @@ public class MainController implements Initializable {
         addButton.setOnAction(actionEvent -> {
             try {
                 ClientContext.setCurrentCommand("add");
-                ClientContext.showScene("add.fxml");
-                exit();
+                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"add.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -85,8 +81,7 @@ public class MainController implements Initializable {
         addIfMaxButton.setOnAction(actionEvent -> {
             try {
                 ClientContext.setCurrentCommand("add_if_max");
-                ClientContext.showScene("add.fxml");
-                exit();
+                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"add.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -94,8 +89,7 @@ public class MainController implements Initializable {
         removeByIdButton.setOnAction(actionEvent -> {
             try {
                 ClientContext.setCurrentCommand("remove_by_id");
-                ClientContext.showScene("argCommand.fxml");
-                exit();
+                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"argCommand.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -103,8 +97,7 @@ public class MainController implements Initializable {
         execButton.setOnAction(actionEvent -> {
             try {
                 ClientContext.setCurrentCommand("execute_script");
-                ClientContext.showScene("argCommand.fxml");
-                exit();
+                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"argCommand.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -120,8 +113,8 @@ public class MainController implements Initializable {
         });
         showButton.setOnAction(actionEvent -> {
             try {
-                ClientContext.showScene("table.fxml");
-                exit();
+                ClientContext.setCurrentCollection(ClientContext.getCommandReader().getResponse("show").getCollection());
+                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"table.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -130,7 +123,7 @@ public class MainController implements Initializable {
             execute("remove_first");
         });
         exitButton.setOnAction(actionEvent -> {
-            exit();
+            System.exit(0);
         });
     }
 
@@ -169,10 +162,5 @@ public class MainController implements Initializable {
         } catch (Exception e) {
             displayError(e);
         }
-    }
-
-    private void exit() {
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        stage.close();
     }
 }

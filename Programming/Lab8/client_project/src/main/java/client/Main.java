@@ -63,7 +63,7 @@ public class Main extends Application {
         exceptionMessenger = objectFactory.getLocalErrorHandler();
         out = new DefaultPrinter(System.out);
         err = new DefaultErrorPrinter(System.err);
-        ClientContext.showScene("welcome.fxml");
+        ClientContext.showStage("welcome.fxml");
     }
 
     public static Printer getOut() {
