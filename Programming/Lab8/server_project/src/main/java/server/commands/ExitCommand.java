@@ -8,13 +8,15 @@ import server.connection.Server;
 
 /**
  * Class of exit command
- * @autor 47iq
+ *
  * @version 1.0
+ * @autor 47iq
  */
 
 public class ExitCommand implements ServerCommand {
 
     private Server server;
+
     public ExitCommand(Server server) {
         this.server = server;
     }

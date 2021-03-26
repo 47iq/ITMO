@@ -1,27 +1,15 @@
 package client.controllers;
 
-import client.ClientContext;
 import common.Response;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainController implements Initializable {
+public class MainController implements Controller {
 
 
     public ImageView imgView;
@@ -43,81 +31,59 @@ public class MainController implements Initializable {
     public Button addButton;
     public Button updateButton;
     public Button exitButton;
-    public TextField fileNameField;
     public Text userText;
 
-    public void initialize(URL location, ResourceBundle resources) {
-        userText.setText(ClientContext.getCurrentUser());
+    private ControllerContext context;
+    private ControlManager controlManager;
+    private ResourceBundle bundle;
+
+    public void initialize(ControllerContext context) {
+        this.context = context;
+        controlManager = context.getControlManager();
+        userText.setText(context.getCurrentUser());
+        bundle = context.getBundle();
+        localize();
         backButton.setOnAction(actionEvent -> {
-            try {
-                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"welcome.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            controlManager.showScene((Stage) backButton.getScene().getWindow(), "welcome.fxml", this);
         });
         updateButton.setOnAction(actionEvent -> {
-            try {
-                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"update.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            context.setPrevScene("mainScene.fxml");
+            controlManager.showScene((Stage) backButton.getScene().getWindow(), "update.fxml", this);
         });
         removeGreaterButton.setOnAction(actionEvent -> {
-            try {
-                ClientContext.setCurrentCommand("remove_greater");
-                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"add.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            context.setCurrentCommand("remove_greater");
+            controlManager.showScene((Stage) backButton.getScene().getWindow(), "add.fxml", this);
         });
         addButton.setOnAction(actionEvent -> {
-            try {
-                ClientContext.setCurrentCommand("add");
-                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"add.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            context.setCurrentCommand("add");
+            controlManager.showScene((Stage) backButton.getScene().getWindow(), "add.fxml", this);
         });
         addIfMaxButton.setOnAction(actionEvent -> {
-            try {
-                ClientContext.setCurrentCommand("add_if_max");
-                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"add.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            context.setCurrentCommand("add_if_max");
+            controlManager.showScene((Stage) backButton.getScene().getWindow(), "add.fxml", this);
         });
         removeByIdButton.setOnAction(actionEvent -> {
-            try {
-                ClientContext.setCurrentCommand("remove_by_id");
-                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"argCommand.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            context.setCurrentCommand("remove_by_id");
+            controlManager.showScene((Stage) backButton.getScene().getWindow(), "argCommand.fxml", this);
         });
         execButton.setOnAction(actionEvent -> {
-            try {
-                ClientContext.setCurrentCommand("execute_script");
-                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"argCommand.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            context.setCurrentCommand("execute_script");
+            controlManager.showScene((Stage) backButton.getScene().getWindow(), "argCommand.fxml", this);
         });
         helpButton.setOnAction(actionEvent -> {
             execute("help");
         });
         infoButton.setOnAction(actionEvent -> {
-            execute("info");
+            context.setCurrentCommand("info");
+            Response response = context.getCommandReader().getResponse("info");
+            displayInfo(response);
         });
         clearButton.setOnAction(actionEvent -> {
             execute("clear");
         });
         showButton.setOnAction(actionEvent -> {
-            try {
-                ClientContext.setCurrentCollection(ClientContext.getCommandReader().getResponse("show").getCollection());
-                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"table.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            context.setCurrentCollection(context.getCommandReader().getResponse("show").getCollection());
+            controlManager.showScene((Stage) backButton.getScene().getWindow(), "table.fxml", this);
         });
         removeFirstButton.setOnAction(actionEvent -> {
             execute("remove_first");
@@ -127,40 +93,63 @@ public class MainController implements Initializable {
         });
     }
 
+    private void localize() {
+        backButton.setText(bundle.getString("LOG_OUT"));
+        exitButton.setText(bundle.getString("EXIT"));
+        infoText.setText(bundle.getString("INFO_TEXT"));
+        deleteText.setText(bundle.getString("DELETE_TEXT"));
+        addText.setText(bundle.getString("ADD_TEXT"));
+    }
+
     private void displayError(Exception e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        //FIXME
-        alert.setHeaderText(e.getMessage());
+        alert.setTitle(bundle.getString("ERROR"));
+        alert.setHeaderText(context.getErrorMessage(e));
         alert.showAndWait();
     }
 
-    private void displayError(String s) {
+    private void displayError(String e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        //FIXME
-        alert.setHeaderText(s);
+        alert.setTitle(bundle.getString("ERROR"));
+        alert.setHeaderText(context.getErrorMessage(e));
         alert.showAndWait();
     }
 
     private void displayInfo(String s) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        //FIXME
+        alert.setTitle(bundle.getString("SUCCESS"));
         alert.setHeaderText(s);
         alert.showAndWait();
     }
 
+    private void displayInfo(Response response) {
+        if (response.isSuccessful())
+            displayInfo(response.getMessage());
+        else
+            displayError(response.getMessage());
+    }
+
     private void execute(String command) {
         try {
-            ClientContext.setCurrentCommand(command);
-            Response response = ClientContext.getCommandReader().getResponse(command);
-            if(response.isSuccessful())
+            context.setCurrentCommand(command);
+            Response response = context.getCommandReader().getResponse(command);
+            if (response.isSuccessful())
                 displayInfo(response.getMessage());
             else
                 displayError(response.getMessage());
         } catch (Exception e) {
             displayError(e);
         }
+    }
+
+
+    @Override
+    public void setContext(ControllerContext context) {
+        this.context = context;
+    }
+
+    @Override
+    public ControllerContext getContext() {
+        return context;
     }
 }

@@ -1,7 +1,5 @@
 package client.messages;
 
-import client.exceptions.NotEnoughAgrsException;
-
 /**
  * Class for Russian localization of {@link Messenger}
  */

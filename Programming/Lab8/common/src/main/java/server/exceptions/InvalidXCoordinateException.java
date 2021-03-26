@@ -1,8 +1,8 @@
 package server.exceptions;
 
-public class InvalidXCoordinateException extends InvalidTicketFieldException implements CommonException{
+public class InvalidXCoordinateException extends InvalidTicketFieldException implements CommonException {
     public InvalidXCoordinateException() {
-        super("Invalid x coordinate has been entered. The value should be double > -172.");
+        super("ERR_INVALID_X");
     }
 
     public String accept(ExceptionMessenger visitor) {

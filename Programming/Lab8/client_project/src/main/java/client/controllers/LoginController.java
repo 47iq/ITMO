@@ -1,20 +1,13 @@
 package client.controllers;
 
-import client.ClientContext;
 import common.Response;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginController implements Controller {
     public Button submitButton;
     public PasswordField passwordField;
     public Label pass;
@@ -23,43 +16,70 @@ public class LoginController implements Initializable {
     public ImageView imgView;
     public Button backButton;
 
+    private ControllerContext context;
+    private ControlManager controlManager;
+    private ResourceBundle bundle;
+
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(ControllerContext context) {
+        this.context = context;
+        controlManager = context.getControlManager();
+        bundle = context.getBundle();
+        localize();
         submitButton.setOnAction(actionEvent -> {
             String login = loginField.getText();
             String password = passwordField.getText();
             if (!login.equals("") && !password.equals("")) {
-                Response response = ClientContext.getCommandReader().getResponse(String.format("login %s %s", login, password));
+                Response response = context.getCommandReader().getResponse(String.format("login %s %s", login, password));
                 if (response.isSuccessful()) {
-                    ClientContext.setCurrentUser(login);
+                    context.setCurrentUser(login);
                     success();
                 } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText(response.getMessage());
-                    alert.showAndWait();
+                    displayError(response.getMessage());
                 }
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Fields must be filled");
-                alert.showAndWait();
+                displayError("ERR_FIELDS_EMPTY");
             }
         });
         backButton.setOnAction(actionEvent -> {
-            try {
-                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"welcome.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            controlManager.showScene((Stage) backButton.getScene().getWindow(), "welcome.fxml", this);
         });
     }
 
+    private void displayError(Exception e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(bundle.getString("ERROR"));
+        alert.setHeaderText(context.getErrorMessage(e));
+        alert.showAndWait();
+    }
+
+    private void displayError(String e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(bundle.getString("ERROR"));
+        alert.setHeaderText(context.getErrorMessage(e));
+        alert.showAndWait();
+    }
+
+    private void localize() {
+        pass.setText(bundle.getString("PASSWORD"));
+        login.setText(bundle.getString("LOGIN"));
+        loginField.setPromptText(bundle.getString("ENTER_LOGIN"));
+        passwordField.setPromptText(bundle.getString("ENTER_PASSWORD"));
+        backButton.setText(bundle.getString("BACK"));
+        submitButton.setText(bundle.getString("SUBMIT"));
+    }
+
     private void success() {
-            try {
-                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"mainScene.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        controlManager.showScene((Stage) backButton.getScene().getWindow(), "mainScene.fxml", this);
+    }
+
+    @Override
+    public void setContext(ControllerContext context) {
+        this.context = context;
+    }
+
+    @Override
+    public ControllerContext getContext() {
+        return context;
     }
 }

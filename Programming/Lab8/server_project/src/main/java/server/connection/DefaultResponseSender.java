@@ -2,15 +2,13 @@ package server.connection;
 
 import common.Response;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.net.Socket;
-import java.nio.ByteBuffer;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.SocketChannel;
-import java.util.Set;
 
-public class DefaultResponseSender implements ResponseSender{
+public class DefaultResponseSender implements ResponseSender {
 
     public void sendResponse(Response response, Socket client) throws IOException {
         sendBytes(wrapResponse(response), client);

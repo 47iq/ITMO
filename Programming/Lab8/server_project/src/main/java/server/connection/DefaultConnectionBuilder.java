@@ -1,18 +1,11 @@
 package server.connection;
 
-import org.apache.logging.log4j.LogManager;
-
 import java.io.IOException;
-import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
-import java.util.Set;
 
-public class DefaultConnectionBuilder implements ConnectionBuilder{
+public class DefaultConnectionBuilder implements ConnectionBuilder {
 
     private Selector selector;
 

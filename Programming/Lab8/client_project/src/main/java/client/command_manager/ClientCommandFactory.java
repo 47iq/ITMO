@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class ClientCommandFactory implements CommandFactory{
+public class ClientCommandFactory implements CommandFactory {
 
     private final Client client;
 
@@ -42,13 +42,13 @@ public class ClientCommandFactory implements CommandFactory{
     }
 
     public void executeCommand(Command command, CommandReader commandReader, String arg, ConnectionManager factory) {
-        if(command instanceof ExitCommand)
+        if (command instanceof ExitCommand)
             ((ExitCommand) command).execute(client);
-        if(command instanceof AuthCommand)
+        if (command instanceof AuthCommand)
             ((AuthCommand) command).execute(commandReader, factory, arg, objectFactory);
-        if(command instanceof ScriptCommand)
+        if (command instanceof ScriptCommand)
             executeScriptCommand((ScriptCommand) command, commandReader, arg, factory);
-        if(command instanceof MessageCommand)
+        if (command instanceof MessageCommand)
             ((MessageCommand) command).execute(messenger);
     }
 

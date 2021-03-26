@@ -4,8 +4,9 @@ import common.Ticket;
 
 /**
  * Abstract class which manages user-friendly output of {@link Ticket}
- * @autor 47iq
+ *
  * @version 1.0
+ * @autor 47iq
  */
 
 public class MessagesENG extends ServerMessenger {
@@ -50,6 +51,6 @@ public class MessagesENG extends ServerMessenger {
     }
 
     public String getCollectionMessage(String type, String size, String creationDate) {
-        return "Collection type: " + type + "\nCollection current size: " + size +"\nInitialization time: " + creationDate + "\n";
+        return "Collection type: " + type + "\nCollection current size: " + size + "\nInitialization time: " + creationDate + "\n";
     }
 }

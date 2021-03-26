@@ -2,8 +2,9 @@ package client.messages;
 
 /**
  * Class of English localization of {@link Messenger}
- * @autor 47iq
+ *
  * @version 1.0
+ * @autor 47iq
  */
 
 public class MessengerENG extends ClientMessenger {

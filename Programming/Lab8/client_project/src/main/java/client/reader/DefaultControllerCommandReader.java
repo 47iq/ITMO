@@ -3,13 +3,10 @@ package client.reader;
 import client.ObjectFactory;
 import client.connection.ConnectionManager;
 import client.ticket.TicketBuilder;
-import common.Response;
 import common.Ticket;
 import common.UpdateData;
-import common.User;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.IOException;
 
 public class DefaultControllerCommandReader extends AbstractCommandReader {
 
@@ -17,7 +14,7 @@ public class DefaultControllerCommandReader extends AbstractCommandReader {
 
     private final UpdateData updateData;
 
-    public DefaultControllerCommandReader(ConnectionManager commandFactory, ObjectFactory ticketFactory)  {
+    public DefaultControllerCommandReader(ConnectionManager commandFactory, ObjectFactory ticketFactory) {
         // FIXME reader= ;
         super.ticketFactory = ticketFactory;
         super.commandFactory = commandFactory;

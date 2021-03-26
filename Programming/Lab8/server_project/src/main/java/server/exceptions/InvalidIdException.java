@@ -1,9 +1,9 @@
 package server.exceptions;
 
-public class InvalidIdException extends InvalidTicketFieldException implements ServerException{
+public class InvalidIdException extends InvalidTicketFieldException implements ServerException {
 
-    public InvalidIdException()  {
-        super("Invalid ID has been entered. Id must be int.");
+    public InvalidIdException() {
+        super("ERR_INVALID_ID");
     }
 
     public String accept(ServerExceptionMessenger visitor) {

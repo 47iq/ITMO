@@ -6,9 +6,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
 
-public class DefaultErrorPrinter implements ErrorPrinter{
+public class DefaultErrorPrinter implements ErrorPrinter {
 
     private final BufferedWriter errorStream;
 

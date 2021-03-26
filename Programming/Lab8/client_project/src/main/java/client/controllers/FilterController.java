@@ -1,11 +1,8 @@
 package client.controllers;
 
-import client.ClientContext;
-import common.Response;
 import common.Ticket;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -13,13 +10,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class FilterController implements Initializable {
+public class FilterController implements Controller {
 
     public Text userText;
     public Button backButton;
@@ -28,8 +25,13 @@ public class FilterController implements Initializable {
     public Button higherButton;
     public Button lowerButton;
     public ChoiceBox<String> command;
+    public Text typeText;
 
-    private List<Ticket> tickets = ClientContext.getCurrentCollection();
+    private ControllerContext context;
+    private List<Ticket> tickets;
+    private ControlManager controlManager;
+    private ResourceBundle bundle;
+    private final Map<String, String> fieldMap = new HashMap<>();
 
     private enum FilterCondition {
         HIGHER,
@@ -37,14 +39,23 @@ public class FilterController implements Initializable {
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(ControllerContext context) {
+        this.context = context;
+        controlManager = context.getControlManager();
+        tickets = context.getCurrentCollection();
+        bundle = context.getBundle();
+        localize();
+        userText.setText(context.getCurrentUser());
         //FIXME
-        ObservableList<String> fields = FXCollections.observableArrayList("id", "price", "discount", "type",
-                "refundable", "x", "y", "weight", "hair_color", "eye_color", "nationality");
+        ObservableList<String> fields = FXCollections.observableArrayList(bundle.getString("ID"),
+                bundle.getString("PRICE"), bundle.getString("DISCOUNT"), bundle.getString("TYPE"),
+                bundle.getString("REFUNDABLE"), bundle.getString("X"), bundle.getString("Y"),
+                bundle.getString("WEIGHT"), bundle.getString("HAIR"), bundle.getString("EYES"),
+                bundle.getString("NATIONALITY"), bundle.getString("OWNER"));
         command.setItems(fields);
         higherButton.setOnAction(actionEvent -> {
             try {
-                filter(command.getValue(), FilterCondition.HIGHER, arg.getText());
+                filter(fieldMap.get(command.getValue()), FilterCondition.HIGHER, arg.getText());
                 success();
             } catch (Exception e) {
                 displayError(e);
@@ -52,7 +63,7 @@ public class FilterController implements Initializable {
         });
         lowerButton.setOnAction(actionEvent -> {
             try {
-                filter(command.getValue(), FilterCondition.LOWER, arg.getText());
+                filter(fieldMap.get(command.getValue()), FilterCondition.LOWER, arg.getText());
                 success();
             } catch (Exception e) {
                 displayError(e);
@@ -63,15 +74,31 @@ public class FilterController implements Initializable {
         });
     }
 
+    private void localize() {
+        backButton.setText(bundle.getString("BACK"));
+        arg.setPromptText(bundle.getString("ARG"));
+        higherButton.setText(bundle.getString("HIGHER"));
+        lowerButton.setText(bundle.getString("LOWER"));
+        typeText.setText(bundle.getString("FILTER_TYPE"));
+        fieldMap.put(bundle.getString("ID"), "id");
+        fieldMap.put(bundle.getString("NAME"), "name");
+        fieldMap.put(bundle.getString("PRICE"), "price");
+        fieldMap.put(bundle.getString("DISCOUNT"), "discount");
+        fieldMap.put(bundle.getString("REFUNDABLE"), "refundable");
+        fieldMap.put(bundle.getString("TYPE"), "type");
+        fieldMap.put(bundle.getString("HAIR"), "hair_color");
+        fieldMap.put(bundle.getString("EYES"), "eye_color");
+        fieldMap.put(bundle.getString("NATIONALITY"), "nationality");
+        fieldMap.put(bundle.getString("OWNER"), "owner");
+        fieldMap.put(bundle.getString("WEIGHT"), "weight");
+        fieldMap.put(bundle.getString("X"), "x");
+        fieldMap.put(bundle.getString("Y"), "y");
+    }
+
     private void success() {
-        try {
-            displayInfo("Success");
-            ClientContext.setCurrentCollection(tickets);
-            ClientContext.showScene((Stage) backButton.getScene().getWindow(), "table.fxml");
-        } catch (IOException e) {
-            //FIXME
-            e.printStackTrace();
-        }
+        displayInfo(bundle.getString("SUCCESS"));
+        context.setCurrentCollection(tickets);
+        controlManager.showScene((Stage) backButton.getScene().getWindow(), "table.fxml", this);
     }
 
     private void filter(String field, FilterCondition condition, String argument) {
@@ -81,37 +108,40 @@ public class FilterController implements Initializable {
         int finalSign = sign;
         switch (field) {
             case "id" -> {
-                tickets = tickets.stream().filter(x -> x.getId() * finalSign > Integer.parseInt(argument) * finalSign).collect(Collectors.toList());
+                tickets = tickets.stream().filter(x -> x.getId() * finalSign >= Integer.parseInt(argument) * finalSign).collect(Collectors.toList());
             }
             case "price" -> {
-                tickets = tickets.stream().filter(x -> x.getPrice() * finalSign > Integer.parseInt(argument) * finalSign).collect(Collectors.toList());
+                tickets = tickets.stream().filter(x -> x.getPrice() * finalSign >= Integer.parseInt(argument) * finalSign).collect(Collectors.toList());
             }
             case "discount" -> {
-                tickets = tickets.stream().filter(x -> x.getDiscount() * finalSign > Double.parseDouble(argument) * finalSign).collect(Collectors.toList());
+                tickets = tickets.stream().filter(x -> x.getDiscount() * finalSign >= Double.parseDouble(argument) * finalSign).collect(Collectors.toList());
             }
             case "type" -> {
-                tickets = tickets.stream().filter(x -> x.getType().toString().compareTo(argument) * finalSign > 0).collect(Collectors.toList());
+                tickets = tickets.stream().filter(x -> x.getType().toString().compareTo(argument) * finalSign >= 0).collect(Collectors.toList());
             }
             case "hair_color" -> {
-                tickets = tickets.stream().filter(x -> x.getPerson().getHairColor().toString().compareTo(argument) * finalSign > 0).collect(Collectors.toList());
+                tickets = tickets.stream().filter(x -> x.getPerson().getHairColor().toString().compareTo(argument) * finalSign >= 0).collect(Collectors.toList());
             }
             case "eye_color" -> {
-                tickets = tickets.stream().filter(x -> x.getPerson().getEyeColor().toString().compareTo(argument) * finalSign > 0).collect(Collectors.toList());
+                tickets = tickets.stream().filter(x -> x.getPerson().getEyeColor().toString().compareTo(argument) * finalSign >= 0).collect(Collectors.toList());
             }
             case "nationality" -> {
-                tickets = tickets.stream().filter(x -> x.getPerson().getNationality().toString().compareTo(argument) * finalSign > 0).collect(Collectors.toList());
+                tickets = tickets.stream().filter(x -> x.getPerson().getNationality().toString().compareTo(argument) * finalSign >= 0).collect(Collectors.toList());
             }
             case "x" -> {
-                tickets = tickets.stream().filter(x -> x.getX() * finalSign > Double.parseDouble(argument) * finalSign).collect(Collectors.toList());
+                tickets = tickets.stream().filter(x -> x.getX() * finalSign >= Double.parseDouble(argument) * finalSign).collect(Collectors.toList());
             }
             case "y" -> {
-                tickets = tickets.stream().filter(x -> x.getY() * finalSign > Integer.parseInt(argument) * finalSign).collect(Collectors.toList());
+                tickets = tickets.stream().filter(x -> x.getY() * finalSign >= Integer.parseInt(argument) * finalSign).collect(Collectors.toList());
             }
             case "weight" -> {
-                tickets = tickets.stream().filter(x -> x.getWeight() * finalSign > Long.parseLong(argument) * finalSign).collect(Collectors.toList());
+                tickets = tickets.stream().filter(x -> x.getWeight() * finalSign >= Long.parseLong(argument) * finalSign).collect(Collectors.toList());
             }
             case "refundable" -> {
-                tickets = tickets.stream().filter(x -> x.getRefundable().compareTo(Boolean.parseBoolean(argument)) * finalSign > 0).collect(Collectors.toList());
+                tickets = tickets.stream().filter(x -> x.getRefundable().compareTo(Boolean.parseBoolean(argument)) * finalSign >= 0).collect(Collectors.toList());
+            }
+            case "owner" -> {
+                tickets = tickets.stream().filter(x -> x.getOwner().compareTo(argument) * finalSign >= 0).collect(Collectors.toList());
             }
             default -> throw new RuntimeException("Unknown error");
         }
@@ -119,33 +149,37 @@ public class FilterController implements Initializable {
 
     private void displayError(Exception e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        //FIXME
-        alert.setHeaderText(e.getMessage());
+        alert.setTitle(bundle.getString("ERROR"));
+        alert.setHeaderText(context.getErrorMessage(e));
         alert.showAndWait();
     }
 
-    private void displayError(String s) {
+    private void displayError(String e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        //FIXME
-        alert.setHeaderText(s);
+        alert.setTitle(bundle.getString("ERROR"));
+        alert.setHeaderText(context.getErrorMessage(e));
         alert.showAndWait();
     }
 
     private void displayInfo(String s) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
+        alert.setTitle(bundle.getString("SUCCESS"));
         //FIXME
         alert.setHeaderText(s);
         alert.showAndWait();
     }
 
     private void goBack() {
-        try {
-            ClientContext.showScene((Stage) backButton.getScene().getWindow(), "table.fxml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        controlManager.showScene((Stage) backButton.getScene().getWindow(), "table.fxml", this);
+    }
+
+    @Override
+    public void setContext(ControllerContext context) {
+        this.context = context;
+    }
+
+    @Override
+    public ControllerContext getContext() {
+        return context;
     }
 }

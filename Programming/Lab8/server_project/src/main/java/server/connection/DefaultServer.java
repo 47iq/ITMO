@@ -10,10 +10,11 @@ import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.nio.ByteBuffer;
-import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.util.Locale;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class DefaultServer implements Server {
 
@@ -57,8 +58,7 @@ public class DefaultServer implements Server {
                     String line = bufferedReader.readLine();
                     if (line == null) {
                         break;
-                    }
-                    else {
+                    } else {
                         String[] lines = line.trim().split("\\s+");
                         try {
                             Request request = new DefaultRequest(RequestType.EXECUTE, lines[0], Locale.US);

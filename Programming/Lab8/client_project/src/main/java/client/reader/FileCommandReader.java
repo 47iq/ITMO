@@ -1,10 +1,10 @@
 package client.reader;
 
-import client.Main;
 import client.ObjectFactory;
 import client.connection.ConnectionManager;
 import client.ticket.TicketBuilder;
-import common.*;
+import common.Ticket;
+import common.UpdateData;
 
 import java.io.*;
 
@@ -18,9 +18,10 @@ public class FileCommandReader extends AbstractCommandReader {
 
     /**
      * Constructor for file command reader
+     *
      * @param commandFactory factory to resolve commands
-     * @param file file we want to read from
-     * @param ticketFactory object factory
+     * @param file           file we want to read from
+     * @param ticketFactory  object factory
      * @throws FileNotFoundException if file we want to read from doesn't exist
      */
 

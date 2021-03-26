@@ -1,16 +1,15 @@
 package client.connection;
 
-import client.ClientContext;
 import client.Main;
 import client.ObjectFactory;
 import client.command_manager.CommandFactory;
-import client.commands.*;
-import client.exceptions.CommunicationException;
+import client.commands.AuthCommand;
+import client.commands.ClientServerCommand;
+import client.commands.LoginCommand;
+import client.commands.RegisterCommand;
 import client.exceptions.ConnectionException;
 import client.reader.CommandReader;
-
 import common.*;
-import org.apache.logging.log4j.LogManager;
 
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -24,8 +23,6 @@ import java.nio.channels.SocketChannel;
  */
 
 public class DefaultConnectionManager implements ConnectionManager {
-
-    private static DefaultConnectionManager instance = null;
 
     private final ObjectFactory ticketFactory;
     private ResponseReader responseReader;
@@ -42,12 +39,6 @@ public class DefaultConnectionManager implements ConnectionManager {
         this.commandFactory = commandFactory;
     }
 
-    public static synchronized ConnectionManager getInstance(ObjectFactory ticketFactory, InetAddress address, int port, CommandFactory factory) {
-        if (instance == null)
-            instance = new DefaultConnectionManager(ticketFactory, address, port, factory);
-        return instance;
-    }
-
     public Response executeCommand(String commandName, CommandReader commandReader, String arg) {
         Command command = commandFactory.getCommand(commandName);
         Request commandRequest = ticketFactory.getRequest(RequestType.EXECUTE, commandName);
@@ -56,7 +47,7 @@ public class DefaultConnectionManager implements ConnectionManager {
             commandFactory.executeCommand(command, commandReader, arg, this);
         else {
             try {
-                if(command != null)
+                if (command != null)
                     commandRequest = manageClientServer((ClientServerCommand) command, commandRequest);
                 commandRequest.setUser(user);
                 commandRequest.setUpdateData(commandReader.getUpdateData());
@@ -65,38 +56,31 @@ public class DefaultConnectionManager implements ConnectionManager {
                 requestSender.sendRequest(ticketRequest);
                 Response ticketResponse = responseReader.readResponse();
                 commandFactory.executeCommand(command, commandReader, arg, this);
-                if(command instanceof AuthCommand)
+                if (command instanceof AuthCommand)
                     commandRequest.setUser(user);
                 if (ticketResponse.isSuccessful() && ticketResponse.getMessage().equals("true")) {
                     commandRequest.setTicket(commandReader.readTicket());
                 } else if (!ticketResponse.isSuccessful())
                     Main.getErr().println(ticketResponse.getMessage());
-
                 updateConnection();
                 commandRequest.setArg(arg);
                 requestSender.sendRequest(commandRequest);
                 return responseReader.readResponse();
             } catch (ConnectionException e) {
-                //FIXME
-                e.printStackTrace();
-                return ticketFactory.getResponse(false, "Connection error");
+                return ticketFactory.getResponse(false, "ERR_CONNECTION");
             } catch (Exception e) {
-                if(!commandName.equals("shut_down")) {
-                    //FIXME
-                    e.printStackTrace();
-                    System.out.println("here");
-                    return ticketFactory.getResponse(false, "Communication error");
+                if (!commandName.equals("shut_down")) {
+                    return ticketFactory.getResponse(false, "ERR_COMMUNICATION");
                 }
             }
         }
-        //FIXME
-        return ticketFactory.getResponse(false, "Communication error");
+        return ticketFactory.getResponse(false, "ERR_COMMUNICATION");
     }
 
-    private Request manageClientServer (ClientServerCommand command, Request request) {
-        if(command instanceof RegisterCommand)
+    private Request manageClientServer(ClientServerCommand command, Request request) {
+        if (command instanceof RegisterCommand)
             request.setType(RequestType.REGISTER);
-        if(command instanceof LoginCommand)
+        if (command instanceof LoginCommand)
             request.setType(RequestType.LOGIN);
         return request;
     }

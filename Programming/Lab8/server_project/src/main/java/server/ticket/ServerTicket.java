@@ -1,7 +1,6 @@
 package server.ticket;
 
 import common.Ticket;
-import org.json.simple.JSONObject;
 
 /**
  * Ticket interface for server application
@@ -11,6 +10,7 @@ public interface ServerTicket extends Ticket {
 
     /**
      * Set creation date
+     *
      * @param date server ticket's creation date
      */
 
@@ -18,6 +18,7 @@ public interface ServerTicket extends Ticket {
 
     /**
      * Set id
+     *
      * @param id server ticket's id
      */
 

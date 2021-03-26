@@ -4357,3 +4357,439 @@
 [2021-03-24T15:44:37,658 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
 [2021-03-24T15:44:40,547 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
 [2021-03-24T15:44:40,548 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-24T18:42:08,975 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-24T18:42:09,026 INFO ] server.Main - Server started at port: 3110
+[2021-03-24T18:42:09,389 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-24T18:42:22,942 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-24T18:43:38,842 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-24T18:43:38,869 INFO ] server.Main - Server started at port: 3110
+[2021-03-24T18:43:38,889 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-24T18:48:06,281 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-24T18:48:06,309 INFO ] server.Main - Server started at port: 3110
+[2021-03-24T18:48:06,331 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-24T18:48:07,742 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-24T18:48:11,640 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-24T18:48:18,966 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-24T18:48:19,498 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-24T18:48:19,723 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-24T18:48:26,122 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-24T18:48:27,035 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-24T18:49:35,022 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-24T18:49:35,057 ERROR] server.Main - class java.net.BindException got while executing the Main.java .
+[2021-03-24T18:49:46,021 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-24T18:54:16,351 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-24T18:59:28,469 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-24T18:59:28,496 INFO ] server.Main - Server started at port: 3110
+[2021-03-24T18:59:28,517 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-24T18:59:30,711 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-24T18:59:33,558 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-24T18:59:33,558 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-24T18:59:42,018 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-24T18:59:42,018 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-24T19:01:34,747 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-24T19:02:02,743 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-24T23:35:45,738 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-24T23:35:45,778 INFO ] server.Main - Server started at port: 3110
+[2021-03-24T23:35:46,209 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-24T23:35:53,718 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-24T23:35:56,836 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-24T23:35:56,836 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-24T23:37:09,569 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-24T23:37:09,570 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-24T23:37:10,122 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-24T23:37:10,123 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-24T23:37:10,517 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-24T23:37:10,518 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-24T23:37:16,059 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-24T23:37:20,957 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.RemoveFirstCommand
+[2021-03-24T23:37:21,113 INFO ] server.collection.QueueManager - Removed first ticket.
+[2021-03-24T23:37:24,130 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-24T23:37:24,130 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-24T23:37:26,376 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-24T23:37:26,376 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T14:29:03,018 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T14:29:03,094 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T14:29:03,442 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T14:29:49,184 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T14:29:53,572 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-25T14:29:53,573 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-25T14:29:56,506 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T14:29:56,506 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T14:31:00,057 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T14:31:00,057 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T14:31:38,802 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T14:31:41,796 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T14:31:41,796 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T14:33:40,958 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T14:33:41,001 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T14:33:41,030 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T14:33:47,676 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T14:33:51,199 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-25T14:33:51,199 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-25T14:33:54,962 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T14:33:54,962 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T14:35:29,316 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T14:35:29,399 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T14:35:29,458 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T14:35:55,805 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T14:35:58,891 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T14:35:58,891 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T14:36:04,641 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T14:36:04,641 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T14:36:31,123 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T14:36:31,123 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T14:36:51,501 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T14:36:51,502 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T14:37:10,607 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T14:37:10,607 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T14:37:45,993 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T14:37:49,606 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T14:37:49,606 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T14:39:27,366 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T14:39:30,363 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T14:39:30,363 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T14:39:36,788 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T14:39:36,789 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:23:27,204 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T15:23:27,239 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T15:23:27,264 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T15:23:51,596 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T15:23:54,700 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:23:54,701 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:27:41,274 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T15:29:27,775 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T15:29:29,899 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-25T15:29:29,899 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-25T15:29:31,453 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:29:31,454 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:29:35,540 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:29:35,541 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:29:39,039 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:29:39,039 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:30:09,186 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.AddCommand
+[2021-03-25T15:30:09,387 INFO ] server.collection.QueueManager - Added ticket AbstractTicket{id=36, name='123'} 
+[2021-03-25T15:30:20,614 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T15:30:26,123 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:30:26,123 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:30:46,167 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-25T15:30:46,467 INFO ] server.collection.QueueManager - Updated ticket with id 36.
+[2021-03-25T15:30:54,597 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:30:54,597 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:31:12,751 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:31:12,751 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:31:45,382 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:31:45,382 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:31:47,250 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:31:47,250 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:36:22,173 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T15:36:38,001 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:36:38,001 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:39:58,690 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.AddCommand
+[2021-03-25T15:39:58,692 INFO ] server.collection.QueueManager - Added ticket AbstractTicket{id=37, name='Иван город тверь'} 
+[2021-03-25T15:40:02,296 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:40:02,297 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:42:05,538 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:42:05,539 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:42:40,700 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:42:40,700 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:42:41,606 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:42:41,607 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:42:44,629 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:42:44,630 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:42:52,405 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:42:52,406 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:42:53,699 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:42:53,700 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T15:45:56,444 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T15:45:59,117 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-25T15:45:59,117 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-25T15:46:00,620 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T15:46:00,620 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T20:27:12,729 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T20:27:12,762 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T20:27:12,838 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T20:27:29,316 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T20:27:32,098 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T20:27:32,098 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T20:37:37,341 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T20:37:37,371 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T20:37:37,391 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T20:37:53,349 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T20:37:55,181 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T20:37:55,181 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T20:39:08,545 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T20:39:10,776 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T20:39:10,776 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T20:40:37,781 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T20:40:43,242 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T20:40:43,243 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T20:40:51,221 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-25T20:40:51,602 INFO ] server.collection.QueueManager - Updated ticket with id 31.
+[2021-03-25T20:40:54,783 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T20:40:54,783 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T20:44:56,320 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T20:44:56,363 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T20:44:56,390 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T20:45:13,376 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T20:45:15,417 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T20:45:15,417 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T20:45:27,856 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-25T20:45:28,026 INFO ] server.collection.QueueManager - Updated ticket with id 31.
+[2021-03-25T20:45:30,406 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T20:45:30,406 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T20:54:08,585 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T20:54:08,617 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T20:54:08,642 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T20:54:08,720 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T20:54:10,810 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T20:54:10,810 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T20:54:21,610 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-25T20:54:21,619 INFO ] server.collection.QueueManager - Updated ticket with id 31.
+[2021-03-25T20:54:47,126 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T20:54:47,126 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T20:58:19,044 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T20:58:21,360 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T20:58:21,360 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T20:58:28,231 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-25T20:58:28,275 INFO ] server.collection.QueueManager - Updated ticket with id 31.
+[2021-03-25T20:58:29,284 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T20:58:29,284 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T20:58:52,689 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T20:58:52,689 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T20:58:53,456 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T20:58:53,456 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T20:59:01,700 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T20:59:01,700 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T21:00:01,820 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T21:00:01,851 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T21:00:01,873 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T21:00:19,720 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T21:00:22,640 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T21:00:22,641 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T21:00:29,408 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T21:00:29,408 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T21:00:39,809 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-25T21:00:39,820 INFO ] server.collection.QueueManager - Updated ticket with id 26.
+[2021-03-25T21:00:40,889 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T21:00:40,889 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T21:00:54,225 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-25T21:00:54,225 INFO ] server.command_manager.ServerCommandFactory - Unknown command : update got.
+[2021-03-25T21:00:55,895 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T21:00:55,895 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T21:01:04,276 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-25T21:01:04,276 INFO ] server.command_manager.ServerCommandFactory - Unknown command : update got.
+[2021-03-25T21:01:05,851 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T21:01:05,852 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T21:01:16,823 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-25T21:01:16,882 INFO ] server.collection.QueueManager - Updated ticket with id 31.
+[2021-03-25T21:01:22,110 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T21:01:22,111 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T21:42:30,077 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T21:42:30,111 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T21:42:30,135 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T21:42:53,979 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T21:42:56,018 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T21:42:56,018 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T21:43:11,933 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-25T21:43:12,102 INFO ] server.collection.QueueManager - Updated ticket with id 26.
+[2021-03-25T21:43:13,361 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T21:43:13,361 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T21:43:19,140 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-25T21:43:19,183 INFO ] server.collection.QueueManager - Updated ticket with id 36.
+[2021-03-25T21:43:20,129 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T21:43:20,130 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T21:43:29,204 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-25T21:43:29,245 INFO ] server.collection.QueueManager - Updated ticket with id 37.
+[2021-03-25T21:43:30,338 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T21:43:30,338 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T21:45:46,541 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T21:45:46,541 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T21:45:49,002 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T21:45:49,003 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T21:49:58,540 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-25T21:49:58,540 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-25T21:59:27,120 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T21:59:27,159 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T21:59:27,181 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T21:59:47,879 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T21:59:53,653 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T21:59:53,653 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T22:02:00,850 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T22:02:00,879 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T22:02:00,900 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T22:02:24,523 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T22:02:28,615 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T22:02:28,615 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T22:03:14,882 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T22:03:14,882 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T22:03:16,921 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T22:03:16,921 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T22:13:22,655 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T22:13:22,695 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T22:13:22,722 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T22:13:26,408 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T22:13:49,114 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T22:13:49,114 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T22:14:41,236 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T22:14:41,236 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T22:14:44,787 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-25T22:14:44,788 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-25T23:29:32,709 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T23:29:32,749 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T23:29:32,892 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T23:50:43,189 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T23:50:43,222 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T23:50:43,287 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-25T23:50:49,961 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-25T23:54:13,483 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-25T23:54:13,512 INFO ] server.Main - Server started at port: 3110
+[2021-03-25T23:54:13,533 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T00:14:10,415 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T00:14:10,445 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T00:14:10,468 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T00:14:29,290 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T00:15:33,213 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T00:15:37,904 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-26T00:15:37,904 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-26T00:15:55,569 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T00:15:55,570 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T00:16:15,242 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T00:16:15,242 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T00:16:21,358 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T00:16:21,358 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T00:16:31,004 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T00:16:31,005 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T00:23:46,708 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T00:23:46,738 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T00:23:46,762 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T00:23:48,439 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T00:28:07,074 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T00:28:07,107 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T00:28:07,132 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T00:31:18,903 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T00:31:22,577 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T00:31:22,577 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T00:33:16,913 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T00:33:16,969 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T00:33:16,993 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T00:33:26,311 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T00:33:28,548 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T00:33:28,548 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T10:05:26,231 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T10:05:26,271 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T10:05:26,298 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T10:05:49,658 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T10:05:52,610 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T10:05:52,610 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T10:05:58,612 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T10:05:58,613 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T10:06:56,064 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-26T10:06:56,065 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-26T10:34:34,748 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T10:34:34,814 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T10:34:34,863 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T10:34:35,231 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T10:34:42,347 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T10:34:42,348 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T10:45:37,140 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T10:51:16,935 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T10:51:17,003 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T10:51:17,054 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T10:51:17,578 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T10:51:20,904 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T10:51:20,904 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T10:51:46,589 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T11:08:03,090 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T11:08:03,134 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T11:08:03,177 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T11:08:33,100 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T11:08:40,141 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T11:08:40,141 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T11:39:50,750 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T11:39:50,791 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T11:39:50,825 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T11:40:47,058 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T11:40:50,222 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T11:40:50,222 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T11:56:58,847 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T11:57:36,427 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T11:57:36,428 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T11:58:12,427 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T11:58:33,841 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T11:58:33,841 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T11:59:03,660 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T11:59:03,660 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T11:59:15,026 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T11:59:18,119 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T11:59:18,119 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T11:59:35,394 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T11:59:35,395 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T12:06:01,030 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T12:06:01,101 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T12:06:01,154 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T12:06:06,005 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T12:06:09,662 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T12:06:09,663 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T12:06:49,516 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T12:07:20,453 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T12:07:20,453 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T12:25:11,671 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T12:25:11,717 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T12:25:11,751 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T12:44:07,700 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T12:44:07,744 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T12:44:07,772 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T12:44:45,760 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T12:59:49,625 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T12:59:49,721 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T12:59:49,780 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T12:59:52,092 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T14:41:14,380 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T14:41:14,414 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T14:41:14,792 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T14:41:27,189 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T14:42:12,138 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T14:42:12,140 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T14:42:17,963 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T14:42:17,963 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T14:42:46,972 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T14:43:22,691 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-26T14:43:24,441 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-26T14:43:24,441 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-26T14:59:32,629 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T14:59:32,664 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T14:59:32,689 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T14:59:32,821 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T14:59:36,186 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-26T14:59:37,853 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-26T14:59:37,853 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-26T15:00:07,712 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T15:00:09,447 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-26T15:00:09,447 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-26T15:00:48,372 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T15:00:48,373 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T15:57:56,561 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T15:57:59,821 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T15:57:59,826 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T15:58:14,727 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-26T15:58:15,096 INFO ] server.collection.QueueManager - Updated ticket with id 31.
+[2021-03-26T15:58:16,165 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T15:58:16,166 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T15:58:38,758 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-26T15:58:38,758 INFO ] server.collection.QueueManager - Sent collection elements.
+[2021-03-26T19:43:58,636 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-26T19:43:58,681 INFO ] server.Main - Server started at port: 3110
+[2021-03-26T19:43:58,882 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-26T19:53:30,289 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T19:53:36,267 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-26T19:53:36,269 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-26T19:55:46,018 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T19:55:47,975 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-26T19:55:47,975 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-26T19:58:17,238 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T19:58:19,793 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-26T19:58:19,793 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-26T20:00:45,277 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-26T20:00:46,954 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-26T20:00:46,954 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-26T20:00:50,999 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand

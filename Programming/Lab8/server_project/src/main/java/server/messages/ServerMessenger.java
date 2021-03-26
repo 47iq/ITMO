@@ -31,7 +31,7 @@ public abstract class ServerMessenger implements Messenger {
 
     public String getCommandsMessages() {
         StringBuilder message = new StringBuilder();
-        for (String command: commands.keySet())
+        for (String command : commands.keySet())
             message.append(getCommandMessage(command));
         return message.toString();
     }
@@ -41,7 +41,7 @@ public abstract class ServerMessenger implements Messenger {
     }
 
     protected String getCommandMessage(String command) {
-        return   command + ": " + commands.get(command) + ".\n";
+        return command + ": " + commands.get(command) + ".\n";
     }
 
     protected abstract void setTicketFieldTranslations();

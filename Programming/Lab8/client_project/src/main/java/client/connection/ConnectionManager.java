@@ -8,5 +8,6 @@ import java.io.IOException;
 
 public interface ConnectionManager {
     Response executeCommand(String command, CommandReader commandReader, String arg) throws IOException;
+
     void setUser(User user);
 }

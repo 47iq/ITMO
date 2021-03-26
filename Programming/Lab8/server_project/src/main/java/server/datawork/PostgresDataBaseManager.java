@@ -30,7 +30,7 @@ public class PostgresDataBaseManager implements DataBaseManager {
             LogManager.getLogger().error("Error. Can't connect to data base: exception {}", e.getClass());
             System.exit(1);
         }
-        if(connection != null)
+        if (connection != null)
             LogManager.getLogger().info("Successfully connected to the data base.");
         else
             LogManager.getLogger().error("Error. Can't connect to data base.");

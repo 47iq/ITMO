@@ -4,8 +4,9 @@ import java.io.Serializable;
 
 /**
  * Enum containing available types of tickets
- * @autor 47iq
+ *
  * @version 1.0
+ * @autor 47iq
  */
 
 public enum TicketType implements Serializable {

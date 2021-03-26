@@ -3,18 +3,17 @@ package server.commands;
 import common.Response;
 import common.Ticket;
 import common.UpdateData;
-import server.Main;
-import server.exceptions.CommandExecutionException;
-import server.exceptions.InvalidIdException;
-import server.exceptions.InvalidTicketException;
 import server.ObjectFactory;
 import server.collection.CollectionManager;
 import server.command_manager.Visitor;
+import server.exceptions.InvalidIdException;
+import server.exceptions.InvalidTicketException;
 
 /**
  * Class of update command
- * @autor 47iq
+ *
  * @version 1.0
+ * @autor 47iq
  */
 
 public class UpdateCommand implements UpdatingCommand {
@@ -26,8 +25,6 @@ public class UpdateCommand implements UpdatingCommand {
     public Response execute(CollectionManager collectionManager, Ticket ticket, String arg, UpdateData updateData,
                             ObjectFactory factory, String login) {
         int id;
-        //TODO: Remove
-        System.out.println("HERE");
         try {
             id = Integer.parseInt(arg);
         } catch (Exception e) {

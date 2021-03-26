@@ -42,6 +42,6 @@ public class MessagesRU extends ServerMessenger {
     }
 
     public String getCollectionMessage(String type, String size, String creationDate) {
-        return "Тип коллекции: " + type + "\nТекущий размер коллекции: " + size +"\nВремя инициализации: " + creationDate + "\n";
+        return "Тип коллекции: " + type + "\nТекущий размер коллекции: " + size + "\nВремя инициализации: " + creationDate + "\n";
     }
 }

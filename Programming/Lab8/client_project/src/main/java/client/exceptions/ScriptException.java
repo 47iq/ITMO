@@ -2,14 +2,11 @@ package client.exceptions;
 
 public class ScriptException extends RuntimeException implements ClientException {
 
-    private final String name;
-
     public ScriptException(String name) {
-        super("Error. Can't execute script from file: " + name);
-        this.name = name;
+        super("ERR_SCRIPT");
     }
 
     public String accept(ClientExceptionMessenger visitor) {
-        return visitor.visit(this, name);
+        return visitor.visit(this, "");
     }
 }

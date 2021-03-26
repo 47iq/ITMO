@@ -1,26 +1,25 @@
 package server;
 
 import common.*;
-import server.commands.Command;
-import server.exceptions.InputFileNotFoundException;
 import org.apache.logging.log4j.LogManager;
 import server.collection.CollectionManager;
 import server.collection.QueueManager;
 import server.command_manager.CommandFactory;
 import server.command_manager.ServerCommandFactory;
+import server.commands.Command;
 import server.commands.*;
 import server.connection.*;
 import server.datawork.DataBaseManager;
 import server.datawork.PostgresDataBaseManager;
 
-import java.nio.file.NoSuchFileException;
 import java.util.*;
 
 
 /**
  * Class which starts the program
- * @autor 47iq
+ *
  * @version 1.0
+ * @autor 47iq
  */
 
 
@@ -94,12 +93,12 @@ public class Main {
     }
 
     public static Set<String> getTicketCommands() {
-            HashSet<String> commands = new HashSet<>();
-            commands.add("add");
-            commands.add("add_if_max");
-            commands.add("update");
-            commands.add("remove_greater");
-            return commands;
+        HashSet<String> commands = new HashSet<>();
+        commands.add("add");
+        commands.add("add_if_max");
+        commands.add("update");
+        commands.add("remove_greater");
+        return commands;
     }
 }
 

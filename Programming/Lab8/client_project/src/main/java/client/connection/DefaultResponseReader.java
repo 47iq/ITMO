@@ -9,20 +9,18 @@ import java.io.ObjectInputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 
-public class DefaultResponseReader implements  ResponseReader{
+public class DefaultResponseReader implements ResponseReader {
 
     private final SocketChannel channel;
 
     public DefaultResponseReader(SocketChannel socketChannel) {
-         this.channel = socketChannel;
+        this.channel = socketChannel;
     }
 
     public Response readResponse() throws IOException, ClassNotFoundException {
         Response response = unwrapResponse(readBytes());
         channel.socket().close();
         channel.close();
-        //TODO
-        System.out.println(response);
         return response;
     }
 

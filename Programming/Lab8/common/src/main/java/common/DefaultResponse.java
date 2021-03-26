@@ -11,9 +11,11 @@ public class DefaultResponse implements Response, Serializable {
 
     private final boolean successful;
 
-    private final String message;
+    private String message;
 
     private List<Ticket> tickets;
+
+    private String[] info;
 
     public DefaultResponse(boolean successful, String message) {
         this.successful = successful;
@@ -36,5 +38,20 @@ public class DefaultResponse implements Response, Serializable {
     @Override
     public void setCollection(List<Ticket> tickets) {
         this.tickets = tickets;
+    }
+
+    @Override
+    public String[] getInfo() {
+        return info;
+    }
+
+    @Override
+    public void setInfo(String[] info) {
+        this.info = info;
+    }
+
+    @Override
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

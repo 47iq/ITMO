@@ -1,11 +1,6 @@
 package client.controllers;
 
-import client.ClientContext;
 import common.Response;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -13,59 +8,63 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ArgController implements Initializable {
+public class ArgController implements Controller {
     public Button backButton;
     public ImageView imgView;
-    public Text addText;
     public Button commandButton;
     public TextField arg;
     public Text userText;
 
-    private String curCommand = ClientContext.getCurrentCommand();
+    private ControllerContext context;
+    private String curCommand;
+    private ControlManager controlManager;
+    private ResourceBundle bundle;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        userText.setText(ClientContext.getCurrentUser());
+    public void initialize(ControllerContext context) {
+        this.context = context;
+        controlManager = context.getControlManager();
+        curCommand = context.getCurrentCommand();
+        userText.setText(context.getCurrentUser());
         commandButton.setText(curCommand);
+        bundle = context.getBundle();
+        localize();
         backButton.setOnAction(actionEvent -> {
-            try {
-                ClientContext.showScene((Stage) backButton.getScene().getWindow(),"mainScene.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            controlManager.showScene((Stage) backButton.getScene().getWindow(), "mainScene.fxml", this);
         });
         commandButton.setOnAction(actionEvent -> {
-            if(arg.getText().equals(""))
+            if (arg.getText().equals(""))
                 displayError("All fields must be filled.");
             else {
-                Response response = ClientContext.getCommandReader().getResponse(curCommand + " " + arg.getText());
+                Response response = context.getCommandReader().getResponse(curCommand + " " + arg.getText());
                 displayInfo(response);
             }
         });
     }
 
+    private void localize() {
+        backButton.setText("BACK");
+        arg.setPromptText("ARG");
+    }
+
     private void displayError(Exception e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        //FIXME
-        alert.setHeaderText(e.getMessage());
+        alert.setTitle(bundle.getString("ERROR"));
+        alert.setHeaderText(context.getErrorMessage(e));
         alert.showAndWait();
     }
 
-    private void displayError(String s) {
+    private void displayError(String e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        //FIXME
-        alert.setHeaderText(s);
+        alert.setTitle(bundle.getString("ERROR"));
+        alert.setHeaderText(context.getErrorMessage(e));
         alert.showAndWait();
     }
 
     private void displayInfo(Response response) {
-        if(response.isSuccessful())
+        if (response.isSuccessful())
             displayInfo(response.getMessage());
         else
             displayError(response.getMessage());
@@ -80,10 +79,16 @@ public class ArgController implements Initializable {
     }
 
     private void goBack() {
-        try {
-            ClientContext.showScene((Stage) backButton.getScene().getWindow(),"mainScene.fxml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        controlManager.showScene((Stage) backButton.getScene().getWindow(), "mainScene.fxml", this);
+    }
+
+    @Override
+    public void setContext(ControllerContext context) {
+        this.context = context;
+    }
+
+    @Override
+    public ControllerContext getContext() {
+        return context;
     }
 }

@@ -5,63 +5,69 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.WelcomeController">
-   <children>
-      <ImageView fx:id="imgView" fitHeight="400.0" fitWidth="700.0" pickOnBounds="true" smooth="false">
-         <image>
-            <Image url="@image.jpg" />
-         </image></ImageView>
-      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="700.0" spacing="70.0" StackPane.alignment="TOP_CENTER">
-         <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="700.0" spacing="70.0">
-               <children>
-                  <Text fx:id="addText" fill="#fdfeff" stroke="#030303" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" text="Ticket Data base" textAlignment="CENTER" wrappingWidth="231.0">
-                     <font>
-                        <Font size="31.0" />
-                     </font>
-                  </Text>
-                  <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Завершить работу" textAlignment="CENTER">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets right="22.0" top="33.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="46.0" prefWidth="700.0" spacing="150.0">
-               <children>
-                    <Button fx:id="logInButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="186.0" text="Войти" textAlignment="CENTER" textFill="#04080f">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-                    <Button fx:id="registerButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="46.0" prefWidth="178.0" text="Зарегистрироваться" textAlignment="CENTER" textFill="#04080f">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets left="10.0" right="10.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER">
-               <children>
-                    <ChoiceBox fx:id="language" prefHeight="21.0" prefWidth="149.0" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </children>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+           prefWidth="700.0" xmlns="http://javafx.com/javafx/14.0.2" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="client.controllers.WelcomeController">
+    <children>
+        <ImageView fx:id="imgView" fitHeight="400.0" fitWidth="700.0" pickOnBounds="true" smooth="false">
+            <image>
+                <Image url="@image.jpg"/>
+            </image>
+        </ImageView>
+        <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="700.0" spacing="70.0"
+              StackPane.alignment="TOP_CENTER">
+            <children>
+                <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="700.0" spacing="70.0">
+                    <children>
+                        <Text fx:id="addText" fill="#fdfeff" stroke="#030303" strokeLineCap="ROUND"
+                              strokeLineJoin="ROUND" strokeType="OUTSIDE" text="Ticket Data base" textAlignment="CENTER"
+                              wrappingWidth="231.0">
+                            <font>
+                                <Font size="31.0"/>
+                            </font>
+                        </Text>
+                        <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                prefHeight="30.0" prefWidth="140.0" text="Завершить работу" textAlignment="CENTER">
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                    <padding>
+                        <Insets right="22.0" top="33.0"/>
+                    </padding>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="46.0" prefWidth="700.0" spacing="150.0">
+                    <children>
+                        <Button fx:id="logInButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="186.0"
+                                text="Войти" textAlignment="CENTER" textFill="#04080f">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </Button>
+                        <Button fx:id="registerButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false"
+                                prefHeight="46.0" prefWidth="178.0" text="Зарегистрироваться" textAlignment="CENTER"
+                                textFill="#04080f">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                    <padding>
+                        <Insets left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <ChoiceBox fx:id="language" prefHeight="21.0" prefWidth="149.0"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
 </StackPane>

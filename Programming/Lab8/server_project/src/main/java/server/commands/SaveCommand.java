@@ -1,14 +1,14 @@
 package server.commands;
 
 import common.Response;
-import org.apache.logging.log4j.LogManager;
 import server.collection.CollectionManager;
 import server.command_manager.Visitor;
 
 /**
  * Class of save command
- * @autor 47iq
+ *
  * @version 1.0
+ * @autor 47iq
  */
 
 public class SaveCommand implements ServerCommand {

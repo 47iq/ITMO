@@ -2,7 +2,7 @@ package client.exceptions;
 
 public class ScriptFileRecursionException extends RuntimeException implements ClientException {
     public ScriptFileRecursionException() {
-        super("Error. Script file contains recursion.");
+        super("ERR_SCRIPT_RECURSION");
     }
 
     public String accept(ClientExceptionMessenger visitor) {

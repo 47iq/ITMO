@@ -18,12 +18,12 @@ public interface Person {
 
     void setNationality(Country nationality);
 
-    void setWeightStr(String  weight);
+    void setWeightStr(String weight);
 
     void setEyeColorStr(String eyeColor);
 
-    void setHairColorStr(String  hairColor);
+    void setHairColorStr(String hairColor);
 
-    void setNationalityStr(String  nationality);
+    void setNationalityStr(String nationality);
 }
 

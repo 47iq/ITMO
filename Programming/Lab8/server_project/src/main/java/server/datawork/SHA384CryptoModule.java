@@ -5,7 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 
-public class SHA384CryptoModule implements CryptoModule{
+public class SHA384CryptoModule implements CryptoModule {
 
     public String hash(String str) {
         try {

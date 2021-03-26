@@ -1,8 +1,7 @@
 package client.messages;
 
 import client.exceptions.*;
-import client.exceptions.ClientExceptionMessenger;
-import server.exceptions.*;
+import server.exceptions.CommonExceptionMessenger;
 
 public abstract class DefaultExceptionMessenger extends CommonExceptionMessenger implements ClientExceptionMessenger {
 

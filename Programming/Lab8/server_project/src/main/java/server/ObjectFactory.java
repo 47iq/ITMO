@@ -28,6 +28,7 @@ public interface ObjectFactory {
 
     /**
      * Converter from some template ticket to ticket with id and creation time
+     *
      * @param ticket template ticket
      * @return real ticket
      */
@@ -45,5 +46,5 @@ public interface ObjectFactory {
     ServerExceptionMessenger getLocalErrMessenger(Locale locale);
 
     Visitor getCommandVisitor(String curArg, Ticket curTicket, CollectionManager collectionManager,
-                              ObjectFactory factory, Messenger messenger, String login, UpdateData updateData);
+                              ObjectFactory factory, String login, UpdateData updateData);
 }

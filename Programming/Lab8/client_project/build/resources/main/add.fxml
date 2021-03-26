@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.AddController">
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+           prefWidth="700.0" xmlns="http://javafx.com/javafx/14.0.2" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="client.controllers.AddController">
     <children>
-        <ImageView fx:id="imgView" fitHeight="400.0" fitWidth="700.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="imgView" fitHeight="400.0" fitWidth="700.0" nodeOrientation="INHERIT" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
-                <Image url="@image.jpg" />
+                <Image url="@image.jpg"/>
             </image>
             <viewport>
-                <Rectangle2D height="1600.0" minX="700.0" minY="400.0" width="2800.0" />
+                <Rectangle2D height="1600.0" minX="700.0" minY="400.0" width="2800.0"/>
             </viewport>
         </ImageView>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
-            <Text fx:id="userText" fill="#fffdfd" layoutX="15.0" layoutY="20.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.5" text="User nick" wrappingWidth="152.5367488861084">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Text>
+                <Text fx:id="userText" fill="#fffdfd" layoutX="15.0" layoutY="20.0" stroke="BLACK" strokeType="OUTSIDE"
+                      strokeWidth="0.5" text="User nick" wrappingWidth="152.5367488861084">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0"/>
+                    </font>
+                </Text>
                 <VBox alignment="TOP_CENTER" layoutY="1.0" prefHeight="400.0" prefWidth="700.0" spacing="20.0">
                     <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="700.0" spacing="85.0">
                             <children>
-                                <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Назад" textAlignment="CENTER">
+                                <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER"
+                                        mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Назад"
+                                        textAlignment="CENTER">
                                     <opaqueInsets>
-                                        <Insets />
+                                        <Insets/>
                                     </opaqueInsets>
                                     <font>
-                                        <Font size="14.0" />
+                                        <Font size="14.0"/>
                                     </font>
                                 </Button>
-                                <Text fx:id="addText" fill="#fdfeff" stroke="#030303" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" text="Ticket Data base" textAlignment="CENTER" wrappingWidth="231.0">
+                                <Text fill="#fdfeff" stroke="#030303" strokeLineCap="ROUND" strokeLineJoin="ROUND"
+                                      strokeType="OUTSIDE" text="Ticket Data base" textAlignment="CENTER"
+                                      wrappingWidth="231.0">
                                     <font>
-                                        <Font size="31.0" />
+                                        <Font size="31.0"/>
                                     </font>
                                 </Text>
                             </children>
                             <padding>
-                                <Insets left="12.0" />
+                                <Insets left="12.0"/>
                             </padding>
                         </HBox>
                         <VBox alignment="CENTER">
@@ -59,206 +59,242 @@
                                     <children>
                                         <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="283.0" spacing="10.0">
                                             <HBox.margin>
-                                                <Insets />
+                                                <Insets/>
                                             </HBox.margin>
-                                 <children>
-                                    <Text fx:id="ticketText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Данные о билете" wrappingWidth="206.13662368059158">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
+                                            <children>
+                                                <Text fx:id="ticketText" fill="WHITE" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Данные о билете"
+                                                      wrappingWidth="206.13662368059158">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Text>
+                                            </children>
                                         </HBox>
                                         <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="256.0" spacing="10.0">
-                                 <children>
-                                    <TextField fx:id="name" prefHeight="26.0" prefWidth="155.0" promptText="Название" />
-                                    <Text fx:id="nameText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Название" textAlignment="RIGHT" wrappingWidth="58.13678628206253">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
+                                            <children>
+                                                <TextField fx:id="name" prefHeight="26.0" prefWidth="155.0"
+                                                           promptText="Название"/>
+                                                <Text fx:id="nameText" fill="WHITE" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Название" textAlignment="RIGHT"
+                                                      wrappingWidth="58.13678628206253">
+                                                    <font>
+                                                        <Font size="10.0"/>
+                                                    </font>
+                                                </Text>
+                                            </children>
                                         </HBox>
                                     </children>
                                 </HBox>
-                        <HBox alignment="TOP_CENTER" prefHeight="73.0" prefWidth="700.0" spacing="100.0">
-                           <children>
-                              <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="282.0" spacing="10.0">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                                 <children>
-                                    <TextField fx:id="price" prefHeight="26.0" prefWidth="157.0" promptText="Цена" />
-                                    <Text fx:id="priceText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Цена" textAlignment="RIGHT" wrappingWidth="66.93670922517776">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="242.0" spacing="10.0">
-                                 <children>
-                                    <TextField fx:id="discount" prefHeight="26.0" prefWidth="157.0" promptText="Скидка" />
-                                    <Text fx:id="discountText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Скидка" textAlignment="RIGHT" wrappingWidth="58.93671303987503">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </HBox>
-                        <HBox alignment="TOP_CENTER" prefHeight="73.0" prefWidth="700.0" spacing="100.0">
-                           <children>
-                              <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="283.0" spacing="10.0">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                                 <children>
-                                    <TextField fx:id="refundable" prefHeight="26.0" prefWidth="157.0" promptText="Возвратность" />
-                                    <Text fx:id="refundableText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Возвратность" textAlignment="RIGHT" wrappingWidth="68.53674966096878">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="243.0" spacing="10.0">
-                                 <children>
-                                    <ChoiceBox fx:id="type" prefHeight="26.0" prefWidth="156.0" />
-                                    <Text fx:id="typeText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Тип" textAlignment="RIGHT" wrappingWidth="61.33673745393753">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER">
-                           <children>
-                              <Text fx:id="coordinateText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Координаты" wrappingWidth="236.53670912981033">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets bottom="8.0" />
-                                 </HBox.margin>
-                              </Text>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="343.73678237199783">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </HBox>
-                        <HBox alignment="TOP_CENTER" prefHeight="73.0" prefWidth="700.0" spacing="100.0">
-                           <children>
-                              <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="277.0" spacing="10.0">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                                 <children>
-                                    <TextField prefHeight="26.0" prefWidth="157.0" promptText="X-координата" fx:id="x" />
-                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="X-координата" textAlignment="RIGHT" wrappingWidth="70.93671303987503" fx:id="xText">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="241.0" spacing="10.0">
-                                 <children>
-                                    <TextField fx:id="y" prefHeight="26.0" prefWidth="153.0" promptText="Y-координата" />
-                                    <Text fx:id="yText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Y-координата" textAlignment="RIGHT" wrappingWidth="64.53668862581253">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER">
-                           <children>
-                              <Text fx:id="personText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Данные о владельце" wrappingWidth="242.13668471574783">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets bottom="8.0" />
-                                 </HBox.margin>
-                              </Text>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="342.93673354387283">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </HBox>
-                        <HBox alignment="TOP_CENTER" prefHeight="73.0" prefWidth="700.0" spacing="100.0">
-                           <children>
-                              <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="277.0" spacing="10.0">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                                 <children>
-                                    <TextField fx:id="weight" prefHeight="26.0" prefWidth="157.0" promptText="Вес владельца" />
-                                    <Text fx:id="weightText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Вес " textAlignment="RIGHT" wrappingWidth="72.53674966096878">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="246.0" spacing="10.0">
-                                 <children>
-                                    <ChoiceBox fx:id="eyes" prefHeight="26.0" prefWidth="158.0" />
-                                    <Text fx:id="eyesText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Цвет глаз" textAlignment="RIGHT" wrappingWidth="62.136790096759796">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </HBox>
-                        <HBox alignment="TOP_CENTER" prefHeight="73.0" prefWidth="700.0" spacing="100.0">
-                           <children>
-                              <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="276.0" spacing="10.0">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                                 <children>
-                                    <ChoiceBox fx:id="hair" prefHeight="26.0" prefWidth="163.0" />
-                                    <Text fx:id="hairText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Цвет волос" textAlignment="RIGHT" wrappingWidth="76.53673058748245">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="239.0" spacing="10.0">
-                                 <children>
-                                    <ChoiceBox fx:id="country" prefHeight="26.0" prefWidth="156.0" />
-                                    <Text fx:id="countryText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Страна" textAlignment="RIGHT" wrappingWidth="60.53668862581253">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </HBox>
-                                <Button fx:id="commandButton" mnemonicParsing="false" prefHeight="42.0" prefWidth="126.0" text="ADD" />
+                                <HBox alignment="TOP_CENTER" prefHeight="73.0" prefWidth="700.0" spacing="100.0">
+                                    <children>
+                                        <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="282.0" spacing="10.0">
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                            <children>
+                                                <TextField fx:id="price" prefHeight="26.0" prefWidth="157.0"
+                                                           promptText="Цена"/>
+                                                <Text fx:id="priceText" fill="WHITE" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Цена" textAlignment="RIGHT"
+                                                      wrappingWidth="66.93670922517776">
+                                                    <font>
+                                                        <Font size="10.0"/>
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="242.0" spacing="10.0">
+                                            <children>
+                                                <TextField fx:id="discount" prefHeight="26.0" prefWidth="157.0"
+                                                           promptText="Скидка"/>
+                                                <Text fx:id="discountText" fill="WHITE" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Скидка" textAlignment="RIGHT"
+                                                      wrappingWidth="58.93671303987503">
+                                                    <font>
+                                                        <Font size="10.0"/>
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="TOP_CENTER" prefHeight="73.0" prefWidth="700.0" spacing="100.0">
+                                    <children>
+                                        <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="283.0" spacing="10.0">
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                            <children>
+                                                <TextField fx:id="refundable" prefHeight="26.0" prefWidth="157.0"
+                                                           promptText="Возвратность"/>
+                                                <Text fx:id="refundableText" fill="WHITE" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Возвратность" textAlignment="RIGHT"
+                                                      wrappingWidth="68.53674966096878">
+                                                    <font>
+                                                        <Font size="10.0"/>
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="243.0" spacing="10.0">
+                                            <children>
+                                                <ChoiceBox fx:id="type" prefHeight="26.0" prefWidth="156.0"/>
+                                                <Text fx:id="typeText" fill="WHITE" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Тип" textAlignment="RIGHT"
+                                                      wrappingWidth="61.33673745393753">
+                                                    <font>
+                                                        <Font size="10.0"/>
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER">
+                                    <children>
+                                        <Text fx:id="coordinateText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              text="Координаты" wrappingWidth="236.53670912981033">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets bottom="8.0"/>
+                                            </HBox.margin>
+                                        </Text>
+                                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER"
+                                              wrappingWidth="343.73678237199783">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="TOP_CENTER" prefHeight="73.0" prefWidth="700.0" spacing="100.0">
+                                    <children>
+                                        <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="277.0" spacing="10.0">
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                            <children>
+                                                <TextField prefHeight="26.0" prefWidth="157.0" promptText="X-координата"
+                                                           fx:id="x"/>
+                                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                                                      text="X-координата" textAlignment="RIGHT"
+                                                      wrappingWidth="70.93671303987503" fx:id="xText">
+                                                    <font>
+                                                        <Font size="10.0"/>
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="241.0" spacing="10.0">
+                                            <children>
+                                                <TextField fx:id="y" prefHeight="26.0" prefWidth="153.0"
+                                                           promptText="Y-координата"/>
+                                                <Text fx:id="yText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                                                      text="Y-координата" textAlignment="RIGHT"
+                                                      wrappingWidth="64.53668862581253">
+                                                    <font>
+                                                        <Font size="10.0"/>
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER">
+                                    <children>
+                                        <Text fx:id="personText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              text="Данные о владельце" wrappingWidth="242.13668471574783">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets bottom="8.0"/>
+                                            </HBox.margin>
+                                        </Text>
+                                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER"
+                                              wrappingWidth="342.93673354387283">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="TOP_CENTER" prefHeight="73.0" prefWidth="700.0" spacing="100.0">
+                                    <children>
+                                        <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="277.0" spacing="10.0">
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                            <children>
+                                                <TextField fx:id="weight" prefHeight="26.0" prefWidth="157.0"
+                                                           promptText="Вес владельца"/>
+                                                <Text fx:id="weightText" fill="WHITE" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Вес " textAlignment="RIGHT"
+                                                      wrappingWidth="72.53674966096878">
+                                                    <font>
+                                                        <Font size="10.0"/>
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="246.0" spacing="10.0">
+                                            <children>
+                                                <ChoiceBox fx:id="eyes" prefHeight="26.0" prefWidth="158.0"/>
+                                                <Text fx:id="eyesText" fill="WHITE" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Цвет глаз" textAlignment="RIGHT"
+                                                      wrappingWidth="62.136790096759796">
+                                                    <font>
+                                                        <Font size="10.0"/>
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="TOP_CENTER" prefHeight="73.0" prefWidth="700.0" spacing="100.0">
+                                    <children>
+                                        <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="276.0" spacing="10.0">
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                            <children>
+                                                <ChoiceBox fx:id="hair" prefHeight="26.0" prefWidth="163.0"/>
+                                                <Text fx:id="hairText" fill="WHITE" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Цвет волос" textAlignment="RIGHT"
+                                                      wrappingWidth="76.53673058748245">
+                                                    <font>
+                                                        <Font size="10.0"/>
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="239.0" spacing="10.0">
+                                            <children>
+                                                <ChoiceBox fx:id="country" prefHeight="26.0" prefWidth="156.0"/>
+                                                <Text fx:id="countryText" fill="WHITE" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Страна" textAlignment="RIGHT"
+                                                      wrappingWidth="60.53668862581253">
+                                                    <font>
+                                                        <Font size="10.0"/>
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </HBox>
+                                <Button fx:id="commandButton" mnemonicParsing="false" prefHeight="42.0"
+                                        prefWidth="126.0" text="ADD"/>
                             </children>
                             <padding>
-                                <Insets bottom="20.0" />
+                                <Insets bottom="20.0"/>
                             </padding>
                         </VBox>
                     </children>
                     <padding>
-                        <Insets top="33.0" />
+                        <Insets top="33.0"/>
                     </padding>
                 </VBox>
             </children>

@@ -13,11 +13,11 @@ public class DefaultRequestSender implements RequestSender {
     private final SocketChannel channel;
 
     public DefaultRequestSender(SocketChannel socketChannel) {
-           this.channel = socketChannel;
+        this.channel = socketChannel;
     }
 
     public byte[] wrapRequest(Request request) throws IOException {
-        if(request.getTicket() != null)
+        if (request.getTicket() != null)
             request.setTicket(wrapTicket(request.getTicket()));
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);

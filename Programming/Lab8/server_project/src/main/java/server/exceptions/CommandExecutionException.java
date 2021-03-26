@@ -1,9 +1,9 @@
 package server.exceptions;
 
-public class CommandExecutionException extends RuntimeException implements ServerException{
+public class CommandExecutionException extends RuntimeException implements ServerException {
 
     public CommandExecutionException() {
-        super("Error got during the command execution.");
+        super("ERR_EXECUTION");
     }
 
 

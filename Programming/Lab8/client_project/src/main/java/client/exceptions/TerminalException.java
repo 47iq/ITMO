@@ -2,7 +2,7 @@ package client.exceptions;
 
 public class TerminalException extends RuntimeException implements ClientException {
     public TerminalException() {
-        super("Terminal error got while executing the program.");
+        super("ERR_TERMINAL");
     }
 
     public String accept(ClientExceptionMessenger visitor) {

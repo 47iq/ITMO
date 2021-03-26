@@ -8,6 +8,7 @@ public interface Messenger {
 
     /**
      * Name field invitation message
+     *
      * @return invitation message
      */
 
@@ -15,6 +16,7 @@ public interface Messenger {
 
     /**
      * X coordinate field invitation message
+     *
      * @return invitation message
      */
 
@@ -22,6 +24,7 @@ public interface Messenger {
 
     /**
      * Y coordinate field invitation message
+     *
      * @return invitation message
      */
 
@@ -29,6 +32,7 @@ public interface Messenger {
 
     /**
      * Discount field invitation message
+     *
      * @return invitation message
      */
 
@@ -36,6 +40,7 @@ public interface Messenger {
 
     /**
      * Price field invitation message
+     *
      * @return invitation message
      */
 
@@ -43,6 +48,7 @@ public interface Messenger {
 
     /**
      * Refundable field invitation message
+     *
      * @return invitation message
      */
 
@@ -50,6 +56,7 @@ public interface Messenger {
 
     /**
      * Ticket type field invitation message
+     *
      * @return invitation message
      */
 
@@ -57,6 +64,7 @@ public interface Messenger {
 
     /**
      * Weight field invitation message
+     *
      * @return invitation message
      */
 
@@ -64,6 +72,7 @@ public interface Messenger {
 
     /**
      * Eye color field invitation message
+     *
      * @return invitation message
      */
 
@@ -71,6 +80,7 @@ public interface Messenger {
 
     /**
      * Hair color field invitation message
+     *
      * @return invitation message
      */
 
@@ -78,6 +88,7 @@ public interface Messenger {
 
     /**
      * Nationality field invitation message
+     *
      * @return invitation message
      */
 

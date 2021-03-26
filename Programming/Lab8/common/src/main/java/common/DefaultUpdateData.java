@@ -29,7 +29,7 @@ public class DefaultUpdateData implements UpdateData, Serializable {
         this.xSelected = xSelected;
         this.ySelected = ySelected;
         this.weightSelected = weightSelected;
-        this.eyeColorSelected =eyeColorSelected;
+        this.eyeColorSelected = eyeColorSelected;
         this.hairColorSelected = hairColorSelected;
         this.countrySelected = countrySelected;
     }

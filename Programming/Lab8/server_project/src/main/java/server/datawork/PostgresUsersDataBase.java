@@ -5,7 +5,7 @@ import org.apache.logging.log4j.LogManager;
 
 import java.sql.*;
 
-public class PostgresUsersDataBase implements UsersDataBase{
+public class PostgresUsersDataBase implements UsersDataBase {
 
     private final Connection connection;
 
@@ -42,7 +42,7 @@ public class PostgresUsersDataBase implements UsersDataBase{
     public boolean isValid(User user) {
         try {
             String password = cryptoModule.hash(user.getPassword());
-            ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE login = '"+ user.getLogin() + "'" );
+            ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE login = '" + user.getLogin() + "'");
             while (rs.next())
                 if (password.equals(rs.getString(2)))
                     return true;
@@ -55,7 +55,7 @@ public class PostgresUsersDataBase implements UsersDataBase{
 
     public boolean isPresent(String username) {
         try {
-            ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE login = '"+ username + "'" );
+            ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE login = '" + username + "'");
             return rs.next();
         } catch (SQLException e) {
             LogManager.getLogger().error("Can't get user from database.");

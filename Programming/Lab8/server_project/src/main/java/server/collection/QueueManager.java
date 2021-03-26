@@ -10,6 +10,7 @@ import server.datawork.TicketReader;
 import server.exceptions.InvalidTicketException;
 import server.ticket.ServerDefaultTicket;
 import server.ticket.ServerTicket;
+
 import java.sql.SQLException;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -17,12 +18,12 @@ import java.util.*;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Class, which is the realization of {@link AbstractQueueManager}
- * @autor 47iq
+ *
  * @version 1.0
+ * @autor 47iq
  */
 
 public class QueueManager extends AbstractQueueManager {
@@ -41,7 +42,7 @@ public class QueueManager extends AbstractQueueManager {
 
     private static final ReadWriteLock readWriteLock = new ReentrantReadWriteLock(true);
 
-    public QueueManager(DataBaseManager dataBaseManager, ObjectFactory ticketFactory){
+    public QueueManager(DataBaseManager dataBaseManager, ObjectFactory ticketFactory) {
         this.ticketReader = dataBaseManager.getTicketsData();
         this.dataBaseManager = dataBaseManager;
         tickets = new PriorityQueue<>();
@@ -53,10 +54,10 @@ public class QueueManager extends AbstractQueueManager {
      * Parses data from {@link #dataFileName} to the {@link #tickets} using {@link #reader} if data is a valid JSON
      */
 
-    public void parseDataToCollection(){
+    public void parseDataToCollection() {
         try {
             Collection<ServerTicket> tickets = ticketReader.getTickets();
-            for(ServerTicket ticket: tickets)
+            for (ServerTicket ticket : tickets)
                 try {
                     addTicket(ticket);
                 } catch (Exception e) {
@@ -82,11 +83,11 @@ public class QueueManager extends AbstractQueueManager {
         }
     }
 
-    public List<String> displayInfo() {
-        List<String> info =  new ArrayList<>();
-        info.add(tickets.getClass().toString());
-        info.add(String.valueOf(tickets.size()));
-        info.add(creationDate.toString());
+    public String[] displayInfo() {
+        String[] info = new String[3];
+        info[0] = (tickets.getClass().toString());
+        info[1] = (String.valueOf(tickets.size()));
+        info[2] = (creationDate.toString());
         LogManager.getLogger().info("Sent info about collection.");
         return info;
     }
@@ -98,6 +99,7 @@ public class QueueManager extends AbstractQueueManager {
 
     /**
      * Gets {@link List<Ticket>} containing all of the {@link #tickets}
+     *
      * @return ticketsList {@link List<Ticket>}
      */
 
@@ -110,7 +112,7 @@ public class QueueManager extends AbstractQueueManager {
         return tickets
                 .stream()
                 .map(Ticket::getRefundable)
-                .sorted((o1, o2) -> o1!=null & o2!=null ? -o1.compareTo(o2) : o1!=null ? -1 : 1)
+                .sorted((o1, o2) -> o1 != null & o2 != null ? -o1.compareTo(o2) : o1 != null ? -1 : 1)
                 .collect(Collectors.toList());
     }
 
@@ -122,27 +124,27 @@ public class QueueManager extends AbstractQueueManager {
                     .stream()
                     .filter(x -> x.getId() == id && x.getOwner().equals(owner))
                     .max(Ticket::compareTo).get();
-            if(updateData.isNameSelected())
+            if (updateData.isNameSelected())
                 ticket.setName(myTicket.getName());
             if (updateData.isPriceSelected())
                 ticket.setPrice(myTicket.getPrice());
             if (updateData.isDiscountSelected())
                 ticket.setDiscount(myTicket.getDiscount());
-            if(updateData.isTypeSelected())
+            if (updateData.isTypeSelected())
                 ticket.setType(myTicket.getType());
-            if(updateData.isRefundableSelected())
+            if (updateData.isRefundableSelected())
                 ticket.setRefundable(myTicket.getRefundable());
-            if(updateData.isXSelected())
+            if (updateData.isXSelected())
                 ticket.getCoordinates().setX(myTicket.getX());
-            if(updateData.isYSelected())
+            if (updateData.isYSelected())
                 ticket.getCoordinates().setY(myTicket.getY());
-            if(updateData.isWeightSelected())
+            if (updateData.isWeightSelected())
                 ticket.getPerson().setWeight(myTicket.getWeight());
-            if(updateData.isEyeColorSelected())
+            if (updateData.isEyeColorSelected())
                 ticket.getPerson().setEyeColor(myTicket.getEyeColor());
-            if(updateData.isHairColorSelected())
+            if (updateData.isHairColorSelected())
                 ticket.getPerson().setHairColor(myTicket.getHairColor());
-            if(updateData.isCountrySelected())
+            if (updateData.isCountrySelected())
                 ticket.getPerson().setNationality(myTicket.getNationality());
             LogManager.getLogger().info("Updated ticket with id {}.", id);
             unlock();
@@ -199,7 +201,7 @@ public class QueueManager extends AbstractQueueManager {
 
     public void sort() {
         SortedSet<ServerTicket> ticketsSet = new TreeSet<>();
-        while (!tickets.isEmpty()){
+        while (!tickets.isEmpty()) {
             ticketsSet.add(tickets.poll());
         }
         tickets = new PriorityQueue<>(ticketsSet);
@@ -211,7 +213,7 @@ public class QueueManager extends AbstractQueueManager {
             if (tickets.stream()
                     .max(Ticket::compareTo)
                     .map(x -> x.compareTo(ticket) < 0).isPresent()) {
-                    convertAddTicket(ticket);
+                convertAddTicket(ticket);
             }
             LogManager.getLogger().info("Add If Max request has been managed.");
         } catch (Exception e) {
@@ -248,7 +250,7 @@ public class QueueManager extends AbstractQueueManager {
         LogManager.getLogger().info("Send discount-filtered collection (discount = {})", discount);
         return tickets
                 .stream()
-                .filter(x->x.getDiscount()>(discount))
+                .filter(x -> x.getDiscount() > (discount))
                 .collect(Collectors.toList());
     }
 

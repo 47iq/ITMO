@@ -2,17 +2,16 @@ package server.ticket;
 
 import common.DefaultTicket;
 import common.Ticket;
-import server.exceptions.InvalidIdException;
 import org.json.simple.JSONObject;
-import server.collection.AbstractQueueManager;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 /**
  * Class which is the realization of {@link DefaultTicket} with {@link JSONObject} parsing methods.
- *  @autor 47iq
- *  @version 1.0
+ *
+ * @version 1.0
+ * @autor 47iq
  */
 
 public class ServerDefaultTicket extends DefaultTicket implements ServerTicket {
@@ -27,6 +26,7 @@ public class ServerDefaultTicket extends DefaultTicket implements ServerTicket {
 
     /**
      * Constructor for conversion from non server ticket
+     *
      * @param ticket non server ticket
      */
 
@@ -49,6 +49,7 @@ public class ServerDefaultTicket extends DefaultTicket implements ServerTicket {
 
     /**
      * Method which is being used for transition of creation date into creation date field
+     *
      * @param creationDate date of manager.ticket creation
      */
 

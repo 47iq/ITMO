@@ -11,8 +11,9 @@ import java.io.File;
 
 /**
  * Class of execute_script command
- * @autor 47iq
+ *
  * @version 1.0
+ * @autor 47iq
  */
 
 public class ExecuteScriptCommand implements ScriptCommand {
@@ -23,7 +24,7 @@ public class ExecuteScriptCommand implements ScriptCommand {
 
     public void execute(CommandReader commandReader, String fileName, ConnectionManager commandFactory, ObjectFactory ticketFactory) {
         File file;
-        try{
+        try {
             file = new File(fileName);
         } catch (Exception e) {
             Main.getErr().println(new ScriptFileNotFoundException(fileName).accept(Main.getExceptionMessenger()));

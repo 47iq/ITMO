@@ -3,7 +3,7 @@ package server.exceptions;
 public class InvalidNameException extends InvalidTicketFieldException implements CommonException {
 
     public InvalidNameException() {
-        super("Invalid name has been entered. Name can't be an empty string or null.");
+        super("ERR_INVALID_HAIR");
     }
 
     public String accept(ExceptionMessenger visitor) {

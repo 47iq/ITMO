@@ -13,8 +13,12 @@ import java.io.IOException;
 
 public interface CommandReader {
     Ticket readTicket() throws IOException;
+
     void executeNext();
+
     Response getResponse(String command);
+
     TicketBuilder getBuilder();
+
     UpdateData getUpdateData();
 }

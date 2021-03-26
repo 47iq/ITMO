@@ -46,6 +46,7 @@ public class ServerObjectFactory implements ObjectFactory {
     /**
      * Method to localize response.
      * NOTE: also sets error handler in Main.
+     *
      * @param locale local language
      * @return messenger
      */
@@ -75,8 +76,8 @@ public class ServerObjectFactory implements ObjectFactory {
     }
 
     public Visitor getCommandVisitor(String curArg, Ticket curTicket, CollectionManager collectionManager,
-                                     ObjectFactory factory, Messenger messenger, String login, UpdateData updateData) {
-        return new CommandVisitor(curArg, curTicket, collectionManager, factory, messenger, login, updateData);
+                                     ObjectFactory factory, String login, UpdateData updateData) {
+        return new CommandVisitor(curArg, curTicket, collectionManager, factory, login, updateData);
     }
 
     private ServerExceptionMessenger getRUVisitor() {

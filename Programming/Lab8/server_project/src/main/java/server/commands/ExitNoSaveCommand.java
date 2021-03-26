@@ -5,7 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import server.collection.CollectionManager;
 import server.command_manager.Visitor;
 
-public class ExitNoSaveCommand implements ServerCommand{
+public class ExitNoSaveCommand implements ServerCommand {
 
     public ExitNoSaveCommand() {
 

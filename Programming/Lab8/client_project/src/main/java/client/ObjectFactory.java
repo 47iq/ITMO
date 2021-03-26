@@ -3,8 +3,8 @@ package client;
 import client.connection.ConnectionManager;
 import client.connection.RequestSender;
 import client.connection.ResponseReader;
-import client.exceptions.ClientExceptionMessenger;
-import client.messages.Messenger;
+import client.controllers.ControlManager;
+import client.controllers.ControllerContext;
 import client.reader.CommandReader;
 import client.ticket.TicketBuilder;
 import common.*;
@@ -12,7 +12,6 @@ import common.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.channels.SocketChannel;
-import java.util.Locale;
 
 /**
  * Object factory used by client application
@@ -34,13 +33,7 @@ public interface ObjectFactory {
 
     ResponseReader getResponseReader(SocketChannel inputStream);
 
-    Locale getLocale();
-
-    Messenger getLocalMessenger();
-
     User getUser(String login, String password);
-
-    ClientExceptionMessenger getLocalErrorHandler();
 
     CommandReader getControllerCommandReader();
 
@@ -51,4 +44,8 @@ public interface ObjectFactory {
     UpdateData getDefaultUpdateData();
 
     UpdateData getUpdateData();
+
+    ControllerContext getContext();
+
+    ControlManager getControllerManager();
 }

@@ -3,7 +3,7 @@ package server.exceptions;
 public class NotLoggedInException extends RuntimeException implements ServerException {
 
     public NotLoggedInException() {
-        super("Error. User must log in to execute commands.");
+        super("ERR_NOT_LOGGED_IN");
     }
 
     public String accept(ServerExceptionMessenger visitor) {

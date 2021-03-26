@@ -1,9 +1,9 @@
 package client.exceptions;
 
-public class FieldNumberFormatException extends NumberFormatException implements ClientException{
+public class FieldNumberFormatException extends NumberFormatException implements ClientException {
 
     public FieldNumberFormatException() {
-        super("Number format exception got.");
+        super("ERR_NUMBER_FORMAT");
     }
 
     public String accept(ClientExceptionMessenger visitor) {

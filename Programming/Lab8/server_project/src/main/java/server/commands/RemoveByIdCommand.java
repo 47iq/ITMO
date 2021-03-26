@@ -1,17 +1,16 @@
 package server.commands;
 
 import common.Response;
-import server.Main;
 import server.ObjectFactory;
 import server.collection.CollectionManager;
 import server.command_manager.Visitor;
-import server.exceptions.CommandExecutionException;
 import server.exceptions.InvalidIdException;
 
 /**
  * Class of remove_by_id command
- * @autor 47iq
+ *
  * @version 1.0
+ * @autor 47iq
  */
 
 public class RemoveByIdCommand implements SimpleCommand {
@@ -22,7 +21,7 @@ public class RemoveByIdCommand implements SimpleCommand {
 
     public Response execute(CollectionManager collectionManager, String arg, ObjectFactory factory, String login) {
         int id;
-        try{
+        try {
             id = Integer.parseInt(arg);
         } catch (Exception e) {
             throw new InvalidIdException();

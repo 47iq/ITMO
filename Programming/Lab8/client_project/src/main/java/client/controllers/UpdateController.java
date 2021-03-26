@@ -1,30 +1,19 @@
 package client.controllers;
 
-import client.ClientContext;
 import client.reader.CommandReader;
 import client.ticket.TicketBuilder;
 import common.Response;
+import common.Ticket;
+import common.TicketType;
 import common.UpdateData;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.control.*;
 
-import java.awt.*;
-import java.io.IOException;
-import java.net.URL;
 import java.util.ResourceBundle;
 
-public class UpdateController implements Initializable {
+public class UpdateController implements Controller {
     public Button backButton;
 
     public TextField name;
@@ -53,15 +42,28 @@ public class UpdateController implements Initializable {
     public CheckBox discountBox;
     public CheckBox priceBox;
     public CheckBox nameBox;
-
-    private final CommandReader reader = ClientContext.getCommandReader();
-    private final TicketBuilder builder = reader.getBuilder();
-    private final UpdateData updateData = reader.getUpdateData();
     public Text userText;
 
-    public void initialize(URL location, ResourceBundle resources) {
-        userText.setText(ClientContext.getCurrentUser());
-        ClientContext.initBoxes(type, eyes, hair, country);
+    private ControllerContext context;
+    private CommandReader reader;
+    private TicketBuilder builder;
+    private UpdateData updateData;
+    private ControlManager controlManager;
+    private ResourceBundle bundle;
+
+    public void initialize(ControllerContext context) {
+        this.context = context;
+        Ticket argument = context.getResetUpdateArg();
+        if (argument != null)
+            initFields(argument);
+        controlManager = context.getControlManager();
+        reader = context.getCommandReader();
+        builder = reader.getBuilder();
+        updateData = reader.getUpdateData();
+        bundle = context.getBundle();
+        userText.setText(context.getCurrentUser());
+        controlManager.initBoxes(type, eyes, hair, country);
+        localize();
         backButton.setOnAction(actionEvent -> {
             goBack();
         });
@@ -115,8 +117,7 @@ public class UpdateController implements Initializable {
                 try {
                     int check = Integer.parseInt(id.getText());
                 } catch (Exception e) {
-                    //FIXME
-                    displayError("Invalid id type. ID must be int.");
+                    displayError("ERR_INVALID_ID");
                     return;
                 }
                 Response response = reader.getResponse("update " + id.getText());
@@ -128,24 +129,62 @@ public class UpdateController implements Initializable {
         });
     }
 
+    private void localize() {
+        backButton.setText(bundle.getString("BACK"));
+        name.setPromptText(bundle.getString("NAME"));
+        price.setPromptText(bundle.getString("PRICE"));
+        discount.setPromptText(bundle.getString("DISCOUNT"));
+        refundable.setPromptText(bundle.getString("REFUNDABLE"));
+        weight.setPromptText(bundle.getString("WEIGHT"));
+        x.setPromptText(bundle.getString("X"));
+        y.setPromptText(bundle.getString("Y"));
+        updateButton.setText(bundle.getString("UPDATE_FIELDS"));
+    }
+
+    private void initFields(Ticket argument) {
+        id.setText(String.valueOf(argument.getId()));
+        id.setEditable(false);
+        name.setText(argument.getName());
+        price.setText(String.valueOf(argument.getPrice()));
+        discount.setText(String.valueOf(argument.getDiscount()));
+        Boolean refundableVal = argument.getRefundable();
+        if (refundableVal == null)
+            refundable.setText("");
+        else
+            refundable.setText(String.valueOf(refundableVal));
+        TicketType typeVal = argument.getType();
+        if (typeVal == null)
+            type.setValue("");
+        else
+            type.setValue(typeVal.name());
+        x.setText(String.valueOf(argument.getCoordinates().getX()));
+        y.setText(String.valueOf(argument.getCoordinates().getY()));
+        hair.setValue(argument.getPerson().getHairColor().name());
+        eyes.setValue(argument.getPerson().getEyeColor().name());
+        country.setValue(argument.getPerson().getNationality().name());
+        Long weightVal = argument.getWeight();
+        if (weightVal == null)
+            weight.setText("");
+        else
+            weight.setText(String.valueOf(weightVal));
+    }
+
     private void displayError(Exception e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        //FIXME
-        alert.setHeaderText(e.getMessage());
+        alert.setTitle(bundle.getString("ERROR"));
+        alert.setHeaderText(context.getErrorMessage(e));
         alert.showAndWait();
     }
 
-    private void displayError(String s) {
+    private void displayError(String e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        //FIXME
-        alert.setHeaderText(s);
+        alert.setTitle(bundle.getString("ERROR"));
+        alert.setHeaderText(context.getErrorMessage(e));
         alert.showAndWait();
     }
 
     private void displayInfo(Response response) {
-        if(response.isSuccessful())
+        if (response.isSuccessful())
             displayInfo(response.getMessage());
         else
             displayError(response.getMessage());
@@ -153,17 +192,25 @@ public class UpdateController implements Initializable {
 
     private void displayInfo(String s) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
+        alert.setTitle(bundle.getString("SUCCESS"));
         //FIXME
         alert.setHeaderText(s);
         alert.showAndWait();
     }
 
     private void goBack() {
-        try {
-            ClientContext.showScene((Stage) backButton.getScene().getWindow(),"mainScene.fxml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        if (context.getPrevScene().equals("table.fxml"))
+            context.setCurrentCollection(reader.getResponse("show").getCollection());
+        controlManager.showScene((Stage) backButton.getScene().getWindow(), context.getPrevScene(), this);
+    }
+
+    @Override
+    public void setContext(ControllerContext context) {
+        this.context = context;
+    }
+
+    @Override
+    public ControllerContext getContext() {
+        return context;
     }
 }

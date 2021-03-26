@@ -1,13 +1,12 @@
 package client.ticket;
 
-import client.ClientContext;
 import client.ObjectFactory;
 import common.Coordinates;
 import common.Person;
 import common.Ticket;
 import server.exceptions.*;
 
-public class DefaultTicketBuilder implements TicketBuilder{
+public class DefaultTicketBuilder implements TicketBuilder {
 
     private Ticket ticket;
     private Coordinates coordinates;

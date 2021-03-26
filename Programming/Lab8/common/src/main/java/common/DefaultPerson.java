@@ -23,7 +23,8 @@ public class DefaultPerson implements Person, Serializable {
         this.nationality = person.getNationality();
     }
 
-    protected DefaultPerson() {}
+    protected DefaultPerson() {
+    }
 
     public static DefaultPerson convert(Person person) {
         return new DefaultPerson(person);
@@ -53,6 +54,7 @@ public class DefaultPerson implements Person, Serializable {
 
     /**
      * Getter for {@link #weight}
+     *
      * @return {@link #weight}
      */
 
@@ -62,6 +64,7 @@ public class DefaultPerson implements Person, Serializable {
 
     /**
      * Getter for {@link #eyeColor}
+     *
      * @return {@link #eyeColor}
      */
 
@@ -71,6 +74,7 @@ public class DefaultPerson implements Person, Serializable {
 
     /**
      * Getter for {@link #hairColor}
+     *
      * @return {@link #hairColor}
      */
 
@@ -80,6 +84,7 @@ public class DefaultPerson implements Person, Serializable {
 
     /**
      * Getter for {@link #nationality}
+     *
      * @return {@link #nationality}
      */
 

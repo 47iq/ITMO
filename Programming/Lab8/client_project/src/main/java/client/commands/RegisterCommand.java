@@ -1,6 +1,5 @@
 package client.commands;
 
-import client.Main;
 import client.ObjectFactory;
 import client.connection.ConnectionManager;
 import client.exceptions.LoginException;

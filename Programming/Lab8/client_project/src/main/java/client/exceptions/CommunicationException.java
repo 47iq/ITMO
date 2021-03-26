@@ -2,7 +2,7 @@ package client.exceptions;
 
 public class CommunicationException extends RuntimeException implements ClientException {
     public CommunicationException() {
-        super("Error got while communicating to the server.");
+        super("ERR_COMMUNICATION");
     }
 
     public String accept(ClientExceptionMessenger visitor) {

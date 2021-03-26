@@ -3,6 +3,11 @@ package client;
 import client.command_manager.ClientCommandFactory;
 import client.commands.*;
 import client.connection.*;
+import client.controllers.ControlManager;
+import client.controllers.ControllerContext;
+import client.controllers.DefaultControlManager;
+import client.controllers.DefaultControllerContext;
+import client.exceptions.ClientExceptionMessenger;
 import client.exceptions.LocalMessengerException;
 import client.messages.*;
 import client.reader.CommandReader;
@@ -10,26 +15,17 @@ import client.reader.DefaultControllerCommandReader;
 import client.reader.FileCommandReader;
 import client.ticket.*;
 import common.*;
-import client.exceptions.ClientExceptionMessenger;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.InetAddress;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.nio.channels.SocketChannel;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 /**
  * Class for creation of objects for client application
@@ -38,46 +34,6 @@ import java.util.Map;
 public class ClientContext implements ObjectFactory {
 
     private final Locale locale;
-
-    private static CommandReader commandReader;
-
-    private static String currentCommand;
-
-    private static String currentUser;
-
-    private static List<Ticket> currentCollection;
-
-    public static List<Ticket> getCurrentCollection() {
-        return currentCollection;
-    }
-
-    public static void setCurrentCollection(List<Ticket> currentCollection) {
-        ClientContext.currentCollection = currentCollection;
-    }
-
-    public static String getCurrentCommand() {
-        return currentCommand;
-    }
-
-    public static String getCurrentUser() {
-        return currentUser;
-    }
-
-    public static void setCurrentUser(String currentUser) {
-        ClientContext.currentUser = currentUser;
-    }
-
-    public static void setCurrentCommand(String currentCommand) {
-        ClientContext.currentCommand = currentCommand;
-    }
-
-    public static void setCommandReader(CommandReader commandReader) {
-        ClientContext.commandReader = commandReader;
-    }
-
-    public static CommandReader getCommandReader() {
-        return commandReader;
-    }
 
     public ClientContext(Locale locale) {
         this.locale = locale;
@@ -89,7 +45,7 @@ public class ClientContext implements ObjectFactory {
 
     private ConnectionManager getConnectionManager() {
         try {
-            return new DefaultConnectionManager(this, InetAddress.getByName("localhost"), 3110, getCommandFactory());
+            return new MessagingConnectionManager(new DefaultConnectionManager(this, InetAddress.getByName("localhost"), 3110, getCommandFactory()));
         } catch (Exception e) {
             throw new RuntimeException();
         }
@@ -113,7 +69,7 @@ public class ClientContext implements ObjectFactory {
     }
 
     public Request getRequest(RequestType type, String commandName) {
-            return  new DefaultRequest(type, commandName, getLocale());
+        return new DefaultRequest(type, commandName, getLocale());
     }
 
     public RequestSender getRequestSender(SocketChannel channel) {
@@ -174,42 +130,9 @@ public class ClientContext implements ObjectFactory {
         return new DefaultResponse(successful, message);
     }
 
-    public static void showStage(String sceneFile) throws IOException {
-        Stage stage = new Stage();
-        Parent root = FXMLLoader.load(ClientContext.class.getClassLoader().getResource(sceneFile));
-        Scene scene = new Scene(root);
-        stage.setTitle("Database manager");
-        InputStream iconStream = ClientContext.class.getResourceAsStream("/icon.png");
-        Image image = new Image(iconStream);
-        stage.getIcons().add(image);
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.setMinHeight(400);
-        stage.setMinWidth(700);
-        stage.show();
-    }
-
-    public static void showScene(Stage stage, String sceneFile) throws IOException {
-        Parent root = FXMLLoader.load(ClientContext.class.getClassLoader().getResource(sceneFile));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public static void initBoxes(ChoiceBox<String> type, ChoiceBox<String> eyes, ChoiceBox<String> hair, ChoiceBox<String> country) {
-        ObservableList<String> types = FXCollections.observableArrayList("VIP", "CHEAP", "USUAL", "");
-        type.setItems(types);
-        ObservableList<String> eyeTypes = FXCollections.observableArrayList("BLACK", "BLUE", "YELLOW");
-        eyes.setItems(eyeTypes);
-        ObservableList<String> hairTypes = FXCollections.observableArrayList("BLACK", "GREEN", "YELLOW", "RED");
-        hair.setItems(hairTypes);
-        ObservableList<String> countryTypes = FXCollections.observableArrayList("RUSSIA", "CHINA", "SPAIN", "FRANCE");
-        country.setItems(countryTypes);
-    }
-
     public UpdateData getDefaultUpdateData() {
-        return new DefaultUpdateData(true, true, true,true,
-                true,true, true, true, true,
+        return new DefaultUpdateData(true, true, true, true,
+                true, true, true, true, true,
                 true, true);
     }
 
@@ -220,5 +143,30 @@ public class ClientContext implements ObjectFactory {
 
     public TicketBuilder getTicketBuilder() {
         return new DefaultTicketBuilder(this);
+    }
+
+    @Override
+    public ControllerContext getContext() {
+        try {
+            File file = new File("/");
+            URL[] urls = {file.toURI().toURL()};
+            ClassLoader loader = new URLClassLoader(urls);
+            try {
+                Locale locale = Locale.getDefault();
+                return new DefaultControllerContext(getControllerCommandReader(), getControllerManager(), ResourceBundle.getBundle("messages", locale, loader));
+            } catch (Exception e) {
+                Locale locale = Locale.ENGLISH;
+                return new DefaultControllerContext(getControllerCommandReader(), getControllerManager(), ResourceBundle.getBundle("messages", locale, loader));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(1);
+            return null;
+        }
+    }
+
+    @Override
+    public ControlManager getControllerManager() {
+        return new DefaultControlManager();
     }
 }

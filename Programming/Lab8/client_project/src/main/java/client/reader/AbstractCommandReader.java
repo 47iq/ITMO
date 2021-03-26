@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.ConnectException;
 
-public abstract class AbstractCommandReader implements CommandReader{
+public abstract class AbstractCommandReader implements CommandReader {
 
     protected ObjectFactory ticketFactory;
 
@@ -25,7 +25,7 @@ public abstract class AbstractCommandReader implements CommandReader{
             getResponse(command);
         } catch (IOException e) {
             //FIXME
-            ticketFactory.getResponse(false, "IOException");
+            ticketFactory.getResponse(false, "ERR_UNK");
         }
     }
 
@@ -34,7 +34,7 @@ public abstract class AbstractCommandReader implements CommandReader{
         try {
             if (readyForInput()) {
                 String[] command = command1.trim().split("\\s+");
-                if(command.length == 3) {
+                if (command.length == 3) {
                     command[1] += " " + command[2];
                 }
                 if (command.length == 1)
@@ -43,17 +43,16 @@ public abstract class AbstractCommandReader implements CommandReader{
                     return commandFactory.executeCommand(command[0], this, command[1]);
             }
         } catch (ConnectException ex) {
-            //FIXME
-            return ticketFactory.getResponse(false, "Connect Error");
+            return ticketFactory.getResponse(false, "ERR_CONNECTION");
         } catch (Exception e) {
-            //FIXME
-            return ticketFactory.getResponse(false, "Unknown Error");
+            e.printStackTrace();
+            return ticketFactory.getResponse(false, "ERR_UNK");
         }
-        //FIXME
-        return ticketFactory.getResponse(false,"Unknown error");
+        return ticketFactory.getResponse(false, "ERR_UNK");
     }
 
     protected abstract boolean readyForInput() throws IOException;
 
-    protected void printInputInvitation(){}
+    protected void printInputInvitation() {
+    }
 }

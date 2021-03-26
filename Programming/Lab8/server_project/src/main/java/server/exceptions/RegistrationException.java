@@ -1,9 +1,9 @@
 package server.exceptions;
 
-public class RegistrationException extends RuntimeException implements ServerException{
+public class RegistrationException extends RuntimeException implements ServerException {
 
     public RegistrationException() {
-        super("Error got while user registration. Try again.");
+        super("ERR_REGISTER");
     }
 
     public String accept(ServerExceptionMessenger visitor) {

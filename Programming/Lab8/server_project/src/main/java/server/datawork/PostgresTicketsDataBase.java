@@ -1,6 +1,8 @@
 package server.datawork;
 
-import common.*;
+import common.Coordinates;
+import common.DefaultPerson;
+import common.UpdateData;
 import org.apache.logging.log4j.LogManager;
 import server.ServerObjectFactory;
 import server.ticket.ServerTicket;
@@ -32,56 +34,56 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(index, ticket.getOwner());
         index++;
-        if(updateData.isNameSelected()) {
+        if (updateData.isNameSelected()) {
             preparedStatement.setString(index, ticket.getName());
             index++;
         }
-        if(updateData.isXSelected()) {
+        if (updateData.isXSelected()) {
             preparedStatement.setDouble(index, ticket.getCoordinates().getX());
             index++;
         }
-        if(updateData.isYSelected()) {
+        if (updateData.isYSelected()) {
             preparedStatement.setInt(index, ticket.getCoordinates().getY());
             index++;
         }
-        if(updateData.isPriceSelected()) {
+        if (updateData.isPriceSelected()) {
             preparedStatement.setInt(index, ticket.getPrice());
             index++;
         }
-        if(updateData.isDiscountSelected()) {
+        if (updateData.isDiscountSelected()) {
             preparedStatement.setDouble(index, ticket.getDiscount());
             index++;
         }
-        if(updateData.isRefundableSelected()) {
+        if (updateData.isRefundableSelected()) {
             if (ticket.getRefundable() == null)
                 preparedStatement.setNull(index, Types.BOOLEAN);
             else
                 preparedStatement.setBoolean(index, ticket.getRefundable());
             index++;
         }
-        if(updateData.isTypeSelected()) {
+        if (updateData.isTypeSelected()) {
             if (ticket.getType() == null)
                 preparedStatement.setNull(index, Types.VARCHAR);
             else
                 preparedStatement.setString(index, ticket.getType().toString());
             index++;
         }
-        if(updateData.isWeightSelected()) {
+        if (updateData.isWeightSelected()) {
             if (ticket.getPerson().getWeight() == null)
                 preparedStatement.setNull(index, Types.INTEGER);
             else
                 preparedStatement.setLong(index, ticket.getPerson().getWeight());
             index++;
         }
-        if(updateData.isEyeColorSelected()) {
+        if (updateData.isEyeColorSelected()) {
             preparedStatement.setString(index, ticket.getPerson().getEyeColor().toString());
             index++;
         }
-        if(updateData.isHairColorSelected()) {
+        if (updateData.isHairColorSelected()) {
             preparedStatement.setString(index, ticket.getPerson().getHairColor().toString());
             index++;
         }
-        if(updateData.isCountrySelected()) {
+        if (updateData.isCountrySelected()) {
             preparedStatement.setString(index, ticket.getPerson().getNationality().toString());
             index++;
         }
@@ -93,27 +95,27 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
 
     private String prepareString(UpdateData updateData) {
         String sql = "UPDATE tickets SET owner = ?";
-        if(updateData.isNameSelected())
+        if (updateData.isNameSelected())
             sql += ", name = ?";
-        if(updateData.isXSelected())
+        if (updateData.isXSelected())
             sql += ", coordinates_x = ?";
-        if(updateData.isYSelected())
+        if (updateData.isYSelected())
             sql += ", coordinates_y = ?";
-        if(updateData.isPriceSelected())
+        if (updateData.isPriceSelected())
             sql += ", price = ?";
-        if(updateData.isDiscountSelected())
+        if (updateData.isDiscountSelected())
             sql += ", discount = ?";
-        if(updateData.isRefundableSelected())
+        if (updateData.isRefundableSelected())
             sql += ", refundable = ?";
-        if(updateData.isTypeSelected())
+        if (updateData.isTypeSelected())
             sql += ", type = ?";
-        if(updateData.isWeightSelected())
+        if (updateData.isWeightSelected())
             sql += ", person_weight = ?";
-        if(updateData.isEyeColorSelected())
+        if (updateData.isEyeColorSelected())
             sql += ", person_eyes = ?";
-        if(updateData.isHairColorSelected())
+        if (updateData.isHairColorSelected())
             sql += ", person_hair = ?";
-        if(updateData.isCountrySelected())
+        if (updateData.isCountrySelected())
             sql += ", person_nation = ?";
         sql += ", id = ? WHERE id = ?";
         return sql;
@@ -161,8 +163,7 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
         ResultSet set = preparedStatement.getGeneratedKeys();
         if (set.next()) {
             ticket.setId(set.getInt(set.findColumn("id")));
-        }
-        else {
+        } else {
             throw new SQLException();
         }
     }
@@ -175,15 +176,15 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
         preparedStatement.setString(5, ticket.getCreationDate().toString());
         preparedStatement.setInt(6, ticket.getPrice());
         preparedStatement.setDouble(7, ticket.getDiscount());
-        if(ticket.getRefundable() == null)
+        if (ticket.getRefundable() == null)
             preparedStatement.setNull(8, Types.BOOLEAN);
         else
             preparedStatement.setBoolean(8, ticket.getRefundable());
-        if(ticket.getType() == null)
+        if (ticket.getType() == null)
             preparedStatement.setNull(9, Types.VARCHAR);
         else
             preparedStatement.setString(9, ticket.getType().toString());
-        if(ticket.getPerson().getWeight() == null)
+        if (ticket.getPerson().getWeight() == null)
             preparedStatement.setNull(10, Types.INTEGER);
         else
             preparedStatement.setLong(10, ticket.getPerson().getWeight());
@@ -211,14 +212,14 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
                 ticket.setPrice(resultSet.getInt(7));
                 ticket.setDiscount(resultSet.getDouble(8));
                 Object obj = resultSet.getObject(9);
-                if(obj == null)
+                if (obj == null)
                     ticket.setRefundable(null);
                 else
                     ticket.setRefundable((Boolean) obj);
                 ticket.setTypeStr((String) resultSet.getObject(10));
                 DefaultPerson person = factory.getPerson();
                 Integer buffer = (Integer) resultSet.getObject(11);
-                if(buffer == null)
+                if (buffer == null)
                     person.setWeight(null);
                 else
                     person.setWeight(Long.valueOf(buffer));

@@ -2,7 +2,7 @@ package client.exceptions;
 
 public class ConnectionException extends RuntimeException implements ClientException {
     public ConnectionException() {
-        super("Error. Server is temporary unavailable.");
+        super("ERR_CONNECTION");
     }
 
     public String accept(ClientExceptionMessenger visitor) {

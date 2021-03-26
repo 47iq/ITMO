@@ -5,8 +5,9 @@ import server.command_manager.Visitor;
 
 /**
  * Interface of commands
- * @autor 47iq
+ *
  * @version 1.0
+ * @autor 47iq
  */
 
 public interface Command {

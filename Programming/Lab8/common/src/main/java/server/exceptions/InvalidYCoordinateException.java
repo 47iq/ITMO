@@ -1,8 +1,8 @@
 package server.exceptions;
 
-public class InvalidYCoordinateException extends InvalidTicketFieldException implements CommonException{
+public class InvalidYCoordinateException extends InvalidTicketFieldException implements CommonException {
     public InvalidYCoordinateException() {
-        super("Invalid y coordinate has been entered. The value should be Integer > -236 and not equal to null.");
+        super("ERR_INVALID_Y");
     }
 
     public String accept(ExceptionMessenger visitor) {

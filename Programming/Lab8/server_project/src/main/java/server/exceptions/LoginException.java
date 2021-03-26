@@ -1,9 +1,9 @@
 package server.exceptions;
 
-public class LoginException extends Exception implements ServerException {
+public class LoginException extends RuntimeException implements ServerException {
 
     public LoginException() {
-        super("Error. There's currently no user with that login and password. Log in again or register.");
+        super("ERR_AUTH");
     }
 
     public String accept(ServerExceptionMessenger visitor) {

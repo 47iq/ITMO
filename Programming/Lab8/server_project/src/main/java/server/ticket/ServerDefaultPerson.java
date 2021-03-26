@@ -7,8 +7,9 @@ import common.HairColor;
 
 /**
  * Class which stores and manages person's data
- * @autor 47iq
+ *
  * @version 1.0
+ * @autor 47iq
  */
 
 

@@ -7,15 +7,15 @@ import org.apache.logging.log4j.LogManager;
 import server.ObjectFactory;
 import server.collection.CollectionManager;
 import server.commands.*;
+import server.messages.MessagesENG;
 import server.messages.Messenger;
 
-public class CommandVisitor implements Visitor{
+public class CommandVisitor implements Visitor {
 
     private String curArg;
     private Ticket curTicket;
     private CollectionManager collectionManager;
     private ObjectFactory factory;
-    private Messenger messenger;
     private String login;
     private UpdateData updateData;
 
@@ -24,12 +24,11 @@ public class CommandVisitor implements Visitor{
     }
 
     public CommandVisitor(String curArg, Ticket curTicket, CollectionManager collectionManager, ObjectFactory factory,
-                          Messenger messenger, String login, UpdateData updateData) {
+                          String login, UpdateData updateData) {
         this.curArg = curArg;
         this.curTicket = curTicket;
         this.collectionManager = collectionManager;
         this.factory = factory;
-        this.messenger = messenger;
         this.login = login;
         this.updateData = updateData;
     }
@@ -41,6 +40,7 @@ public class CommandVisitor implements Visitor{
 
     public Response visit(MessagingCommand command) {
         LogManager.getLogger().info("Executing command: {}", command.getClass());
+        Messenger messenger = new MessagesENG();
         return command.execute(collectionManager, curTicket, curArg, messenger, factory);
     }
 

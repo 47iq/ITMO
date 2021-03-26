@@ -4,8 +4,9 @@ import java.io.Serializable;
 
 /**
  * Enum containing available eyes' colors
- * @autor 47iq
+ *
  * @version 1.0
+ * @autor 47iq
  */
 
 public enum EyesColor implements Serializable {

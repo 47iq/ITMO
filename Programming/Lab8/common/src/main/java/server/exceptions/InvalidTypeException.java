@@ -1,9 +1,9 @@
 package server.exceptions;
 
-public class InvalidTypeException extends InvalidTicketFieldException implements CommonException{
+public class InvalidTypeException extends InvalidTicketFieldException implements CommonException {
 
     public InvalidTypeException() {
-        super("Invalid ticket type has been entered. Check the type list and select a type from it.");
+        super("ERR_INVALID_TYPE");
     }
 
     public String accept(ExceptionMessenger visitor) {

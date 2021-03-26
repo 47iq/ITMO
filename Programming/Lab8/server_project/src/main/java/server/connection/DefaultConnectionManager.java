@@ -1,16 +1,20 @@
 package server.connection;
 
-import common.*;
+import common.Request;
+import common.Response;
+import common.Ticket;
+import common.UpdateData;
 import org.apache.logging.log4j.LogManager;
 import server.ObjectFactory;
 import server.command_manager.CommandFactory;
 import server.datawork.UsersDataBase;
 import server.exceptions.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.Socket;
-import java.util.Locale;
 import java.util.Set;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ForkJoinPool;
 
 public class DefaultConnectionManager implements ConnectionManager {
 
@@ -45,10 +49,19 @@ public class DefaultConnectionManager implements ConnectionManager {
 
     private void proceedRequest(Request request, Socket client) {
         Thread executionThread = new Thread(() -> {
-            Locale locale = request.getLocale();
-            Response response = getResponse(request, locale);
-            if (response != null)
-                sendResponse(response, client);
+            try {
+                Response response = getResponse(request);
+                if (response != null)
+                    sendResponse(response, client);
+            } catch (Exception e) {
+                if (e instanceof CommonException) {
+                    LogManager.getLogger().info("Sent error response " + e.getMessage());
+                    sendResponse(serverObjectFactory.getResponse(false, e.getMessage()), client);
+                } else {
+                    LogManager.getLogger().info("Sent error response " + new UnknownException().getMessage());
+                    sendResponse(serverObjectFactory.getResponse(false, new UnknownException().getMessage()), client);
+                }
+            }
         });
         executionThreads.submit(executionThread);
     }
@@ -64,63 +77,53 @@ public class DefaultConnectionManager implements ConnectionManager {
         outputThread.start();
     }
 
-    private Response getResponse(Request request, Locale locale) {
+    private Response getResponse(Request request) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         Response response;
-        ServerExceptionMessenger errMessenger = serverObjectFactory.getLocalErrMessenger(locale);
         switch (request.getType()) {
-            case EXECUTE -> response = execute(request, locale);
+            case EXECUTE -> response = execute(request);
             case ASK_TICKET -> response = sendTicketNeeded(request);
-            case REGISTER -> response = register(request, errMessenger);
-            case LOGIN -> response = login(request, errMessenger);
+            case REGISTER -> response = register(request);
+            case LOGIN -> response = login(request);
             default -> {
                 LogManager.getLogger().error("Unknown request type got. Sending error answer to the client...");
-                response = serverObjectFactory.getResponse(false, new UnknownTypeException().accept(errMessenger));
+                throw new UnknownTypeException();
             }
         }
         return response;
     }
 
-    private Response execute(Request request, Locale locale) {
+    private Response execute(Request request) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         String user;
-        ServerExceptionMessenger errMessenger = serverObjectFactory.getLocalErrMessenger(locale);
-        try {
-            String commandName = request.getCommandName();
-            Ticket ticket = request.getTicket();
-            String arg = request.getArg();
-            UpdateData updateData = request.getUpdateData();
-            if(checkAccess(request)) {
-                user = request.getUser().getLogin();
-                if(ticket != null)
-                    ticket.setOwner(user);
-                return commandFactory.executeCommand(commandName, ticket, arg, user, locale, updateData);
-            } else
-                throw new NotLoggedInException();
-        } catch (NotLoggedInException e) {
-            LogManager.getLogger().error("Unknown user tried to execute command.");
-            return serverObjectFactory.getResponse(false, new NotLoggedInException().accept(errMessenger));
-        } catch (Exception e) {
-            LogManager.getLogger().error("{} got while executing command.", e.getClass());
-            return serverObjectFactory.getResponse(false, new UnknownException().accept(errMessenger));
-        }
+        String commandName = request.getCommandName();
+        Ticket ticket = request.getTicket();
+        String arg = request.getArg();
+        UpdateData updateData = request.getUpdateData();
+        if (checkAccess(request)) {
+            user = request.getUser().getLogin();
+            if (ticket != null)
+                ticket.setOwner(user);
+            return commandFactory.executeCommand(commandName, ticket, arg, user, updateData);
+        } else
+            throw new NotLoggedInException();
     }
 
-    private Response register(Request request, ServerExceptionMessenger errMessenger) {
+    private Response register(Request request) {
+        if (usersDataBase.isPresent(request.getUser().getLogin()))
+            throw new UserExistsException();
         try {
-            if(usersDataBase.isPresent(request.getUser().getLogin()))
-                return serverObjectFactory.getResponse(false, new UserExistsException().accept(errMessenger));
             usersDataBase.add(request.getUser());
             return serverObjectFactory.getResponse(true, "");
         } catch (Exception e) {
-            return serverObjectFactory.getResponse(false, new RegistrationException().accept(errMessenger));
+            throw new RegistrationException();
         }
     }
 
-    private Response login(Request request, ServerExceptionMessenger errMessenger) {
-        if(checkAccess(request)) {
+    private Response login(Request request) {
+        if (checkAccess(request)) {
             LogManager.getLogger().info("User: " + request.getUser() + " has logged in.");
             return serverObjectFactory.getResponse(true, "");
         } else
-            return serverObjectFactory.getResponse(false, new LoginException().accept(errMessenger));
+            throw new LoginException();
     }
 
     private Response sendTicketNeeded(Request request) {

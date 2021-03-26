@@ -2,20 +2,20 @@ server/messages/DefaultExceptionMessenger.java
  server.messages.DefaultExceptionMessenger
 server/connection/ConnectionManager.java
  server.connection.ConnectionManager
-server/messages/ErrorMessengerENG.java
- server.messages.ErrorMessengerENG
+server/datawork/TicketsDataBase.java
+ server.datawork.TicketsDataBase
 server/exceptions/InputFileNotFoundException.java
  server.exceptions.InputFileNotFoundException
 server/exceptions/ServerExceptionMessenger.java
  server.exceptions.ServerExceptionMessenger
-server/exceptions/BrokenPackageException.java
- server.exceptions.BrokenPackageException
-server/connection/DefaultResponseSender.java
- server.connection.DefaultResponseSender
-server/exceptions/NotLoggedInException.java
- server.exceptions.NotLoggedInException
-server/exceptions/RegistrationException.java
- server.exceptions.RegistrationException
+server/ticket/ServerTicket.java
+ server.ticket.ServerTicket
+server/connection/DefaultServer.java
+ server.connection.DefaultServer
+server/exceptions/ServerException.java
+ server.exceptions.ServerException
+server/datawork/DataBaseManager.java
+ server.datawork.DataBaseManager
 server/exceptions/UnknownException.java
  server.exceptions.UnknownException
 server/datawork/UsersDataBase.java
@@ -24,56 +24,68 @@ server/datawork/CryptoModule.java
  server.datawork.CryptoModule
 server/datawork/PostgresUsersDataBase.java
  server.datawork.PostgresUsersDataBase
-server/exceptions/InvalidIdException.java
- server.exceptions.InvalidIdException
-server/datawork/TicketReader.java
- server.datawork.TicketReader
-server/datawork/SHA384CryptoModule.java
- server.datawork.SHA384CryptoModule
-server/ticket/ServerDefaultPerson.java
- server.ticket.ServerDefaultPerson
-server/exceptions/UserExistsException.java
- server.exceptions.UserExistsException
-server/connection/ResponseSender.java
- server.connection.ResponseSender
-server/ticket/ServerDefaultCoordinates.java
- server.ticket.ServerDefaultCoordinates
-server/exceptions/UnknownTypeException.java
- server.exceptions.UnknownTypeException
 server/exceptions/CommandExecutionException.java
  server.exceptions.CommandExecutionException
-server/exceptions/ServerException.java
- server.exceptions.ServerException
+server/datawork/TicketReader.java
+ server.datawork.TicketReader
+server/ticket/ServerDefaultPerson.java
+ server.ticket.ServerDefaultPerson
+server/messages/Messenger.java
+ server.messages.Messenger
+server/exceptions/UserExistsException.java
+ server.exceptions.UserExistsException
+server/ticket/ServerDefaultTicket.java
+ server.ticket.ServerDefaultTicket
+server/messages/MessagesENG.java
+ server.messages.MessagesENG
+server/exceptions/UnknownTypeException.java
+ server.exceptions.UnknownTypeException
+server/exceptions/NotLoggedInException.java
+ server.exceptions.NotLoggedInException
 server/connection/DefaultConnectionBuilder.java
  server.connection.DefaultConnectionBuilder
+server/connection/DefaultRequestReader.java
+ server.connection.DefaultRequestReader
 server/connection/ConnectionBuilder.java
  server.connection.ConnectionBuilder
 server/messages/ErrorMessengerRU.java
  server.messages.ErrorMessengerRU
-server/connection/Server.java
- server.connection.Server
-server/datawork/TicketWriter.java
- server.datawork.TicketWriter
+server/connection/RequestReader.java
+ server.connection.RequestReader
+server/ticket/ServerDefaultCoordinates.java
+ server.ticket.ServerDefaultCoordinates
 server/exceptions/LoginException.java
  server.exceptions.LoginException
 server/exceptions/UnknownCommandException.java
  server.exceptions.UnknownCommandException
+server/datawork/TicketWriter.java
+ server.datawork.TicketWriter
+server/connection/Server.java
+ server.connection.Server
+server/messages/MessagesRU.java
+ server.messages.MessagesRU
+server/exceptions/BrokenPackageException.java
+ server.exceptions.BrokenPackageException
+server/exceptions/InvalidIdException.java
+ server.exceptions.InvalidIdException
+server/exceptions/RegistrationException.java
+ server.exceptions.RegistrationException
+server/messages/ErrorMessengerENG.java
+ server.messages.ErrorMessengerENG
+server/datawork/SHA384CryptoModule.java
+ server.datawork.SHA384CryptoModule
+server/messages/ServerMessenger.java
+ server.messages.ServerMessenger
 server/collection/AbstractQueueManager.java
  server.collection.AbstractQueueManager
+server/collection/CollectionManager.java
+ server.collection.CollectionManager
 server/commands/UpdateCommand.java
  server.commands.UpdateCommand
 server/commands/HelpCommand.java
  server.commands.HelpCommand
-server/datawork/DataBaseManager.java
- server.datawork.DataBaseManager
-server/datawork/TicketsDataBase.java
- server.datawork.TicketsDataBase
 server/commands/TicketCommand.java
  server.commands.TicketCommand
-server/collection/CollectionManager.java
- server.collection.CollectionManager
-server/ticket/ServerTicket.java
- server.ticket.ServerTicket
 server/commands/ExitCommand.java
  server.commands.ExitCommand
 server/datawork/PostgresTicketsDataBase.java
@@ -84,10 +96,6 @@ server/commands/MaxByCoordinatesCommand.java
  server.commands.MaxByCoordinatesCommand
 server/commands/SaveCommand.java
  server.commands.SaveCommand
-server/connection/DefaultRequestReader.java
- server.connection.DefaultRequestReader
-server/messages/MessagesRU.java
- server.messages.MessagesRU
 server/command_manager/CommandVisitor.java
  server.command_manager.CommandVisitor
 server/commands/RemoveByIdCommand.java
@@ -96,22 +104,18 @@ server/commands/RemoveFirstCommand.java
  server.commands.RemoveFirstCommand
 server/command_manager/CommandFactory.java
  server.command_manager.CommandFactory
-server/messages/Messenger.java
- server.messages.Messenger
 server/commands/ExitNoSaveCommand.java
  server.commands.ExitNoSaveCommand
 server/commands/UpdatingCommand.java
  server.commands.UpdatingCommand
-server/commands/SimpleCommand.java
- server.commands.SimpleCommand
 server/commands/RemoveGreaterCommand.java
  server.commands.RemoveGreaterCommand
-server/messages/MessagesENG.java
- server.messages.MessagesENG
+server/connection/DefaultResponseSender.java
+ server.connection.DefaultResponseSender
 server/command_manager/ServerCommandFactory.java
  server.command_manager.ServerCommandFactory
-server/connection/RequestReader.java
- server.connection.RequestReader
+server/Main.java
+ server.Main
 server/commands/Command.java
  server.commands.Command
 server/commands/FilterGreaterThanDiscountCommand.java
@@ -125,8 +129,8 @@ server/commands/ShowCommand.java
  server.commands.ShowCommand
 server/commands/PrintFieldDescendingRefundableCommand.java
  server.commands.PrintFieldDescendingRefundableCommand
-server/messages/ServerMessenger.java
- server.messages.ServerMessenger
+server/collection/QueueManager.java
+ server.collection.QueueManager
 server/commands/InfoCommand.java
  server.commands.InfoCommand
 server/datawork/PostgresDataBaseManager.java
@@ -135,19 +139,15 @@ server/command_manager/Visitor.java
  server.command_manager.Visitor
 server/commands/ClearCommand.java
  server.commands.ClearCommand
+server/connection/ResponseSender.java
+ server.connection.ResponseSender
 server/ObjectFactory.java
  server.ObjectFactory
 server/ServerObjectFactory.java
  server.ServerObjectFactory
 server/commands/AddCommand.java
  server.commands.AddCommand
-server/connection/DefaultServer.java
- server.connection.DefaultServer
 server/commands/ServerCommand.java
  server.commands.ServerCommand
-server/ticket/ServerDefaultTicket.java
- server.ticket.ServerDefaultTicket
-server/Main.java
- server.Main
-server/collection/QueueManager.java
- server.collection.QueueManager
+server/commands/SimpleCommand.java
+ server.commands.SimpleCommand

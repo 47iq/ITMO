@@ -40,7 +40,8 @@ public class DefaultTicket implements Ticket, Serializable {
         this.owner = ticket.getOwner();
     }
 
-    public DefaultTicket(){}
+    public DefaultTicket() {
+    }
 
     public static DefaultTicket convert(Ticket ticket) {
         return new DefaultTicket(ticket);
@@ -52,6 +53,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Getter for {@link DefaultTicket#id}
+     *
      * @return {@link DefaultTicket#id}
      */
 
@@ -61,6 +63,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Getter for {@link DefaultTicket#coordinates}
+     *
      * @return {@link #coordinates}
      */
 
@@ -70,6 +73,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Getter for {@link DefaultTicket#discount}
+     *
      * @return {@link DefaultTicket#discount}
      */
 
@@ -79,6 +83,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Getter for {@link DefaultTicket#refundable}
+     *
      * @return {@link DefaultTicket#refundable}
      */
 
@@ -88,6 +93,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Setter for {@link DefaultTicket#id} used to update tickets with given id's
+     *
      * @param id manager.ticket id
      */
 
@@ -97,6 +103,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Setter for manager.ticket {@link DefaultTicket#type}
+     *
      * @param type manager.ticket's type
      */
     public void setType(TicketType type) {
@@ -105,6 +112,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Getter for the manager.ticket {@link DefaultTicket#price}
+     *
      * @return {@link #price}
      */
 
@@ -115,6 +123,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Getter for {@link DefaultTicket#person}
+     *
      * @return {@link DefaultTicket#person}
      */
 
@@ -124,6 +133,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Getter for {@link #creationDate}
+     *
      * @return {@link #creationDate}
      */
 
@@ -133,6 +143,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Getter for {@link #name}
+     *
      * @return {@link #name}
      */
 
@@ -142,15 +153,17 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Getter for {@link #type}
+     *
      * @return {{@link #type}}
      */
 
-    public TicketType getType(){
+    public TicketType getType() {
         return type;
     }
 
     /**
      * Setter for {@link #creationDate}
+     *
      * @param creationDate manager.ticket creation date
      */
 
@@ -186,6 +199,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Setter for {@link #name}
+     *
      * @param name manager.ticket name
      */
 
@@ -195,6 +209,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Setter for {@link #coordinates}
+     *
      * @param coordinates manager.ticket coordinates
      */
 
@@ -204,6 +219,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Setter for {@link #price}
+     *
      * @param price manager.ticket price
      */
 
@@ -213,6 +229,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Setter for {@link #discount}
+     *
      * @param discount manager.ticket discount
      */
 
@@ -222,6 +239,7 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Setter for {@link #refundable}
+     *
      * @param refundable manager.ticket refundable
      */
     public void setRefundable(Boolean refundable) {
@@ -230,30 +248,38 @@ public class DefaultTicket implements Ticket, Serializable {
 
     /**
      * Setter for {@link #person}
+     *
      * @param person manager.ticket person
      */
 
     public void setPerson(Person person) {
         this.person = person;
     }
+
     public void setNameStr(String name) {
         setName(validator.castName(name));
     }
+
     public void setPriceStr(String price) {
         setPrice(validator.castPrice(price));
     }
+
     public void setDiscountStr(String discount) {
         setDiscount(validator.castDiscount(discount));
     }
+
     public void setRefundableStr(String refundable) {
         setRefundable(validator.castRefundable(refundable));
     }
+
     public void setTypeStr(String type) {
         setType(validator.castType(type));
     }
+
     public String getOwner() {
         return owner;
     }
+
     public void setOwner(String owner) {
         this.owner = owner;
     }

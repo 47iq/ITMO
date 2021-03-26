@@ -3,26 +3,23 @@ package server.command_manager;
 import common.Response;
 import common.Ticket;
 import common.UpdateData;
-import server.commands.UpdateCommand;
-import server.exceptions.CommonException;
-import server.exceptions.ServerExceptionMessenger;
-import server.exceptions.UnknownCommandException;
 import org.apache.logging.log4j.LogManager;
 import server.ObjectFactory;
 import server.collection.CollectionManager;
 import server.commands.Command;
-import server.messages.Messenger;
+import server.exceptions.CommonException;
+import server.exceptions.UnknownCommandException;
 
-import java.util.Locale;
 import java.util.Map;
 
 /**
  * Singleton class which parses {@link Command} and executes it
- * @autor 47iq
+ *
  * @version 1.0
+ * @autor 47iq
  */
 
-public class ServerCommandFactory implements CommandFactory{
+public class ServerCommandFactory implements CommandFactory {
 
     private volatile static ServerCommandFactory instance = null;
 
@@ -38,11 +35,11 @@ public class ServerCommandFactory implements CommandFactory{
     }
 
     public static CommandFactory getInstance(Map<String, Command> commands, ObjectFactory ticketFactory, CollectionManager manager) {
-        if(instance == null)
+        if (instance == null)
             synchronized (ServerCommandFactory.class) {
                 if (instance == null)
                     instance = new ServerCommandFactory(commands, ticketFactory, manager);
-        }
+            }
         return instance;
     }
 
@@ -50,12 +47,9 @@ public class ServerCommandFactory implements CommandFactory{
         this.serverCommands = serverCommands;
     }
 
-    public Response executeCommand(String commandName, Ticket ticket, String arg, String user,
-                                   Locale locale, UpdateData updateData) {
+    public Response executeCommand(String commandName, Ticket ticket, String arg, String user, UpdateData updateData) {
         Command command;
-        Messenger messenger = ticketFactory.getLocalMessenger(locale);
-        ServerExceptionMessenger errVisitor = ticketFactory.getLocalErrMessenger(locale);
-        Visitor visitor = ticketFactory.getCommandVisitor(arg, ticket, collectionManager, ticketFactory, messenger, user, updateData);
+        Visitor visitor = ticketFactory.getCommandVisitor(arg, ticket, collectionManager, ticketFactory, user, updateData);
         if (user != null && user.equals(System.getenv("ADMIN")))
             command = getServerCommand(commandName);
         else
@@ -63,12 +57,12 @@ public class ServerCommandFactory implements CommandFactory{
         try {
             return command.accept(visitor);
         } catch (Exception e) {
-            if(e instanceof CommonException)
-                ticketFactory.getResponse(false, ((CommonException) e).accept(errVisitor));
-            LogManager.getLogger().info("Unknown command : {} got.", commandName);
-            //TODO remove
-            e.printStackTrace();
-            return ticketFactory.getResponse(false, new UnknownCommandException().accept(errVisitor));
+            if (e instanceof CommonException)
+                return ticketFactory.getResponse(false, e.getMessage());
+            else {
+                LogManager.getLogger().info("Unknown command : {} got.", commandName);
+                throw new UnknownCommandException();
+            }
         }
     }
 

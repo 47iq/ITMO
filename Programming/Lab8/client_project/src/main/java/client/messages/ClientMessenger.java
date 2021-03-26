@@ -9,13 +9,13 @@ public abstract class ClientMessenger implements Messenger {
 
     public final String getCommands() {
         StringBuilder message = new StringBuilder();
-        for (String command: commands.keySet())
+        for (String command : commands.keySet())
             message.append(getCommandMessage(command));
         return message.toString() + "\n" + getCommandsMessageEnding();
     }
 
     protected String getCommandMessage(String command) {
-        return  command + ": " + commands.get(command) +".\n";
+        return command + ": " + commands.get(command) + ".\n";
     }
 
     protected abstract String getCommandsMessageEnding();

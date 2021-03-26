@@ -12,6 +12,7 @@ public interface TicketWriter {
 
     /**
      * Saves tickets collection
+     *
      * @param tickets tickets collection
      */
     void saveTickets(Collection<ServerTicket> tickets);
