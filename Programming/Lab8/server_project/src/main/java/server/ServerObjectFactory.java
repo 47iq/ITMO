@@ -6,8 +6,6 @@ import server.collection.CollectionManager;
 import server.command_manager.CommandVisitor;
 import server.command_manager.Visitor;
 import server.datawork.*;
-import server.exceptions.ServerExceptionMessenger;
-import server.messages.*;
 import server.ticket.ServerDefaultCoordinates;
 import server.ticket.ServerDefaultPerson;
 import server.ticket.ServerDefaultTicket;
@@ -43,49 +41,9 @@ public class ServerObjectFactory implements ObjectFactory {
         return new ServerDefaultPerson();
     }
 
-    /**
-     * Method to localize response.
-     * NOTE: also sets error handler in Main.
-     *
-     * @param locale local language
-     * @return messenger
-     */
-
-    public Messenger getLocalMessenger(Locale locale) {
-        Locale localeRu = new Locale("ru", "RU");
-        if (locale.getLanguage().equals(localeRu.getLanguage())) {
-            return new MessagesRU();
-        } else if (locale.getLanguage().equals(Locale.ENGLISH.getLanguage())) {
-            return new MessagesENG();
-        } else {
-            LogManager.getLogger().warn("Error. Can't get local message class. English messenger will be used.");
-            return new MessagesENG();
-        }
-    }
-
-    public ServerExceptionMessenger getLocalErrMessenger(Locale locale) {
-        Locale localeRu = new Locale("ru", "RU");
-        if (locale.getLanguage().equals(localeRu.getLanguage())) {
-            return new ErrorMessengerRU();
-        } else if (locale.getLanguage().equals(Locale.ENGLISH.getLanguage())) {
-            return new ErrorMessengerENG();
-        } else {
-            LogManager.getLogger().warn("Error. Can't get local message class. English messenger will be used.");
-            return new ErrorMessengerENG();
-        }
-    }
-
     public Visitor getCommandVisitor(String curArg, Ticket curTicket, CollectionManager collectionManager,
                                      ObjectFactory factory, String login, UpdateData updateData, UsersDataBase dataBase) {
         return new CommandVisitor(curArg, curTicket, collectionManager, factory, login, updateData, dataBase);
-    }
-
-    private ServerExceptionMessenger getRUVisitor() {
-        return new ErrorMessengerRU();
-    }
-
-    private ServerExceptionMessenger getENGVisitor() {
-        return new ErrorMessengerENG();
     }
 
 

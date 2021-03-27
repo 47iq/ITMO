@@ -4,8 +4,4 @@ public class InvalidRefundableException extends InvalidTicketFieldException impl
     public InvalidRefundableException() {
         super("ERR_INVALID_REFUNDABLE");
     }
-
-    public String accept(ExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

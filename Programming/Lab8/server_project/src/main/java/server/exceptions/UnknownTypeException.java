@@ -5,8 +5,4 @@ public class UnknownTypeException extends RuntimeException implements ServerExce
     public UnknownTypeException() {
         super("ERR_UNK_TYPE");
     }
-
-    public String accept(ServerExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

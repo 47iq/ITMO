@@ -4,8 +4,4 @@ public class FieldInputException extends RuntimeException implements ClientExcep
     public FieldInputException() {
         super(" Try to enter the field again:");
     }
-
-    public String accept(ClientExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

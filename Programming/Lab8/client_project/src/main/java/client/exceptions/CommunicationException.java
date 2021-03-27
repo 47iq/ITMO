@@ -4,8 +4,4 @@ public class CommunicationException extends RuntimeException implements ClientEx
     public CommunicationException() {
         super("ERR_COMMUNICATION");
     }
-
-    public String accept(ClientExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

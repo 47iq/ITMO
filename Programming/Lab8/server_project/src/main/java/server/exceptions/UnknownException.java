@@ -5,8 +5,4 @@ public class UnknownException extends RuntimeException implements ServerExceptio
     public UnknownException() {
         super("ERR_UNK");
     }
-
-    public String accept(ServerExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

@@ -4,8 +4,4 @@ public class ConnectionException extends RuntimeException implements ClientExcep
     public ConnectionException() {
         super("ERR_CONNECTION");
     }
-
-    public String accept(ClientExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

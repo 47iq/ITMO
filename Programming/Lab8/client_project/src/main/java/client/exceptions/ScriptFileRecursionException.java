@@ -4,8 +4,4 @@ public class ScriptFileRecursionException extends RuntimeException implements Cl
     public ScriptFileRecursionException() {
         super("ERR_SCRIPT_RECURSION");
     }
-
-    public String accept(ClientExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

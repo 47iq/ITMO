@@ -5,9 +5,4 @@ public class CommandExecutionException extends RuntimeException implements Serve
     public CommandExecutionException() {
         super("ERR_EXECUTION");
     }
-
-
-    public String accept(ServerExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

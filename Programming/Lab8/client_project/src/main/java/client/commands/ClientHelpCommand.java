@@ -7,7 +7,8 @@ import java.util.ResourceBundle;
 
 public class ClientHelpCommand implements MessagingCommand {
 
-    private Map<String, String> commands;
+    private final Map<String, String> commands;
+
     public ClientHelpCommand(Map<String, String> commands) {
         this.commands = commands;
     }
@@ -15,11 +16,11 @@ public class ClientHelpCommand implements MessagingCommand {
     @Override
     public Response execute(Response response) {
         ResourceBundle bundle = getLocalResourceBundle();
-        String message = "";
+        StringBuilder message = new StringBuilder();
         for(String command: commands.keySet()) {
-            message += command + ": " + commands.get(command);
+            message.append(command).append(": ").append(bundle.getString(commands.get(command))).append("\n");
         }
-        response.setMessage(message);
+        response.setMessage(message.toString());
         return response;
     }
 }

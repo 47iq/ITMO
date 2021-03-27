@@ -2,7 +2,6 @@ package client.reader;
 
 import client.ObjectFactory;
 import client.connection.ConnectionManager;
-import client.messages.Messenger;
 import common.Response;
 
 import java.io.BufferedReader;
@@ -17,14 +16,11 @@ public abstract class AbstractCommandReader implements CommandReader {
 
     protected ConnectionManager commandFactory;
 
-    protected Messenger messenger;
-
     public final void executeNext() {
         try {
             String command = reader.readLine();
             getResponse(command);
         } catch (IOException e) {
-            //FIXME
             ticketFactory.getResponse(false, "ERR_UNK");
         }
     }

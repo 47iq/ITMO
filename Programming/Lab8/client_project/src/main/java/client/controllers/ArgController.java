@@ -72,8 +72,9 @@ public class ArgController implements Controller {
 
     private void displayInfo(String s) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        //FIXME
+        alert.setTitle(bundle.getString("SUCCESS"));
+        if(s.equals(""))
+            s = bundle.getString("SUCCESS");
         alert.setHeaderText(s);
         alert.showAndWait();
     }

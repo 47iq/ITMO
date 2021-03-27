@@ -5132,3 +5132,97 @@
 [2021-03-27T16:48:19,532 INFO ] server.collection.QueueManager - Sent info about collection.
 [2021-03-27T16:48:31,521 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
 [2021-03-27T16:50:10,205 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T17:00:04,655 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-27T17:00:04,701 INFO ] server.Main - Server started at port: 3110
+[2021-03-27T17:00:04,722 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-27T17:00:06,028 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-27T17:00:09,785 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T17:00:14,871 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T17:00:38,215 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T17:12:04,657 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-27T17:12:04,712 INFO ] server.Main - Server started at port: 80
+[2021-03-27T17:12:04,746 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-27T17:12:07,810 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.io.StreamCorruptedException
+[2021-03-27T17:13:37,746 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.io.StreamCorruptedException
+[2021-03-27T17:19:49,420 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.io.StreamCorruptedException
+[2021-03-27T17:31:39,589 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-27T17:31:39,631 INFO ] server.Main - Server started at port: 3110
+[2021-03-27T17:31:39,679 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-27T17:31:41,646 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-27T17:31:44,140 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-27T17:31:44,143 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-27T17:31:46,438 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-27T17:32:13,348 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-27T17:32:13,499 INFO ] server.Main - Server started at port: 3110
+[2021-03-27T17:32:13,563 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-27T17:32:36,433 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-27T17:32:54,672 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-27T17:34:14,927 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-27T17:34:26,749 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-27T17:34:46,829 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-27T17:35:05,226 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-27T17:35:09,158 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-27T17:37:20,301 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T17:37:54,547 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-27T17:37:54,690 INFO ] server.command_manager.ServerCommandFactory - Unknown command : update got.
+[2021-03-27T17:37:54,690 INFO ] server.connection.DefaultConnectionManager - Sent error response ERR_UNK_COMMAND
+[2021-03-27T17:38:06,356 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-27T17:38:06,358 INFO ] server.command_manager.ServerCommandFactory - Unknown command : update got.
+[2021-03-27T17:38:06,358 INFO ] server.connection.DefaultConnectionManager - Sent error response ERR_UNK_COMMAND
+[2021-03-27T17:38:18,096 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-27T17:38:18,096 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-27T17:38:20,064 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T17:39:24,938 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-27T17:39:24,939 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-27T17:39:27,400 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T17:39:35,512 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T17:41:38,795 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-27T17:41:38,796 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-27T17:41:41,475 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T17:41:55,584 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-27T18:45:15,747 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-27T18:45:15,783 INFO ] server.Main - Server started at port: 3110
+[2021-03-27T18:45:15,853 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-27T18:45:56,581 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-27T18:45:58,255 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T18:46:23,887 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T18:46:50,553 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.AddCommand
+[2021-03-27T18:46:50,622 INFO ] server.collection.QueueManager - Added ticket AbstractTicket{id=40, name='09'} 
+[2021-03-27T18:46:54,144 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T18:47:06,850 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-27T18:47:06,911 INFO ] server.collection.QueueManager - Updated ticket with id 40.
+[2021-03-27T18:47:08,044 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T18:47:16,761 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-27T18:47:16,762 INFO ] server.command_manager.ServerCommandFactory - Unknown command : update got.
+[2021-03-27T18:47:16,762 INFO ] server.connection.DefaultConnectionManager - Sent error response ERR_UNK_COMMAND
+[2021-03-27T18:47:17,889 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T18:47:25,006 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-27T18:47:25,007 INFO ] server.command_manager.ServerCommandFactory - Unknown command : update got.
+[2021-03-27T18:47:25,007 INFO ] server.connection.DefaultConnectionManager - Sent error response ERR_UNK_COMMAND
+[2021-03-27T18:47:27,439 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T18:47:33,877 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-27T18:47:33,878 INFO ] server.command_manager.ServerCommandFactory - Unknown command : update got.
+[2021-03-27T18:47:33,878 INFO ] server.connection.DefaultConnectionManager - Sent error response ERR_UNK_COMMAND
+[2021-03-27T18:47:34,975 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T18:47:49,838 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T18:48:21,086 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-27T18:48:21,086 INFO ] server.command_manager.ServerCommandFactory - Unknown command : update got.
+[2021-03-27T18:48:21,086 INFO ] server.connection.DefaultConnectionManager - Sent error response ERR_UNK_COMMAND
+[2021-03-27T18:48:22,415 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T18:50:28,258 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-27T18:50:31,552 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T18:50:45,685 INFO ] server.connection.DefaultConnectionManager - User: login has logged in.
+[2021-03-27T18:50:47,877 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T18:50:55,712 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-27T18:50:55,714 INFO ] server.collection.QueueManager - Updated ticket with id 40.
+[2021-03-27T18:50:57,134 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T18:51:01,528 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-27T18:51:01,529 INFO ] server.collection.QueueManager - Updated ticket with id 40.
+[2021-03-27T18:51:03,400 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T18:51:18,779 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.UpdateCommand
+[2021-03-27T18:51:18,780 INFO ] server.collection.QueueManager - Updated ticket with id 40.
+[2021-03-27T18:51:19,808 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T18:51:53,702 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-27T18:51:53,702 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-27T18:51:55,882 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-27T18:52:10,619 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand

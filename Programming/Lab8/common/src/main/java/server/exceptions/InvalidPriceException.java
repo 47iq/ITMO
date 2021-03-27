@@ -5,8 +5,4 @@ public class InvalidPriceException extends InvalidTicketFieldException implement
     public InvalidPriceException() {
         super("ERR_INVALID_PRICE");
     }
-
-    public String accept(ExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

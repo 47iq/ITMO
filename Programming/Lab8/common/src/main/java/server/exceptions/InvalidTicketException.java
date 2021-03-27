@@ -5,8 +5,4 @@ public class InvalidTicketException extends IllegalArgumentException implements 
     public InvalidTicketException() {
         super("ERR_INVALID_TICKET");
     }
-
-    public String accept(ExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

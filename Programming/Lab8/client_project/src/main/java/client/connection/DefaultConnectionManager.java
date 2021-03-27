@@ -30,7 +30,7 @@ public class DefaultConnectionManager implements ConnectionManager {
     private final InetAddress inetAddress;
     private final int port;
     private User user;
-    private Map<String, MessagingCommand> messagingCommands;
+    private final Map<String, MessagingCommand> messagingCommands;
 
     public DefaultConnectionManager(ObjectFactory ticketFactory, InetAddress address, int port, CommandFactory commandFactory,
                                     Map<String, MessagingCommand> messagingCommands) {
@@ -69,13 +69,9 @@ public class DefaultConnectionManager implements ConnectionManager {
                 requestSender.sendRequest(commandRequest);
                 return decorateResponse(responseReader.readResponse(), commandName);
             } catch (ConnectionException e) {
-                //TODO
-                e.printStackTrace();
                 return ticketFactory.getResponse(false, "ERR_CONNECTION");
             } catch (Exception e) {
                 if (!commandName.equals("shut_down")) {
-                    //TODO
-                    e.printStackTrace();
                     return ticketFactory.getResponse(false, "ERR_COMMUNICATION");
                 }
             }
@@ -84,8 +80,6 @@ public class DefaultConnectionManager implements ConnectionManager {
     }
 
     private Response decorateResponse(Response response, String command) {
-        //TODO
-        System.out.println(response);
         if (response.isSuccessful() && messagingCommands.get(command) != null) {
             messagingCommands.get(command).execute(response);
         }

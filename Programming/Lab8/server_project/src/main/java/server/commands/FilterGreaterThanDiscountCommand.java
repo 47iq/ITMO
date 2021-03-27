@@ -6,7 +6,6 @@ import server.ObjectFactory;
 import server.collection.CollectionManager;
 import server.command_manager.Visitor;
 import server.exceptions.InvalidDiscountException;
-import server.messages.Messenger;
 
 import java.util.List;
 
@@ -22,8 +21,7 @@ public class FilterGreaterThanDiscountCommand implements MessagingCommand {
     public FilterGreaterThanDiscountCommand() {
     }
 
-    public Response execute(CollectionManager collectionManager, Ticket ticket1, String arg, Messenger messenger,
-                            ObjectFactory factory) {
+    public Response execute(CollectionManager collectionManager, Ticket ticket1, String arg, ObjectFactory factory) {
         double discount;
         try {
             discount = Double.parseDouble(arg);
@@ -33,7 +31,7 @@ public class FilterGreaterThanDiscountCommand implements MessagingCommand {
         StringBuilder message = new StringBuilder();
         List<Ticket> tickets = collectionManager.filterDiscount(discount);
         for (Ticket ticket : tickets)
-            message.append(messenger.getTicketMessage(ticket)).append("\n");
+            message.append(ticket.toString()).append("\n");
         return factory.getResponse(true, message.toString());
     }
 

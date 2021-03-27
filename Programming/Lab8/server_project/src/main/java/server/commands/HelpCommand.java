@@ -5,7 +5,6 @@ import common.Ticket;
 import server.ObjectFactory;
 import server.collection.CollectionManager;
 import server.command_manager.Visitor;
-import server.messages.Messenger;
 
 /**
  * Class of help command
@@ -19,9 +18,9 @@ public class HelpCommand implements MessagingCommand {
     public HelpCommand() {
     }
 
-    public Response execute(CollectionManager collectionManager, Ticket ticket, String arg, Messenger messenger,
+    public Response execute(CollectionManager collectionManager, Ticket ticket, String arg,
                             ObjectFactory factory) {
-        return factory.getResponse(true, messenger.getCommandsMessages());
+        return factory.getResponse(true, "");
     }
 
     public Response accept(Visitor visitor) {

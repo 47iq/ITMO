@@ -15,7 +15,6 @@ public class DefaultControllerCommandReader extends AbstractCommandReader {
     private final UpdateData updateData;
 
     public DefaultControllerCommandReader(ConnectionManager commandFactory, ObjectFactory ticketFactory) {
-        // FIXME reader= ;
         super.ticketFactory = ticketFactory;
         super.commandFactory = commandFactory;
         updateData = ticketFactory.getUpdateData();

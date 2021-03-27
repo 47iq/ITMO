@@ -5,7 +5,6 @@ import common.Ticket;
 import server.ObjectFactory;
 import server.collection.CollectionManager;
 import server.command_manager.Visitor;
-import server.messages.Messenger;
 
 /**
  * Class of max_by_coordinates command
@@ -20,9 +19,9 @@ public class MaxByCoordinatesCommand implements MessagingCommand {
     public MaxByCoordinatesCommand() {
     }
 
-    public Response execute(CollectionManager collectionManager, Ticket ticket, String arg, Messenger messenger,
+    public Response execute(CollectionManager collectionManager, Ticket ticket, String arg,
                             ObjectFactory factory) {
-        return factory.getResponse(true, messenger.getTicketMessage(collectionManager.maxByCoordinates()));
+        return factory.getResponse(true, ticket.toString());
     }
 
     public Response accept(Visitor visitor) {

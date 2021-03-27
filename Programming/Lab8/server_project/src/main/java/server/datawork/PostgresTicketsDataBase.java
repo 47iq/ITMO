@@ -28,7 +28,6 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
 
     public void update(ServerTicket ticket, int id, String owner, UpdateData updateData) throws SQLException {
         int index = 1;
-        //FIXME remove
         System.out.println(updateData.isNameSelected());
         String sql = prepareString(updateData);
         PreparedStatement preparedStatement = connection.prepareStatement(sql);

@@ -55,14 +55,18 @@ public class ServerCommandFactory implements CommandFactory {
             command = getServerCommand(commandName);
         else
             command = getCommand(commandName);
+        if(command == null) {
+            LogManager.getLogger().info("Unknown command : {} got.", commandName);
+            throw new UnknownCommandException();
+        }
         try {
             return command.accept(visitor);
         } catch (Exception e) {
             if (e instanceof CommonException)
                 return ticketFactory.getResponse(false, e.getMessage());
             else {
-                LogManager.getLogger().info("Unknown command : {} got.", commandName);
-                throw new UnknownCommandException();
+                LogManager.getLogger().info("Unknown error during {} execution.", commandName);
+                return ticketFactory.getResponse(false, "ERR_UNK");
             }
         }
     }

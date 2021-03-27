@@ -8,8 +8,6 @@ import server.ObjectFactory;
 import server.collection.CollectionManager;
 import server.commands.*;
 import server.datawork.UsersDataBase;
-import server.messages.MessagesENG;
-import server.messages.Messenger;
 
 public class CommandVisitor implements Visitor {
 
@@ -43,8 +41,7 @@ public class CommandVisitor implements Visitor {
 
     public Response visit(MessagingCommand command) {
         LogManager.getLogger().info("Executing command: {}", command.getClass());
-        Messenger messenger = new MessagesENG();
-        return command.execute(collectionManager, curTicket, curArg, messenger, factory);
+        return command.execute(collectionManager, curTicket, curArg, factory);
     }
 
     public Response visit(ServerCommand command) {

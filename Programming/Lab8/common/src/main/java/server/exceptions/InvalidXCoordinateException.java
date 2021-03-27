@@ -4,8 +4,4 @@ public class InvalidXCoordinateException extends InvalidTicketFieldException imp
     public InvalidXCoordinateException() {
         super("ERR_INVALID_X");
     }
-
-    public String accept(ExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

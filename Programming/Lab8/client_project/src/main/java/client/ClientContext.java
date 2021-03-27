@@ -7,9 +7,6 @@ import client.controllers.ControlManager;
 import client.controllers.ControllerContext;
 import client.controllers.DefaultControlManager;
 import client.controllers.DefaultControllerContext;
-import client.exceptions.ClientExceptionMessenger;
-import client.exceptions.LocalMessengerException;
-import client.messages.*;
 import client.reader.CommandReader;
 import client.reader.DefaultControllerCommandReader;
 import client.reader.FileCommandReader;
@@ -104,28 +101,8 @@ public class ClientContext implements ObjectFactory {
         return new DefaultResponseReader(channel);
     }
 
-    public Messenger getLocalMessenger() {
-        Locale localeRu = new Locale("ru", "RU");
-        if (locale.getLanguage().equals(localeRu.getLanguage()))
-            return new MessengerRU();
-        else if (locale.getLanguage().equals(Locale.ENGLISH.getLanguage()))
-            return new MessengerENG();
-        else {
-            Main.getErr().println(new LocalMessengerException().accept(Main.getExceptionMessenger()));
-            return new MessengerENG();
-        }
-    }
-
-    public ClientExceptionMessenger getLocalErrorHandler() {
-        Locale localeRu = new Locale("ru", "RU");
-        if (locale.getLanguage().equals(localeRu.getLanguage()))
-            return new ExceptionMessengerRU();
-        else
-            return new ExceptionMessengerENG();
-    }
-
     public ClientCommandFactory getCommandFactory() {
-        return new ClientCommandFactory(getClient(), getCommands(), this, getLocalMessenger());
+        return new ClientCommandFactory(getClient(), getCommands(), this);
     }
 
     public Client getClient() {

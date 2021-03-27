@@ -139,7 +139,8 @@ public class AddController implements Controller {
     private void displayInfo(String s) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(bundle.getString("SUCCESS"));
-        //FIXME
+        if(s.equals(""))
+            s = bundle.getString("SUCCESS");
         alert.setHeaderText(s);
         alert.showAndWait();
     }

@@ -4,8 +4,4 @@ public class InvalidDiscountException extends InvalidTicketFieldException implem
     public InvalidDiscountException() {
         super("ERR_INVALID_DISCOUNT");
     }
-
-    public String accept(ExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

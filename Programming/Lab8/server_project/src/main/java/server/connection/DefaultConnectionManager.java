@@ -57,8 +57,6 @@ public class DefaultConnectionManager implements ConnectionManager {
                     LogManager.getLogger().info("Sent error response " + e.getMessage());
                     sendResponse(serverObjectFactory.getResponse(false, e.getMessage()), client);
                 } else {
-                    //TODO
-                    e.printStackTrace();
                     LogManager.getLogger().info("Sent error response " + new UnknownException().getMessage());
                     sendResponse(serverObjectFactory.getResponse(false, new UnknownException().getMessage()), client);
                 }
@@ -107,7 +105,6 @@ public class DefaultConnectionManager implements ConnectionManager {
                         colorMap = usersDataBase.getUserColors();
                         response = serverObjectFactory.getResponse(true, "");
                         response.setColorMap(colorMap);
-                        //TODO
                         System.out.println(colorMap);
                     }
                     case "update_color" -> {

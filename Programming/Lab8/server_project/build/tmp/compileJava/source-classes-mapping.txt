@@ -1,105 +1,21 @@
-server/messages/DefaultExceptionMessenger.java
- server.messages.DefaultExceptionMessenger
 server/connection/ConnectionManager.java
  server.connection.ConnectionManager
 server/datawork/TicketsDataBase.java
  server.datawork.TicketsDataBase
-server/exceptions/InputFileNotFoundException.java
- server.exceptions.InputFileNotFoundException
-server/exceptions/ServerExceptionMessenger.java
- server.exceptions.ServerExceptionMessenger
-server/ticket/ServerTicket.java
- server.ticket.ServerTicket
-server/exceptions/CommandExecutionException.java
- server.exceptions.CommandExecutionException
-server/connection/ConnectionBuilder.java
- server.connection.ConnectionBuilder
-server/datawork/SHA384CryptoModule.java
- server.datawork.SHA384CryptoModule
-server/exceptions/UnknownException.java
- server.exceptions.UnknownException
-server/exceptions/ServerException.java
- server.exceptions.ServerException
-server/exceptions/InvalidIdException.java
- server.exceptions.InvalidIdException
-server/messages/ErrorMessengerRU.java
- server.messages.ErrorMessengerRU
-server/datawork/TicketReader.java
- server.datawork.TicketReader
-server/datawork/ColorGenerator.java
- server.datawork.ColorGenerator
-server/ticket/ServerDefaultPerson.java
- server.ticket.ServerDefaultPerson
-server/messages/Messenger.java
- server.messages.Messenger
-server/exceptions/UserExistsException.java
- server.exceptions.UserExistsException
-server/ticket/ServerDefaultTicket.java
- server.ticket.ServerDefaultTicket
-server/messages/MessagesENG.java
- server.messages.MessagesENG
-server/exceptions/UnknownTypeException.java
- server.exceptions.UnknownTypeException
-server/datawork/DefaultColorGenerator.java
- server.datawork.DefaultColorGenerator
-server/exceptions/NotLoggedInException.java
- server.exceptions.NotLoggedInException
-server/messages/MessagesRU.java
- server.messages.MessagesRU
-server/datawork/CryptoModule.java
- server.datawork.CryptoModule
-server/messages/ServerMessenger.java
- server.messages.ServerMessenger
-server/collection/CollectionManager.java
- server.collection.CollectionManager
-server/ticket/ServerDefaultCoordinates.java
- server.ticket.ServerDefaultCoordinates
-server/exceptions/LoginException.java
- server.exceptions.LoginException
-server/exceptions/UnknownCommandException.java
- server.exceptions.UnknownCommandException
-server/datawork/TicketWriter.java
- server.datawork.TicketWriter
-server/connection/Server.java
- server.connection.Server
-server/connection/DefaultConnectionBuilder.java
- server.connection.DefaultConnectionBuilder
-server/exceptions/BrokenPackageException.java
- server.exceptions.BrokenPackageException
-server/collection/AbstractQueueManager.java
- server.collection.AbstractQueueManager
-server/exceptions/RegistrationException.java
- server.exceptions.RegistrationException
-server/messages/ErrorMessengerENG.java
- server.messages.ErrorMessengerENG
-server/connection/RequestReader.java
- server.connection.RequestReader
-server/connection/DefaultServer.java
- server.connection.DefaultServer
-server/connection/DefaultResponseSender.java
- server.connection.DefaultResponseSender
-server/connection/DefaultRequestReader.java
- server.connection.DefaultRequestReader
-server/connection/ResponseSender.java
- server.connection.ResponseSender
-server/commands/UpdateCommand.java
- server.commands.UpdateCommand
-server/commands/HelpCommand.java
- server.commands.HelpCommand
-server/datawork/DataBaseManager.java
- server.datawork.DataBaseManager
 server/commands/TicketCommand.java
  server.commands.TicketCommand
+server/ticket/ServerTicket.java
+ server.ticket.ServerTicket
 server/commands/ExitCommand.java
  server.commands.ExitCommand
-server/datawork/PostgresTicketsDataBase.java
- server.datawork.PostgresTicketsDataBase
 server/commands/MessagingCommand.java
  server.commands.MessagingCommand
 server/commands/MaxByCoordinatesCommand.java
  server.commands.MaxByCoordinatesCommand
 server/commands/SaveCommand.java
  server.commands.SaveCommand
+server/exceptions/UnknownException.java
+ server.exceptions.UnknownException
 server/commands/ColorCommand.java
  server.commands.ColorCommand
 server/command_manager/CommandVisitor.java
@@ -108,18 +24,22 @@ server/commands/RemoveByIdCommand.java
  server.commands.RemoveByIdCommand
 server/commands/GetUserColorCommand.java
  server.commands.GetUserColorCommand
-server/commands/RemoveFirstCommand.java
- server.commands.RemoveFirstCommand
 server/command_manager/CommandFactory.java
  server.command_manager.CommandFactory
 server/commands/ExitNoSaveCommand.java
  server.commands.ExitNoSaveCommand
+server/ticket/ServerDefaultPerson.java
+ server.ticket.ServerDefaultPerson
 server/commands/UpdatingCommand.java
  server.commands.UpdatingCommand
-server/commands/RemoveGreaterCommand.java
- server.commands.RemoveGreaterCommand
+server/exceptions/UserExistsException.java
+ server.exceptions.UserExistsException
+server/ticket/ServerDefaultTicket.java
+ server.ticket.ServerDefaultTicket
 server/command_manager/ServerCommandFactory.java
  server.command_manager.ServerCommandFactory
+server/exceptions/UnknownTypeException.java
+ server.exceptions.UnknownTypeException
 server/Main.java
  server.Main
 server/commands/Command.java
@@ -128,36 +48,96 @@ server/commands/FilterGreaterThanDiscountCommand.java
  server.commands.FilterGreaterThanDiscountCommand
 server/commands/AddIfMaxCommand.java
  server.commands.AddIfMaxCommand
-server/connection/DefaultConnectionManager.java
- server.connection.DefaultConnectionManager
- server.connection.DefaultConnectionManager$1
-server/commands/UpdateColorCommand.java
- server.commands.UpdateColorCommand
-server/commands/ShowCommand.java
- server.commands.ShowCommand
-server/datawork/UsersDataBase.java
- server.datawork.UsersDataBase
 server/commands/PrintFieldDescendingRefundableCommand.java
  server.commands.PrintFieldDescendingRefundableCommand
 server/collection/QueueManager.java
  server.collection.QueueManager
+server/exceptions/LoginException.java
+ server.exceptions.LoginException
 server/commands/InfoCommand.java
  server.commands.InfoCommand
+server/datawork/TicketWriter.java
+ server.datawork.TicketWriter
+server/commands/ClearCommand.java
+ server.commands.ClearCommand
+server/connection/ResponseSender.java
+ server.connection.ResponseSender
+server/ObjectFactory.java
+ server.ObjectFactory
+server/ServerObjectFactory.java
+ server.ServerObjectFactory
+server/exceptions/RegistrationException.java
+ server.exceptions.RegistrationException
+server/datawork/SHA384CryptoModule.java
+ server.datawork.SHA384CryptoModule
+server/connection/RequestReader.java
+ server.connection.RequestReader
+server/exceptions/CommandExecutionException.java
+ server.exceptions.CommandExecutionException
+server/commands/UpdateColorCommand.java
+ server.commands.UpdateColorCommand
+server/connection/ConnectionBuilder.java
+ server.connection.ConnectionBuilder
+server/collection/AbstractQueueManager.java
+ server.collection.AbstractQueueManager
+server/commands/UpdateCommand.java
+ server.commands.UpdateCommand
+server/connection/Server.java
+ server.connection.Server
+server/commands/HelpCommand.java
+ server.commands.HelpCommand
+server/datawork/DataBaseManager.java
+ server.datawork.DataBaseManager
+server/exceptions/UnknownCommandException.java
+ server.exceptions.UnknownCommandException
+server/ticket/ServerDefaultCoordinates.java
+ server.ticket.ServerDefaultCoordinates
+server/collection/CollectionManager.java
+ server.collection.CollectionManager
+server/datawork/CryptoModule.java
+ server.datawork.CryptoModule
+server/exceptions/InvalidIdException.java
+ server.exceptions.InvalidIdException
+server/datawork/ColorGenerator.java
+ server.datawork.ColorGenerator
+server/datawork/PostgresTicketsDataBase.java
+ server.datawork.PostgresTicketsDataBase
+server/connection/DefaultRequestReader.java
+ server.connection.DefaultRequestReader
+server/exceptions/NotLoggedInException.java
+ server.exceptions.NotLoggedInException
+server/commands/RemoveFirstCommand.java
+ server.commands.RemoveFirstCommand
+server/commands/RemoveGreaterCommand.java
+ server.commands.RemoveGreaterCommand
+server/connection/DefaultResponseSender.java
+ server.connection.DefaultResponseSender
+server/connection/DefaultConnectionManager.java
+ server.connection.DefaultConnectionManager
+ server.connection.DefaultConnectionManager$1
+server/datawork/TicketReader.java
+ server.datawork.TicketReader
+server/datawork/DefaultColorGenerator.java
+ server.datawork.DefaultColorGenerator
+server/datawork/PostgresUsersDataBase.java
+ server.datawork.PostgresUsersDataBase
+server/commands/ShowCommand.java
+ server.commands.ShowCommand
+server/datawork/UsersDataBase.java
+ server.datawork.UsersDataBase
 server/datawork/PostgresDataBaseManager.java
  server.datawork.PostgresDataBaseManager
 server/command_manager/Visitor.java
  server.command_manager.Visitor
-server/commands/ClearCommand.java
- server.commands.ClearCommand
-server/ObjectFactory.java
- server.ObjectFactory
-server/commands/SimpleCommand.java
- server.commands.SimpleCommand
 server/commands/AddCommand.java
  server.commands.AddCommand
+server/connection/DefaultServer.java
+ server.connection.DefaultServer
 server/commands/ServerCommand.java
  server.commands.ServerCommand
-server/datawork/PostgresUsersDataBase.java
- server.datawork.PostgresUsersDataBase
-server/ServerObjectFactory.java
- server.ServerObjectFactory
+server/exceptions/ServerException.java
+ server.exceptions.ServerException
+server/commands/SimpleCommand.java
+ server.commands.SimpleCommand
+server/connection/DefaultConnectionBuilder.java
+ server.connection.DefaultConnectionBuilder

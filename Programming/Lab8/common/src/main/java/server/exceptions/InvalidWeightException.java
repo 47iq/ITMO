@@ -5,8 +5,4 @@ public class InvalidWeightException extends InvalidTicketFieldException implemen
     public InvalidWeightException() {
         super("ERR_INVALID_WEIGHT");
     }
-
-    public String accept(ExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

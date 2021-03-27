@@ -5,7 +5,6 @@ import common.Ticket;
 import server.ObjectFactory;
 import server.collection.CollectionManager;
 import server.command_manager.Visitor;
-import server.messages.Messenger;
 
 /**
  * Class of show command
@@ -20,7 +19,7 @@ public class ShowCommand implements MessagingCommand {
 
     }
 
-    public Response execute(CollectionManager collectionManager, Ticket ticket, String arg, Messenger messenger,
+    public Response execute(CollectionManager collectionManager, Ticket ticket, String arg,
                             ObjectFactory factory) {
         Response response = factory.getResponse(true, "");
         response.setCollection(collectionManager.getTicketList());

@@ -46,7 +46,6 @@ public class FilterController implements Controller {
         bundle = context.getBundle();
         localize();
         userText.setText(context.getCurrentUser());
-        //FIXME
         ObservableList<String> fields = FXCollections.observableArrayList(bundle.getString("ID"),
                 bundle.getString("PRICE"), bundle.getString("DISCOUNT"), bundle.getString("TYPE"),
                 bundle.getString("REFUNDABLE"), bundle.getString("X"), bundle.getString("Y"),
@@ -164,7 +163,8 @@ public class FilterController implements Controller {
     private void displayInfo(String s) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(bundle.getString("SUCCESS"));
-        //FIXME
+        if(s.equals(""))
+            s = bundle.getString("SUCCESS");
         alert.setHeaderText(s);
         alert.showAndWait();
     }

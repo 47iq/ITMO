@@ -5,9 +5,4 @@ public class UnknownCommandException extends IllegalArgumentException implements
     public UnknownCommandException() {
         super("ERR_UNK_COMMAND");
     }
-
-
-    public String accept(ServerExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

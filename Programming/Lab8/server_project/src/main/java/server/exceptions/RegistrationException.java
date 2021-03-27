@@ -5,8 +5,4 @@ public class RegistrationException extends RuntimeException implements ServerExc
     public RegistrationException() {
         super("ERR_REGISTER");
     }
-
-    public String accept(ServerExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

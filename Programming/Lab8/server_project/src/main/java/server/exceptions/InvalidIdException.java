@@ -5,8 +5,4 @@ public class InvalidIdException extends InvalidTicketFieldException implements S
     public InvalidIdException() {
         super("ERR_INVALID_ID");
     }
-
-    public String accept(ServerExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

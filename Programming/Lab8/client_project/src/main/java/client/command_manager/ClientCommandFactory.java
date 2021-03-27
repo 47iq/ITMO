@@ -5,11 +5,9 @@ import client.Main;
 import client.ObjectFactory;
 import client.commands.AuthCommand;
 import client.commands.ExitCommand;
-import client.commands.MessageCommand;
 import client.commands.ScriptCommand;
 import client.connection.ConnectionManager;
 import client.exceptions.ScriptFileRecursionException;
-import client.messages.Messenger;
 import client.reader.CommandReader;
 import common.Command;
 import common.Response;
@@ -29,13 +27,10 @@ public class ClientCommandFactory implements CommandFactory {
 
     private final ObjectFactory objectFactory;
 
-    private final Messenger messenger;
-
-    public ClientCommandFactory(Client client, Map<String, Command> commands, ObjectFactory objectFactory, Messenger messenger) {
+    public ClientCommandFactory(Client client, Map<String, Command> commands, ObjectFactory objectFactory) {
         this.client = client;
         this.commands = commands;
         this.objectFactory = objectFactory;
-        this.messenger = messenger;
     }
 
     public Command getCommand(String commandName) {
@@ -49,8 +44,6 @@ public class ClientCommandFactory implements CommandFactory {
             return ((AuthCommand) command).execute(commandReader, factory, arg, objectFactory);
         if (command instanceof ScriptCommand)
             return executeScriptCommand((ScriptCommand) command, commandReader, arg, factory);
-        if (command instanceof MessageCommand)
-            return ((MessageCommand) command).execute(objectFactory);
         return null;
     }
 

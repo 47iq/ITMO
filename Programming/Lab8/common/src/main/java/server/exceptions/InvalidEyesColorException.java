@@ -5,8 +5,4 @@ public class InvalidEyesColorException extends InvalidTicketFieldException imple
     public InvalidEyesColorException() {
         super("ERR_INVALID_EYES");
     }
-
-    public String accept(ExceptionMessenger visitor) {
-        return visitor.visit(this);
-    }
 }

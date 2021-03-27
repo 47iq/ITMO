@@ -2,11 +2,6 @@ package client;
 
 import client.controllers.Controller;
 import client.controllers.ControllerContext;
-import client.exceptions.ClientExceptionMessenger;
-import client.messages.DefaultErrorPrinter;
-import client.messages.DefaultPrinter;
-import client.messages.ErrorPrinter;
-import client.messages.Printer;
 import common.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -29,16 +24,6 @@ import java.util.Locale;
 
 public class Main extends Application {
 
-    /**
-     * The entry point of the program
-     *
-     * @param args String[] args
-     */
-
-    private static Printer out;
-
-    private static ErrorPrinter err;
-
     private static void setValidators() {
         DefaultTicket.setValidator(new DefaultTicketValidator());
         DefaultCoordinates.setValidator(new DefaultCoordinatesValidator());
@@ -47,8 +32,6 @@ public class Main extends Application {
 
     public void start(Stage primaryStage) throws Exception {
         setValidators();
-        out = new DefaultPrinter(System.out);
-        err = new DefaultErrorPrinter(System.err);
         ObjectFactory factory = new ClientContext(Locale.ENGLISH);
         makeStage("welcome.fxml", factory.getContext());
     }
@@ -69,19 +52,6 @@ public class Main extends Application {
         stage.setMinHeight(400);
         stage.setMinWidth(700);
         stage.show();
-    }
-
-    public static Printer getOut() {
-        return out;
-    }
-
-    public static ErrorPrinter getErr() {
-        return err;
-    }
-
-    public static ClientExceptionMessenger getExceptionMessenger() {
-        //FIXME
-        return null;
     }
 }
 
