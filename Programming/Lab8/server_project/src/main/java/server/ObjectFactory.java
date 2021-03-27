@@ -46,5 +46,5 @@ public interface ObjectFactory {
     ServerExceptionMessenger getLocalErrMessenger(Locale locale);
 
     Visitor getCommandVisitor(String curArg, Ticket curTicket, CollectionManager collectionManager,
-                              ObjectFactory factory, String login, UpdateData updateData);
+                              ObjectFactory factory, String login, UpdateData updateData, UsersDataBase dataBase);
 }

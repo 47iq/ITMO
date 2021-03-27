@@ -2,7 +2,7 @@ package client.exceptions;
 
 public class ScriptException extends RuntimeException implements ClientException {
 
-    public ScriptException(String name) {
+    public ScriptException() {
         super("ERR_SCRIPT");
     }
 

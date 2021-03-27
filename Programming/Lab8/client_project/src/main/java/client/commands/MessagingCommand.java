@@ -9,7 +9,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public interface MessagingCommand {
-    void execute(Response response);
+    Response execute(Response response);
 
     default ResourceBundle getLocalResourceBundle() {
         ResourceBundle bundle = null;

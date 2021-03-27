@@ -91,6 +91,9 @@ public class MainController implements Controller {
         exitButton.setOnAction(actionEvent -> {
             System.exit(0);
         });
+        visualButton.setOnAction(actionEvent -> {
+            controlManager.showScene((Stage) backButton.getScene().getWindow(), "visual.fxml", this);
+        });
     }
 
     private void localize() {

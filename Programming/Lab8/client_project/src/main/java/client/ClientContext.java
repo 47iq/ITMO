@@ -45,10 +45,34 @@ public class ClientContext implements ObjectFactory {
 
     private ConnectionManager getConnectionManager() {
         try {
-            return new MessagingConnectionManager(new DefaultConnectionManager(this, InetAddress.getByName("localhost"), 3110, getCommandFactory()));
+            return new DefaultConnectionManager(this, InetAddress.getByName("localhost"), 3110, getCommandFactory(), getMessagingCommands());
         } catch (Exception e) {
             throw new RuntimeException();
         }
+    }
+
+    private Map<String, MessagingCommand> getMessagingCommands() {
+        Map<String, MessagingCommand> messagingCommands = new HashMap<>();
+        messagingCommands.put("info", new ClientInfoCommand());
+        messagingCommands.put("show", new ClientShowCommand());
+        messagingCommands.put("help", new ClientHelpCommand(getTranslations()));
+        return messagingCommands;
+    }
+
+    private Map<String, String> getTranslations() {
+        Map<String, String> translations = new HashMap<>();
+        translations.put("help", "HELP_DESC");
+        translations.put("info", "INFO_DESC");
+        translations.put("show", "SHOW_DESC");
+        translations.put("add", "ADD_DESC");
+        translations.put("add_if_max", "ADD_MAX_DESC");
+        translations.put("update", "UPDATE_DESC");
+        translations.put("remove_by_id", "REMOVE_ID_DESC");
+        translations.put("remove_greater", "REMOVE_GREATER_DESC");
+        translations.put("remove_first","REMOVE_FIRST");
+        translations.put("clear","CLEAR_DESCRIPTION");
+        translations.put("visualize","VISUALIZE_DESCRIPTION");
+        return translations;
     }
 
 
@@ -111,7 +135,6 @@ public class ClientContext implements ObjectFactory {
     public Map<String, Command> getCommands() {
         HashMap<String, Command> commands = new HashMap<>();
         commands.put("execute_script", new ExecuteScriptCommand());
-        commands.put("help", new ClientHelpCommand());
         commands.put("exit", new DefaultExitCommand());
         commands.put("login", new LoginCommand());
         commands.put("register", new RegisterCommand());

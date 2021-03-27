@@ -13,4 +13,6 @@ public interface Visitor {
     Response visit(ServerCommand serverCommand);
 
     Response visit(UpdatingCommand serverCommand);
+
+    Response visit(ColorCommand command);
 }

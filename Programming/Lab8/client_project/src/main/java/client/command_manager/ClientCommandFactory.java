@@ -12,6 +12,7 @@ import client.exceptions.ScriptFileRecursionException;
 import client.messages.Messenger;
 import client.reader.CommandReader;
 import common.Command;
+import common.Response;
 
 import java.io.File;
 import java.util.HashSet;
@@ -41,27 +42,28 @@ public class ClientCommandFactory implements CommandFactory {
         return commands.get(commandName);
     }
 
-    public void executeCommand(Command command, CommandReader commandReader, String arg, ConnectionManager factory) {
+    public Response executeCommand(Command command, CommandReader commandReader, String arg, ConnectionManager factory) {
         if (command instanceof ExitCommand)
-            ((ExitCommand) command).execute(client);
+            return ((ExitCommand) command).execute(client, objectFactory);
         if (command instanceof AuthCommand)
-            ((AuthCommand) command).execute(commandReader, factory, arg, objectFactory);
+            return ((AuthCommand) command).execute(commandReader, factory, arg, objectFactory);
         if (command instanceof ScriptCommand)
-            executeScriptCommand((ScriptCommand) command, commandReader, arg, factory);
+            return executeScriptCommand((ScriptCommand) command, commandReader, arg, factory);
         if (command instanceof MessageCommand)
-            ((MessageCommand) command).execute(messenger);
+            return ((MessageCommand) command).execute(objectFactory);
+        return null;
     }
 
-    private void executeScriptCommand(ScriptCommand command, CommandReader commandReader, String arg,
+    private Response executeScriptCommand(ScriptCommand command, CommandReader commandReader, String arg,
                                       ConnectionManager factory) {
         File file = new File(arg);
         if (files.contains(file)) {
-            Main.getErr().println(new ScriptFileRecursionException().accept(Main.getExceptionMessenger()));
-            return;
+            throw new ScriptFileRecursionException();
         }
         files.add(file);
         command.execute(commandReader, arg, factory, objectFactory);
         files.remove(file);
+        return objectFactory.getResponse(true, "");
     }
 
 }

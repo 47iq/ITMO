@@ -27,14 +27,13 @@ public class ExecuteScriptCommand implements ScriptCommand {
         try {
             file = new File(fileName);
         } catch (Exception e) {
-            Main.getErr().println(new ScriptFileNotFoundException(fileName).accept(Main.getExceptionMessenger()));
-            return;
+            throw new ScriptFileNotFoundException();
         }
         try {
             CommandReader fileCommandReader = ticketFactory.getFileReader(commandFactory, file);
             fileCommandReader.executeNext();
         } catch (Exception e) {
-            Main.getErr().println(new ScriptException(fileName).accept(Main.getExceptionMessenger()));
+            throw new ScriptException();
         } finally {
             commandReader.executeNext();
         }

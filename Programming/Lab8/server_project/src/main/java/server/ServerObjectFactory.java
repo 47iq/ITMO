@@ -76,8 +76,8 @@ public class ServerObjectFactory implements ObjectFactory {
     }
 
     public Visitor getCommandVisitor(String curArg, Ticket curTicket, CollectionManager collectionManager,
-                                     ObjectFactory factory, String login, UpdateData updateData) {
-        return new CommandVisitor(curArg, curTicket, collectionManager, factory, login, updateData);
+                                     ObjectFactory factory, String login, UpdateData updateData, UsersDataBase dataBase) {
+        return new CommandVisitor(curArg, curTicket, collectionManager, factory, login, updateData, dataBase);
     }
 
     private ServerExceptionMessenger getRUVisitor() {
@@ -90,7 +90,11 @@ public class ServerObjectFactory implements ObjectFactory {
 
 
     public UsersDataBase getUsersData(Connection connection) throws SQLException {
-        return new PostgresUsersDataBase(connection, getCryptoModule());
+        return new PostgresUsersDataBase(connection, getCryptoModule(), getColorGenerator());
+    }
+
+    private ColorGenerator getColorGenerator() {
+        return new DefaultColorGenerator();
     }
 
     public CryptoModule getCryptoModule() {

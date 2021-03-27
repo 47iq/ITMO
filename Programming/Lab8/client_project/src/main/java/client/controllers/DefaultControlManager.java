@@ -4,9 +4,16 @@ import client.ClientContext;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 
@@ -27,6 +34,33 @@ public class DefaultControlManager implements ControlManager {
         } catch (IOException e) {
             LogManager.getLogger().error("IOException");
         }
+    }
+
+    public void showCanvas(Stage stage, String sceneFile, Controller controller) {
+        Group root = new Group();
+        Circle circle1 = new Circle(50);
+        circle1.setStroke(Color.GREEN);
+        circle1.setFill(Color.GREEN.deriveColor(1, 1, 1, 0.7));
+        circle1.relocate(100, 100);
+        Circle circle2 = new Circle(50);
+        circle2.setStroke(Color.BLUE);
+        circle2.setFill(Color.BLUE.deriveColor(1, 1, 1, 0.7));
+        circle2.relocate(200, 200);
+        Line line = new Line(circle1.getLayoutX(), circle1.getLayoutY(), circle2.getLayoutX(), circle2.getLayoutY());
+        line.setStrokeWidth(20);
+        Pane overlay = new Pane();
+        overlay.getChildren().addAll(circle1, circle2, line);
+        root.getChildren().addAll(overlay);
+        stage.setScene(new Scene(root, 700, 400));
+        stage.show();
+            /*FXMLLoader loader = new FXMLLoader(ClientContext.class.getClassLoader().getResource(sceneFile));
+            Parent root = loader.load();
+            Controller newController = loader.getController();
+            ControllerContext context = controller.getContext();
+            newController.initialize(context);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();*/
     }
 
     public void initBoxes(ChoiceBox<String> type, ChoiceBox<String> eyes, ChoiceBox<String> hair, ChoiceBox<String> country) {

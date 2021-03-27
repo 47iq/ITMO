@@ -2,7 +2,7 @@ package client.exceptions;
 
 public class ScriptFileNotFoundException extends RuntimeException implements ClientException {
 
-    public ScriptFileNotFoundException(String name) {
+    public ScriptFileNotFoundException() {
         super("ERR_NO_SCRIPT");
     }
 

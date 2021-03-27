@@ -1,6 +1,8 @@
 package common;
 
+import java.awt.*;
 import java.util.List;
+import java.util.Map;
 
 public interface Response {
     boolean isSuccessful();
@@ -16,4 +18,12 @@ public interface Response {
     void setInfo(String[] info);
 
     String[] getInfo();
+
+    void setColor(Color color);
+
+    Color getColor();
+
+    void setColorMap(Map<String, Color> colorMap);
+
+    Map<String, Color> getColorMap();
 }

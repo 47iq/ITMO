@@ -75,8 +75,6 @@ public class RegisterController implements Controller {
 
     private void success() {
         controlManager.showScene((Stage) backButton.getScene().getWindow(), "mainScene.fxml", this);
-        Stage stage = (Stage) submitButton.getScene().getWindow();
-        stage.close();
     }
 
     private void displayError(Exception e) {

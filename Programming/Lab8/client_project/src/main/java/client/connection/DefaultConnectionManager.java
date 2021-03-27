@@ -3,10 +3,7 @@ package client.connection;
 import client.Main;
 import client.ObjectFactory;
 import client.command_manager.CommandFactory;
-import client.commands.AuthCommand;
-import client.commands.ClientServerCommand;
-import client.commands.LoginCommand;
-import client.commands.RegisterCommand;
+import client.commands.*;
 import client.exceptions.ConnectionException;
 import client.reader.CommandReader;
 import common.*;
@@ -14,6 +11,8 @@ import common.*;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.channels.SocketChannel;
+import java.util.Map;
+import java.util.ResourceBundle;
 
 /**
  * Singleton class which parses {@link Command} and executes it
@@ -31,12 +30,15 @@ public class DefaultConnectionManager implements ConnectionManager {
     private final InetAddress inetAddress;
     private final int port;
     private User user;
+    private Map<String, MessagingCommand> messagingCommands;
 
-    public DefaultConnectionManager(ObjectFactory ticketFactory, InetAddress address, int port, CommandFactory commandFactory) {
+    public DefaultConnectionManager(ObjectFactory ticketFactory, InetAddress address, int port, CommandFactory commandFactory,
+                                    Map<String, MessagingCommand> messagingCommands) {
         this.ticketFactory = ticketFactory;
         this.inetAddress = address;
         this.port = port;
         this.commandFactory = commandFactory;
+        this.messagingCommands = messagingCommands;
     }
 
     public Response executeCommand(String commandName, CommandReader commandReader, String arg) {
@@ -44,7 +46,7 @@ public class DefaultConnectionManager implements ConnectionManager {
         Request commandRequest = ticketFactory.getRequest(RequestType.EXECUTE, commandName);
         Request ticketRequest = ticketFactory.getRequest(RequestType.ASK_TICKET, commandName);
         if (command != null && !(command instanceof ClientServerCommand))
-            commandFactory.executeCommand(command, commandReader, arg, this);
+            return commandFactory.executeCommand(command, commandReader, arg, this);
         else {
             try {
                 if (command != null)
@@ -56,25 +58,38 @@ public class DefaultConnectionManager implements ConnectionManager {
                 requestSender.sendRequest(ticketRequest);
                 Response ticketResponse = responseReader.readResponse();
                 commandFactory.executeCommand(command, commandReader, arg, this);
-                if (command instanceof AuthCommand)
-                    commandRequest.setUser(user);
                 if (ticketResponse.isSuccessful() && ticketResponse.getMessage().equals("true")) {
                     commandRequest.setTicket(commandReader.readTicket());
                 } else if (!ticketResponse.isSuccessful())
-                    Main.getErr().println(ticketResponse.getMessage());
+                    return ticketResponse;
+                if (command instanceof AuthCommand)
+                    commandRequest.setUser(user);
                 updateConnection();
                 commandRequest.setArg(arg);
                 requestSender.sendRequest(commandRequest);
-                return responseReader.readResponse();
+                return decorateResponse(responseReader.readResponse(), commandName);
             } catch (ConnectionException e) {
+                //TODO
+                e.printStackTrace();
                 return ticketFactory.getResponse(false, "ERR_CONNECTION");
             } catch (Exception e) {
                 if (!commandName.equals("shut_down")) {
+                    //TODO
+                    e.printStackTrace();
                     return ticketFactory.getResponse(false, "ERR_COMMUNICATION");
                 }
             }
         }
         return ticketFactory.getResponse(false, "ERR_COMMUNICATION");
+    }
+
+    private Response decorateResponse(Response response, String command) {
+        //TODO
+        System.out.println(response);
+        if (response.isSuccessful() && messagingCommands.get(command) != null) {
+            messagingCommands.get(command).execute(response);
+        }
+        return response;
     }
 
     private Request manageClientServer(ClientServerCommand command, Request request) {

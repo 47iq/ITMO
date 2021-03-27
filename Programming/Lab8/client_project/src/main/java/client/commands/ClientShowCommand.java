@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ClientShowCommand implements MessagingCommand {
-    public void execute(Response response) {
+    public Response execute(Response response) {
         List<Ticket> ticketList = response.getCollection();
         ResourceBundle bundle = getLocalResourceBundle();
         String message = "";
@@ -29,5 +29,6 @@ public class ClientShowCommand implements MessagingCommand {
                     bundle.getString("NATIONALITY") + ": " + ticket.getNationality() + "\n\n";
         }
         response.setMessage(message);
+        return response;
     }
 }

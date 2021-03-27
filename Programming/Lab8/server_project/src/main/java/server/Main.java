@@ -81,6 +81,8 @@ public class Main {
         commands.put("filter_greater_than_discount", new FilterGreaterThanDiscountCommand());
         commands.put("print_field_descending_refundable", new PrintFieldDescendingRefundableCommand());
         commands.put("clear", new ClearCommand());
+        commands.put("get_colors", new GetUserColorCommand());
+        commands.put("update_color", new UpdateColorCommand());
         return commands;
     }
 

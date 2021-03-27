@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import server.ObjectFactory;
 import server.collection.CollectionManager;
 import server.commands.Command;
+import server.datawork.UsersDataBase;
 import server.exceptions.CommonException;
 import server.exceptions.UnknownCommandException;
 
@@ -47,9 +48,9 @@ public class ServerCommandFactory implements CommandFactory {
         this.serverCommands = serverCommands;
     }
 
-    public Response executeCommand(String commandName, Ticket ticket, String arg, String user, UpdateData updateData) {
+    public Response executeCommand(String commandName, Ticket ticket, String arg, String user, UpdateData updateData, UsersDataBase dataBase) {
         Command command;
-        Visitor visitor = ticketFactory.getCommandVisitor(arg, ticket, collectionManager, ticketFactory, user, updateData);
+        Visitor visitor = ticketFactory.getCommandVisitor(arg, ticket, collectionManager, ticketFactory, user, updateData, dataBase);
         if (user != null && user.equals(System.getenv("ADMIN")))
             command = getServerCommand(commandName);
         else

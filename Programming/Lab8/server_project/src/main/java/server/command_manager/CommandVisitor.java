@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import server.ObjectFactory;
 import server.collection.CollectionManager;
 import server.commands.*;
+import server.datawork.UsersDataBase;
 import server.messages.MessagesENG;
 import server.messages.Messenger;
 
@@ -18,19 +19,21 @@ public class CommandVisitor implements Visitor {
     private ObjectFactory factory;
     private String login;
     private UpdateData updateData;
+    private UsersDataBase dataBase;
 
     public CommandVisitor() {
 
     }
 
     public CommandVisitor(String curArg, Ticket curTicket, CollectionManager collectionManager, ObjectFactory factory,
-                          String login, UpdateData updateData) {
+                          String login, UpdateData updateData, UsersDataBase dataBase) {
         this.curArg = curArg;
         this.curTicket = curTicket;
         this.collectionManager = collectionManager;
         this.factory = factory;
         this.login = login;
         this.updateData = updateData;
+        this.dataBase = dataBase;
     }
 
     public Response visit(SimpleCommand command) {
@@ -59,5 +62,10 @@ public class CommandVisitor implements Visitor {
     public Response visit(UpdatingCommand command) {
         LogManager.getLogger().info("Executing command: {}", command.getClass());
         return command.execute(collectionManager, curTicket, curArg, updateData, factory, login);
+    }
+
+    @Override
+    public Response visit(ColorCommand command) {
+        return command.execute(factory, dataBase, login);
     }
 }

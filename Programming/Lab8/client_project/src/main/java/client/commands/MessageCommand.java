@@ -1,7 +1,11 @@
 package client.commands;
 
+import client.ObjectFactory;
 import client.messages.Messenger;
+import common.Response;
 
-public interface MessageCommand extends ClientServerCommand {
-    void execute(Messenger messenger);
+import java.util.Map;
+
+public interface MessageCommand extends ClientCommand {
+    Response execute(ObjectFactory factory);
 }

@@ -1,10 +1,25 @@
 package client.commands;
 
-import client.Main;
-import client.messages.Messenger;
+import common.Response;
 
-public class ClientHelpCommand implements ClientServerCommand, MessageCommand, LoginFreeCommand {
-    public void execute(Messenger messenger) {
-        Main.getOut().println(messenger.getCommands());
+import java.util.Map;
+import java.util.ResourceBundle;
+
+public class ClientHelpCommand implements MessagingCommand {
+
+    private Map<String, String> commands;
+    public ClientHelpCommand(Map<String, String> commands) {
+        this.commands = commands;
+    }
+
+    @Override
+    public Response execute(Response response) {
+        ResourceBundle bundle = getLocalResourceBundle();
+        String message = "";
+        for(String command: commands.keySet()) {
+            message += command + ": " + commands.get(command);
+        }
+        response.setMessage(message);
+        return response;
     }
 }

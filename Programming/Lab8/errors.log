@@ -2443,3 +2443,6 @@
 [2021-03-23T11:35:18,614 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.net.SocketException
 [2021-03-23T20:50:33,580 ERROR] server.Main - class java.net.BindException got while executing the Main.java .
 [2021-03-24T18:49:35,057 ERROR] server.Main - class java.net.BindException got while executing the Main.java .
+[2021-03-27T00:40:06,658 ERROR] server.Main - class java.net.BindException got while executing the Main.java .
+[2021-03-27T14:41:04,503 ERROR] server.datawork.PostgresDataBaseManager - Error. Can't connect to data base: exception class org.postgresql.util.PSQLException
+[2021-03-27T15:25:17,785 ERROR] server.Main - class java.net.BindException got while executing the Main.java .

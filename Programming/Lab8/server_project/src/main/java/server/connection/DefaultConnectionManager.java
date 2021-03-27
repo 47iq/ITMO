@@ -1,17 +1,16 @@
 package server.connection;
 
-import common.Request;
-import common.Response;
-import common.Ticket;
-import common.UpdateData;
+import common.*;
 import org.apache.logging.log4j.LogManager;
 import server.ObjectFactory;
 import server.command_manager.CommandFactory;
 import server.datawork.UsersDataBase;
 import server.exceptions.*;
 
+import java.awt.*;
 import java.lang.reflect.InvocationTargetException;
 import java.net.Socket;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ForkJoinPool;
@@ -58,6 +57,8 @@ public class DefaultConnectionManager implements ConnectionManager {
                     LogManager.getLogger().info("Sent error response " + e.getMessage());
                     sendResponse(serverObjectFactory.getResponse(false, e.getMessage()), client);
                 } else {
+                    //TODO
+                    e.printStackTrace();
                     LogManager.getLogger().info("Sent error response " + new UnknownException().getMessage());
                     sendResponse(serverObjectFactory.getResponse(false, new UnknownException().getMessage()), client);
                 }
@@ -84,12 +85,44 @@ public class DefaultConnectionManager implements ConnectionManager {
             case ASK_TICKET -> response = sendTicketNeeded(request);
             case REGISTER -> response = register(request);
             case LOGIN -> response = login(request);
+            case COLOR -> response = execColor(request);
             default -> {
                 LogManager.getLogger().error("Unknown request type got. Sending error answer to the client...");
                 throw new UnknownTypeException();
             }
         }
         return response;
+    }
+
+    private Response execColor(Request request) {
+        if(checkAccess(request))
+            try {
+                User user = request.getUser();
+                String commandName = request.getCommandName();
+                Color color;
+                Response response;
+                Map<String, Color> colorMap;
+                switch (commandName) {
+                    case "get_colors" -> {
+                        colorMap = usersDataBase.getUserColors();
+                        response = serverObjectFactory.getResponse(true, "");
+                        response.setColorMap(colorMap);
+                        //TODO
+                        System.out.println(colorMap);
+                    }
+                    case "update_color" -> {
+                        color = usersDataBase.getNewColor(user.getLogin());
+                        response = serverObjectFactory.getResponse(true, "");
+                        response.setColor(color);
+                    }
+                    default -> throw new RuntimeException();
+                }
+                return response;
+            } catch (Exception e) {
+                throw new CommandExecutionException();
+            }
+        else
+            throw new NotLoggedInException();
     }
 
     private Response execute(Request request) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
@@ -102,7 +135,7 @@ public class DefaultConnectionManager implements ConnectionManager {
             user = request.getUser().getLogin();
             if (ticket != null)
                 ticket.setOwner(user);
-            return commandFactory.executeCommand(commandName, ticket, arg, user, updateData);
+            return commandFactory.executeCommand(commandName, ticket, arg, user, updateData, usersDataBase);
         } else
             throw new NotLoggedInException();
     }

@@ -1,8 +1,11 @@
 package common;
 
+import java.awt.*;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class DefaultResponse implements Response, Serializable {
 
@@ -16,6 +19,10 @@ public class DefaultResponse implements Response, Serializable {
     private List<Ticket> tickets;
 
     private String[] info;
+
+    private Color color;
+
+    private Map<String, Color> colorMap;
 
     public DefaultResponse(boolean successful, String message) {
         this.successful = successful;
@@ -53,5 +60,37 @@ public class DefaultResponse implements Response, Serializable {
     @Override
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    @Override
+    public Color getColor() {
+        return color;
+    }
+
+    @Override
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    @Override
+    public Map<String, Color> getColorMap() {
+        return colorMap;
+    }
+
+    @Override
+    public void setColorMap(Map<String, Color> colorMap) {
+        this.colorMap = colorMap;
+    }
+
+    @Override
+    public String toString() {
+        return "DefaultResponse{" +
+                "successful=" + successful +
+                ", message='" + message + '\'' +
+                ", tickets=" + tickets +
+                ", info=" + Arrays.toString(info) +
+                ", color=" + color +
+                ", colorMap=" + colorMap +
+                '}';
     }
 }

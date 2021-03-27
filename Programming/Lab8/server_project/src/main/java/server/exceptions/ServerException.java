@@ -1,4 +1,4 @@
 package server.exceptions;
 
-public interface ServerException {
+public interface ServerException extends CommonException{
 }
