@@ -31,8 +31,8 @@ public class PostgresUsersDataBase implements UsersDataBase {
 
     private void create() throws SQLException {
         String createTableSQL = "CREATE TABLE IF NOT EXISTS  users " +
-                "(login TEXT primary key not null, " +
-                " password TEXT, red int, green int, blue int)";
+                "(login TEXT primary key, " +
+                " password TEXT not null, red int, green int, blue int)";
         statement.execute(createTableSQL);
         String query = " SELECT * FROM users";
         Statement statement = connection.createStatement();
