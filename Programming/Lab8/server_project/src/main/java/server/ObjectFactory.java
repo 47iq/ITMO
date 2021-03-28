@@ -3,6 +3,7 @@ package server;
 import common.*;
 import server.collection.CollectionManager;
 import server.command_manager.Visitor;
+import server.datawork.CommonDataBase;
 import server.datawork.TicketsDataBase;
 import server.datawork.UsersDataBase;
 import server.ticket.ServerTicket;
@@ -41,4 +42,6 @@ public interface ObjectFactory {
 
     Visitor getCommandVisitor(String curArg, Ticket curTicket, CollectionManager collectionManager,
                               ObjectFactory factory, String login, UpdateData updateData, UsersDataBase dataBase);
+
+    CommonDataBase getCommonData(Connection connection) throws SQLException;
 }

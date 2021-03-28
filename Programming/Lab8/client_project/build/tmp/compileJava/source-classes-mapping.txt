@@ -44,8 +44,8 @@ client/exceptions/CommunicationException.java
  client.exceptions.CommunicationException
 client/command_manager/CommandFactory.java
  client.command_manager.CommandFactory
-client/gui_controllers/ArgController.java
- client.gui_controllers.ArgController
+client/gui_controllers/VisualController.java
+ client.gui_controllers.VisualController
 client/commands/LoginFreeCommand.java
  client.commands.LoginFreeCommand
 client/exceptions/CommandInputException.java
@@ -123,5 +123,5 @@ client/reader/DefaultControllerCommandReader.java
  client.reader.DefaultControllerCommandReader
 client/connection/DefaultRequestSender.java
  client.connection.DefaultRequestSender
-client/gui_controllers/VisualController.java
- client.gui_controllers.VisualController
+client/gui_controllers/ArgController.java
+ client.gui_controllers.ArgController

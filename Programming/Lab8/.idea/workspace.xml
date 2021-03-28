@@ -4,11 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43ba2976-e12d-4b2d-9225-6eb4d5b1636d" name="Default Changelist" comment="Lab8 v0.83">
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/CommonDataBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/PostgresCommonDataBase.java" afterDir="false" />
+    <list default="true" id="43ba2976-e12d-4b2d-9225-6eb4d5b1636d" name="Default Changelist" comment="Lab8 v0.831">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/PostgresUsersDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/PostgresUsersDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ArgController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ArgController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/VisualController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/VisualController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/errors.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/build/classes/java/main/server/ObjectFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/ObjectFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/build/classes/java/main/server/ServerObjectFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/ServerObjectFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/build/classes/java/main/server/collection/QueueManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/collection/QueueManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/PostgresDataBaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/PostgresDataBaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/PostgresTicketsDataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/PostgresTicketsDataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/PostgresUsersDataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/PostgresUsersDataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/TicketsDataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/TicketsDataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/ObjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/ObjectFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/ServerObjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/ServerObjectFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/collection/QueueManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/collection/QueueManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/CommonDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/CommonDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/PostgresCommonDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/PostgresCommonDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/PostgresDataBaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/PostgresDataBaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/PostgresTicketsDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/PostgresTicketsDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/TicketsDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/TicketsDataBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,7 +324,7 @@
       <workItem from="1616668663787" duration="30891000" />
       <workItem from="1616758828318" duration="10474000" />
       <workItem from="1616791705547" duration="39921000" />
-      <workItem from="1616933763899" duration="8494000" />
+      <workItem from="1616933763899" duration="14198000" />
     </task>
     <task id="LOCAL-00001" summary="Lab8 v0">
       <created>1616268337056</created>
@@ -364,7 +389,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616940159294</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Lab8 v0.831">
+      <created>1616942371983</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1616942371983</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,7 +425,8 @@
     <MESSAGE value="Lab8 v0.81" />
     <MESSAGE value="Lab8 v0.82" />
     <MESSAGE value="Lab8 v0.83" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lab8 v0.83" />
+    <MESSAGE value="Lab8 v0.831" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lab8 v0.831" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

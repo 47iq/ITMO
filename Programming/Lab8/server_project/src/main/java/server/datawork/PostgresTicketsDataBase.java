@@ -19,6 +19,9 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
 
     private final ServerObjectFactory factory;
 
+    private CommonDataBase commonDataBase;
+
+
     public PostgresTicketsDataBase(Connection connection, ServerObjectFactory factory) throws SQLException {
         this.connection = connection;
         this.statement = connection.createStatement();
@@ -26,75 +29,78 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
         create();
     }
 
+    public void setCommonDataBase(CommonDataBase commonDataBase) {
+        this.commonDataBase = commonDataBase;
+    }
+
     @Override
     public void update(ServerTicket ticket, int id, String owner, UpdateData updateData) throws SQLException {
-        int index = 1;
-        System.out.println(updateData.isNameSelected());
-        String sql = prepareString(updateData);
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(index, ticket.getOwner());
-        index++;
-        if (updateData.isNameSelected()) {
-            preparedStatement.setString(index, ticket.getName());
+        if(ticket.getOwner().equals(commonDataBase.getOwner(id))) {
+            int index = 1;
+            String sql = prepareString(updateData);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(index, id);
             index++;
+            if (updateData.isNameSelected()) {
+                preparedStatement.setString(index, ticket.getName());
+                index++;
+            }
+            if (updateData.isXSelected()) {
+                preparedStatement.setDouble(index, ticket.getCoordinates().getX());
+                index++;
+            }
+            if (updateData.isYSelected()) {
+                preparedStatement.setInt(index, ticket.getCoordinates().getY());
+                index++;
+            }
+            if (updateData.isPriceSelected()) {
+                preparedStatement.setInt(index, ticket.getPrice());
+                index++;
+            }
+            if (updateData.isDiscountSelected()) {
+                preparedStatement.setDouble(index, ticket.getDiscount());
+                index++;
+            }
+            if (updateData.isRefundableSelected()) {
+                if (ticket.getRefundable() == null)
+                    preparedStatement.setNull(index, Types.BOOLEAN);
+                else
+                    preparedStatement.setBoolean(index, ticket.getRefundable());
+                index++;
+            }
+            if (updateData.isTypeSelected()) {
+                if (ticket.getType() == null)
+                    preparedStatement.setNull(index, Types.VARCHAR);
+                else
+                    preparedStatement.setString(index, ticket.getType().toString());
+                index++;
+            }
+            if (updateData.isWeightSelected()) {
+                if (ticket.getPerson().getWeight() == null)
+                    preparedStatement.setNull(index, Types.INTEGER);
+                else
+                    preparedStatement.setLong(index, ticket.getPerson().getWeight());
+                index++;
+            }
+            if (updateData.isEyeColorSelected()) {
+                preparedStatement.setString(index, ticket.getPerson().getEyeColor().toString());
+                index++;
+            }
+            if (updateData.isHairColorSelected()) {
+                preparedStatement.setString(index, ticket.getPerson().getHairColor().toString());
+                index++;
+            }
+            if (updateData.isCountrySelected()) {
+                preparedStatement.setString(index, ticket.getPerson().getNationality().toString());
+                index++;
+            }
+            preparedStatement.setInt(index, id);
+            preparedStatement.execute();
         }
-        if (updateData.isXSelected()) {
-            preparedStatement.setDouble(index, ticket.getCoordinates().getX());
-            index++;
-        }
-        if (updateData.isYSelected()) {
-            preparedStatement.setInt(index, ticket.getCoordinates().getY());
-            index++;
-        }
-        if (updateData.isPriceSelected()) {
-            preparedStatement.setInt(index, ticket.getPrice());
-            index++;
-        }
-        if (updateData.isDiscountSelected()) {
-            preparedStatement.setDouble(index, ticket.getDiscount());
-            index++;
-        }
-        if (updateData.isRefundableSelected()) {
-            if (ticket.getRefundable() == null)
-                preparedStatement.setNull(index, Types.BOOLEAN);
-            else
-                preparedStatement.setBoolean(index, ticket.getRefundable());
-            index++;
-        }
-        if (updateData.isTypeSelected()) {
-            if (ticket.getType() == null)
-                preparedStatement.setNull(index, Types.VARCHAR);
-            else
-                preparedStatement.setString(index, ticket.getType().toString());
-            index++;
-        }
-        if (updateData.isWeightSelected()) {
-            if (ticket.getPerson().getWeight() == null)
-                preparedStatement.setNull(index, Types.INTEGER);
-            else
-                preparedStatement.setLong(index, ticket.getPerson().getWeight());
-            index++;
-        }
-        if (updateData.isEyeColorSelected()) {
-            preparedStatement.setString(index, ticket.getPerson().getEyeColor().toString());
-            index++;
-        }
-        if (updateData.isHairColorSelected()) {
-            preparedStatement.setString(index, ticket.getPerson().getHairColor().toString());
-            index++;
-        }
-        if (updateData.isCountrySelected()) {
-            preparedStatement.setString(index, ticket.getPerson().getNationality().toString());
-            index++;
-        }
-        preparedStatement.setInt(index, id);
-        index++;
-        preparedStatement.setInt(index, id);
-        preparedStatement.execute();
     }
 
     private String prepareString(UpdateData updateData) {
-        String sql = "UPDATE tickets SET owner = ?";
+        String sql = "UPDATE tickets SET id = ?";
         if (updateData.isNameSelected())
             sql += ", name = ?";
         if (updateData.isXSelected())
@@ -117,29 +123,30 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
             sql += ", person_hair = ?";
         if (updateData.isCountrySelected())
             sql += ", person_nation = ?";
-        sql += ", id = ? WHERE id = ?";
+        sql += " WHERE id = ?";
         return sql;
     }
 
     @Override
     public void clear(String owner) throws SQLException {
-        PreparedStatement sql = connection.prepareStatement("DELETE FROM TICKETS WHERE OWNER = ?");
+        PreparedStatement sql = connection.prepareStatement("delete from tickets using common, users where " +
+                "tickets.id = common.ticket_id and common.login = ?");
         sql.setString(1, owner);
         sql.execute();
     }
 
     @Override
     public void remove(int id, String owner) throws SQLException {
-        PreparedStatement sql = connection.prepareStatement("DELETE FROM TICKETS WHERE id = ? AND owner = ?");
-        sql.setInt(1, id);
-        sql.setString(2, owner);
-        sql.execute();
+        if(commonDataBase.getOwner(id).equals(owner)) {
+            PreparedStatement sql = connection.prepareStatement("DELETE FROM TICKETS WHERE id = ?");
+            sql.setInt(1, id);
+            sql.execute();
+        }
     }
 
     private void create() throws SQLException {
         String create = "CREATE TABLE IF NOT EXISTS  tickets (" +
                 "id serial primary key not null," +
-                "owner TEXT NOT NULL," +
                 "name TEXT NOT NULL," +
                 "coordinates_x DOUBLE PRECISION NOT NULL," +
                 "coordinates_y DOUBLE PRECISION NOT NULL," +
@@ -157,43 +164,46 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
 
     @Override
     public void add(ServerTicket ticket) throws SQLException {
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO tickets (owner, name, coordinates_x, " +
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO tickets (name, coordinates_x, " +
                 "coordinates_y, creationDate, price, discount, refundable, type, " +
                 "person_weight, person_eyes, person_hair, person_nation, id)" +
-                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,DEFAULT)", Statement.RETURN_GENERATED_KEYS);
+                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,DEFAULT)", Statement.RETURN_GENERATED_KEYS);
         updateStatement(ticket, preparedStatement);
         preparedStatement.executeUpdate();
         ResultSet set = preparedStatement.getGeneratedKeys();
         if (set.next()) {
-            ticket.setId(set.getInt(set.findColumn("id")));
+            int id = set.getInt(set.findColumn("id"));
+            ticket.setId(id);
+            //TODO:
+            System.out.println(ticket.getOwner() + " " + id);
+            commonDataBase.add(id, ticket.getOwner());
         } else {
             throw new SQLException();
         }
     }
 
     private void updateStatement(ServerTicket ticket, PreparedStatement preparedStatement) throws SQLException {
-        preparedStatement.setString(1, ticket.getOwner());
-        preparedStatement.setString(2, ticket.getName());
-        preparedStatement.setDouble(3, ticket.getCoordinates().getX());
-        preparedStatement.setInt(4, ticket.getCoordinates().getY());
-        preparedStatement.setString(5, ticket.getCreationDate().toString());
-        preparedStatement.setInt(6, ticket.getPrice());
-        preparedStatement.setDouble(7, ticket.getDiscount());
+        preparedStatement.setString(1, ticket.getName());
+        preparedStatement.setDouble(2, ticket.getCoordinates().getX());
+        preparedStatement.setInt(3, ticket.getCoordinates().getY());
+        preparedStatement.setString(4, ticket.getCreationDate().toString());
+        preparedStatement.setInt(5, ticket.getPrice());
+        preparedStatement.setDouble(6, ticket.getDiscount());
         if (ticket.getRefundable() == null)
-            preparedStatement.setNull(8, Types.BOOLEAN);
+            preparedStatement.setNull(7, Types.BOOLEAN);
         else
-            preparedStatement.setBoolean(8, ticket.getRefundable());
+            preparedStatement.setBoolean(7, ticket.getRefundable());
         if (ticket.getType() == null)
-            preparedStatement.setNull(9, Types.VARCHAR);
+            preparedStatement.setNull(8, Types.VARCHAR);
         else
-            preparedStatement.setString(9, ticket.getType().toString());
+            preparedStatement.setString(8, ticket.getType().toString());
         if (ticket.getPerson().getWeight() == null)
-            preparedStatement.setNull(10, Types.INTEGER);
+            preparedStatement.setNull(9, Types.INTEGER);
         else
-            preparedStatement.setLong(10, ticket.getPerson().getWeight());
-        preparedStatement.setString(11, ticket.getPerson().getEyeColor().toString());
-        preparedStatement.setString(12, ticket.getPerson().getHairColor().toString());
-        preparedStatement.setString(13, ticket.getPerson().getNationality().toString());
+            preparedStatement.setLong(9, ticket.getPerson().getWeight());
+        preparedStatement.setString(10, ticket.getPerson().getEyeColor().toString());
+        preparedStatement.setString(11, ticket.getPerson().getHairColor().toString());
+        preparedStatement.setString(12, ticket.getPerson().getNationality().toString());
     }
 
     @Override
@@ -205,31 +215,32 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
             Collection<ServerTicket> tickets = new ArrayList<>();
             while (resultSet.next()) {
                 ServerTicket ticket = factory.getServerTicket();
-                ticket.setId(resultSet.getInt(1));
-                ticket.setOwner(resultSet.getString(2));
-                ticket.setName(resultSet.getString(3));
+                int id = resultSet.getInt(1);
+                ticket.setId(id);
+                ticket.setOwner(commonDataBase.getOwner(id));
+                ticket.setName(resultSet.getString(2));
                 Coordinates coordinates = factory.getCoordinates();
-                coordinates.setX(resultSet.getDouble(4));
-                coordinates.setY(resultSet.getInt(5));
+                coordinates.setX(resultSet.getDouble(3));
+                coordinates.setY(resultSet.getInt(4));
                 ticket.setCoordinates(coordinates);
-                ticket.setDateStr(resultSet.getString(6));
-                ticket.setPrice(resultSet.getInt(7));
-                ticket.setDiscount(resultSet.getDouble(8));
-                Object obj = resultSet.getObject(9);
+                ticket.setDateStr(resultSet.getString(5));
+                ticket.setPrice(resultSet.getInt(6));
+                ticket.setDiscount(resultSet.getDouble(7));
+                Object obj = resultSet.getObject(8);
                 if (obj == null)
                     ticket.setRefundable(null);
                 else
                     ticket.setRefundable((Boolean) obj);
-                ticket.setTypeStr((String) resultSet.getObject(10));
+                ticket.setTypeStr((String) resultSet.getObject(9));
                 DefaultPerson person = factory.getPerson();
-                Integer buffer = (Integer) resultSet.getObject(11);
+                Integer buffer = (Integer) resultSet.getObject(10);
                 if (buffer == null)
                     person.setWeight(null);
                 else
                     person.setWeight(Long.valueOf(buffer));
-                person.setEyeColorStr(resultSet.getString(12));
-                person.setHairColorStr(resultSet.getString(13));
-                person.setNationalityStr(resultSet.getString(14));
+                person.setEyeColorStr(resultSet.getString(11));
+                person.setHairColorStr(resultSet.getString(12));
+                person.setNationalityStr(resultSet.getString(13));
                 ticket.setPerson(person);
                 tickets.add(ticket);
             }

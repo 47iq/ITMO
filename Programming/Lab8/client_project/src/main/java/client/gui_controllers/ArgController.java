@@ -32,7 +32,7 @@ public class ArgController implements Controller {
         bundle = context.getBundle();
         localize();
         backButton.setOnAction(actionEvent -> {
-            controlManager.showScene((Stage) backButton.getScene().getWindow(), "mainScene.fxml", this);
+            goBack();
         });
         commandButton.setOnAction(actionEvent -> {
             if (arg.getText().equals(""))
@@ -40,6 +40,7 @@ public class ArgController implements Controller {
             else {
                 Response response = context.getCommandReader().getResponse(curCommand + " " + arg.getText());
                 displayInfo(response);
+                goBack();
             }
         });
     }

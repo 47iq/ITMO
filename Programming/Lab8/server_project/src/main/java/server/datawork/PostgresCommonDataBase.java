@@ -1,10 +1,8 @@
 package server.datawork;
 
 import java.awt.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.HashMap;
 import java.util.Map;
 
 public class PostgresCommonDataBase implements CommonDataBase{
@@ -16,12 +14,13 @@ public class PostgresCommonDataBase implements CommonDataBase{
     public PostgresCommonDataBase(Connection connection) throws SQLException {
         this.connection = connection;
         this.statement = connection.createStatement();
+        objectMap = new HashMap<>();
         create();
     }
 
     private void create() throws SQLException {
         String createTableSQL = "CREATE TABLE IF NOT EXISTS common " +
-                "(ticket_id int primary key references tickets (id), user_id text references users (login))";
+                "(ticket_id int primary key references tickets (id) ON DELETE CASCADE, login text references users (login))";
         statement.execute(createTableSQL);
         String query = " SELECT * FROM common";
         Statement statement = connection.createStatement();
@@ -36,5 +35,15 @@ public class PostgresCommonDataBase implements CommonDataBase{
     @Override
     public String getOwner(int ticketId) {
         return objectMap.get(ticketId);
+    }
+
+    @Override
+    public void add(int id, String owner) throws SQLException {
+        String sql = "INSERT INTO common (ticket_id, login) VALUES (?, ?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        preparedStatement.setString(2, owner);
+        preparedStatement.execute();
+        objectMap.put(id, owner);
     }
 }

@@ -81,6 +81,8 @@ public class QueueManager extends AbstractQueueManager {
             tickets.add(serverTicket);
             LogManager.getLogger().info("Added ticket {} ", serverTicket.toString());
         } catch (Exception e) {
+            //TODO
+            e.printStackTrace();
             throw new InvalidTicketException();
         }
     }
@@ -155,6 +157,8 @@ public class QueueManager extends AbstractQueueManager {
             LogManager.getLogger().info("Updated ticket with id {}.", id);
             unlock();
         } catch (SQLException e) {
+            //TODO
+            e.printStackTrace();
             throw new InvalidTicketException();
         }
     }

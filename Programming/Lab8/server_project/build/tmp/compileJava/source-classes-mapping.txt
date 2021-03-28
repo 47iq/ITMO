@@ -1,7 +1,7 @@
 server/connection/ConnectionManager.java
  server.connection.ConnectionManager
-server/datawork/TicketsDataBase.java
- server.datawork.TicketsDataBase
+server/datawork/PostgresUsersDataBase.java
+ server.datawork.PostgresUsersDataBase
 server/exceptions/InvalidIdException.java
  server.exceptions.InvalidIdException
 server/ticket/ServerTicket.java
@@ -48,22 +48,42 @@ server/exceptions/RegistrationException.java
  server.exceptions.RegistrationException
 server/exceptions/UnknownCommandException.java
  server.exceptions.UnknownCommandException
-server/datawork/DataBaseManager.java
- server.datawork.DataBaseManager
+server/datawork/CommonDataBase.java
+ server.datawork.CommonDataBase
 server/collection/AbstractQueueManager.java
  server.collection.AbstractQueueManager
+server/connection/DefaultConnectionBuilder.java
+ server.connection.DefaultConnectionBuilder
+server/ticket/ServerDefaultTicket.java
+ server.ticket.ServerDefaultTicket
+server/ticket/ServerDefaultCoordinates.java
+ server.ticket.ServerDefaultCoordinates
+server/ticket/ServerDefaultPerson.java
+ server.ticket.ServerDefaultPerson
+server/datawork/SHA384CryptoModule.java
+ server.datawork.SHA384CryptoModule
+server/connection/DefaultRequestReader.java
+ server.connection.DefaultRequestReader
+server/connection/DefaultServer.java
+ server.connection.DefaultServer
+server/connection/DefaultResponseSender.java
+ server.connection.DefaultResponseSender
+server/commands/UpdateColorCommand.java
+ server.commands.UpdateColorCommand
 server/commands/UpdateCommand.java
  server.commands.UpdateCommand
 server/commands/HelpCommand.java
  server.commands.HelpCommand
-server/ticket/ServerDefaultCoordinates.java
- server.ticket.ServerDefaultCoordinates
+server/datawork/DataBaseManager.java
+ server.datawork.DataBaseManager
+server/datawork/TicketsDataBase.java
+ server.datawork.TicketsDataBase
 server/commands/TicketCommand.java
  server.commands.TicketCommand
 server/commands/ExitCommand.java
  server.commands.ExitCommand
-server/datawork/PostgresTicketsDataBase.java
- server.datawork.PostgresTicketsDataBase
+server/datawork/PostgresCommonDataBase.java
+ server.datawork.PostgresCommonDataBase
 server/commands/MessagingCommand.java
  server.commands.MessagingCommand
 server/commands/MaxByCoordinatesCommand.java
@@ -72,8 +92,6 @@ server/commands/SaveCommand.java
  server.commands.SaveCommand
 server/commands/ColorCommand.java
  server.commands.ColorCommand
-server/connection/DefaultRequestReader.java
- server.connection.DefaultRequestReader
 server/command_manager/CommandVisitor.java
  server.command_manager.CommandVisitor
 server/commands/RemoveByIdCommand.java
@@ -84,16 +102,10 @@ server/commands/RemoveFirstCommand.java
  server.commands.RemoveFirstCommand
 server/commands/ExitNoSaveCommand.java
  server.commands.ExitNoSaveCommand
-server/ticket/ServerDefaultPerson.java
- server.ticket.ServerDefaultPerson
 server/commands/UpdatingCommand.java
  server.commands.UpdatingCommand
-server/ticket/ServerDefaultTicket.java
- server.ticket.ServerDefaultTicket
 server/commands/RemoveGreaterCommand.java
  server.commands.RemoveGreaterCommand
-server/connection/DefaultResponseSender.java
- server.connection.DefaultResponseSender
 server/command_manager/ServerCommandFactory.java
  server.command_manager.ServerCommandFactory
 server/Main.java
@@ -107,8 +119,6 @@ server/commands/AddIfMaxCommand.java
 server/connection/DefaultConnectionManager.java
  server.connection.DefaultConnectionManager
  server.connection.DefaultConnectionManager$1
-server/datawork/PostgresUsersDataBase.java
- server.datawork.PostgresUsersDataBase
 server/commands/ShowCommand.java
  server.commands.ShowCommand
 server/commands/PrintFieldDescendingRefundableCommand.java
@@ -125,19 +135,13 @@ server/commands/ClearCommand.java
  server.commands.ClearCommand
 server/ObjectFactory.java
  server.ObjectFactory
-server/ServerObjectFactory.java
- server.ServerObjectFactory
-server/commands/AddCommand.java
- server.commands.AddCommand
-server/connection/DefaultServer.java
- server.connection.DefaultServer
-server/commands/ServerCommand.java
- server.commands.ServerCommand
-server/datawork/SHA384CryptoModule.java
- server.datawork.SHA384CryptoModule
-server/commands/UpdateColorCommand.java
- server.commands.UpdateColorCommand
 server/commands/SimpleCommand.java
  server.commands.SimpleCommand
-server/connection/DefaultConnectionBuilder.java
- server.connection.DefaultConnectionBuilder
+server/commands/AddCommand.java
+ server.commands.AddCommand
+server/commands/ServerCommand.java
+ server.commands.ServerCommand
+server/datawork/PostgresTicketsDataBase.java
+ server.datawork.PostgresTicketsDataBase
+server/ServerObjectFactory.java
+ server.ServerObjectFactory

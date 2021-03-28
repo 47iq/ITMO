@@ -69,4 +69,9 @@ public class ServerObjectFactory implements ObjectFactory {
     public TicketsDataBase getTicketsData(Connection connection) throws SQLException {
         return new PostgresTicketsDataBase(connection, this);
     }
+
+    @Override
+    public CommonDataBase getCommonData(Connection connection) throws SQLException {
+        return new PostgresCommonDataBase(connection);
+    }
 }

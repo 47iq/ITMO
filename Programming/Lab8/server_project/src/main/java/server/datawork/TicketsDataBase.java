@@ -10,6 +10,8 @@ public interface TicketsDataBase extends TicketReader {
 
     void update(ServerTicket ticket, int id, String owner, UpdateData updateData) throws SQLException;
 
+    void setCommonDataBase(CommonDataBase commonDataBase);
+
     void clear(String owner) throws SQLException;
 
     void remove(int id, String owner) throws SQLException;

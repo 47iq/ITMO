@@ -13,6 +13,8 @@ public class PostgresDataBaseManager implements DataBaseManager {
 
     private TicketsDataBase tickets;
 
+    private CommonDataBase common;
+
     private Connection connection;
 
     private final ObjectFactory factory;
@@ -27,7 +29,10 @@ public class PostgresDataBaseManager implements DataBaseManager {
             connection = DriverManager.getConnection(url, user, password);
             users = factory.getUsersData(connection);
             tickets = factory.getTicketsData(connection);
+            common = factory.getCommonData(connection);
+            tickets.setCommonDataBase(common);
         } catch (Exception e) {
+            e.printStackTrace();
             LogManager.getLogger().error("Error. Can't connect to data base: exception {}", e.getClass());
             System.exit(1);
         }
