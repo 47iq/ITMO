@@ -18,10 +18,12 @@ public class DefaultConnectionBuilder implements ConnectionBuilder {
         socket = new ServerSocket(port);
     }
 
+    @Override
     public Socket accept() throws IOException {
         return socket.accept();
     }
 
+    @Override
     public synchronized void stop() {
         isRunning = false;
     }

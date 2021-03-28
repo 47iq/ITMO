@@ -32,6 +32,7 @@ public class FileCommandReader extends AbstractCommandReader {
         builder = ticketFactory.getTicketBuilder();
     }
 
+    @Override
     public Ticket readTicket() throws IOException {
         builder.setName(reader.readLine());
         builder.setX(reader.readLine().trim());
@@ -47,14 +48,17 @@ public class FileCommandReader extends AbstractCommandReader {
         return builder.getResult();
     }
 
+    @Override
     public TicketBuilder getBuilder() {
         return builder;
     }
 
+    @Override
     public UpdateData getUpdateData() {
         return ticketFactory.getDefaultUpdateData();
     }
 
+    @Override
     protected boolean readyForInput() throws IOException {
         return reader.ready();
     }

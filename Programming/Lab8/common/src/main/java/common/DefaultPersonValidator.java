@@ -13,19 +13,15 @@ public class DefaultPersonValidator implements PersonValidator {
      * @return hairColor {@link HairColor}
      */
 
+    @Override
     public HairColor castHairColor(String colorStr) {
-        switch (colorStr.toLowerCase()) {
-            case "black":
-                return HairColor.BLACK;
-            case "red":
-                return HairColor.RED;
-            case "yellow":
-                return HairColor.YELLOW;
-            case "green":
-                return HairColor.GREEN;
-            default:
-                throw new InvalidHairColorException();
-        }
+        return switch (colorStr.toLowerCase()) {
+            case "black" -> HairColor.BLACK;
+            case "red" -> HairColor.RED;
+            case "yellow" -> HairColor.YELLOW;
+            case "green" -> HairColor.GREEN;
+            default -> throw new InvalidHairColorException();
+        };
     }
 
     /**
@@ -35,17 +31,14 @@ public class DefaultPersonValidator implements PersonValidator {
      * @return eyesColor {@link EyesColor}
      */
 
+    @Override
     public EyesColor castEyesColor(String colorStr) {
-        switch ((colorStr.toLowerCase())) {
-            case "black":
-                return EyesColor.BLACK;
-            case "blue":
-                return EyesColor.BLUE;
-            case "yellow":
-                return EyesColor.YELLOW;
-            default:
-                throw new InvalidEyesColorException();
-        }
+        return switch ((colorStr.toLowerCase())) {
+            case "black" -> EyesColor.BLACK;
+            case "blue" -> EyesColor.BLUE;
+            case "yellow" -> EyesColor.YELLOW;
+            default -> throw new InvalidEyesColorException();
+        };
     }
 
     /**
@@ -55,19 +48,15 @@ public class DefaultPersonValidator implements PersonValidator {
      * @return country {@link Country}
      */
 
+    @Override
     public Country castCountry(String countryStr) {
-        switch (countryStr.toLowerCase()) {
-            case "russia":
-                return Country.RUSSIA;
-            case "china":
-                return Country.CHINA;
-            case "spain":
-                return Country.SPAIN;
-            case "france":
-                return Country.FRANCE;
-            default:
-                throw new InvalidCountryException();
-        }
+        return switch (countryStr.toLowerCase()) {
+            case "russia" -> Country.RUSSIA;
+            case "china" -> Country.CHINA;
+            case "spain" -> Country.SPAIN;
+            case "france" -> Country.FRANCE;
+            default -> throw new InvalidCountryException();
+        };
     }
 
     /**
@@ -77,6 +66,7 @@ public class DefaultPersonValidator implements PersonValidator {
      * @return weight {@link Long}
      */
 
+    @Override
     public Long castWeight(String weight) {
         if (weight == null || weight.equals(""))
             return null;

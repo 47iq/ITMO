@@ -28,14 +28,15 @@ import java.util.ResourceBundle;
  * Class for creation of objects for client application
  */
 
-public class ClientContext implements ObjectFactory {
+public class ClientObjectFactory implements ObjectFactory {
 
     private final Locale locale;
 
-    public ClientContext(Locale locale) {
+    public ClientObjectFactory(Locale locale) {
         this.locale = locale;
     }
 
+    @Override
     public CommandReader getControllerCommandReader() {
         return new DefaultControllerCommandReader(getConnectionManager(), this);
     }
@@ -73,43 +74,50 @@ public class ClientContext implements ObjectFactory {
     }
 
 
+    @Override
     public CommandReader getFileReader(ConnectionManager commandFactory, File file) throws FileNotFoundException {
         return new FileCommandReader(commandFactory, file, this);
     }
 
+    @Override
     public DefaultTicket getDefaultTicket() {
         return new ClientTemplateTicket();
     }
 
+    @Override
     public DefaultCoordinates getDefaultCoordinates() {
         return new ClientTemplateCoordinates();
     }
 
+    @Override
     public DefaultPerson getDefaultPerson() {
         return new ClientTemplatePerson();
     }
 
+    @Override
     public Request getRequest(RequestType type, String commandName) {
         return new DefaultRequest(type, commandName, getLocale());
     }
 
+    @Override
     public RequestSender getRequestSender(SocketChannel channel) {
         return new DefaultRequestSender(channel);
     }
 
+    @Override
     public ResponseReader getResponseReader(SocketChannel channel) {
         return new DefaultResponseReader(channel);
     }
 
-    public ClientCommandFactory getCommandFactory() {
+    private ClientCommandFactory getCommandFactory() {
         return new ClientCommandFactory(getClient(), getCommands(), this);
     }
 
-    public Client getClient() {
+    private Client getClient() {
         return new DefaultClient();
     }
 
-    public Map<String, Command> getCommands() {
+    private Map<String, Command> getCommands() {
         HashMap<String, Command> commands = new HashMap<>();
         commands.put("execute_script", new ExecuteScriptCommand());
         commands.put("exit", new DefaultExitCommand());
@@ -118,18 +126,21 @@ public class ClientContext implements ObjectFactory {
         return commands;
     }
 
-    public Locale getLocale() {
+    private Locale getLocale() {
         return locale;
     }
 
+    @Override
     public User getUser(String login, String password) {
         return new DefaultUser(login, password);
     }
 
+    @Override
     public Response getResponse(boolean successful, String message) {
         return new DefaultResponse(successful, message);
     }
 
+    @Override
     public UpdateData getDefaultUpdateData() {
         return new DefaultUpdateData(true, true, true, true,
                 true, true, true, true, true,
@@ -141,6 +152,7 @@ public class ClientContext implements ObjectFactory {
         return new DefaultUpdateData();
     }
 
+    @Override
     public TicketBuilder getTicketBuilder() {
         return new DefaultTicketBuilder(this);
     }

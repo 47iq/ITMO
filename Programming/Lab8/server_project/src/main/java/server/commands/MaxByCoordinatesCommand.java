@@ -19,11 +19,13 @@ public class MaxByCoordinatesCommand implements MessagingCommand {
     public MaxByCoordinatesCommand() {
     }
 
+    @Override
     public Response execute(CollectionManager collectionManager, Ticket ticket, String arg,
                             ObjectFactory factory) {
         return factory.getResponse(true, ticket.toString());
     }
 
+    @Override
     public Response accept(Visitor visitor) {
         return visitor.visit(this);
     }

@@ -29,54 +29,67 @@ public class DefaultRequest implements Request, Serializable {
         this.locale = locale;
     }
 
+    @Override
     public UpdateData getUpdateData() {
         return updateData;
     }
 
+    @Override
     public void setUpdateData(UpdateData updateData) {
         this.updateData = updateData;
     }
 
+    @Override
     public Ticket getTicket() {
         return ticket;
     }
 
+    @Override
     public String getArg() {
         return arg;
     }
 
+    @Override
     public String getCommandName() {
         return commandName;
     }
 
+    @Override
     public void setTicket(Ticket ticket) {
         this.ticket = ticket;
     }
 
+    @Override
     public void setArg(String arg) {
         this.arg = arg;
     }
 
+    @Override
     public RequestType getType() {
         return type;
     }
 
+    @Override
     public Locale getLocale() {
         return locale;
     }
 
+    @Override
     public void setLocale(Locale locale) {
         this.locale = locale;
     }
 
+    @Override
     public User getUser() {
         return user;
     }
 
+    @Override
     public void setUser(User user) {
         this.user = user;
     }
 
+    @Override
     public void setType(RequestType type) {
         this.type = type;
     }

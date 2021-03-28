@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ClientShowCommand implements MessagingCommand {
+    @Override
     public Response execute(Response response) {
         List<Ticket> ticketList = response.getCollection();
         ResourceBundle bundle = getLocalResourceBundle();

@@ -22,6 +22,7 @@ public class UpdateCommand implements UpdatingCommand {
 
     }
 
+    @Override
     public Response execute(CollectionManager collectionManager, Ticket ticket, String arg, UpdateData updateData,
                             ObjectFactory factory, String login) {
         int id;
@@ -36,6 +37,7 @@ public class UpdateCommand implements UpdatingCommand {
         return factory.getResponse(true, "");
     }
 
+    @Override
     public Response accept(Visitor visitor) {
         return visitor.visit(this);
     }

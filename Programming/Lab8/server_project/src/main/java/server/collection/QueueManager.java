@@ -54,6 +54,7 @@ public class QueueManager extends AbstractQueueManager {
      * Parses data from {@link #dataFileName} to the {@link #tickets} using {@link #reader} if data is a valid JSON
      */
 
+    @Override
     public void parseDataToCollection() {
         try {
             Collection<ServerTicket> tickets = ticketReader.getTickets();
@@ -72,6 +73,7 @@ public class QueueManager extends AbstractQueueManager {
         tickets.add(ticket);
     }
 
+    @Override
     public void convertAddTicket(Ticket ticket) {
         try {
             ServerTicket serverTicket = ticketFactory.convertTicket(ticket);
@@ -83,6 +85,7 @@ public class QueueManager extends AbstractQueueManager {
         }
     }
 
+    @Override
     public String[] displayInfo() {
         String[] info = new String[3];
         info[0] = (tickets.getClass().toString());
@@ -92,6 +95,7 @@ public class QueueManager extends AbstractQueueManager {
         return info;
     }
 
+    @Override
     public List<Ticket> displayElements() {
         LogManager.getLogger().info("Sent collection elements.");
         return getTicketsList();
@@ -107,6 +111,7 @@ public class QueueManager extends AbstractQueueManager {
         return tickets.stream().sorted(Ticket::compareTo).collect(Collectors.toList());
     }
 
+    @Override
     public List<Boolean> getRefundableList() {
         LogManager.getLogger().info("Sent refundable list.");
         return tickets
@@ -116,6 +121,7 @@ public class QueueManager extends AbstractQueueManager {
                 .collect(Collectors.toList());
     }
 
+    @Override
     public void updateId(int id, Ticket myTicket, String owner, UpdateData updateData) {
         try {
             lock();
@@ -153,6 +159,7 @@ public class QueueManager extends AbstractQueueManager {
         }
     }
 
+    @Override
     public void removeById(int id, String owner) {
         try {
             lock();
@@ -167,7 +174,7 @@ public class QueueManager extends AbstractQueueManager {
         }
     }
 
-
+    @Override
     public void clear(String owner) {
         try {
             lock();
@@ -180,7 +187,7 @@ public class QueueManager extends AbstractQueueManager {
         }
     }
 
-
+    @Override
     public void removeFirst(String owner) {
         try {
             lock();
@@ -207,7 +214,7 @@ public class QueueManager extends AbstractQueueManager {
         tickets = new PriorityQueue<>(ticketsSet);
     }
 
-
+    @Override
     public void addIfMax(Ticket ticket) {
         try {
             if (tickets.stream()
@@ -221,6 +228,7 @@ public class QueueManager extends AbstractQueueManager {
         }
     }
 
+    @Override
     public void removeGreater(Ticket ticket, String owner) {
         try {
             readWriteLock.writeLock().lock();
@@ -238,6 +246,7 @@ public class QueueManager extends AbstractQueueManager {
         }
     }
 
+    @Override
     public Ticket maxByCoordinates() {
         LogManager.getLogger().info("Sent max by coordinates ticket.");
         return tickets
@@ -246,6 +255,7 @@ public class QueueManager extends AbstractQueueManager {
                 .get();
     }
 
+    @Override
     public List<Ticket> filterDiscount(double discount) {
         LogManager.getLogger().info("Send discount-filtered collection (discount = {})", discount);
         return tickets
@@ -254,6 +264,7 @@ public class QueueManager extends AbstractQueueManager {
                 .collect(Collectors.toList());
     }
 
+    @Override
     public List<Ticket> getTicketList() {
         return tickets.stream().map(DefaultTicket::new).collect(Collectors.toList());
     }

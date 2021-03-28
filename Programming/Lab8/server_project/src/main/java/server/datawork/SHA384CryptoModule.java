@@ -7,6 +7,7 @@ import java.security.MessageDigest;
 
 public class SHA384CryptoModule implements CryptoModule {
 
+    @Override
     public String hash(String str) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-384");

@@ -34,22 +34,26 @@ public class CommandVisitor implements Visitor {
         this.dataBase = dataBase;
     }
 
+    @Override
     public Response visit(SimpleCommand command) {
         LogManager.getLogger().info("Executing command: {}", command.getClass());
         return command.execute(collectionManager, curArg, factory, login);
     }
 
+    @Override
     public Response visit(MessagingCommand command) {
         LogManager.getLogger().info("Executing command: {}", command.getClass());
         return command.execute(collectionManager, curTicket, curArg, factory);
     }
 
+    @Override
     public Response visit(ServerCommand command) {
         LogManager.getLogger().info("Executing admin command: {}", command.getClass());
         command.execute(collectionManager);
         return null;
     }
 
+    @Override
     public Response visit(TicketCommand command) {
         LogManager.getLogger().info("Executing command: {}", command.getClass());
         return command.execute(collectionManager, curTicket, curArg, factory, login);

@@ -36,6 +36,7 @@ public class DefaultConnectionManager implements ConnectionManager {
         this.usersDataBase = usersData;
     }
 
+    @Override
     public void readRequest(Socket client) {
         try {
             Request request = requestReader.readRequest(client);

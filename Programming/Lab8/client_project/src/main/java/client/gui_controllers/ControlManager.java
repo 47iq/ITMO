@@ -19,8 +19,6 @@ public interface ControlManager {
 
     String getErrorMessage(String e, ResourceBundle bundle);
 
-    void showCanvas(Stage stage, String sceneFile, Controller controller);
-
     default String getTicketString(Ticket ticket) {
         String message = "";
         ResourceBundle bundle = null;

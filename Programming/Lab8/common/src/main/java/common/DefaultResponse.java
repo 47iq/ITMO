@@ -29,10 +29,12 @@ public class DefaultResponse implements Response, Serializable {
         this.message = message;
     }
 
+    @Override
     public boolean isSuccessful() {
         return successful;
     }
 
+    @Override
     public String getMessage() {
         return message;
     }

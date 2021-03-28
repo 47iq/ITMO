@@ -30,27 +30,32 @@ public class DefaultCoordinates implements Coordinates, Serializable {
         DefaultCoordinates.validator = validator;
     }
 
+    @Override
     public double getX() {
         return x;
     }
 
+    @Override
     public Integer getY() {
         return y;
     }
 
+    @Override
     public void setX(double x) {
         this.x = x;
     }
 
+    @Override
     public void setY(Integer y) {
         this.y = y;
     }
 
+    @Override
     public String toString() {
         return "(" + x + " ," + y + ")";
     }
 
-
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -59,14 +64,17 @@ public class DefaultCoordinates implements Coordinates, Serializable {
                 y.equals(that.getY());
     }
 
+    @Override
     public int hashCode() {
         return Objects.hash(x, y);
     }
 
+    @Override
     public void setXStr(String x) {
         setX(validator.castXCoordinate(x));
     }
 
+    @Override
     public void setYStr(String y) {
         setY(validator.castYCoordinate(y));
     }

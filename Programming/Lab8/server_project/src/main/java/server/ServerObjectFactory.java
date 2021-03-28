@@ -21,32 +21,38 @@ import java.util.Locale;
 
 public class ServerObjectFactory implements ObjectFactory {
 
+    @Override
     public ServerTicket convertTicket(Ticket ticket) {
         return ServerDefaultTicket.convert(ticket);
     }
 
+    @Override
     public Response getResponse(boolean s, String msg) {
         return new DefaultResponse(s, msg);
     }
 
+    @Override
     public DefaultCoordinates getCoordinates() {
         return new ServerDefaultCoordinates();
     }
 
+    @Override
     public ServerTicket getServerTicket() {
         return new ServerDefaultTicket();
     }
 
+    @Override
     public DefaultPerson getPerson() {
         return new ServerDefaultPerson();
     }
 
+    @Override
     public Visitor getCommandVisitor(String curArg, Ticket curTicket, CollectionManager collectionManager,
                                      ObjectFactory factory, String login, UpdateData updateData, UsersDataBase dataBase) {
         return new CommandVisitor(curArg, curTicket, collectionManager, factory, login, updateData, dataBase);
     }
 
-
+    @Override
     public UsersDataBase getUsersData(Connection connection) throws SQLException {
         return new PostgresUsersDataBase(connection, getCryptoModule(), getColorGenerator());
     }
@@ -55,10 +61,11 @@ public class ServerObjectFactory implements ObjectFactory {
         return new DefaultColorGenerator();
     }
 
-    public CryptoModule getCryptoModule() {
+    private CryptoModule getCryptoModule() {
         return new SHA384CryptoModule();
     }
 
+    @Override
     public TicketsDataBase getTicketsData(Connection connection) throws SQLException {
         return new PostgresTicketsDataBase(connection, this);
     }

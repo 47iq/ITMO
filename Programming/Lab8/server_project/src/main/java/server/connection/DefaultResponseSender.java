@@ -10,11 +10,12 @@ import java.net.Socket;
 
 public class DefaultResponseSender implements ResponseSender {
 
+    @Override
     public void sendResponse(Response response, Socket client) throws IOException {
         sendBytes(wrapResponse(response), client);
     }
 
-    public byte[] wrapResponse(Response response) throws IOException {
+    private byte[] wrapResponse(Response response) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
         objectOutputStream.writeObject(response);

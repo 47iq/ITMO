@@ -16,10 +16,12 @@ public class SaveCommand implements ServerCommand {
     public SaveCommand() {
     }
 
+    @Override
     public void execute(CollectionManager collectionManager) {
 
     }
 
+    @Override
     public Response accept(Visitor visitor) {
         return visitor.visit(this);
     }

@@ -19,6 +19,7 @@ public class AddIfMaxCommand implements TicketCommand {
     public AddIfMaxCommand() {
     }
 
+    @Override
     public Response execute(CollectionManager collectionManager, Ticket ticket, String arg, ObjectFactory factory, String login) {
         if (ticket == null)
             throw new InvalidTicketException();
@@ -26,6 +27,7 @@ public class AddIfMaxCommand implements TicketCommand {
         return factory.getResponse(true, "");
     }
 
+    @Override
     public Response accept(Visitor visitor) {
         return visitor.visit(this);
     }

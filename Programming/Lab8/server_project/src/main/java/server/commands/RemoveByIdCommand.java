@@ -19,6 +19,7 @@ public class RemoveByIdCommand implements SimpleCommand {
 
     }
 
+    @Override
     public Response execute(CollectionManager collectionManager, String arg, ObjectFactory factory, String login) {
         int id;
         try {
@@ -30,6 +31,7 @@ public class RemoveByIdCommand implements SimpleCommand {
         return factory.getResponse(true, "");
     }
 
+    @Override
     public Response accept(Visitor visitor) {
         return visitor.visit(this);
     }

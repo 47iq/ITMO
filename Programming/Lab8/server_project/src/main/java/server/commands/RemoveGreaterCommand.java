@@ -19,12 +19,14 @@ public class RemoveGreaterCommand implements TicketCommand {
 
     }
 
+    @Override
     public Response execute(CollectionManager collectionManager, Ticket ticket, String arg, ObjectFactory factory, String login) {
         if (ticket != null)
             collectionManager.removeGreater(ticket, login);
         return factory.getResponse(true, "");
     }
 
+    @Override
     public Response accept(Visitor visitor) {
         return visitor.visit(this);
     }

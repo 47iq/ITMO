@@ -21,12 +21,13 @@ public class ExitCommand implements ServerCommand {
         this.server = server;
     }
 
+    @Override
     public void execute(CollectionManager manager) {
-        //manager.saveData();
         LogManager.getLogger().info("Program has been exited.");
         server.exit();
     }
 
+    @Override
     public Response accept(Visitor visitor) {
         return visitor.visit(this);
     }

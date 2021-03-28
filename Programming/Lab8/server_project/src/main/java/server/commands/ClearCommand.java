@@ -17,11 +17,13 @@ public class ClearCommand implements SimpleCommand {
     public ClearCommand() {
     }
 
+    @Override
     public Response execute(CollectionManager collectionManager, String arg, ObjectFactory factory, String login) {
         collectionManager.clear(login);
         return factory.getResponse(true, "");
     }
 
+    @Override
     public Response accept(Visitor visitor) {
         return visitor.visit(this);
     }

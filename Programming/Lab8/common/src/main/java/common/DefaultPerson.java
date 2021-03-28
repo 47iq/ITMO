@@ -34,10 +34,12 @@ public class DefaultPerson implements Person, Serializable {
         DefaultPerson.validator = validator;
     }
 
+    @Override
     public String toString() {
         return "Person" + weight + " " + eyeColor + " " + hairColor + " " + nationality;
     }
 
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -48,6 +50,7 @@ public class DefaultPerson implements Person, Serializable {
                 nationality == person.getNationality();
     }
 
+    @Override
     public int hashCode() {
         return Objects.hash(weight, eyeColor, hairColor, nationality);
     }
@@ -58,6 +61,7 @@ public class DefaultPerson implements Person, Serializable {
      * @return {@link #weight}
      */
 
+    @Override
     public Long getWeight() {
         return weight;
     }
@@ -68,6 +72,7 @@ public class DefaultPerson implements Person, Serializable {
      * @return {@link #eyeColor}
      */
 
+    @Override
     public EyesColor getEyeColor() {
         return eyeColor;
     }
@@ -78,6 +83,7 @@ public class DefaultPerson implements Person, Serializable {
      * @return {@link #hairColor}
      */
 
+    @Override
     public HairColor getHairColor() {
         return hairColor;
     }
@@ -88,14 +94,17 @@ public class DefaultPerson implements Person, Serializable {
      * @return {@link #nationality}
      */
 
+    @Override
     public Country getNationality() {
         return nationality;
     }
 
+    @Override
     public void setWeight(Long weight) {
         this.weight = weight;
     }
 
+    @Override
     public void setEyeColor(EyesColor eyeColor) {
         this.eyeColor = eyeColor;
     }

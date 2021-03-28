@@ -26,6 +26,7 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
         create();
     }
 
+    @Override
     public void update(ServerTicket ticket, int id, String owner, UpdateData updateData) throws SQLException {
         int index = 1;
         System.out.println(updateData.isNameSelected());
@@ -120,12 +121,14 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
         return sql;
     }
 
+    @Override
     public void clear(String owner) throws SQLException {
         PreparedStatement sql = connection.prepareStatement("DELETE FROM TICKETS WHERE OWNER = ?");
         sql.setString(1, owner);
         sql.execute();
     }
 
+    @Override
     public void remove(int id, String owner) throws SQLException {
         PreparedStatement sql = connection.prepareStatement("DELETE FROM TICKETS WHERE id = ? AND owner = ?");
         sql.setInt(1, id);
@@ -152,6 +155,7 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
         statement.execute(create);
     }
 
+    @Override
     public void add(ServerTicket ticket) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO tickets (owner, name, coordinates_x, " +
                 "coordinates_y, creationDate, price, discount, refundable, type, " +
@@ -192,6 +196,7 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
         preparedStatement.setString(13, ticket.getPerson().getNationality().toString());
     }
 
+    @Override
     public Collection<ServerTicket> getTickets() {
         try {
             String query = " SELECT * FROM tickets ORDER by id;";

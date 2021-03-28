@@ -30,6 +30,7 @@ public class DefaultControllerContext implements ControllerContext {
         this.bundle = bundle;
     }
 
+    @Override
     public ControlManager getControlManager() {
         return controlManager;
     }

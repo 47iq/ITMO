@@ -18,11 +18,13 @@ public class RemoveFirstCommand implements SimpleCommand {
 
     }
 
+    @Override
     public Response execute(CollectionManager collectionManager, String arg, ObjectFactory factory, String login) {
         collectionManager.removeFirst(login);
         return factory.getResponse(true, "");
     }
 
+    @Override
     public Response accept(Visitor visitor) {
         return visitor.visit(this);
     }

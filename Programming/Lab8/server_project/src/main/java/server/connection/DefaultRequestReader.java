@@ -14,6 +14,7 @@ public class DefaultRequestReader implements RequestReader {
     public DefaultRequestReader() {
     }
 
+    @Override
     public Request readRequest(Socket client) throws IOException, ClassNotFoundException {
         return deserializeRequest(readBytes(client));
     }
@@ -24,7 +25,7 @@ public class DefaultRequestReader implements RequestReader {
         return bytes;
     }
 
-    public Request deserializeRequest(byte[] bytes) throws IOException, ClassNotFoundException {
+    private Request deserializeRequest(byte[] bytes) throws IOException, ClassNotFoundException {
         try {
             ObjectInputStream inputStream = new ObjectInputStream(new ByteArrayInputStream(bytes));
             return (DefaultRequest) inputStream.readObject();

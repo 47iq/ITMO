@@ -22,6 +22,7 @@ public class ExecuteScriptCommand implements ScriptCommand {
 
     }
 
+    @Override
     public void execute(CommandReader commandReader, String fileName, ConnectionManager commandFactory, ObjectFactory ticketFactory) {
         File file;
         try {

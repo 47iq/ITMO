@@ -14,6 +14,7 @@ public class DefaultTicketValidator implements TicketValidator {
      * @return refundable {@link Boolean}
      */
 
+    @Override
     public Boolean castRefundable(String inputStr) {
         if (inputStr == null || inputStr.equals(""))
             return null;
@@ -32,6 +33,7 @@ public class DefaultTicketValidator implements TicketValidator {
      * @return name {@link String}
      */
 
+    @Override
     public String castName(String inputStr) {
         if (nameValid(inputStr))
             return inputStr;
@@ -80,22 +82,17 @@ public class DefaultTicketValidator implements TicketValidator {
      * @return Type in TicketType format
      */
 
+    @Override
     public TicketType castType(String typeStr) {
         if (typeStr == null)
             return null;
-        switch (typeStr.toLowerCase()) {
-            case "vip":
-                return TicketType.VIP;
-            case "cheap":
-                return TicketType.CHEAP;
-            case "usual":
-                return TicketType.USUAL;
-            case "":
-            case "null":
-                return null;
-            default:
-                throw new server.exceptions.InvalidTypeException();
-        }
+        return switch (typeStr.toLowerCase()) {
+            case "vip" -> TicketType.VIP;
+            case "cheap" -> TicketType.CHEAP;
+            case "usual" -> TicketType.USUAL;
+            case "", "null" -> null;
+            default -> throw new server.exceptions.InvalidTypeException();
+        };
     }
 
     /**
@@ -105,6 +102,7 @@ public class DefaultTicketValidator implements TicketValidator {
      * @return manager.ticket price
      */
 
+    @Override
     public int castPrice(String price) {
         int priceInt = Integer.parseInt(price);
         if (!priceValid(priceInt))
@@ -120,6 +118,7 @@ public class DefaultTicketValidator implements TicketValidator {
      * @return discount manager.ticket discount
      */
 
+    @Override
     public double castDiscount(String discount) {
         double discountDouble = Double.parseDouble(discount);
         if (!discountValid(discountDouble)) {

@@ -19,6 +19,7 @@ public class InfoCommand implements MessagingCommand {
 
     }
 
+    @Override
     public Response execute(CollectionManager collectionManager, Ticket ticket, String arg,
                             ObjectFactory factory) {
         String[] info = collectionManager.displayInfo();
@@ -27,6 +28,7 @@ public class InfoCommand implements MessagingCommand {
         return response;
     }
 
+    @Override
     public Response accept(Visitor visitor) {
         return visitor.visit(this);
     }

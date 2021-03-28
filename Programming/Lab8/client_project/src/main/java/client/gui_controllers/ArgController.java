@@ -45,8 +45,8 @@ public class ArgController implements Controller {
     }
 
     private void localize() {
-        backButton.setText("BACK");
-        arg.setPromptText("ARG");
+        backButton.setText(bundle.getString("BACK"));
+        arg.setPromptText(bundle.getString("ARG"));
     }
 
     private void displayError(Exception e) {

@@ -21,6 +21,7 @@ public class PostgresDataBaseManager implements DataBaseManager {
         this.factory = factory;
     }
 
+    @Override
     public void start(String url, String user, String password) {
         try {
             connection = DriverManager.getConnection(url, user, password);
@@ -36,10 +37,12 @@ public class PostgresDataBaseManager implements DataBaseManager {
             LogManager.getLogger().error("Error. Can't connect to data base.");
     }
 
+    @Override
     public TicketsDataBase getTicketsData() {
         return tickets;
     }
 
+    @Override
     public UsersDataBase getUsersData() {
         return users;
     }

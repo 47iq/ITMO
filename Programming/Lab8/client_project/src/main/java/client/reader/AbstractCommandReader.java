@@ -16,6 +16,7 @@ public abstract class AbstractCommandReader implements CommandReader {
 
     protected ConnectionManager commandFactory;
 
+    @Override
     public final void executeNext() {
         try {
             String command = reader.readLine();
@@ -25,6 +26,7 @@ public abstract class AbstractCommandReader implements CommandReader {
         }
     }
 
+    @Override
     public final Response getResponse(String command1) {
         printInputInvitation();
         try {

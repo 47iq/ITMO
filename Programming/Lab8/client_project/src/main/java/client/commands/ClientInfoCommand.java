@@ -5,6 +5,7 @@ import common.Response;
 import java.util.ResourceBundle;
 
 public class ClientInfoCommand implements MessagingCommand {
+    @Override
     public Response execute(Response response) {
         ResourceBundle bundle = getLocalResourceBundle();
         String[] info = response.getInfo();

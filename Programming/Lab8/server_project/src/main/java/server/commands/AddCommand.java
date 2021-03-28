@@ -24,6 +24,7 @@ public class AddCommand implements TicketCommand {
 
     }
 
+    @Override
     public Response execute(CollectionManager collectionManager, Ticket ticket, String arg, ObjectFactory factory, String login) {
         if (ticket == null)
             throw new InvalidTicketException();
@@ -31,6 +32,7 @@ public class AddCommand implements TicketCommand {
         return factory.getResponse(true, "");
     }
 
+    @Override
     public Response accept(Visitor visitor) {
         return visitor.visit(this);
     }

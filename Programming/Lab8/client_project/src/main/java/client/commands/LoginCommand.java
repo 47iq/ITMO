@@ -8,6 +8,7 @@ import common.Response;
 
 public class LoginCommand implements AuthCommand, ClientServerCommand {
 
+    @Override
     public Response execute(CommandReader commandReader, ConnectionManager manager, String args, ObjectFactory factory) {
         try {
             String[] data = args.split("\\s+");

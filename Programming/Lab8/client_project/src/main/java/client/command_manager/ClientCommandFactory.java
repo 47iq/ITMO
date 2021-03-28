@@ -33,10 +33,12 @@ public class ClientCommandFactory implements CommandFactory {
         this.objectFactory = objectFactory;
     }
 
+    @Override
     public Command getCommand(String commandName) {
         return commands.get(commandName);
     }
 
+    @Override
     public Response executeCommand(Command command, CommandReader commandReader, String arg, ConnectionManager factory) {
         if (command instanceof ExitCommand)
             return ((ExitCommand) command).execute(client, objectFactory);

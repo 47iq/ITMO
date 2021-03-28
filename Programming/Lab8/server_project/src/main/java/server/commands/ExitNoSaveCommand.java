@@ -11,11 +11,13 @@ public class ExitNoSaveCommand implements ServerCommand {
 
     }
 
+    @Override
     public void execute(CollectionManager manager) {
         LogManager.getLogger().info("Program has been exited.");
         System.exit(0);
     }
 
+    @Override
     public Response accept(Visitor visitor) {
         return visitor.visit(this);
     }

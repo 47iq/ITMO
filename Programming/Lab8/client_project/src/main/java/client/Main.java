@@ -32,19 +32,19 @@ public class Main extends Application {
 
     public void start(Stage primaryStage) throws Exception {
         setValidators();
-        ObjectFactory factory = new ClientContext(Locale.ENGLISH);
+        ObjectFactory factory = new ClientObjectFactory(Locale.ENGLISH);
         makeStage("welcome.fxml", factory.getContext());
     }
 
     public void makeStage(String sceneFile, ControllerContext context) throws IOException {
         Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(ClientContext.class.getClassLoader().getResource(sceneFile));
+        FXMLLoader loader = new FXMLLoader(ClientObjectFactory.class.getClassLoader().getResource(sceneFile));
         Parent root = loader.load();
         Controller controller = loader.getController();
         controller.initialize(context);
         Scene scene = new Scene(root);
         stage.setTitle("DB manager");
-        InputStream iconStream = ClientContext.class.getResourceAsStream("/icon.png");
+        InputStream iconStream = ClientObjectFactory.class.getResourceAsStream("/icon.png");
         Image image = new Image(iconStream);
         stage.getIcons().add(image);
         stage.setResizable(false);

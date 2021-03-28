@@ -20,6 +20,7 @@ public class PrintFieldDescendingRefundableCommand implements SimpleCommand {
 
     }
 
+    @Override
     public Response execute(CollectionManager collectionManager, String arg, ObjectFactory factory, String login) {
         List<Boolean> refundableList = collectionManager.getRefundableList();
         StringBuilder message = new StringBuilder();
@@ -29,6 +30,7 @@ public class PrintFieldDescendingRefundableCommand implements SimpleCommand {
         return factory.getResponse(true, message.toString());
     }
 
+    @Override
     public Response accept(Visitor visitor) {
         return visitor.visit(this);
     }

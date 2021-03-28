@@ -3,6 +3,8 @@ package client.gui_controllers;
 import client.reader.CommandReader;
 import common.Response;
 import common.Ticket;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
@@ -17,7 +19,7 @@ import javafx.stage.Stage;
 
 import java.util.*;
 
-public class VisualController implements Controller{
+public class VisualController implements Controller {
 
     public Button backButton;
     public Button updateButton;
@@ -40,8 +42,10 @@ public class VisualController implements Controller{
     private double yCoefficient;
     private double ticketMinX;
     private double ticketMinY;
-    private final double TICKET_H = 15;
-    private final double TICKET_W = 30;
+    private final double TICKET_H = 20;
+    private final double TICKET_W = 40;
+    private final double H_GAP = 5;
+    private final double W_GAP = 8;
     private final double H_CONST = 80;
     private final double W_CONST = 80;
     private final Controller controller = this;
@@ -53,9 +57,7 @@ public class VisualController implements Controller{
         controlManager = context.getControlManager();
         reader = context.getCommandReader();
         bundle = context.getBundle();
-        updateCollection();
-        visualize();
-        localize();
+        start();
         updateButton.setOnAction(actionEvent -> {
             updateCollection();
             visualize();
@@ -69,6 +71,34 @@ public class VisualController implements Controller{
         });
     }
 
+    private void start() {
+        updateCollection();
+        visualize();
+        localize();
+        Thread updateThread = new Thread(() -> {
+            while (true) {
+                try {
+                    List<Ticket> ticketList = reader.getResponse("show").getCollection();
+                    if (!ticketList.equals(tickets)) {
+                        update();
+                    }
+                    Thread.sleep(1000);
+                } catch (
+                        InterruptedException ignored) {
+                }
+            }
+        });
+        updateThread.start();
+    }
+
+    private void update() {
+        Runnable task = () -> {
+            updateCollection();
+            visualize();
+        };
+        Platform.runLater(task);
+    }
+
     private void localize() {
         backButton.setText(bundle.getString("BACK"));
         updateButton.setText(bundle.getString("UPDATE"));
@@ -80,35 +110,50 @@ public class VisualController implements Controller{
         colorMap = reader.getResponse("get_colors").getColorMap();
         double ticketMaxX = tickets.stream().map(Ticket::getX).max((x, y) -> (int) ((x) - (y))).get();
         ticketMinX = tickets.stream().map(Ticket::getX).max((x, y) -> (int) ((y) - (x))).get();
-        xCoefficient = MAX_X/ (ticketMaxX - ticketMinX + TICKET_W + W_CONST);
+        xCoefficient = MAX_X / (ticketMaxX - ticketMinX + TICKET_W + W_CONST);
         ticketMinY = tickets.stream().map(Ticket::getY).max((x, y) -> ((y) - (x))).get();
         double ticketMaxY = tickets.stream().map(Ticket::getY).max(Comparator.comparingInt(x -> (x))).get();
-        yCoefficient = MAX_Y/ (ticketMaxY - ticketMinY + TICKET_H + H_CONST);
-        for(Ticket ticket: tickets) {
+        yCoefficient = MAX_Y / (ticketMaxY - ticketMinY + TICKET_H + H_CONST);
+        anchorPane.getChildren().clear();
+        for (Ticket ticket : tickets) {
             Group group = new Group(draw(ticket));
             anchorPane.getChildren().add(group);
         }
     }
 
-    private Rectangle draw(Ticket ticket) {
+    private Group draw(Ticket ticket) {
         String owner = ticket.getOwner();
         Color color = convertColor(owner);
-        Rectangle rectangle = new Rectangle();
         double x = (ticket.getX() - ticketMinX) * xCoefficient;
         double y = (ticket.getY() - ticketMinY) * yCoefficient;
-        rectangle.setFill(color);
-        rectangle.setStroke(Color.BLACK);
-        rectangle.setX(x);
-        rectangle.setY(y);
-        rectangle.setHeight(TICKET_H);
-        rectangle.setWidth(TICKET_W);
-        rectangle.setOnMouseClicked(event -> {
-            if(ticket.getOwner().equals(context.getCurrentUser()))
+        Rectangle rectangle = getRectangle(color);
+        Text text = getText(ticket, color);
+        Group drawing = new Group(rectangle, text);
+        drawing.setOnMouseClicked(event -> {
+            if (ticket.getOwner().equals(context.getCurrentUser()))
                 displayOwnTicketInfo(ticket);
             else
                 displayTicketInfo(ticket);
         });
+        drawing.setLayoutX(x);
+        drawing.setLayoutY(y);
+        return drawing;
+    }
+
+    private Rectangle getRectangle(Color color) {
+        Rectangle rectangle = new Rectangle();
+        rectangle.setFill(color);
+        rectangle.setStroke(Color.BLACK);
+        rectangle.setHeight(TICKET_H);
+        rectangle.setWidth(TICKET_W);
         return rectangle;
+    }
+
+    private Text getText(Ticket ticket, Color color) {
+        Text text = new Text(String.valueOf(ticket.getId()));
+        text.setLayoutX(TICKET_W/2-W_GAP);
+        text.setLayoutY(TICKET_H-H_GAP);
+        return text;
     }
 
     private void updateCollection() {
@@ -128,7 +173,7 @@ public class VisualController implements Controller{
             context.setUpdateArg(ticket);
             context.setPrevScene("visual.fxml");
             controlManager.showScene((Stage) backButton.getScene().getWindow(), "update.fxml", controller);
-        }else if (result.get() == ButtonType.CANCEL) {
+        } else if (result.get() == ButtonType.CANCEL) {
             alert.close();
         }
     }
@@ -145,7 +190,7 @@ public class VisualController implements Controller{
         double red = awtColor.getRed();
         double green = awtColor.getGreen();
         double blue = awtColor.getBlue();
-        return Color.color(red/255, green/255, blue/255);
+        return Color.color(red / 255, green / 255, blue / 255);
     }
 
     @Override

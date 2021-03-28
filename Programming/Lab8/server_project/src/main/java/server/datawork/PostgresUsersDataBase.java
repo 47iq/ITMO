@@ -47,6 +47,7 @@ public class PostgresUsersDataBase implements UsersDataBase {
         }
     }
 
+    @Override
     public void add(User user) throws SQLException {
         String sql = "INSERT INTO users (login, password, red, green, blue) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -59,10 +60,12 @@ public class PostgresUsersDataBase implements UsersDataBase {
         preparedStatement.execute();
     }
 
+    @Override
     public void isAdmin(User user) {
 
     }
 
+    @Override
     public boolean isValid(User user) {
         try {
             String password = cryptoModule.hash(user.getPassword());
@@ -77,6 +80,7 @@ public class PostgresUsersDataBase implements UsersDataBase {
         }
     }
 
+    @Override
     public boolean isPresent(String username) {
         try {
             ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE login = '" + username + "'");

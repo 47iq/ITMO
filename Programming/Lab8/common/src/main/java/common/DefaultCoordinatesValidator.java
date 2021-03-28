@@ -11,6 +11,7 @@ public class DefaultCoordinatesValidator implements CoordinatesValidator {
      * @return x double value
      */
 
+    @Override
     public double castXCoordinate(String xCoordinate) {
         double x = Double.parseDouble(xCoordinate);
         if (!xCoordinateValid(x))
@@ -36,6 +37,7 @@ public class DefaultCoordinatesValidator implements CoordinatesValidator {
      * @return y Integer value
      */
 
+    @Override
     public Integer castYCoordinate(String yCoordinate) {
         Integer y = Integer.parseInt(yCoordinate);
         if (!yCoordinateValid(y))

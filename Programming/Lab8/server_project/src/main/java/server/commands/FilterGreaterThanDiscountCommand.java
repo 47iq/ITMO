@@ -21,6 +21,7 @@ public class FilterGreaterThanDiscountCommand implements MessagingCommand {
     public FilterGreaterThanDiscountCommand() {
     }
 
+    @Override
     public Response execute(CollectionManager collectionManager, Ticket ticket1, String arg, ObjectFactory factory) {
         double discount;
         try {
@@ -35,6 +36,7 @@ public class FilterGreaterThanDiscountCommand implements MessagingCommand {
         return factory.getResponse(true, message.toString());
     }
 
+    @Override
     public Response accept(Visitor visitor) {
         return visitor.visit(this);
     }

@@ -34,6 +34,7 @@ public class DefaultServer implements Server {
         this.port = port;
     }
 
+    @Override
     public void start() throws IOException {
         LogManager.getLogger(DefaultServer.class.getName()).info("Starting command reading...");
         startConsoleCommandReading();
@@ -90,6 +91,7 @@ public class DefaultServer implements Server {
         }
     }
 
+    @Override
     public synchronized void exit() {
         try {
             connectionBuilder.stop();

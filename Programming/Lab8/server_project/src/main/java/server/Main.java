@@ -66,7 +66,7 @@ public class Main {
         DefaultPerson.setValidator(new DefaultPersonValidator());
     }
 
-    public static Map<String, Command> getCommands() {
+    private static Map<String, Command> getCommands() {
         HashMap<String, Command> commands = new HashMap<>();
         commands.put("help", new HelpCommand());
         commands.put("info", new InfoCommand());
@@ -86,7 +86,7 @@ public class Main {
         return commands;
     }
 
-    public static Map<String, Command> getServerCommands(Server server) {
+    private static Map<String, Command> getServerCommands(Server server) {
         HashMap<String, Command> serverCommands = new HashMap<>();
         serverCommands.put("shut_down", new ExitCommand(server));
         serverCommands.put("exit_no_save", new ExitNoSaveCommand());
@@ -94,7 +94,7 @@ public class Main {
         return serverCommands;
     }
 
-    public static Set<String> getTicketCommands() {
+    private static Set<String> getTicketCommands() {
         HashSet<String> commands = new HashSet<>();
         commands.add("add");
         commands.add("add_if_max");

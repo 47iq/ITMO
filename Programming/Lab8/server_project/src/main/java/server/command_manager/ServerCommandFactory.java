@@ -44,10 +44,12 @@ public class ServerCommandFactory implements CommandFactory {
         return instance;
     }
 
+    @Override
     public void setServerCommands(Map<String, Command> serverCommands) {
         this.serverCommands = serverCommands;
     }
 
+    @Override
     public Response executeCommand(String commandName, Ticket ticket, String arg, String user, UpdateData updateData, UsersDataBase dataBase) {
         Command command;
         Visitor visitor = ticketFactory.getCommandVisitor(arg, ticket, collectionManager, ticketFactory, user, updateData, dataBase);

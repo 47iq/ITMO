@@ -15,14 +15,17 @@ public class DefaultUser implements User, Serializable {
         this.password = password;
     }
 
+    @Override
     public String getLogin() {
         return login;
     }
 
+    @Override
     public String getPassword() {
         return password;
     }
 
+    @Override
     public String toString() {
         return login;
     }

@@ -57,6 +57,7 @@ public class DefaultTicket implements Ticket, Serializable {
      * @return {@link DefaultTicket#id}
      */
 
+    @Override
     public int getId() {
         return id;
     }
@@ -67,6 +68,7 @@ public class DefaultTicket implements Ticket, Serializable {
      * @return {@link #coordinates}
      */
 
+    @Override
     public Coordinates getCoordinates() {
         return coordinates;
     }
@@ -77,6 +79,7 @@ public class DefaultTicket implements Ticket, Serializable {
      * @return {@link DefaultTicket#discount}
      */
 
+    @Override
     public double getDiscount() {
         return discount;
     }
@@ -87,6 +90,7 @@ public class DefaultTicket implements Ticket, Serializable {
      * @return {@link DefaultTicket#refundable}
      */
 
+    @Override
     public Boolean getRefundable() {
         return refundable;
     }
@@ -106,6 +110,8 @@ public class DefaultTicket implements Ticket, Serializable {
      *
      * @param type manager.ticket's type
      */
+
+    @Override
     public void setType(TicketType type) {
         this.type = type;
     }
@@ -116,6 +122,7 @@ public class DefaultTicket implements Ticket, Serializable {
      * @return {@link #price}
      */
 
+    @Override
     public int getPrice() {
         return price;
     }
@@ -127,6 +134,7 @@ public class DefaultTicket implements Ticket, Serializable {
      * @return {@link DefaultTicket#person}
      */
 
+    @Override
     public Person getPerson() {
         return person;
     }
@@ -137,6 +145,7 @@ public class DefaultTicket implements Ticket, Serializable {
      * @return {@link #creationDate}
      */
 
+    @Override
     public ZonedDateTime getCreationDate() {
         return creationDate;
     }
@@ -147,6 +156,7 @@ public class DefaultTicket implements Ticket, Serializable {
      * @return {@link #name}
      */
 
+    @Override
     public String getName() {
         return name;
     }
@@ -157,6 +167,7 @@ public class DefaultTicket implements Ticket, Serializable {
      * @return {{@link #type}}
      */
 
+    @Override
     public TicketType getType() {
         return type;
     }
@@ -171,6 +182,7 @@ public class DefaultTicket implements Ticket, Serializable {
         this.creationDate = creationDate;
     }
 
+    @Override
     public String toString() {
         return "AbstractTicket{" +
                 "id=" + id +
@@ -178,6 +190,7 @@ public class DefaultTicket implements Ticket, Serializable {
                 '}';
     }
 
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -193,6 +206,7 @@ public class DefaultTicket implements Ticket, Serializable {
                 person.equals(ticket.person);
     }
 
+    @Override
     public int hashCode() {
         return Objects.hash(id, name, coordinates, creationDate, price, discount, refundable, type, person);
     }
@@ -203,6 +217,7 @@ public class DefaultTicket implements Ticket, Serializable {
      * @param name manager.ticket name
      */
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -213,6 +228,7 @@ public class DefaultTicket implements Ticket, Serializable {
      * @param coordinates manager.ticket coordinates
      */
 
+    @Override
     public void setCoordinates(Coordinates coordinates) {
         this.coordinates = (DefaultCoordinates) coordinates;
     }
@@ -223,6 +239,7 @@ public class DefaultTicket implements Ticket, Serializable {
      * @param price manager.ticket price
      */
 
+    @Override
     public void setPrice(int price) {
         this.price = price;
     }
@@ -233,6 +250,7 @@ public class DefaultTicket implements Ticket, Serializable {
      * @param discount manager.ticket discount
      */
 
+    @Override
     public void setDiscount(double discount) {
         this.discount = discount;
     }
@@ -242,6 +260,8 @@ public class DefaultTicket implements Ticket, Serializable {
      *
      * @param refundable manager.ticket refundable
      */
+
+    @Override
     public void setRefundable(Boolean refundable) {
         this.refundable = refundable;
     }
@@ -252,34 +272,42 @@ public class DefaultTicket implements Ticket, Serializable {
      * @param person manager.ticket person
      */
 
+    @Override
     public void setPerson(Person person) {
         this.person = person;
     }
 
+    @Override
     public void setNameStr(String name) {
         setName(validator.castName(name));
     }
 
+    @Override
     public void setPriceStr(String price) {
         setPrice(validator.castPrice(price));
     }
 
+    @Override
     public void setDiscountStr(String discount) {
         setDiscount(validator.castDiscount(discount));
     }
 
+    @Override
     public void setRefundableStr(String refundable) {
         setRefundable(validator.castRefundable(refundable));
     }
 
+    @Override
     public void setTypeStr(String type) {
         setType(validator.castType(type));
     }
 
+    @Override
     public String getOwner() {
         return owner;
     }
 
+    @Override
     public void setOwner(String owner) {
         this.owner = owner;
     }
