@@ -174,8 +174,6 @@ public class PostgresTicketsDataBase implements TicketsDataBase {
         if (set.next()) {
             int id = set.getInt(set.findColumn("id"));
             ticket.setId(id);
-            //TODO:
-            System.out.println(ticket.getOwner() + " " + id);
             commonDataBase.add(id, ticket.getOwner());
         } else {
             throw new SQLException();
