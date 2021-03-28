@@ -25,7 +25,6 @@ public class ClientShowCommand implements MessagingCommand {
                     bundle.getString("WEIGHT") + ": " + ticket.getWeight() + "\n" +
                     bundle.getString("EYES") + ": " + ticket.getEyeColor() + "\n" +
                     bundle.getString("HAIR") + ": " + ticket.getHairColor() + "\n" +
-                    bundle.getString("REFUNDABLE") + ": " + ticket.getRefundable() + "\n" +
                     bundle.getString("NATIONALITY") + ": " + ticket.getNationality() + "\n\n";
         }
         response.setMessage(message);

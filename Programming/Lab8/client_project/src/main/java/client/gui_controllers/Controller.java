@@ -1,4 +1,4 @@
-package client.controllers;
+package client.gui_controllers;
 
 public interface Controller {
     void setContext(ControllerContext context);

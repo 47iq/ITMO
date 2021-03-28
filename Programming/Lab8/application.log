@@ -5226,3 +5226,23 @@
 [2021-03-27T18:51:53,702 INFO ] server.collection.QueueManager - Sent info about collection.
 [2021-03-27T18:51:55,882 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
 [2021-03-27T18:52:10,619 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T19:19:56,462 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-27T19:19:56,491 INFO ] server.Main - Server started at port: 3110
+[2021-03-27T19:19:56,511 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-27T19:20:11,328 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-27T19:20:14,392 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T19:23:05,178 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-27T19:23:05,207 INFO ] server.Main - Server started at port: 3110
+[2021-03-27T19:23:05,224 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-27T19:23:27,058 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-27T19:23:33,837 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T19:24:31,039 INFO ] server.datawork.PostgresDataBaseManager - Successfully connected to the data base.
+[2021-03-27T19:24:31,069 INFO ] server.Main - Server started at port: 3110
+[2021-03-27T19:24:31,085 INFO ] server.connection.DefaultServer - Starting command reading...
+[2021-03-27T19:24:31,225 INFO ] server.connection.DefaultConnectionManager - User: test has logged in.
+[2021-03-27T19:24:36,551 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.InfoCommand
+[2021-03-27T19:24:36,552 INFO ] server.collection.QueueManager - Sent info about collection.
+[2021-03-27T19:24:38,282 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-27T19:24:43,649 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.HelpCommand
+[2021-03-27T19:24:50,182 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand
+[2021-03-27T19:24:54,232 INFO ] server.command_manager.CommandVisitor - Executing command: class server.commands.ShowCommand

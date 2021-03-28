@@ -1,5 +1,5 @@
-client/controllers/UpdateController.java
- client.controllers.UpdateController
+client/connection/DefaultRequestSender.java
+ client.connection.DefaultRequestSender
 client/DefaultClient.java
  client.DefaultClient
 client/controllers/ControlManager.java
@@ -8,8 +8,8 @@ client/exceptions/ClientException.java
  client.exceptions.ClientException
 client/reader/CommandReader.java
  client.reader.CommandReader
-client/ClientContext.java
- client.ClientContext
+client/controllers/Controller.java
+ client.controllers.Controller
 client/commands/ClientCommand.java
  client.commands.ClientCommand
 client/exceptions/FieldNumberFormatException.java
@@ -48,8 +48,8 @@ client/ObjectFactory.java
  client.ObjectFactory
 client/exceptions/CommandInputException.java
  client.exceptions.CommandInputException
-client/commands/ClientShowCommand.java
- client.commands.ClientShowCommand
+client/reader/DefaultControllerCommandReader.java
+ client.reader.DefaultControllerCommandReader
 client/controllers/MainController.java
  client.controllers.MainController
 client/ticket/DefaultTicketBuilder.java
@@ -60,10 +60,10 @@ client/controllers/ControllerContext.java
  client.controllers.ControllerContext
 client/controllers/WelcomeController.java
  client.controllers.WelcomeController
-client/controllers/AddController.java
- client.controllers.AddController
-client/reader/DefaultControllerCommandReader.java
- client.reader.DefaultControllerCommandReader
+client/controllers/RegisterController.java
+ client.controllers.RegisterController
+client/exceptions/FieldInputException.java
+ client.exceptions.FieldInputException
 client/commands/AuthCommand.java
  client.commands.AuthCommand
 client/commands/ColorCommand.java
@@ -76,17 +76,16 @@ client/commands/RegisterCommand.java
  client.commands.RegisterCommand
 client/commands/ClientInfoCommand.java
  client.commands.ClientInfoCommand
-client/controllers/FilterController.java
- client.controllers.FilterController
- client.controllers.FilterController$FilterCondition
+client/connection/RequestSender.java
+ client.connection.RequestSender
 client/controllers/VisualController.java
  client.controllers.VisualController
 client/commands/ClientServerCommand.java
  client.commands.ClientServerCommand
 client/controllers/DefaultControlManager.java
  client.controllers.DefaultControlManager
-client/controllers/ArgController.java
- client.controllers.ArgController
+client/ticket/ClientTemplatePerson.java
+ client.ticket.ClientTemplatePerson
 client/commands/DefaultExitCommand.java
  client.commands.DefaultExitCommand
 client/commands/ExecuteScriptCommand.java
@@ -109,19 +108,20 @@ client/commands/LoginFreeCommand.java
  client.commands.LoginFreeCommand
 client/ticket/ClientTemplateCoordinates.java
  client.ticket.ClientTemplateCoordinates
-client/ticket/ClientTemplatePerson.java
- client.ticket.ClientTemplatePerson
-client/reader/FileCommandReader.java
- client.reader.FileCommandReader
+client/controllers/UpdateController.java
+ client.controllers.UpdateController
 client/reader/AbstractCommandReader.java
  client.reader.AbstractCommandReader
-client/exceptions/FieldInputException.java
- client.exceptions.FieldInputException
-client/connection/RequestSender.java
- client.connection.RequestSender
-client/controllers/Controller.java
- client.controllers.Controller
-client/controllers/RegisterController.java
- client.controllers.RegisterController
-client/connection/DefaultRequestSender.java
- client.connection.DefaultRequestSender
+client/controllers/ArgController.java
+ client.controllers.ArgController
+client/controllers/FilterController.java
+ client.controllers.FilterController
+ client.controllers.FilterController$FilterCondition
+client/reader/FileCommandReader.java
+ client.reader.FileCommandReader
+client/controllers/AddController.java
+ client.controllers.AddController
+client/ClientContext.java
+ client.ClientContext
+client/commands/ClientShowCommand.java
+ client.commands.ClientShowCommand

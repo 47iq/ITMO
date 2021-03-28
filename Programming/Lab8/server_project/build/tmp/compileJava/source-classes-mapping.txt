@@ -36,12 +36,12 @@ server/exceptions/UserExistsException.java
  server.exceptions.UserExistsException
 server/ticket/ServerDefaultTicket.java
  server.ticket.ServerDefaultTicket
-server/command_manager/ServerCommandFactory.java
- server.command_manager.ServerCommandFactory
+server/commands/SimpleCommand.java
+ server.commands.SimpleCommand
 server/exceptions/UnknownTypeException.java
  server.exceptions.UnknownTypeException
-server/Main.java
- server.Main
+server/commands/ServerCommand.java
+ server.commands.ServerCommand
 server/commands/Command.java
  server.commands.Command
 server/commands/FilterGreaterThanDiscountCommand.java
@@ -64,8 +64,8 @@ server/connection/ResponseSender.java
  server.connection.ResponseSender
 server/ObjectFactory.java
  server.ObjectFactory
-server/ServerObjectFactory.java
- server.ServerObjectFactory
+server/exceptions/ServerException.java
+ server.exceptions.ServerException
 server/exceptions/RegistrationException.java
  server.exceptions.RegistrationException
 server/datawork/SHA384CryptoModule.java
@@ -100,8 +100,8 @@ server/exceptions/InvalidIdException.java
  server.exceptions.InvalidIdException
 server/datawork/ColorGenerator.java
  server.datawork.ColorGenerator
-server/datawork/PostgresTicketsDataBase.java
- server.datawork.PostgresTicketsDataBase
+server/connection/DefaultConnectionBuilder.java
+ server.connection.DefaultConnectionBuilder
 server/connection/DefaultRequestReader.java
  server.connection.DefaultRequestReader
 server/exceptions/NotLoggedInException.java
@@ -112,9 +112,8 @@ server/commands/RemoveGreaterCommand.java
  server.commands.RemoveGreaterCommand
 server/connection/DefaultResponseSender.java
  server.connection.DefaultResponseSender
-server/connection/DefaultConnectionManager.java
- server.connection.DefaultConnectionManager
- server.connection.DefaultConnectionManager$1
+server/connection/DefaultServer.java
+ server.connection.DefaultServer
 server/datawork/TicketReader.java
  server.datawork.TicketReader
 server/datawork/DefaultColorGenerator.java
@@ -131,13 +130,14 @@ server/command_manager/Visitor.java
  server.command_manager.Visitor
 server/commands/AddCommand.java
  server.commands.AddCommand
-server/connection/DefaultServer.java
- server.connection.DefaultServer
-server/commands/ServerCommand.java
- server.commands.ServerCommand
-server/exceptions/ServerException.java
- server.exceptions.ServerException
-server/commands/SimpleCommand.java
- server.commands.SimpleCommand
-server/connection/DefaultConnectionBuilder.java
- server.connection.DefaultConnectionBuilder
+server/datawork/PostgresTicketsDataBase.java
+ server.datawork.PostgresTicketsDataBase
+server/command_manager/ServerCommandFactory.java
+ server.command_manager.ServerCommandFactory
+server/ServerObjectFactory.java
+ server.ServerObjectFactory
+server/Main.java
+ server.Main
+server/connection/DefaultConnectionManager.java
+ server.connection.DefaultConnectionManager
+ server.connection.DefaultConnectionManager$1

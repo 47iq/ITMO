@@ -1,4 +1,4 @@
-package client.controllers;
+package client.gui_controllers;
 
 import common.Ticket;
 import javafx.collections.FXCollections;

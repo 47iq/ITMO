@@ -1,4 +1,4 @@
-package client.controllers;
+package client.gui_controllers;
 
 import common.Response;
 import javafx.scene.control.*;

@@ -1,4 +1,4 @@
-package client.controllers;
+package client.gui_controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

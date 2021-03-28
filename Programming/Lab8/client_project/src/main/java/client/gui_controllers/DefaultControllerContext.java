@@ -1,4 +1,4 @@
-package client.controllers;
+package client.gui_controllers;
 
 import client.reader.CommandReader;
 import common.Ticket;
