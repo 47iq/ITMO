@@ -36,8 +36,4 @@ public interface ControllerContext {
     ResourceBundle getBundle();
 
     void setBundle(ResourceBundle bundle);
-
-    String getErrorMessage(Exception e);
-
-    String getErrorMessage(String e);
 }

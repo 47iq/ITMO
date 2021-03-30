@@ -45,9 +45,9 @@ public class RegisterController implements Controller {
                         alert.showAndWait();
                     }
                 } else
-                    displayError("ERR_PASSWORDS_MATCH");
+                    controlManager.displayError("ERR_PASSWORDS_MATCH", bundle);
             } else
-                displayError("ERR_FIELDS_EMPTY");
+                controlManager.displayError("ERR_FIELDS_EMPTY", bundle);
         });
         backButton.setOnAction(actionEvent -> {
             context.getControlManager().showScene((Stage) backButton.getScene().getWindow(), "welcome.fxml", this);
@@ -75,20 +75,6 @@ public class RegisterController implements Controller {
 
     private void success() {
         controlManager.showScene((Stage) backButton.getScene().getWindow(), "mainScene.fxml", this);
-    }
-
-    private void displayError(Exception e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
-    }
-
-    private void displayError(String e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
     }
 
     @Override

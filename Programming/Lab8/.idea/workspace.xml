@@ -4,10 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43ba2976-e12d-4b2d-9225-6eb4d5b1636d" name="Default Changelist" comment="Lab8 v0.9">
+    <list default="true" id="43ba2976-e12d-4b2d-9225-6eb4d5b1636d" name="Default Changelist" comment="Lab8 v0.91">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/collection/QueueManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/collection/QueueManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/PostgresTicketsDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/datawork/PostgresTicketsDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/commands/ExecuteScriptCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/commands/ExecuteScriptCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/ClientException.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/ClientException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/AddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/AddController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ArgController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ArgController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ControlManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ControlManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ControllerContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ControllerContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/DefaultControlManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/DefaultControlManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/DefaultControllerContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/DefaultControllerContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/FilterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/FilterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/TableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/UpdateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/WelcomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/WelcomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/reader/AbstractCommandReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/reader/AbstractCommandReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/errors.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/build/classes/java/main/server/collection/QueueManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/collection/QueueManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/PostgresTicketsDataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/PostgresTicketsDataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,7 +314,7 @@
       <workItem from="1616791705547" duration="39921000" />
       <workItem from="1616933763899" duration="14732000" />
       <workItem from="1616948779661" duration="280000" />
-      <workItem from="1616949112083" duration="1591000" />
+      <workItem from="1616949112083" duration="4157000" />
     </task>
     <task id="LOCAL-00001" summary="Lab8 v0">
       <created>1616268337056</created>
@@ -368,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616948174261</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Lab8 v0.91">
+      <created>1616964293244</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1616964293244</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,7 +431,8 @@
     <MESSAGE value="Lab8 v0.83" />
     <MESSAGE value="Lab8 v0.831" />
     <MESSAGE value="Lab8 v0.9" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lab8 v0.9" />
+    <MESSAGE value="Lab8 v0.91" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lab8 v0.91" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -413,6 +446,14 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="7" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ControllerContext.java</url>
+          <line>33</line>
+          <properties class="client.gui_controllers.ControllerContext" method="getPrevScene">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

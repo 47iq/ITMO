@@ -106,14 +106,4 @@ public class DefaultControllerContext implements ControllerContext {
     public void setBundle(ResourceBundle bundle) {
         this.bundle = bundle;
     }
-
-    @Override
-    public String getErrorMessage(Exception e) {
-        return controlManager.getErrorMessage(e, bundle);
-    }
-
-    @Override
-    public String getErrorMessage(String e) {
-        return controlManager.getErrorMessage(e, bundle);
-    }
 }

@@ -2458,3 +2458,6 @@
 [2021-03-28T18:41:28,314 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.net.SocketException
 [2021-03-28T18:48:30,424 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.net.SocketException
 [2021-03-28T19:15:11,870 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.net.SocketException
+[2021-03-29T22:41:37,059 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.net.SocketException
+[2021-03-29T22:41:37,059 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.net.SocketException
+[2021-03-29T22:41:37,120 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.net.SocketException

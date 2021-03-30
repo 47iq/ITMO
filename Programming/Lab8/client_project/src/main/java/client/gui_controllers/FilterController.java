@@ -57,7 +57,7 @@ public class FilterController implements Controller {
                 filter(fieldMap.get(command.getValue()), FilterCondition.HIGHER, arg.getText());
                 success();
             } catch (Exception e) {
-                displayError(e);
+                controlManager.displayError(e, bundle);
             }
         });
         lowerButton.setOnAction(actionEvent -> {
@@ -65,7 +65,7 @@ public class FilterController implements Controller {
                 filter(fieldMap.get(command.getValue()), FilterCondition.LOWER, arg.getText());
                 success();
             } catch (Exception e) {
-                displayError(e);
+                controlManager.displayError(e, bundle);
             }
         });
         backButton.setOnAction(actionEvent -> {
@@ -95,7 +95,7 @@ public class FilterController implements Controller {
     }
 
     private void success() {
-        displayInfo(bundle.getString("SUCCESS"));
+        controlManager.displayInfo(bundle.getString("SUCCESS"), bundle);
         context.setCurrentCollection(tickets);
         controlManager.showScene((Stage) backButton.getScene().getWindow(), "table.fxml", this);
     }
@@ -144,29 +144,6 @@ public class FilterController implements Controller {
             }
             default -> throw new RuntimeException("Unknown error");
         }
-    }
-
-    private void displayError(Exception e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
-    }
-
-    private void displayError(String e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
-    }
-
-    private void displayInfo(String s) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(bundle.getString("SUCCESS"));
-        if(s.equals(""))
-            s = bundle.getString("SUCCESS");
-        alert.setHeaderText(s);
-        alert.showAndWait();
     }
 
     private void goBack() {

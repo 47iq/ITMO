@@ -78,11 +78,11 @@ public class AddController implements Controller {
                 builder.setHairColor(hair.getValue());
                 builder.setCountry(country.getValue());
                 Response response = reader.getResponse(context.getCurrentCommand());
-                displayInfo(response);
+                controlManager.displayInfo(response, bundle);
                 goBack();
             } catch (Exception e) {
                 e.printStackTrace();
-                displayError(e);
+                controlManager.displayError(e, bundle);
             }
         });
     }
@@ -110,39 +110,6 @@ public class AddController implements Controller {
         coordinateText.setText(bundle.getString("COORDINATES"));
         personText.setText(bundle.getString("PERSON"));
         ticketText.setText(bundle.getString("TICKET"));
-    }
-
-    private void displayError(Exception e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
-    }
-
-    private void displayError(String e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
-    }
-
-    private void displayInfo(Response response) {
-        if (response.isSuccessful())
-            if (response.getMessage() != null)
-                displayInfo(response.getMessage());
-            else
-                displayInfo(bundle.getString("SUCCESS"));
-        else
-            displayError(response.getMessage());
-    }
-
-    private void displayInfo(String s) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(bundle.getString("SUCCESS"));
-        if(s.equals(""))
-            s = bundle.getString("SUCCESS");
-        alert.setHeaderText(s);
-        alert.showAndWait();
     }
 
     private void goBack() {

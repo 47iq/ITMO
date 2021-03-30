@@ -1,4 +1,6 @@
 package client.exceptions;
 
-public interface ClientException {
+import server.exceptions.CommonException;
+
+public interface ClientException extends CommonException {
 }

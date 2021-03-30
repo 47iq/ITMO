@@ -117,14 +117,14 @@ public class UpdateController implements Controller {
                 try {
                     int check = Integer.parseInt(id.getText());
                 } catch (Exception e) {
-                    displayError("ERR_INVALID_ID");
+                    controlManager.displayError("ERR_INVALID_ID", bundle);
                     return;
                 }
                 Response response = reader.getResponse("update " + id.getText());
-                displayInfo(response);
+                controlManager.displayInfo(response, bundle);
                 goBack();
             } catch (Exception e) {
-                displayError(e);
+                controlManager.displayError(e, bundle);
             }
         });
     }
@@ -167,36 +167,6 @@ public class UpdateController implements Controller {
             weight.setText("");
         else
             weight.setText(String.valueOf(weightVal));
-    }
-
-    private void displayError(Exception e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
-    }
-
-    private void displayError(String e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
-    }
-
-    private void displayInfo(Response response) {
-        if (response.isSuccessful())
-            displayInfo(response.getMessage());
-        else
-            displayError(response.getMessage());
-    }
-
-    private void displayInfo(String s) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(bundle.getString("SUCCESS"));
-        if(s.equals(""))
-            s = bundle.getString("SUCCESS");
-        alert.setHeaderText(s);
-        alert.showAndWait();
     }
 
     private void goBack() {

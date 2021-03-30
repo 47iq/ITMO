@@ -76,7 +76,7 @@ public class MainController implements Controller {
         infoButton.setOnAction(actionEvent -> {
             context.setCurrentCommand("info");
             Response response = context.getCommandReader().getResponse("info");
-            displayInfo(response);
+            controlManager.displayInfo(response, bundle);
         });
         clearButton.setOnAction(actionEvent -> {
             execute("clear");
@@ -104,44 +104,16 @@ public class MainController implements Controller {
         addText.setText(bundle.getString("ADD_TEXT"));
     }
 
-    private void displayError(Exception e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
-    }
-
-    private void displayError(String e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
-    }
-
-    private void displayInfo(String s) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(bundle.getString("SUCCESS"));
-        alert.setHeaderText(s);
-        alert.showAndWait();
-    }
-
-    private void displayInfo(Response response) {
-        if (response.isSuccessful())
-            displayInfo(response.getMessage());
-        else
-            displayError(response.getMessage());
-    }
-
     private void execute(String command) {
         try {
             context.setCurrentCommand(command);
             Response response = context.getCommandReader().getResponse(command);
             if (response.isSuccessful())
-                displayInfo(response.getMessage());
+                controlManager.displayInfo(response.getMessage(), bundle);
             else
-                displayError(response.getMessage());
+                controlManager.displayError(response.getMessage(), bundle);
         } catch (Exception e) {
-            displayError(e);
+            controlManager.displayError(e, bundle);
         }
     }
 

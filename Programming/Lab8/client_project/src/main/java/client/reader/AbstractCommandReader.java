@@ -3,6 +3,7 @@ package client.reader;
 import client.ObjectFactory;
 import client.connection.ConnectionManager;
 import common.Response;
+import server.exceptions.CommonException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -43,7 +44,9 @@ public abstract class AbstractCommandReader implements CommandReader {
         } catch (ConnectException ex) {
             return ticketFactory.getResponse(false, "ERR_CONNECTION");
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            if(e instanceof CommonException)
+                return ticketFactory.getResponse(false, e.getMessage());
             return ticketFactory.getResponse(false, "ERR_UNK");
         }
         return ticketFactory.getResponse(false, "ERR_UNK");

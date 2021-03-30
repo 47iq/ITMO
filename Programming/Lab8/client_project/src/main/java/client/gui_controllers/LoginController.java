@@ -35,29 +35,15 @@ public class LoginController implements Controller {
                     context.setCurrentUser(login);
                     success();
                 } else {
-                    displayError(response.getMessage());
+                    controlManager.displayError(response.getMessage(), bundle);
                 }
             } else {
-                displayError("ERR_FIELDS_EMPTY");
+                controlManager.displayError("ERR_FIELDS_EMPTY", bundle);
             }
         });
         backButton.setOnAction(actionEvent -> {
             controlManager.showScene((Stage) backButton.getScene().getWindow(), "welcome.fxml", this);
         });
-    }
-
-    private void displayError(Exception e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
-    }
-
-    private void displayError(String e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
     }
 
     private void localize() {

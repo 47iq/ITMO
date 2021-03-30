@@ -35,8 +35,6 @@ public class ExecuteScriptCommand implements ScriptCommand {
             fileCommandReader.executeNext();
         } catch (Exception e) {
             throw new ScriptException();
-        } finally {
-            commandReader.executeNext();
         }
     }
 }

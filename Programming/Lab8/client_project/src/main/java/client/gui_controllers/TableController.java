@@ -115,20 +115,6 @@ public class TableController implements Controller {
         });
     }
 
-    private void displayError(Exception e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
-    }
-
-    private void displayError(String e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
-    }
-
     private void filter() {
         context.setCurrentCollection(tickets);
         controlManager.showScene((Stage) backButton.getScene().getWindow(), "filter.fxml", this);

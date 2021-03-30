@@ -108,8 +108,8 @@ server/commands/RemoveGreaterCommand.java
  server.commands.RemoveGreaterCommand
 server/command_manager/ServerCommandFactory.java
  server.command_manager.ServerCommandFactory
-server/Main.java
- server.Main
+server/commands/ServerCommand.java
+ server.commands.ServerCommand
 server/commands/Command.java
  server.commands.Command
 server/commands/FilterGreaterThanDiscountCommand.java
@@ -123,8 +123,8 @@ server/commands/ShowCommand.java
  server.commands.ShowCommand
 server/commands/PrintFieldDescendingRefundableCommand.java
  server.commands.PrintFieldDescendingRefundableCommand
-server/collection/QueueManager.java
- server.collection.QueueManager
+server/commands/AddCommand.java
+ server.commands.AddCommand
 server/commands/InfoCommand.java
  server.commands.InfoCommand
 server/datawork/PostgresDataBaseManager.java
@@ -137,11 +137,11 @@ server/ObjectFactory.java
  server.ObjectFactory
 server/commands/SimpleCommand.java
  server.commands.SimpleCommand
-server/commands/AddCommand.java
- server.commands.AddCommand
-server/commands/ServerCommand.java
- server.commands.ServerCommand
 server/datawork/PostgresTicketsDataBase.java
  server.datawork.PostgresTicketsDataBase
 server/ServerObjectFactory.java
  server.ServerObjectFactory
+server/Main.java
+ server.Main
+server/collection/QueueManager.java
+ server.collection.QueueManager

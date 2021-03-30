@@ -36,10 +36,10 @@ public class ArgController implements Controller {
         });
         commandButton.setOnAction(actionEvent -> {
             if (arg.getText().equals(""))
-                displayError("All fields must be filled.");
+                controlManager.displayError("All fields must be filled.", bundle);
             else {
                 Response response = context.getCommandReader().getResponse(curCommand + " " + arg.getText());
-                displayInfo(response);
+                controlManager.displayInfo(response, bundle);
                 goBack();
             }
         });
@@ -48,36 +48,6 @@ public class ArgController implements Controller {
     private void localize() {
         backButton.setText(bundle.getString("BACK"));
         arg.setPromptText(bundle.getString("ARG"));
-    }
-
-    private void displayError(Exception e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
-    }
-
-    private void displayError(String e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(bundle.getString("ERROR"));
-        alert.setHeaderText(context.getErrorMessage(e));
-        alert.showAndWait();
-    }
-
-    private void displayInfo(Response response) {
-        if (response.isSuccessful())
-            displayInfo(response.getMessage());
-        else
-            displayError(response.getMessage());
-    }
-
-    private void displayInfo(String s) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(bundle.getString("SUCCESS"));
-        if(s.equals(""))
-            s = bundle.getString("SUCCESS");
-        alert.setHeaderText(s);
-        alert.showAndWait();
     }
 
     private void goBack() {
