@@ -1,6 +1,5 @@
 package client.connection;
 
-import client.Main;
 import client.ObjectFactory;
 import client.command_manager.CommandFactory;
 import client.commands.*;
@@ -11,8 +10,14 @@ import common.*;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.channels.SocketChannel;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.FutureTask;
 
 /**
  * Singleton class which parses {@link Command} and executes it
@@ -41,6 +46,31 @@ public class DefaultConnectionManager implements ConnectionManager {
         this.messagingCommands = messagingCommands;
     }
 
+
+
+    public Collection<Ticket> getCollection() throws InterruptedException, ExecutionException {
+        /*ExecutorService executor = Executors.newFixedThreadPool(1);
+        FutureTask<List<Ticket>> task = new FutureTask<>(() -> {*/
+            try {
+                Request request = ticketFactory.getRequest(RequestType.GET_COLLECTION, "show");
+                SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress(inetAddress, port));
+                RequestSender sender = ticketFactory.getRequestSender(socketChannel);
+                ResponseReader reader = ticketFactory.getResponseReader(socketChannel);
+                sender.sendRequest(request);
+                Response response = reader.readResponse();
+                return response.getCollection();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        /*});
+        executor.execute(task);
+        while (!task.isDone())
+            task.wait();
+        return task.get();*/
+    }
+
+
     public Response executeCommand(String commandName, CommandReader commandReader, String arg) {
         Command command = commandFactory.getCommand(commandName);
         Request commandRequest = ticketFactory.getRequest(RequestType.EXECUTE, commandName);
@@ -67,7 +97,8 @@ public class DefaultConnectionManager implements ConnectionManager {
                 updateConnection();
                 commandRequest.setArg(arg);
                 requestSender.sendRequest(commandRequest);
-                return decorateResponse(responseReader.readResponse(), commandName);
+                Response response = responseReader.readResponse();
+                return decorateResponse(response, commandName);
             } catch (ConnectionException e) {
                 return ticketFactory.getResponse(false, "ERR_CONNECTION");
             } catch (Exception e) {

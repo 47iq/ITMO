@@ -3,6 +3,7 @@ package server.connection;
 import common.*;
 import org.apache.logging.log4j.LogManager;
 import server.ObjectFactory;
+import server.collection.CollectionManager;
 import server.command_manager.CommandFactory;
 import server.datawork.UsersDataBase;
 import server.exceptions.*;
@@ -10,8 +11,8 @@ import server.exceptions.*;
 import java.awt.*;
 import java.lang.reflect.InvocationTargetException;
 import java.net.Socket;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ForkJoinPool;
 
@@ -23,17 +24,21 @@ public class DefaultConnectionManager implements ConnectionManager {
     private final ObjectFactory serverObjectFactory;
     private final ResponseSender responseSender;
     private final UsersDataBase usersDataBase;
+    private final CollectionManager collectionManager;
     private final ExecutorService executionThreads = new ForkJoinPool(5);
+    private List<Ticket> tickets = new ArrayList<>();
 
     public DefaultConnectionManager(CommandFactory commandFactory,
                                     Set<String> ticketCommands, ResponseSender responseSender,
-                                    ObjectFactory serverObjectFactory, RequestReader requestReader, UsersDataBase usersData) {
+                                    ObjectFactory serverObjectFactory, RequestReader requestReader, UsersDataBase usersData, CollectionManager collectionManager) {
         this.commandFactory = commandFactory;
         this.ticketCommands = ticketCommands;
         this.responseSender = responseSender;
         this.serverObjectFactory = serverObjectFactory;
         this.requestReader = requestReader;
         this.usersDataBase = usersData;
+        this.collectionManager = collectionManager;
+        monitorUpdates();
     }
 
     @Override
@@ -58,7 +63,7 @@ public class DefaultConnectionManager implements ConnectionManager {
                     LogManager.getLogger().info("Sent error response " + e.getMessage());
                     sendResponse(serverObjectFactory.getResponse(false, e.getMessage()), client);
                 } else {
-                    LogManager.getLogger().info("Sent error response " + new UnknownException().getMessage());
+                    LogManager.getLogger().error("Sent error response " + new UnknownException().getMessage());
                     sendResponse(serverObjectFactory.getResponse(false, new UnknownException().getMessage()), client);
                 }
             }
@@ -79,18 +84,37 @@ public class DefaultConnectionManager implements ConnectionManager {
 
     private Response getResponse(Request request) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         Response response;
+        LogManager.getLogger().info("Got request " + request.toString());
         switch (request.getType()) {
             case EXECUTE -> response = execute(request);
             case ASK_TICKET -> response = sendTicketNeeded(request);
             case REGISTER -> response = register(request);
             case LOGIN -> response = login(request);
             case COLOR -> response = execColor(request);
+            case GET_COLLECTION -> response = getCollection();
             default -> {
                 LogManager.getLogger().error("Unknown request type got. Sending error answer to the client...");
                 throw new UnknownTypeException();
             }
         }
         return response;
+    }
+
+    private Response getCollection() {
+        try {
+            synchronized (this) {
+                LogManager.getLogger().info(Thread.currentThread() + " is waiting...");
+                this.wait();
+                LogManager.getLogger().info(Thread.currentThread() + " has been notified.");
+            }
+            Response response = serverObjectFactory.getResponse(true, "");
+            response.setCollection(tickets);
+            return response;
+        } catch (InterruptedException ignored) {
+            Response response = serverObjectFactory.getResponse(false, "");
+            response.setCollection(tickets);
+            return response;
+        }
     }
 
     private Response execColor(Request request) {
@@ -166,5 +190,28 @@ public class DefaultConnectionManager implements ConnectionManager {
 
     private boolean checkAccess(Request request) {
         return request.getUser() != null && request.getUser().getPassword() != null && usersDataBase.isValid(request.getUser());
+    }
+
+
+    private void monitorUpdates() {
+        new Thread(() -> {
+            while (true) {
+                synchronized (this) {
+                    if (!tickets.equals(collectionManager.getTicketList()))
+                        setTickets(collectionManager.getTicketList());
+                    try {
+                        wait(3000);
+                    } catch (InterruptedException ignored) {
+                    }
+                }
+            }
+        }).start();
+    }
+
+    private void setTickets(List<Ticket> tickets) {
+        synchronized (this) {
+            this.tickets = tickets;
+            this.notifyAll();
+        }
     }
 }

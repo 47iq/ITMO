@@ -6,11 +6,15 @@ import common.Response;
 import common.Ticket;
 import common.TicketType;
 import common.UpdateData;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class UpdateController implements Controller {
@@ -31,17 +35,6 @@ public class UpdateController implements Controller {
     public ImageView imgView;
     public Text addText;
     public Button updateButton;
-    public CheckBox countryBox;
-    public CheckBox hairBox;
-    public CheckBox eyesBox;
-    public CheckBox weightBox;
-    public CheckBox yBox;
-    public CheckBox xBox;
-    public CheckBox typeBox;
-    public CheckBox refundableBox;
-    public CheckBox discountBox;
-    public CheckBox priceBox;
-    public CheckBox nameBox;
     public Text userText;
 
     private ControllerContext context;
@@ -54,8 +47,10 @@ public class UpdateController implements Controller {
     public void initialize(ControllerContext context) {
         this.context = context;
         Ticket argument = context.getResetUpdateArg();
-        if (argument != null)
+        if (argument != null) {
+            id.setText(String.valueOf(argument.getId()));
             initFields(argument);
+        }
         controlManager = context.getControlManager();
         reader = context.getCommandReader();
         builder = reader.getBuilder();
@@ -64,56 +59,38 @@ public class UpdateController implements Controller {
         userText.setText(context.getCurrentUser());
         controlManager.initBoxes(type, eyes, hair, country);
         localize();
+        loadTicket();
         backButton.setOnAction(actionEvent -> {
             goBack();
+        });
+        id.setOnKeyReleased(x -> {
+            loadTicket();
         });
         updateButton.setOnAction(actionEvent -> {
             try {
                 builder.reset();
-                if (nameBox.isSelected()) {
-                    builder.setName(name.getText());
-                    updateData.setNameSelected();
-                }
-                if (priceBox.isSelected()) {
-                    builder.setPrice(price.getText());
-                    updateData.setPriceSelected();
-                }
-                if (discountBox.isSelected()) {
-                    builder.setDiscount(discount.getText());
-                    updateData.setDiscountSelected();
-                }
-                if (refundableBox.isSelected()) {
-                    builder.setRefundable(refundable.getText());
-                    updateData.setRefundableSelected();
-                }
-                if (typeBox.isSelected()) {
-                    builder.setType(type.getValue());
-                    updateData.setTypeSelected();
-                }
-                if (xBox.isSelected()) {
-                    builder.setX(x.getText());
-                    updateData.setXSelected();
-                }
-                if (yBox.isSelected()) {
-                    builder.setY(y.getText());
-                    updateData.setYSelected();
-                }
-                if (weightBox.isSelected()) {
-                    builder.setWeight(weight.getText());
-                    updateData.setWeightSelected();
-                }
-                if (eyesBox.isSelected()) {
-                    builder.setEyeColor(eyes.getValue());
-                    updateData.setEyeColorSelected();
-                }
-                if (hairBox.isSelected()) {
-                    builder.setHairColor(hair.getValue());
-                    updateData.setHairColorSelected();
-                }
-                if (countryBox.isSelected()) {
-                    builder.setCountry(country.getValue());
-                    updateData.setCountrySelected();
-                }
+                builder.setName(name.getText());
+                updateData.setNameSelected();
+                builder.setPrice(price.getText());
+                updateData.setPriceSelected();
+                builder.setDiscount(discount.getText());
+                updateData.setDiscountSelected();
+                builder.setRefundable(refundable.getText());
+                updateData.setRefundableSelected();
+                builder.setType(type.getValue());
+                updateData.setTypeSelected();
+                builder.setX(x.getText());
+                updateData.setXSelected();
+                builder.setY(y.getText());
+                updateData.setYSelected();
+                builder.setWeight(weight.getText());
+                updateData.setWeightSelected();
+                builder.setEyeColor(eyes.getValue());
+                updateData.setEyeColorSelected();
+                builder.setHairColor(hair.getValue());
+                updateData.setHairColorSelected();
+                builder.setCountry(country.getValue());
+                updateData.setCountrySelected();
                 try {
                     int check = Integer.parseInt(id.getText());
                 } catch (Exception e) {
@@ -129,6 +106,21 @@ public class UpdateController implements Controller {
         });
     }
 
+    private void loadTicket() {
+        String idText = id.getText();
+        try {
+            int id = Integer.parseInt(idText);
+            Optional<Ticket> ticket = getCollection().stream().filter(y -> y.getId() == id && y.getOwner().equals(context.getCurrentUser())).findAny();
+            ticket.ifPresent(this::initFields);
+        } catch (Exception ignored) {
+        }
+    }
+
+    private List<Ticket> getCollection() {
+        Response response = reader.getResponse("show");
+        return response.getCollection();
+    }
+
     private void localize() {
         backButton.setText(bundle.getString("BACK"));
         name.setPromptText(bundle.getString("NAME"));
@@ -142,8 +134,6 @@ public class UpdateController implements Controller {
     }
 
     private void initFields(Ticket argument) {
-        id.setText(String.valueOf(argument.getId()));
-        id.setEditable(false);
         name.setText(argument.getName());
         price.setText(String.valueOf(argument.getPrice()));
         discount.setText(String.valueOf(argument.getDiscount()));

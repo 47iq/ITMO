@@ -3,11 +3,15 @@ package client.reader;
 import client.ObjectFactory;
 import client.connection.ConnectionManager;
 import common.Response;
+import common.Ticket;
 import server.exceptions.CommonException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.ConnectException;
+import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public abstract class AbstractCommandReader implements CommandReader {
 
@@ -50,6 +54,11 @@ public abstract class AbstractCommandReader implements CommandReader {
             return ticketFactory.getResponse(false, "ERR_UNK");
         }
         return ticketFactory.getResponse(false, "ERR_UNK");
+    }
+
+    @Override
+    public Collection<Ticket> getTickets() throws ExecutionException, InterruptedException {
+        return commandFactory.getCollection();
     }
 
     protected abstract boolean readyForInput() throws IOException;

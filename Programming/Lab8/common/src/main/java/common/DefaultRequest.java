@@ -93,4 +93,17 @@ public class DefaultRequest implements Request, Serializable {
     public void setType(RequestType type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "DefaultRequest{" +
+                "type=" + type +
+                ", ticket=" + ticket +
+                ", locale=" + locale +
+                ", arg='" + arg + '\'' +
+                ", user=" + user +
+                ", updateData=" + updateData +
+                ", commandName='" + commandName + '\'' +
+                '}';
+    }
 }

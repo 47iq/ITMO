@@ -1,127 +1,127 @@
-client/gui_controllers/WelcomeController.java
- client.gui_controllers.WelcomeController
-client/commands/ColorCommand.java
- client.commands.ColorCommand
-client/connection/ResponseReader.java
- client.connection.ResponseReader
+client/DefaultClient.java
+ client.DefaultClient
+client/gui_controllers/Controller.java
+ client.gui_controllers.Controller
+client/gui_controllers/TableController.java
+ client.gui_controllers.TableController
 client/exceptions/ClientException.java
  client.exceptions.ClientException
 client/reader/CommandReader.java
  client.reader.CommandReader
-client/exceptions/FieldInputException.java
- client.exceptions.FieldInputException
 client/commands/ClientCommand.java
  client.commands.ClientCommand
 client/exceptions/FieldNumberFormatException.java
  client.exceptions.FieldNumberFormatException
 client/exceptions/TerminalException.java
  client.exceptions.TerminalException
-client/commands/AuthCommand.java
- client.commands.AuthCommand
-client/gui_controllers/UpdateController.java
- client.gui_controllers.UpdateController
+client/gui_controllers/ControllerContext.java
+ client.gui_controllers.ControllerContext
+client/Main.java
+ client.Main
 client/exceptions/ScriptException.java
  client.exceptions.ScriptException
 client/commands/MessagingCommand.java
  client.commands.MessagingCommand
-client/commands/ClientHelpCommand.java
- client.commands.ClientHelpCommand
-client/exceptions/ConnectionException.java
- client.exceptions.ConnectionException
+client/commands/ScriptCommand.java
+ client.commands.ScriptCommand
+client/gui_controllers/UpdateController.java
+ client.gui_controllers.UpdateController
 client/Client.java
  client.Client
 client/ticket/TicketBuilder.java
  client.ticket.TicketBuilder
-client/exceptions/ScriptFileRecursionException.java
- client.exceptions.ScriptFileRecursionException
+client/command_manager/ClientCommandFactory.java
+ client.command_manager.ClientCommandFactory
 client/exceptions/LoginException.java
  client.exceptions.LoginException
 client/connection/ConnectionManager.java
  client.connection.ConnectionManager
-client/gui_controllers/ControlManager.java
- client.gui_controllers.ControlManager
-client/exceptions/CommunicationException.java
- client.exceptions.CommunicationException
-client/command_manager/CommandFactory.java
- client.command_manager.CommandFactory
-client/gui_controllers/VisualController.java
- client.gui_controllers.VisualController
-client/commands/LoginFreeCommand.java
- client.commands.LoginFreeCommand
-client/exceptions/CommandInputException.java
- client.exceptions.CommandInputException
-client/gui_controllers/RegisterController.java
- client.gui_controllers.RegisterController
-client/commands/ClientServerCommand.java
- client.commands.ClientServerCommand
-client/exceptions/ScriptFileNotFoundException.java
- client.exceptions.ScriptFileNotFoundException
-client/connection/RequestSender.java
- client.connection.RequestSender
-client/gui_controllers/ControllerContext.java
- client.gui_controllers.ControllerContext
-client/gui_controllers/FilterController.java
- client.gui_controllers.FilterController
- client.gui_controllers.FilterController$FilterCondition
-client/gui_controllers/AddController.java
- client.gui_controllers.AddController
-client/gui_controllers/Controller.java
- client.gui_controllers.Controller
-client/gui_controllers/LoginController.java
- client.gui_controllers.LoginController
-client/gui_controllers/TableController.java
- client.gui_controllers.TableController
-client/gui_controllers/MainController.java
- client.gui_controllers.MainController
-client/ClientObjectFactory.java
- client.ClientObjectFactory
-client/DefaultClient.java
- client.DefaultClient
-client/connection/DefaultConnectionManager.java
- client.connection.DefaultConnectionManager
-client/commands/RegisterCommand.java
- client.commands.RegisterCommand
-client/commands/ClientInfoCommand.java
- client.commands.ClientInfoCommand
-client/gui_controllers/DefaultControlManager.java
- client.gui_controllers.DefaultControlManager
-client/Main.java
- client.Main
-client/commands/DefaultExitCommand.java
- client.commands.DefaultExitCommand
-client/commands/ScriptCommand.java
- client.commands.ScriptCommand
-client/commands/ExecuteScriptCommand.java
- client.commands.ExecuteScriptCommand
-client/command_manager/ClientCommandFactory.java
- client.command_manager.ClientCommandFactory
 client/ticket/ClientTemplateTicket.java
  client.ticket.ClientTemplateTicket
 client/commands/ExitCommand.java
  client.commands.ExitCommand
 client/commands/LoginCommand.java
  client.commands.LoginCommand
-client/ticket/ClientTemplateCoordinates.java
- client.ticket.ClientTemplateCoordinates
-client/ticket/ClientTemplatePerson.java
- client.ticket.ClientTemplatePerson
 client/connection/DefaultResponseReader.java
  client.connection.DefaultResponseReader
 client/ObjectFactory.java
  client.ObjectFactory
+client/exceptions/CommandInputException.java
+ client.exceptions.CommandInputException
 client/commands/ClientShowCommand.java
  client.commands.ClientShowCommand
-client/reader/FileCommandReader.java
- client.reader.FileCommandReader
 client/ticket/DefaultTicketBuilder.java
  client.ticket.DefaultTicketBuilder
-client/reader/AbstractCommandReader.java
- client.reader.AbstractCommandReader
-client/gui_controllers/DefaultControllerContext.java
- client.gui_controllers.DefaultControllerContext
-client/reader/DefaultControllerCommandReader.java
- client.reader.DefaultControllerCommandReader
-client/connection/DefaultRequestSender.java
- client.connection.DefaultRequestSender
+client/exceptions/ScriptFileNotFoundException.java
+ client.exceptions.ScriptFileNotFoundException
 client/gui_controllers/ArgController.java
  client.gui_controllers.ArgController
+client/gui_controllers/RegisterController.java
+ client.gui_controllers.RegisterController
+client/connection/DefaultRequestSender.java
+ client.connection.DefaultRequestSender
+client/gui_controllers/FilterController.java
+ client.gui_controllers.FilterController
+ client.gui_controllers.FilterController$FilterCondition
+client/reader/DefaultControllerCommandReader.java
+ client.reader.DefaultControllerCommandReader
+client/gui_controllers/WelcomeController.java
+ client.gui_controllers.WelcomeController
+client/commands/AuthCommand.java
+ client.commands.AuthCommand
+client/commands/ColorCommand.java
+ client.commands.ColorCommand
+client/gui_controllers/VisualController.java
+ client.gui_controllers.VisualController
+client/gui_controllers/AddController.java
+ client.gui_controllers.AddController
+client/gui_controllers/MainController.java
+ client.gui_controllers.MainController
+client/connection/ResponseReader.java
+ client.connection.ResponseReader
+client/commands/RegisterCommand.java
+ client.commands.RegisterCommand
+client/commands/ClientInfoCommand.java
+ client.commands.ClientInfoCommand
+client/gui_controllers/DefaultControlManager.java
+ client.gui_controllers.DefaultControlManager
+client/gui_controllers/LoginController.java
+ client.gui_controllers.LoginController
+client/commands/ClientServerCommand.java
+ client.commands.ClientServerCommand
+client/commands/DefaultExitCommand.java
+ client.commands.DefaultExitCommand
+client/commands/ExecuteScriptCommand.java
+ client.commands.ExecuteScriptCommand
+client/exceptions/CommunicationException.java
+ client.exceptions.CommunicationException
+client/exceptions/ScriptFileRecursionException.java
+ client.exceptions.ScriptFileRecursionException
+client/exceptions/ConnectionException.java
+ client.exceptions.ConnectionException
+client/command_manager/CommandFactory.java
+ client.command_manager.CommandFactory
+client/commands/ClientHelpCommand.java
+ client.commands.ClientHelpCommand
+client/commands/LoginFreeCommand.java
+ client.commands.LoginFreeCommand
+client/ticket/ClientTemplateCoordinates.java
+ client.ticket.ClientTemplateCoordinates
+client/ticket/ClientTemplatePerson.java
+ client.ticket.ClientTemplatePerson
+client/reader/FileCommandReader.java
+ client.reader.FileCommandReader
+client/reader/AbstractCommandReader.java
+ client.reader.AbstractCommandReader
+client/exceptions/FieldInputException.java
+ client.exceptions.FieldInputException
+client/connection/RequestSender.java
+ client.connection.RequestSender
+client/gui_controllers/ControlManager.java
+ client.gui_controllers.ControlManager
+client/gui_controllers/DefaultControllerContext.java
+ client.gui_controllers.DefaultControllerContext
+client/ClientObjectFactory.java
+ client.ClientObjectFactory
+client/connection/DefaultConnectionManager.java
+ client.connection.DefaultConnectionManager

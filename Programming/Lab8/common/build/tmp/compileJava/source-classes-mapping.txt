@@ -2,8 +2,8 @@ server/exceptions/InvalidPriceException.java
  server.exceptions.InvalidPriceException
 server/exceptions/InvalidXCoordinateException.java
  server.exceptions.InvalidXCoordinateException
-common/RequestType.java
- common.RequestType
+common/DefaultUser.java
+ common.DefaultUser
 common/UpdateData.java
  common.UpdateData
 common/EyesColor.java
@@ -32,8 +32,8 @@ common/TicketValidator.java
  common.TicketValidator
 common/Person.java
  common.Person
-common/Request.java
- common.Request
+common/DefaultPersonValidator.java
+ common.DefaultPersonValidator
 common/Command.java
  common.Command
 common/Coordinates.java
@@ -60,8 +60,8 @@ server/exceptions/InvalidEyesColorException.java
  server.exceptions.InvalidEyesColorException
 common/Ticket.java
  common.Ticket
-common/DefaultRequest.java
- common.DefaultRequest
+common/DefaultCoordinatesValidator.java
+ common.DefaultCoordinatesValidator
 common/DefaultResponse.java
  common.DefaultResponse
 common/DefaultTicket.java
@@ -72,9 +72,9 @@ common/DefaultPerson.java
  common.DefaultPerson
 common/DefaultTicketValidator.java
  common.DefaultTicketValidator
-common/DefaultUser.java
- common.DefaultUser
-common/DefaultPersonValidator.java
- common.DefaultPersonValidator
-common/DefaultCoordinatesValidator.java
- common.DefaultCoordinatesValidator
+common/RequestType.java
+ common.RequestType
+common/Request.java
+ common.Request
+common/DefaultRequest.java
+ common.DefaultRequest

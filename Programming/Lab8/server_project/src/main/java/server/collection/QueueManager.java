@@ -5,6 +5,7 @@ import common.Ticket;
 import common.UpdateData;
 import org.apache.logging.log4j.LogManager;
 import server.ObjectFactory;
+import server.connection.ConnectionManager;
 import server.datawork.DataBaseManager;
 import server.datawork.TicketReader;
 import server.exceptions.InvalidTicketException;
@@ -40,11 +41,13 @@ public class QueueManager extends AbstractQueueManager {
 
     private final DataBaseManager dataBaseManager;
 
+
     private static final ReadWriteLock readWriteLock = new ReentrantReadWriteLock(true);
 
     public QueueManager(DataBaseManager dataBaseManager, ObjectFactory ticketFactory) {
         this.ticketReader = dataBaseManager.getTicketsData();
         this.dataBaseManager = dataBaseManager;
+
         tickets = new PriorityQueue<>();
         creationDate = ZonedDateTime.now(ZoneId.of("Europe/Moscow"));
         this.ticketFactory = ticketFactory;
@@ -76,11 +79,14 @@ public class QueueManager extends AbstractQueueManager {
     @Override
     public void convertAddTicket(Ticket ticket) {
         try {
+            lock();
             ServerTicket serverTicket = ticketFactory.convertTicket(ticket);
             dataBaseManager.getTicketsData().add(serverTicket);
             tickets.add(serverTicket);
             LogManager.getLogger().info("Added ticket {} ", serverTicket.toString());
+            unlock();
         } catch (Exception e) {
+            e.printStackTrace();
             throw new InvalidTicketException();
         }
     }
@@ -217,11 +223,13 @@ public class QueueManager extends AbstractQueueManager {
     @Override
     public void addIfMax(Ticket ticket) {
         try {
+            lock();
             if (tickets.stream()
                     .max(Ticket::compareTo)
                     .map(x -> x.compareTo(ticket) < 0).isPresent()) {
                 convertAddTicket(ticket);
             }
+            unlock();
             LogManager.getLogger().info("Add If Max request has been managed.");
         } catch (Exception e) {
             throw new RuntimeException();
@@ -231,7 +239,7 @@ public class QueueManager extends AbstractQueueManager {
     @Override
     public void removeGreater(Ticket ticket, String owner) {
         try {
-            readWriteLock.writeLock().lock();
+            lock();
             ArrayList<ServerTicket> ticketList = tickets
                     .stream()
                     .filter(x -> x.compareTo(ticket) > 0 && x.getOwner().equals(owner))
@@ -240,7 +248,7 @@ public class QueueManager extends AbstractQueueManager {
                 dataBaseManager.getTicketsData().remove(serverTicket.getId(), owner);
             tickets.removeAll(ticketList);
             LogManager.getLogger().info("Removed tickets greater than given.");
-            readWriteLock.writeLock().unlock();
+            unlock();
         } catch (Exception e) {
             throw new RuntimeException();
         }

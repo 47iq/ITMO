@@ -3,6 +3,9 @@ package client.gui_controllers;
 import client.reader.CommandReader;
 import common.Response;
 import common.Ticket;
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.Group;
@@ -15,9 +18,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class VisualController implements Controller {
 
@@ -29,6 +35,7 @@ public class VisualController implements Controller {
     public Canvas canvas;
     public AnchorPane anchorPane;
     public Button changeColorButton;
+    public ImageView animationPic;
 
 
     private List<Ticket> tickets;
@@ -59,7 +66,7 @@ public class VisualController implements Controller {
         bundle = context.getBundle();
         start();
         updateButton.setOnAction(actionEvent -> {
-            updateCollection();
+            getCollection();
             visualize();
         });
         backButton.setOnAction(actionEvent -> {
@@ -72,13 +79,14 @@ public class VisualController implements Controller {
     }
 
     private void start() {
-        updateCollection();
+        getCollection();
         visualize();
         localize();
         Thread updateThread = new Thread(() -> {
             while (true) {
                 try {
-                    List<Ticket> ticketList = reader.getResponse("show").getCollection();
+                    List<Ticket> ticketList = tickets;
+                    updateCollection();
                     if (!ticketList.equals(tickets)) {
                         update();
                     }
@@ -92,7 +100,7 @@ public class VisualController implements Controller {
 
     private void update() {
         Runnable task = () -> {
-            updateCollection();
+            getCollection();
             visualize();
         };
         Platform.runLater(task);
@@ -106,6 +114,20 @@ public class VisualController implements Controller {
     }
 
     private void visualize() {
+        animationPic.setVisible(true);
+        RotateTransition rt = new RotateTransition(Duration.millis(500), animationPic);
+        rt.setByAngle(360);
+        rt.setCycleCount(10);
+        rt.setAutoReverse(true);
+        rt.setInterpolator(Interpolator.LINEAR);
+        rt.play();
+        rt.setOnFinished((x) -> {
+            animationPic.setVisible(false);
+            drawAll();
+        });
+    }
+
+    private void drawAll() {
         colorMap = reader.getResponse("get_colors").getColorMap();
         double ticketMaxX = tickets.stream().map(Ticket::getX).max((x, y) -> (int) ((x) - (y))).get();
         ticketMinX = tickets.stream().map(Ticket::getX).max((x, y) -> (int) ((y) - (x))).get();
@@ -156,9 +178,18 @@ public class VisualController implements Controller {
     }
 
     private void updateCollection() {
-        Response response = reader.getResponse("show");
-        tickets = response.getCollection();
+        try {
+            Collection<Ticket> collection =  reader.getTickets();
+            if(collection != null)
+                tickets = new ArrayList<>(collection);
+        } catch (Exception ignored) {
+        }
     }
+
+    private void getCollection() {
+        tickets = reader.getResponse("show").getCollection();
+    }
+
 
     private void displayOwnTicketInfo(Ticket ticket) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

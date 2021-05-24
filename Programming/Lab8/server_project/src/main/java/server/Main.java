@@ -45,7 +45,7 @@ public class Main {
             CollectionManager queueManager = new QueueManager(dataBaseManager, serverObjectFactory);
             CommandFactory commandFactory = ServerCommandFactory.getInstance(commands, serverObjectFactory, queueManager);
             ConnectionManager connectionWorker = new DefaultConnectionManager(commandFactory, ticketCommands, responseSender,
-                    serverObjectFactory, requestReader, dataBaseManager.getUsersData());
+                    serverObjectFactory, requestReader, dataBaseManager.getUsersData(), queueManager);
             ConnectionBuilder connectionBuilder = new DefaultConnectionBuilder(port);
             Server server = new DefaultServer(connectionWorker, connectionBuilder, port);
             LogManager.getLogger().info("Server started at port: {}", port);

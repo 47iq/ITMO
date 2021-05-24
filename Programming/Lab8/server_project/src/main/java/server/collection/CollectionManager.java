@@ -2,6 +2,7 @@ package server.collection;
 
 import common.Ticket;
 import common.UpdateData;
+import server.connection.ConnectionManager;
 
 import java.util.List;
 

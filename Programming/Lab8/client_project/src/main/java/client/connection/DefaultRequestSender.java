@@ -39,7 +39,7 @@ public class DefaultRequestSender implements RequestSender {
         }
     }
 
-    public void sendRequest(Request request) throws IOException {
+    public synchronized void sendRequest(Request request) throws IOException {
         sendBytes(wrapRequest(request));
     }
 }

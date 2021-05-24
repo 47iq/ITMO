@@ -27,7 +27,11 @@ application {
 
 
 jar {
-    manifest {
-        attributes "Main-Class": "client.Main"
+    manifest{
+        attributes 'Main-Class': 'client.Main'
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree (it)}
     }
 }

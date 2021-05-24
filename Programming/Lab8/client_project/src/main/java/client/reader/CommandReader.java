@@ -6,6 +6,9 @@ import common.Ticket;
 import common.UpdateData;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Interface of command reader
@@ -17,6 +20,8 @@ public interface CommandReader {
     void executeNext();
 
     Response getResponse(String command);
+
+    Collection<Ticket> getTickets() throws ExecutionException, InterruptedException;
 
     TicketBuilder getBuilder();
 

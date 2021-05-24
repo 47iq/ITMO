@@ -4,35 +4,60 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43ba2976-e12d-4b2d-9225-6eb4d5b1636d" name="Default Changelist" comment="Lab8 v0.91">
+    <list default="true" id="43ba2976-e12d-4b2d-9225-6eb4d5b1636d" name="Default Changelist" comment="Lab8 v1.0">
+      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client_project/src/main/resources/unknown.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/commands/ExecuteScriptCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/commands/ExecuteScriptCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/ClientException.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/exceptions/ClientException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/AddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/AddController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ArgController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ArgController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ControlManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ControlManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ControllerContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ControllerContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/DefaultControlManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/DefaultControlManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/DefaultControllerContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/DefaultControllerContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/FilterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/FilterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/TableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/build/classes/java/main/client/commands/ExecuteScriptCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/commands/ExecuteScriptCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/build/classes/java/main/client/connection/ConnectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/connection/ConnectionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/build/classes/java/main/client/connection/DefaultConnectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/connection/DefaultConnectionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/ClientException.class" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/exceptions/ClientException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/build/classes/java/main/client/reader/AbstractCommandReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/reader/AbstractCommandReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/build/classes/java/main/client/reader/CommandReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/build/classes/java/main/client/reader/CommandReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/build/resources/main/update.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/build/resources/main/update.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/connection/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/connection/ConnectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/connection/DefaultConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/connection/DefaultConnectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/connection/DefaultRequestSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/connection/DefaultRequestSender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/UpdateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/WelcomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/WelcomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/VisualController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/VisualController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/reader/AbstractCommandReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/reader/AbstractCommandReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/java/client/reader/CommandReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/java/client/reader/CommandReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/resources/update.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/resources/update.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_project/src/main/resources/visual.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client_project/src/main/resources/visual.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/build/classes/java/main/common/DefaultRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/DefaultRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/build/classes/java/main/common/RequestType.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/build/classes/java/main/common/RequestType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/build/libs/common-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/build/libs/common-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/common/DefaultRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/common/DefaultRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/common/RequestType.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/common/RequestType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/errors.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/build/classes/java/main/server/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_project/build/classes/java/main/server/collection/QueueManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/collection/QueueManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/PostgresTicketsDataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/datawork/PostgresTicketsDataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/DefaultConnectionManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/DefaultConnectionManager$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/DefaultConnectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/classes/java/main/server/connection/DefaultConnectionManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_project/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/collection/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/collection/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/collection/QueueManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/collection/QueueManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/connection/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/connection/ConnectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_project/src/main/java/server/connection/DefaultConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_project/src/main/java/server/connection/DefaultConnectionManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,12 +172,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../ProgramData/Microsoft/Windows/Start Menu/Programs/SceneBuilder/SceneBuilder.lnk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -287,13 +312,17 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Lab8 [run]" />
-        <item itemvalue="JAR Application.client_project-1.0.jar" />
-        <item itemvalue="Gradle.Lab8 [jar]" />
         <item itemvalue="Gradle.Lab8:client_project [jar]" />
+        <item itemvalue="Gradle.Lab8 [jar]" />
+        <item itemvalue="JAR Application.client_project-1.0.jar" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+    <option name="myConnectionType" value="NONE" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="43ba2976-e12d-4b2d-9225-6eb4d5b1636d" name="Default Changelist" comment="" />
@@ -314,7 +343,13 @@
       <workItem from="1616791705547" duration="39921000" />
       <workItem from="1616933763899" duration="14732000" />
       <workItem from="1616948779661" duration="280000" />
-      <workItem from="1616949112083" duration="4157000" />
+      <workItem from="1616949112083" duration="7359000" />
+      <workItem from="1617392049688" duration="700000" />
+      <workItem from="1617453628702" duration="2759000" />
+      <workItem from="1620318259556" duration="302000" />
+      <workItem from="1620639891491" duration="3355000" />
+      <workItem from="1621868464161" duration="11297000" />
+      <workItem from="1621884019540" duration="4400000" />
     </task>
     <task id="LOCAL-00001" summary="Lab8 v0">
       <created>1616268337056</created>
@@ -400,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616964293244</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Lab8 v1.0">
+      <created>1617093111831</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1617093111831</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,28 +474,21 @@
     <MESSAGE value="Lab8 v0.831" />
     <MESSAGE value="Lab8 v0.9" />
     <MESSAGE value="Lab8 v0.91" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lab8 v0.91" />
+    <MESSAGE value="Lab8 v1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lab8 v1.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/../../../../../../../Program Files/Java/jdk-14.0.2/lib/src.zip!/java.base/java/io/ObjectInputStream.java</url>
-          <line>779</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/VisualController.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
         <breakpoint type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="7" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/client_project/src/main/java/client/gui_controllers/ControllerContext.java</url>
-          <line>33</line>
-          <properties class="client.gui_controllers.ControllerContext" method="getPrevScene">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

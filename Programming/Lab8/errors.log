@@ -2461,3 +2461,10 @@
 [2021-03-29T22:41:37,059 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.net.SocketException
 [2021-03-29T22:41:37,059 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.net.SocketException
 [2021-03-29T22:41:37,120 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.net.SocketException
+[2021-04-03T18:06:24,077 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.net.SocketException
+[2021-05-10T13:02:45,918 ERROR] server.Main - class java.net.BindException got while executing the Main.java .
+[2021-05-24T20:40:58,471 ERROR] server.connection.DefaultConnectionManager - Sent error response ERR_UNK
+[2021-05-24T20:44:03,293 ERROR] server.connection.DefaultConnectionManager - Sent error response ERR_UNK
+[2021-05-24T20:44:39,392 ERROR] server.connection.DefaultConnectionManager - Sent error response ERR_UNK
+[2021-05-24T20:44:44,411 ERROR] server.connection.DefaultConnectionManager - Sent error response ERR_UNK
+[2021-05-24T22:48:52,478 ERROR] server.connection.DefaultConnectionManager - Can't execute request; error: class java.net.SocketException

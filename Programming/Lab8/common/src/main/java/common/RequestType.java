@@ -7,6 +7,7 @@ public enum RequestType implements Serializable {
     ASK_TICKET,
     REGISTER,
     LOGIN,
+    GET_COLLECTION,
     COLOR;
     private static final long serialVersionUID = 3110L;
 }
